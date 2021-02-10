@@ -1939,7 +1939,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fbbaff;
+  background: #f2ff67;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3370,4 +3370,14 @@ header {
   height: 10px;
 /*background: url(../images/scrollbar_arrow.png) no-repeat 0 0;*/
 /*可以添加滚动条样式*/
+}
+.banner {
+  width: 100%;
+  height: 124px;
+}
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  float: right;
 }
