@@ -43,7 +43,7 @@
     // ---
     if (params !== undefined) {
       for (var prop in params) {
-        if (params.hasOwnProperty(prop) &amp;&amp; settings.hasOwnProperty(prop)) {
+        if (params.hasOwnProperty(prop) && settings.hasOwnProperty(prop)) {
           settings[prop] = params[prop];
         }
       }
@@ -78,19 +78,19 @@
       object.appendChild(canvas);
       object.style.position = settings.position;
       object.style.zIndex = (settings.depth + 1).toString();
-      if (settings.overflowX.length &gt; 0) {
+      if (settings.overflowX.length > 0) {
         object.parentElement.style.overflowX = settings.overflowX;
       };
-      if (settings.overflowY.length &gt; 0) {
+      if (settings.overflowY.length > 0) {
         object.parentElement.style.overflowY = settings.overflowY;
       };
       if (settings.transplantBodyColor) {
-        if (object.currentStyle.backgroundColor.length &gt; 0) {
+        if (object.currentStyle.backgroundColor.length > 0) {
           settings.bodyColor = object.currentStyle.backgroundColor;
         }
       };
       if (settings.transplantLineColor) {
-        if (object.currentStyle.borderColor.length &gt; 0) {
+        if (object.currentStyle.borderColor.length > 0) {
           settings.lineColor = object.currentStyle.borderColor;
         }
       };
@@ -102,8 +102,8 @@
       animloop();
       // -----------
       if (settings.transplantBodyColor) {
-        if (object.currentStyle.backgroundColor.length &gt; 0) {
-          if (object.className.length &gt; 0) {
+        if (object.currentStyle.backgroundColor.length > 0) {
+          if (object.className.length > 0) {
             object.className += ' wobbleTransparentBK';
           } else {
             object.className = ' wobbleTransparentBK';
@@ -111,8 +111,8 @@
         }
       };
       if (settings.transplantLineColor) {
-        if (object.currentStyle.borderColor.length &gt; 0) {
-          if (object.className.length &gt; 0) {
+        if (object.currentStyle.borderColor.length > 0) {
+          if (object.className.length > 0) {
             object.className += ' wobbleTransparentLine';
           } else {
             object.className = ' wobbleTransparentLine';
@@ -126,7 +126,7 @@
       canvasContent.width = canvasContent.elementWidth + settings.offsetX * 2;
       canvasContent.height = canvasContent.elementHeight + settings.offsetY * 2;
 
-      if (settings.radius &gt; 0) { //round,  ceil
+      if (settings.radius > 0) { //round,  ceil
         settings.pointCountX = Math.round(canvasContent.width / settings.radius);
         settings.pointCountY = Math.round(canvasContent.height / settings.radius);
       };
@@ -181,7 +181,7 @@
       // ---
       //top
       flag = true;
-      for (i = 0, l = settings.pointCountX; i &lt; l; i++) {
+      for (i = 0, l = settings.pointCountX; i < l; i++) {
         if (settings.movementTop) {
           if (flag) {
             point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, true, points.spaceX, 'P', settings.debug);
@@ -206,7 +206,7 @@
       // ---
       //right
       flag = false;
-      for (i = 1, l = settings.pointCountY + 1; i &lt; l; i++) {
+      for (i = 1, l = settings.pointCountY + 1; i < l; i++) {
         if (settings.movementRight) {
           if (flag) {
             point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'P', settings.debug);
@@ -229,7 +229,7 @@
       // ---
       //bottom
       flag = true;
-      for (i = settings.pointCountX - 1, l = -1; i &gt; l; i--) {
+      for (i = settings.pointCountX - 1, l = -1; i > l; i--) {
         if (settings.movementBottom) {
           if (flag) {
             point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, true, points.spaceX, 'P', settings.debug);
@@ -254,7 +254,7 @@
       // ---
       //left
       flag = false;
-      for (i = settings.pointCountY, l = -1; i &gt; l; i--) {
+      for (i = settings.pointCountY, l = -1; i > l; i--) {
         if (settings.movementLeft) {
           if (flag) {
             point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'P', settings.debug);
@@ -319,14 +319,14 @@
       // ---
       ctx.beginPath();
       ctx.moveTo(windowPoints[0].x, windowPoints[0].y);
-      for (i = 1, l = windowPoints.length; i &lt; l; i += 2) {
+      for (i = 1, l = windowPoints.length; i < l; i += 2) {
         var point = windowPoints[i];
 
         // ---
         var dx = mousePos.x - point.xp;
         var dy = mousePos.y - point.yp;
         point.distance = Math.sqrt(dx * dx + dy * dy);
-        if (point.distance &lt; point.radius) {
+        if (point.distance < point.radius) {
           if (settings.moveTypeIn === 'wobble') {
             point.sx = point.sx * settings.wobbleFactor + (mousePos.x - point.x) * settings.wobbleSpeed;
             point.sy = point.sy * settings.wobbleFactor + (mousePos.y - point.y) * settings.wobbleSpeed;
@@ -351,7 +351,7 @@
         // ---
         var pointBefor = windowPoints[i - 1];
         var pointAfter = windowPoints[i + 1];
-        if (i &gt; 2 &amp;&amp; i &lt; windowPoints.length - 2) {
+        if (i > 2 && i < windowPoints.length - 2) {
           if (pointBefor.movement) {
             pointBefor.x = (windowPoints[i - 2].x + point.x) / 2;
             pointBefor.y = (windowPoints[i - 2].y + point.y) / 2;
@@ -365,12 +365,12 @@
       }
 
       // ---
-      if (settings.lineColor.length &gt; 0) {
+      if (settings.lineColor.length > 0) {
         ctx.lineWidth = settings.lineWidth;
         ctx.strokeStyle = settings.lineColor;
         ctx.stroke();
       }
-      if (settings.bodyColor.length &gt; 0) {
+      if (settings.bodyColor.length > 0) {
         ctx.fillStyle = settings.bodyColor;
         ctx.fill();
       }
@@ -380,7 +380,7 @@
 
       // ---
       if (settings.debug) {
-        for (i = 0, l = windowPoints.length; i &lt; l; i++) {
+        for (i = 0, l = windowPoints.length; i < l; i++) {
           var point = windowPoints[i];
           if (point.visible) {
             if (point.type === 'P') {
