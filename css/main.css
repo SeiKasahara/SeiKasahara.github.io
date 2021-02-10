@@ -1903,7 +1903,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #05ff21;
+  background: #ff7a01;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3189,6 +3189,28 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+#veditor {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6939d5de-4461-4e3b-a11c-457d860a7e4a/da1eddr-d5f0b845-d9d3-4589-8d44-4146bd72f96b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY5MzlkNWRlLTQ0NjEtNGUzYi1hMTFjLTQ1N2Q4NjBhN2U0YVwvZGExZWRkci1kNWYwYjg0NS1kOWQzLTQ1ODktOGQ0NC00MTQ2YmQ3MmY5NmIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.L17q8siv10SB3a12zbBa6ogtve1WdQEQk7lRI9dJ99g");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: rgba(255,255,255,0);
+  resize: vertical;
+}
+img.vimg {
+  transition: all 1s /* 旋转时间为 1s */;
+}
+img.vimg:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
 }
 .post {
   margin-top: 0px;
