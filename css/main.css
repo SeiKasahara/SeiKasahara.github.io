@@ -1939,7 +1939,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3b33ff;
+  background: #0bff32;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3284,6 +3284,15 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+}
+@media only screen and (max-width: 1000px) {
+  body {
+    background: url("/images/bg.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+  }
 }
 .footer-inner {
   color: #000;
