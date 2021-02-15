@@ -1,0 +1,70 @@
+/**
+ * CJK Biaodian compression (CJK標點擠壓)
+ */
+h-char.bd-jiya.bd-open:before,
+h-char.bd-jiya.bd-end:after,
+h-cs,
+h-cs[hidden] {
+  display: none;
+  visibility: hidden;
+  content: ' ';
+  font: 0.825em Courier;
+  letter-spacing: 0;
+  white-space: normal;
+}
+h-cs.jinze-outer,
+h-cs.jinze-outer[hidden] {
+  display: inline;
+}
+h-char.bd-jiya.bd-open > h-inner {
+  margin-left: -0.5em;
+}
+h-char.bd-jiya.bd-close > h-inner,
+h-char.bd-jiya.bd-cop > h-inner,
+h-char.bd-jiya[unicode='ff0e'] > h-inner {
+  letter-spacing: -0.5em;
+}
+h-char.bd-jiya.bd-open:before,
+h-char.bd-jiya.bd-close:after,
+h-char.bd-jiya.bd-cop:after,
+h-char.bd-jiya[unicode='ff0e']:after {
+  display: inline;
+}
+h-char.bd-jiya.bd-cop:lang(zh-Hant):after,
+h-char.bd-jiya.bd-cop:lang(zh-TW):after,
+h-char.bd-jiya.bd-cop:lang(zh-HK):after {
+  display: none;
+}
+h-char.bd-jiya.bd-cop:lang(zh-Hant) > h-inner,
+h-char.bd-jiya.bd-cop:lang(zh-TW) > h-inner,
+h-char.bd-jiya.bd-cop:lang(zh-HK) > h-inner {
+  letter-spacing: inherit;
+}
+h-char.bd-consecutive.bd-end:not(.end-portion):after,
+h-char.bd-consecutive.bd-open[prev='bd-open']:before,
+h-cs.jiya-outer.bd-end:not(.end-portion) {
+  display: none;
+}
+h-cs.jiya-outer.bd-end[next='bd-open'] {
+  display: inline;
+}
+h-char.bd-consecutive.bd-open[prev*='bd-cop']:lang(zh-Hant):before,
+h-char.bd-consecutive.bd-open[prev*='bd-cop']:lang(zh-TW):before,
+h-char.bd-consecutive.bd-open[prev*='bd-cop']:lang(zh-HK):before {
+  display: none;
+}
+h-cs.jiya-outer[prev*='bd-cop']:lang(zh-Hant),
+h-cs.jiya-outer.bd-end:lang(zh-Hant),
+h-cs.jiya-outer[prev*='bd-cop']:lang(zh-TW),
+h-cs.jiya-outer.bd-end:lang(zh-TW),
+h-cs.jiya-outer[prev*='bd-cop']:lang(zh-HK),
+h-cs.jiya-outer.bd-end:lang(zh-HK) {
+  display: none;
+}
+h-char.bd-consecutive[unicode='b7']:not(.end-portion),
+h-char.bd-consecutive[unicode='30fb']:not(.end-portion) {
+  letter-spacing: -0.5em;
+}
+h-char.bd-consecutive.bd-liga:not(.end-portion) {
+  margin-right: -0.25em;
+}

@@ -1,0 +1,63 @@
+<ul>
+<li><a href="https://github.com/ethantw/Han/blob/master/README.md">中文</a></li>
+<li><a href="https://github.com/ethantw/Han/blob/master/README-ja.md">日本語</a></li>
+<li><b>English</b></li>
+</ul>
+<h1 id="Han-css"><a href="#Han-css" class="headerlink" title="Han.css"></a>Han.css</h1><p>Han.css is a Sass/Stylus and JavaScript typesetting framework featuring style normalisation to semantic elements, typography and advanced typesetting. Its elegant, standardised Hanzi (CJK) environment provides not only the legacy of reading convention but also the de facto specification in the digital. Han.css is the solution to Hanzi web design for the time being.</p>
+<p>Han.css supports Traditional Chinese, Simplified Chinese and Japanese.</p>
+<p>[View the test pages (zh) →]<br>(<a href="http://ethantw.github.io/Han/latest/">http://ethantw.github.io/Han/latest/</a>)</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ul>
+<li>NPM <code>npm install --save han-css</code></li>
+<li>Bower <code>bower install --save Han</code></li>
+<li>Rails <code>gem install &#39;hanzi-rails&#39;</code> (<a href="https://github.com/billy3321/hanzi-rails">Check out the details here</a>)</li>
+</ul>
+<h3 id="Customisation"><a href="#Customisation" class="headerlink" title="Customisation"></a>Customisation</h3><p>Han.css provides plenty of customisable features. By variable configuration or module import, it is easy to compile projects own style sheets. <a href="http://css.hanzi.co/manual/sass-api">Check out the manual (zh)</a> for detailed information.</p>
+<h3 id="Use-of-CDN"><a href="#Use-of-CDN" class="headerlink" title="Use of CDN"></a>Use of CDN</h3><p>For high-speed downloads and cache, in need of customisation otherwise, you can use the CDN style sheets, JavaScript files and web fonts compiled by default configuration. The service <a href="http://cdnjs.com/libraries/han">is hosted on cdnjs.com</a>.</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css&quot;&gt;
+</code></pre>
+<p>JavaScript,</p>
+<pre><code class="html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Web fonts,</p>
+<ul>
+<li>WOFF <code>//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/font/han.woff</code></li>
+<li>OTF <code>//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/font/han.otf</code></li>
+</ul>
+<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h2><ol>
+<li>Include <code>han.min.css</code> before all other styles (or import it via Sass/Stylus).</li>
+<li>Include the script file, <code>han.min.js</code>, according to own requirements. Then add the class name <code>han-init</code> onto <code>&lt;html&gt;</code> tag to activate DOM-ready rendering.</li>
+<li>Or, customise your own rendering routine. <a href="http://css.hanzi.co/manual/js-api#rendering">Check out the manual</a> for further information.</li>
+</ol>
+<h3 id="JavaScript-is-optional"><a href="#JavaScript-is-optional" class="headerlink" title="JavaScript is optional"></a>JavaScript is optional</h3><p>Han.css is of low coupling and high semantics. Style sheets and JavaScript depend <em>little</em> on each other. Multi-level fallback can be applied within the style sheets, hence the optional use of the scripts.</p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="Issue-of-overwriting-styles"><a href="#Issue-of-overwriting-styles" class="headerlink" title="Issue of overwriting styles"></a>Issue of overwriting styles</h3><p>Different from most of the CSS frameworks, Han.css contains numerous style correction aiming at the language attribute <code>:lang</code>. It may cause unexpected results such as style overwritting not carried out.</p>
+<h4 id="Element-types-with-language-based-style-correction"><a href="#Element-types-with-language-based-style-correction" class="headerlink" title="Element types with language-based style correction:"></a>Element types with language-based style correction:</h4><ul>
+<li><i>Text-level semantics</i></li>
+<li><i>Grouping content</i> and combining situations with <i>sections</i> <strong>(font-family only)</strong></li>
+<li>The <i>root</i> element <code>html</code> <strong>(font-family only)</strong></li>
+</ul>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>In order to handle these circumstances properly, please be well-alarmed with rules of style inheritance. It is recommended to add the corresponding language attribute, parental elements or other selectors, rather to overuse the <code>!important</code> declaration for maintainability.</p>
+<p>Use the ‘DOM Inspector’ in browsers to observe the inheritance and overwritten relations of style sheets while in need.</p>
+<h3 id="Working-environments"><a href="#Working-environments" class="headerlink" title="Working environments"></a>Working environments</h3><p>Han.js runs in DOM environments only. Introduce modules such as <a href="https://github.com/tmpvar/jsdom">jsdom</a> for server-side usage.</p>
+<h2 id="Browser-support"><a href="#Browser-support" class="headerlink" title="Browser support"></a>Browser support</h2><ul>
+<li>Chrome (latest)</li>
+<li>Edge (latest)</li>
+<li>Firefox (latest)</li>
+<li>Firefox ESR+</li>
+<li>Internet Explorer 11</li>
+<li>Opera (latest)</li>
+<li>Safari 9</li>
+</ul>
+<h2 id="Requirements-and-developing-commands"><a href="#Requirements-and-developing-commands" class="headerlink" title="Requirements and developing commands"></a>Requirements and developing commands</h2><ul>
+<li>Node.js</li>
+<li>LiveScript 1.4.0 (<code>sudo npm install -g livescript</code>)</li>
+</ul>
+<p>Below goes the list with some useful developing commands:</p>
+<ul>
+<li>Install dev-dependencies: <code>sudo npm install</code></li>
+<li>Start the dev-environment: <code>npm start</code> or <code>gulp dev</code> (including local server running and auto compiling)</li>
+<li>Compile the distribution files: <code>gulp build</code></li>
+<li>Test <code>han.js</code>‘s API: <code>gulp test</code> (PhantomJS)</li>
+<li>Update dependencies: <code>sudo npm update &amp;&amp; gulp dep</code></li>
+</ul>
+<hr>
+<p>Han.css v3.3.0<br>Last-modified: 2016-3-19 00:11 (UTC+8)</p>

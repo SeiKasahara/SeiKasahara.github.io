@@ -1,0 +1,63 @@
+<ul>
+<li><a href="https://github.com/ethantw/Han/blob/master/README.md">中文</a></li>
+<li><b>日本語</b></li>
+<li><a href="https://github.com/ethantw/Han/blob/master/README-en.md">English</a></li>
+</ul>
+<h1 id="漢字標準格式"><a href="#漢字標準格式" class="headerlink" title="漢字標準格式"></a>漢字標準格式</h1><p>漢字標準格式（組版標準フォーマット）は、「セマンティック要素のスタイルの標準化」「タイポグラフィ」「ハイレベルな組版」を実現するためのSass/StylusとJavaScriptのフレームワークです。美しい見た目と標準化された環境を、漢字文化圏のウェブサイトへ提供するために設計されました。伝統的な読書環境をスクリーン上での事実上の標準仕様とすることで、漢字文化圏のウェブデザインの組版需要に当面の解決策となります。</p>
+<p>漢字標準格式は、中国語繁体字、中国語簡体字および日本語をサポートします。</p>
+<p>[表示例のテストページ（中国語）→]<br>(<a href="http://ethantw.github.io/Han/latest/">http://ethantw.github.io/Han/latest/</a>)</p>
+<h2 id="インストール方法"><a href="#インストール方法" class="headerlink" title="インストール方法"></a>インストール方法</h2><ul>
+<li>NPM <code>npm install --save han-css</code></li>
+<li>Bower <code>bower install --save Han</code></li>
+<li>Rails <code>gem install &#39;hanzi-rails&#39;</code>（<a href="https://github.com/billy3321/hanzi-rails">詳細はこちら</a>）</li>
+</ul>
+<h3 id="カスタマイズ"><a href="#カスタマイズ" class="headerlink" title="カスタマイズ"></a>カスタマイズ</h3><p>漢字標準格式には、カスタマイズ可能な機能が多くあります。設定を変更したりモジュールをインポートすることで、プロジェクトに独自のスタイルシートを容易に組み込めます。詳細は<a href="http://css.hanzi.co/manual/sass-api">取扱説明書（中国語）</a>をお読みください。</p>
+<h3 id="CDNで使う"><a href="#CDNで使う" class="headerlink" title="CDNで使う"></a>CDNで使う</h3><p>カスタマイズが不要な場合、デフォルトのスタイルシート、JavaScriptおよびWebフォントがコンパイルされたものをCDNで使うことで、高速なダウンロードやキャッシュの利用ができます。<a href="http://cdnjs.com/libraries/han">このサービスはcdnjs.comが提供します</a>。</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css&quot;&gt;
+</code></pre>
+<p>JavaScript</p>
+<pre><code class="html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Webフォント</p>
+<ul>
+<li>WOFF <code>//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/font/han.woff</code></li>
+<li>OTF <code>//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/font/han.otf</code></li>
+</ul>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><ol>
+<li>従来から使用しているスタイルより前に、<code>han.min.css</code>（もしくは漢字標準格式のSass/Stylus）を組み込んでください。</li>
+<li>必要に応じて、<code>han.min.js</code>を組み込んでください。DOM-readyのレンダリングを有効にするには、<code>&lt;html&gt;</code>タグのclassに、<code>han-init</code>を追加します。</li>
+<li>レンダリングをカスタマイズすることも可能です。詳細は<a href="http://css.hanzi.co/manual/js-api#rendering">取扱説明書（中国語）</a>をお読みください。</li>
+</ol>
+<p>###JavaScriptのオプション<br>漢字標準格式は、低相互依存、高セマンティックです。スタイルシートとJavaScriptはほとんど依存し合いません。様々なレベルでスタイルシートのフォールバックができるので、JavaScriptの使用の可否を、必要に応じて選択できます。</p>
+<h2 id="よくある質問"><a href="#よくある質問" class="headerlink" title="よくある質問"></a>よくある質問</h2><h3 id="スタイルを上書きすることについて"><a href="#スタイルを上書きすることについて" class="headerlink" title="スタイルを上書きすることについて"></a>スタイルを上書きすることについて</h3><p>多くのCSSフレームワークとは異なり、漢字標準格式は大量のスタイルを持っており、言語属性（<code>:lang</code>）によって意図するスタイルを適用させます。そのため、スタイルの上書きは予期しない結果を引き起こす可能性があります。</p>
+<h4 id="言語毎のスタイルの集合を使った要素のスタイル"><a href="#言語毎のスタイルの集合を使った要素のスタイル" class="headerlink" title="言語毎のスタイルの集合を使った要素のスタイル"></a>言語毎のスタイルの集合を使った要素のスタイル</h4><ul>
+<li>テキストレベルのセマンティック</li>
+<li>グルーピングコンテンツ要素とsection要素の組み合わせ<strong>（font-familyのみ）</strong></li>
+<li>ルート要素<code>html</code><strong>（font-familyのみ）</strong></li>
+</ul>
+<h4 id="解決策"><a href="#解決策" class="headerlink" title="解決策"></a>解決策</h4><p>このような状況を適切に対処するために、スタイルの継承のルールを十分ご確認ください。親要素または他のセレクタに適切な言語属性を追加することをおすすめします。<code>!important</code>宣言の過度の使用を避けることができ、保守性が向上します。</p>
+<p>必要な場合は、ブラウザでDOMインスペクタを使うことにより、スタイルシートの継承や上書きの関係が分かります。</p>
+<h3 id="han-jsスクリプトの動作環境"><a href="#han-jsスクリプトの動作環境" class="headerlink" title="han.jsスクリプトの動作環境"></a>han.jsスクリプトの動作環境</h3><p>han.jsはDOM環境でのみ動作します。必要な場合は、サーバに<a href="https://github.com/tmpvar/jsdom">jsdom</a>等のライブラリを導入してください。</p>
+<h2 id="サポートするブラウザ"><a href="#サポートするブラウザ" class="headerlink" title="サポートするブラウザ"></a>サポートするブラウザ</h2><ul>
+<li>Chrome（最新版）</li>
+<li>Edge（最新版）</li>
+<li>Firefox（最新版）</li>
+<li>Firefox ESR+</li>
+<li>Internet Explorer 11</li>
+<li>Opera（最新版）</li>
+<li>Safari 9</li>
+</ul>
+<h2 id="開発について"><a href="#開発について" class="headerlink" title="開発について"></a>開発について</h2><ul>
+<li>Node.js</li>
+<li>LiveScript 1.4.0（<code>sudo npm install -g livescript</code>）</li>
+</ul>
+<p>以下はプログラムの開発に有用なコマンドの一覧です。</p>
+<ul>
+<li>開発パッケージをインストール：<code>sudo npm install</code></li>
+<li>開発環境の起動：<code>npm start</code>か<code>gulp dev</code>（ローカルサーバの実行と自動コンパイルを含む）</li>
+<li>コンパイルしたファイルを公開：<code>gulp build</code></li>
+<li><code>han.js</code>のAPIをテストする：<code>gulp test</code>（PhantomJS）</li>
+<li>モジュールを更新する：<code>sudo npm update &amp;&amp; gulp dep</code></li>
+</ul>
+<hr>
+<p>漢字標準格式 v3.3.0<br>Last-modified: 2016-3-19 00:11 (UTC+8)<br>Translator: <a href="http://westantenna.com/">神場雅史</a> (Jimba Masafumi, <a href="https://twitter.com/westantenna">@westantenna</a>)</p>

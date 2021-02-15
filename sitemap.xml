@@ -361,6 +361,20 @@
   </url>
   
   <url>
+    <loc>http://seikasahara.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2021-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://seikasahara.com/tags/%E5%85%B0%E5%88%87%E6%96%AF%E7%89%B9%E6%88%98%E6%9C%AF/</loc>
+    <lastmod>2021-02-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://seikasahara.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3/</loc>
     <lastmod>2021-02-15</lastmod>
     <changefreq>daily</changefreq>
@@ -376,20 +390,6 @@
   
   <url>
     <loc>http://seikasahara.com/tags/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81/</loc>
-    <lastmod>2021-02-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://seikasahara.com/tags/%E5%85%B0%E5%88%87%E6%96%AF%E7%89%B9%E6%88%98%E6%9C%AF/</loc>
-    <lastmod>2021-02-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://seikasahara.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2021-02-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -496,14 +496,14 @@
   </url>
   
   <url>
-    <loc>http://seikasahara.com/categories/%E6%97%B6%E8%AF%84/</loc>
+    <loc>http://seikasahara.com/categories/%E6%88%98%E6%9C%AF/</loc>
     <lastmod>2021-02-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://seikasahara.com/categories/%E6%88%98%E6%9C%AF/</loc>
+    <loc>http://seikasahara.com/categories/%E6%97%B6%E8%AF%84/</loc>
     <lastmod>2021-02-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
