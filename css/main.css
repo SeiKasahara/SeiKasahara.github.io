@@ -1939,7 +1939,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0bff32;
+  background: #3da8a3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3286,12 +3286,17 @@ body {
   background-position: center;
 }
 @media only screen and (max-width: 1000px) {
-  body {
-    background: url("/images/bg.PNG");
+  body:before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background: url("/images/bg.PNG") center no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
   }
 }
 .footer-inner {
