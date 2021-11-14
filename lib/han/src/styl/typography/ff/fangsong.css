@@ -1,0 +1,16 @@
+/**
+ * The Four Typefaces: Fangsong
+ * 四大字體集・仿宋體
+ */
+@font-face {
+  font-family: 'Han Fangsong';
+  src: local(STFangsong), local(FangSong);
+}
+@font-face {
+  font-family: 'Han Fangsong CNS';
+  src: local(STFangsong), local(FangSong);
+}
+@font-face {
+  font-family: 'Han Fangsong GB';
+  src: local(STFangsong), local(FangSong);
+}

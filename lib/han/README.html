@@ -1,0 +1,58 @@
+<ul>
+<li><b>中文</b></li>
+<li><a href="https://github.com/ethantw/Han/blob/master/README-ja.md">日本語</a></li>
+<li><a href="https://github.com/ethantw/Han/blob/master/README-en.md">English</a></li>
+</ul>
+<h1 id="漢字標準格式"><a href="#漢字標準格式" class="headerlink" title="漢字標準格式"></a>漢字標準格式</h1><p>「漢字標準格式」是一個集「語意樣式標準化」「文字設計」「高階排版功能」三大概念的Sass/Stylus、JavaScript排版框架。其專為漢字網頁提供的美觀而標準化的環境，不僅符合傳統閱讀習慣、更為螢幕閱讀提供了既成標準，得以完整解決現今漢字網頁設計的排版需求。</p>
+<p>「漢字標準格式」完整支援繁體中文、簡體中文及日文等三個採用漢字的語言文字。</p>
+<p>[檢視範例測試頁]<br>(<a href="http://ethantw.github.io/Han/latest/">http://ethantw.github.io/Han/latest/</a>)</p>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><ul>
+<li>NPM <code>npm install --save han-css</code></li>
+<li>Bower <code>bower install --save Han</code></li>
+<li>Rails <code>gem install &#39;hanzi-rails&#39;</code>（<a href="https://github.com/billy3321/hanzi-rails">詳細說明</a>）</li>
+</ul>
+<h3 id="定製"><a href="#定製" class="headerlink" title="定製"></a>定製</h3><p>「漢字標準格式」提供多項定製功能，可經由變數設定、模組引用等方式定製專屬的樣式表。詳情請見<a href="http://css.hanzi.co/manual/sass-api">使用手冊</a>。</p>
+<h3 id="使用CDN文件"><a href="#使用CDN文件" class="headerlink" title="使用CDN文件"></a>使用CDN文件</h3><p>若毋須特別定製，你也可以直接使用以預設値編譯的CDN外連樣式表、腳本及網頁字體，以求高速下載及快取。<a href="http://cdnjs.com/libraries/han">此服務由cdnjs.com提供</a>。</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css&quot;&gt;
+</code></pre>
+<p>腳本，</p>
+<pre><code class="html">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Web字體，</p>
+<ul>
+<li>WOFF <code>//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/font/han.woff</code></li>
+<li>OTF <code>//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/font/han.otf</code></li>
+</ul>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><ol>
+<li>在網頁所有樣式表<em>前</em>引用經編譯的<code>han.min.css</code>（或使用Sass/Stylus匯入）。</li>
+<li>依需求選用腳本<code>han.min.js</code>，並在<code>&lt;html&gt;</code>元素標籤上加入類別<code>han-init</code>以啓用DOM-ready渲染。</li>
+<li>或依需求定製渲染方式，詳見<a href="http://css.hanzi.co/manual/js-api#rendering">使用手冊</a>。</li>
+</ol>
+<h3 id="可選用的腳本"><a href="#可選用的腳本" class="headerlink" title="可選用的腳本"></a>可選用的腳本</h3><p>「漢字標準格式」具低耦合、高度語意化等特性，樣式表與腳本各司其職、相互依賴性極低，並有多級樣式回退（fallback），故可依需求選用腳本。</p>
+<h2 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h2><ul>
+<li><a href="http://css.hanzi.co/manual/faq#yangshi_de_fugai">樣式的覆蓋</a></li>
+<li><a href="http://css.hanzi.co/manual/faq#han-js_de_yunxing_huanjing"><code>han.js</code>腳本的運行環境</a></li>
+</ul>
+<h2 id="瀏覽器支援"><a href="#瀏覽器支援" class="headerlink" title="瀏覽器支援"></a>瀏覽器支援</h2><ul>
+<li>Chrome（最新版）</li>
+<li>Edge（最新版）</li>
+<li>Firefox（最新版）</li>
+<li>Firefox ESR+</li>
+<li>Internet Explorer 11</li>
+<li>Opera（最新版）</li>
+<li>Safari 9</li>
+</ul>
+<h2 id="開發需求與指令"><a href="#開發需求與指令" class="headerlink" title="開發需求與指令"></a>開發需求與指令</h2><ul>
+<li>Node.js</li>
+<li>LiveScript 1.4.0（<code>sudo npm install -g livescript</code>）</li>
+</ul>
+<p>下列清單展示了部分常用的開發指令，</p>
+<ul>
+<li>安裝需要的開發模組：<code>sudo npm install</code></li>
+<li>啓動開發環境：<code>npm start</code>或<code>gulp dev</code>（包含本機運行及自動編譯）</li>
+<li>編譯發布文件：<code>gulp build</code></li>
+<li>測試<code>han.js</code>API：<code>gulp test</code>（PhantomJS）</li>
+<li>更新依賴模組：<code>sudo npm update &amp;&amp; gulp dep</code></li>
+</ul>
+<hr>
+<p>「漢字標準格式」版本：v3.3.0<br>本頁最後修改於：2016-3-19 00:11（UTC+8）</p>
