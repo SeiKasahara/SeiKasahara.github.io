@@ -3,11 +3,11 @@
   <title>卡尔霍恩的小屋</title>
   
   <subtitle>左翼文章/ 时评/日记</subtitle>
-  <link href="http://seikasahara.com/atom.xml" rel="self"/>
+  <link href="https://seikasahara.com/atom.xml" rel="self"/>
   
-  <link href="http://seikasahara.com/"/>
+  <link href="https://seikasahara.com/"/>
   <updated>2021-11-14T14:35:21.557Z</updated>
-  <id>http://seikasahara.com/</id>
+  <id>https://seikasahara.com/</id>
   
   <author>
     <name>Edward Calhoun</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Python实现利用蒙特卡洛法求Pi的值</title>
-    <link href="http://seikasahara.com/p/acop.html"/>
-    <id>http://seikasahara.com/p/acop.html</id>
+    <link href="https://seikasahara.com/p/acop.html"/>
+    <id>https://seikasahara.com/p/acop.html</id>
     <published>2021-11-13T08:07:46.038Z</published>
     <updated>2021-11-14T14:35:21.557Z</updated>
     
@@ -30,17 +30,17 @@
     
     
     
-    <category term="python" scheme="http://seikasahara.com/categories/python/"/>
+    <category term="python" scheme="https://seikasahara.com/categories/python/"/>
     
     
-    <category term="蒙特卡洛法" scheme="http://seikasahara.com/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%B3%95/"/>
+    <category term="蒙特卡洛法" scheme="https://seikasahara.com/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Submachine Universe译稿（日更）</title>
-    <link href="http://seikasahara.com/p/8c3b.html"/>
-    <id>http://seikasahara.com/p/8c3b.html</id>
+    <link href="https://seikasahara.com/p/8c3b.html"/>
+    <id>https://seikasahara.com/p/8c3b.html</id>
     <published>2021-11-13T06:10:43.568Z</published>
     <updated>2021-02-14T18:28:28.301Z</updated>
     
@@ -51,19 +51,19 @@
     
     
     
-    <category term="文本翻译" scheme="http://seikasahara.com/categories/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91/"/>
+    <category term="文本翻译" scheme="https://seikasahara.com/categories/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91/"/>
     
     
-    <category term="Submachine" scheme="http://seikasahara.com/tags/Submachine/"/>
+    <category term="Submachine" scheme="https://seikasahara.com/tags/Submachine/"/>
     
-    <category term="古埃及" scheme="http://seikasahara.com/tags/%E5%8F%A4%E5%9F%83%E5%8F%8A/"/>
+    <category term="古埃及" scheme="https://seikasahara.com/tags/%E5%8F%A4%E5%9F%83%E5%8F%8A/"/>
     
   </entry>
   
   <entry>
     <title>Submachine Universe译稿（日更）</title>
-    <link href="http://seikasahara.com/p/8c3b.html"/>
-    <id>http://seikasahara.com/p/8c3b.html</id>
+    <link href="https://seikasahara.com/p/8c3b.html"/>
+    <id>https://seikasahara.com/p/8c3b.html</id>
     <published>2021-11-13T06:10:43.502Z</published>
     <updated>2021-02-14T21:26:57.355Z</updated>
     
@@ -74,19 +74,19 @@
     
     
     
-    <category term="文本翻译" scheme="http://seikasahara.com/categories/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91/"/>
+    <category term="文本翻译" scheme="https://seikasahara.com/categories/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91/"/>
     
     
-    <category term="Submachine" scheme="http://seikasahara.com/tags/Submachine/"/>
+    <category term="Submachine" scheme="https://seikasahara.com/tags/Submachine/"/>
     
-    <category term="业力" scheme="http://seikasahara.com/tags/%E4%B8%9A%E5%8A%9B/"/>
+    <category term="业力" scheme="https://seikasahara.com/tags/%E4%B8%9A%E5%8A%9B/"/>
     
   </entry>
   
   <entry>
     <title>Submachine Universe译稿（日更）</title>
-    <link href="http://seikasahara.com/p/8c3b.html"/>
-    <id>http://seikasahara.com/p/8c3b.html</id>
+    <link href="https://seikasahara.com/p/8c3b.html"/>
+    <id>https://seikasahara.com/p/8c3b.html</id>
     <published>2021-11-13T06:10:43.457Z</published>
     <updated>2021-02-14T18:34:24.541Z</updated>
     
@@ -97,19 +97,19 @@
     
     
     
-    <category term="文本翻译" scheme="http://seikasahara.com/categories/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91/"/>
+    <category term="文本翻译" scheme="https://seikasahara.com/categories/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91/"/>
     
     
-    <category term="Submachine" scheme="http://seikasahara.com/tags/Submachine/"/>
+    <category term="Submachine" scheme="https://seikasahara.com/tags/Submachine/"/>
     
-    <category term="人工智能" scheme="http://seikasahara.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    <category term="人工智能" scheme="https://seikasahara.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
   <entry>
     <title>新网络时代，个人数据成了案板上的待宰羊羔</title>
-    <link href="http://seikasahara.com/p/dc59.html"/>
-    <id>http://seikasahara.com/p/dc59.html</id>
+    <link href="https://seikasahara.com/p/dc59.html"/>
+    <id>https://seikasahara.com/p/dc59.html</id>
     <published>2021-11-13T06:10:43.412Z</published>
     <updated>2021-02-14T18:37:01.400Z</updated>
     
@@ -120,21 +120,21 @@
     
     
     
-    <category term="时评" scheme="http://seikasahara.com/categories/%E6%97%B6%E8%AF%84/"/>
+    <category term="时评" scheme="https://seikasahara.com/categories/%E6%97%B6%E8%AF%84/"/>
     
     
-    <category term="大数据时代" scheme="http://seikasahara.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3/"/>
+    <category term="大数据时代" scheme="https://seikasahara.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BB%A3/"/>
     
-    <category term="信息安全" scheme="http://seikasahara.com/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    <category term="信息安全" scheme="https://seikasahara.com/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
     
-    <category term="个人隐私" scheme="http://seikasahara.com/tags/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81/"/>
+    <category term="个人隐私" scheme="https://seikasahara.com/tags/%E4%B8%AA%E4%BA%BA%E9%9A%90%E7%A7%81/"/>
     
   </entry>
   
   <entry>
     <title>兰切斯特战术方程的实际分析</title>
-    <link href="http://seikasahara.com/p/7db7.html"/>
-    <id>http://seikasahara.com/p/7db7.html</id>
+    <link href="https://seikasahara.com/p/7db7.html"/>
+    <id>https://seikasahara.com/p/7db7.html</id>
     <published>2021-11-13T06:10:43.361Z</published>
     <updated>2021-02-14T18:38:26.894Z</updated>
     
@@ -145,17 +145,17 @@
     
     
     
-    <category term="战术" scheme="http://seikasahara.com/categories/%E6%88%98%E6%9C%AF/"/>
+    <category term="战术" scheme="https://seikasahara.com/categories/%E6%88%98%E6%9C%AF/"/>
     
     
-    <category term="兰切斯特战术" scheme="http://seikasahara.com/tags/%E5%85%B0%E5%88%87%E6%96%AF%E7%89%B9%E6%88%98%E6%9C%AF/"/>
+    <category term="兰切斯特战术" scheme="https://seikasahara.com/tags/%E5%85%B0%E5%88%87%E6%96%AF%E7%89%B9%E6%88%98%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>逐星有顶天 ~Tour to the edge of Universe.</title>
-    <link href="http://seikasahara.com/p/ae4b.html"/>
-    <id>http://seikasahara.com/p/ae4b.html</id>
+    <link href="https://seikasahara.com/p/ae4b.html"/>
+    <id>https://seikasahara.com/p/ae4b.html</id>
     <published>2021-11-13T06:10:43.308Z</published>
     <updated>2021-02-14T18:38:37.245Z</updated>
     
@@ -166,42 +166,42 @@
     
     
     
-    <category term="东方Project同人" scheme="http://seikasahara.com/categories/%E4%B8%9C%E6%96%B9Project%E5%90%8C%E4%BA%BA/"/>
+    <category term="东方Project同人" scheme="https://seikasahara.com/categories/%E4%B8%9C%E6%96%B9Project%E5%90%8C%E4%BA%BA/"/>
     
     
-    <category term="同人文" scheme="http://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E6%96%87/"/>
+    <category term="同人文" scheme="https://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E6%96%87/"/>
     
-    <category term="比那名居天子" scheme="http://seikasahara.com/tags/%E6%AF%94%E9%82%A3%E5%90%8D%E5%B1%85%E5%A4%A9%E5%AD%90/"/>
+    <category term="比那名居天子" scheme="https://seikasahara.com/tags/%E6%AF%94%E9%82%A3%E5%90%8D%E5%B1%85%E5%A4%A9%E5%AD%90/"/>
     
   </entry>
   
   <entry>
     <title>南昌大学TH活动-东方枫华祭report</title>
-    <link href="http://seikasahara.com/p/8527.html"/>
-    <id>http://seikasahara.com/p/8527.html</id>
+    <link href="https://seikasahara.com/p/8527.html"/>
+    <id>https://seikasahara.com/p/8527.html</id>
     <published>2021-11-13T06:10:43.232Z</published>
     <updated>2021-02-14T18:16:07.517Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="南昌大学TH活动-东方枫华祭report"><a href="#南昌大学TH活动-东方枫华祭report" class="headerlink" title="南昌大学TH活动-东方枫华祭report"></a>南昌大学TH活动-东方枫华祭report</h1><blockquote><p>作者邮箱：<a href="mailto:&#102;&#111;&#114;&#116;&#x68;&#x65;&#x61;&#x70;&#x6f;&#x63;&#97;&#108;&#x79;&#112;&#x73;&#x65;&#x40;&#x68;&#x6f;&#x74;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#102;&#111;&#114;&#116;&#x68;&#x65;&#x61;&#x70;&#x6f;&#x63;&#97;&#108;&#x79;&#112;&#x73;&#x65;&#x40;&#x68;&#x6f;&#x74;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a></p></blockquote><hr><p><strong>【茶会预定流程】</strong><br>东方知识竞赛——你 就 是 ZUN<br>东方原曲竞猜——一般通过东方众能够参与的境界<br>STG/FTG活动——感受与飞机佬/则佬零距离的接触<br>文文快报——车万第一手消息<br>新兴东方同人社团介绍——介绍18年成立的中国东方同人社团，感受东方同人创作魅力<br>东方棋牌战——享受东方棋牌的乐趣<br>东方3D弹幕——Subterranean Stars<br><strong>【前期准备工作】</strong><br>茶会的所有项目启动是在10月31日开始的，同时当天也在南昌大学东方组里讨论了茶会的时间安排，最终确定在11月10日举行本次茶会。<br><strong>【前期准备工作时间表】</strong><br>11月1日，开始分配人员工作：<br>经过讨论，由以下人员担当下列职务：<br>香瓜子——主催/场内东方相关书籍，装饰捐赠<br>雾雨卡尔霍恩——总策划/logo设计/杂务/茶会海报设计/控场/ppt制作/茶会零食提供<br>AItheEliminated——茶会“原曲竞猜”项目程序设计/茶会饮料提供/茶会资金支持<br>二小姐格林——茶会海报绘画<br>正子——案内Staff/杂物搬运<br>CASPAR——场内Staff/茶会饮料提供<br>Mose（莫瑟）——协助策划<br>进击的小人族——茶会活动灵感提供<br>11月2日，茶会的概念海报由雾雨卡尔霍恩设计完成。<br>11月3日，茶会的logo设计由雾雨卡尔霍恩完成。<br>同期，茶会获得Alice手工坊的支持。<br>11月4日，茶会的初ppt由雾雨卡尔霍恩完成。在当晚订制好了印制有logo的staff衣物<br>11月5日，雾雨卡尔霍恩和Mose完成策划案，正式申请到教室。同期完成宣传文案，在<br>微博/qq空间/推特上进行宣传。<br>11月3-9日，联系各个社团的主催，请求宣传许可。<br>11月9日，ppt终稿完成。画师完成海报，放出最后的宣传。<br><strong>【茶会过程】（11.9——11.10晚上8：30）</strong><br>由策划的第一视角所感的茶会。<br>前一天晚上头痛昏重，以为自己第二天快不行了。冲泡了一点感冒灵，喝了下去之后才发现自己好了一点。第二天早上9点多起床，坐在寝室里慢慢喝热水，身体恢复了很多。<br>然后是准备这次茶会的零食等等东西。在超市里买好了近50块钱零食，提着一大袋东西回去了。过了一会儿整理了一下该带过去的东西，发现自己可能带不了这么多东西，一行李箱的天子cos服，一箱Alice手工坊寄过来的物品，还有一堆零食，背着电脑。<br>然后寻求staff帮忙，去寝室找他的时候发现人不在，心里觉得有点不对，可能要出一些意外事故。自己一个人强行背着所有东西赶往人文楼，鞋子全湿了。<br>1点钟的时候，终于等到门开了，进去之后开始布置东西。开始的时候发现大家都坐在座位上玩手机，气氛有点尴尬。不过也还好，是在开场之前。这里也很感谢AItheEliminated和CASPAR用柠檬茶堆成的茶山。<br>开始后各个环节也进行的相当顺利，值得一提的是原曲竞猜环节，在Hard难度下随机截取3秒的原曲，一作一作的过去，发现风神录和地灵殿的几首名曲（众神眷恋的幻想乡，少女第三只眼）大家都几乎猜不出来。（并且出现连续几首都是名曲，都猜不出来的情况）<br>果然hard还是太难了，extra难到我也做不出。<br>社团的介绍的话，也给大家一个对2018年新创立的同人社团一个印象，让大家知道国内的优秀社团也是不输给日本甚至还有更强的。<br>问答抽奖，送了很多东西出去，大家都玩得很开心。东方百问有些问题也真是变态（<br>最后选择在学校后的商业街吃饭，大家（大概13个人）一起吃火锅，吹水了一下江西和全国东方project的过去和未来。也是第一次参加南昌这边东方线下聚餐。整体的氛围还是很棒的。<br>【茶会总结】<br>第一次举办这种活动，没有经验在所难免，因此出现了一些不好的现象与问题，列举如下：</p><ol><li>   茶会海报问题。概念海报是我借用其他秘封专辑的封面图所制作的，没有联系画师获得其利用规约，在宣传上由于画师工期延期，我直接放了概念海报，出了利用规约上的偏差，作为策划我感到抱歉，希望各位活动举办者不要重蹈这种覆辙。</li><li>   茶会海报的资金筹备问题。策划一开始的目的是希望工作人员能够一起出钱把画师的稿费交齐，由于策划对“众筹“一词的误解，导致群内出现不好的纷争，经过调解后才彻底解决。</li><li>   茶会活动气氛问题。到场的各位东方众，无论是学校的还是来自学校外（大多来自南昌东方同好会）的东方众，大多线下见面次数少，交流过程出现中断停顿在所难免。策划在活动气氛的过程中衔接比较僵硬。</li><li>   主催因为考研过忙没有到场，非常遗憾的一件事情。</li><li>   有一些环节的遗漏：东方3D弹幕——Subterranean Stars，该环节没有在茶会上举行，策划控场时忘记了这一点。</li><li>   在进行东方百问环节和东方原曲竞猜环节时，有一些同好参加不够活跃。</li><li>   社团介绍时气氛显得略微尴尬。</li><li>   本次茶会准备方面也十分的仓促。东方枫华祭实际上是仅仅10天就举办好的茶会。<br>【反思】</li><li>茶会的策划不应该统揽这么多的职务，否则会造成事倍功半的情况，</li><li>各位工作人员要早点确定好自己的工作职务身份，调节好自己在活动当天的时间，确保能全身心投入活动参与。</li><li>茶会的主催必须要有强的组织能力。</li><li>茶会的零食，饮料等食品购买最好也要经过投票。</li><li>茶会的录播/直播需要经过参与东方众的许可。</li><li>绝对不能出现拖欠画师工资的情况。</li><li>茶会的场地必须经过学校的许可才可以进行。否则只能把活动转移到校外。此时要考虑资金问题</li><li>茶会的举办需要提前1-2星期的准备。<br>（不与总结一一对应）<br>这里谨代表东方枫华祭茶会主催香瓜子特别感谢各位工作人员不辞辛劳能来一起帮忙把这次茶会办好。<br>也感谢Alice手工坊对本次茶会物资奖品的大力支持。<br>还有南昌东方同好会和西农东方同好的建议与云支持。<br>以及各位来参加本次茶会的东方同好们。<br>附第二届海报图：<br><img src="http://newyorkhnt.com/wp-content/uploads/2021/02/%E4%B8%9C%E6%96%B9%E6%98%A5%E8%92%BF%E9%A3%A8-scaled.jpg"><br>附 来自南昌本地同好会负责人进击的小人族的Q&amp;A：<br>q1.作为“主催”你认为本次活动效果如何？<br>A1.首先要说明的是，本次茶会的主催是香瓜子，而不是我。我是作为执行策划总揽本次茶会活动的，但实际茶会的主催并不是我。那么关于本次活动效果，我认为是较好的，气氛的上升把握有度，在茶会平静的时候组织整体性参与活动，在茶会气氛活跃起来之后给予每名同好足够的自由活动时间。<br>q2.本次活动参与人数怎么样，现场氛围怎么样？<br>A2.本次活动现场参与人数固定约20多人，最多时有30人，中途是有人员退场的。之后参加茶会后聚餐的同好共计13人。现场的氛围同q1所述。<br>q3.是什么让您决定先举办这次活动？<br>A3.Reason：</li><li>   看到国内高校东方project活动如雨后春笋般的涌现，而后又考虑到江西没有出现这样的高校东方活动。</li><li>   南昌大学的东方组人数已经超过70人，有能力去举办这样一个茶会活动。</li><li>   自己心里也希望成为一个活动策划，以获得更多东方活动举办的经验，以后会有用武之地。<br>q4.在本次活动中有那些你最喜欢或者最留恋的部分？<br>A4.本次活动我最喜欢的是原曲竞猜和东方百问。原曲竞猜的程序和UI设计都做得很棒，在原曲竞猜的活动过程中，出现了很多很有意思的地方<br>q5.举办活动累吗？未来是否还会有类似的活动？<br>A5.举办活动非常的累，从策划出来之后的一个星期内都出现睡眠不足和精神压力过大的状况，可能原因是因为我本人所揽职务过多过繁。未来还会举办春季茶会活动，南昌大学的东方project活动已经准备做成系列——东方香樟梦<br>q6.还关于本次活动还有什么想说的么？<br>A6. 此外需要提到策划多次想玩营业梗，但是各位同好并没有继续玩梗，这是一种很好的现象，包括我自己个人观察南昌本地的东方爱好者们不喜欢去刻意玩这些梗，对于东方活动的纯净性有着积极意义。有一句话说得好，<strong>“当你注视着深渊，深渊也在注视着你。“</strong>我们的茶会活动氛围无需靠这些梗去维持，我相信这是在全国东方活动中少见的。</li></ol><p>附茶会PPT下载参考链接：<br>链接：<a href="https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA">https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA</a><br>提取码：45j3 </p>]]></content>
+    <content type="html"><![CDATA[<h1 id="南昌大学TH活动-东方枫华祭report"><a href="#南昌大学TH活动-东方枫华祭report" class="headerlink" title="南昌大学TH活动-东方枫华祭report"></a>南昌大学TH活动-东方枫华祭report</h1><blockquote><p>作者邮箱：<a href="mailto:&#102;&#111;&#x72;&#x74;&#104;&#101;&#97;&#112;&#x6f;&#99;&#x61;&#x6c;&#121;&#112;&#x73;&#x65;&#64;&#x68;&#111;&#116;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#102;&#111;&#x72;&#x74;&#104;&#101;&#97;&#112;&#x6f;&#99;&#x61;&#x6c;&#121;&#112;&#x73;&#x65;&#64;&#x68;&#111;&#116;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></p></blockquote><hr><p><strong>【茶会预定流程】</strong><br>东方知识竞赛——你 就 是 ZUN<br>东方原曲竞猜——一般通过东方众能够参与的境界<br>STG/FTG活动——感受与飞机佬/则佬零距离的接触<br>文文快报——车万第一手消息<br>新兴东方同人社团介绍——介绍18年成立的中国东方同人社团，感受东方同人创作魅力<br>东方棋牌战——享受东方棋牌的乐趣<br>东方3D弹幕——Subterranean Stars<br><strong>【前期准备工作】</strong><br>茶会的所有项目启动是在10月31日开始的，同时当天也在南昌大学东方组里讨论了茶会的时间安排，最终确定在11月10日举行本次茶会。<br><strong>【前期准备工作时间表】</strong><br>11月1日，开始分配人员工作：<br>经过讨论，由以下人员担当下列职务：<br>香瓜子——主催/场内东方相关书籍，装饰捐赠<br>雾雨卡尔霍恩——总策划/logo设计/杂务/茶会海报设计/控场/ppt制作/茶会零食提供<br>AItheEliminated——茶会“原曲竞猜”项目程序设计/茶会饮料提供/茶会资金支持<br>二小姐格林——茶会海报绘画<br>正子——案内Staff/杂物搬运<br>CASPAR——场内Staff/茶会饮料提供<br>Mose（莫瑟）——协助策划<br>进击的小人族——茶会活动灵感提供<br>11月2日，茶会的概念海报由雾雨卡尔霍恩设计完成。<br>11月3日，茶会的logo设计由雾雨卡尔霍恩完成。<br>同期，茶会获得Alice手工坊的支持。<br>11月4日，茶会的初ppt由雾雨卡尔霍恩完成。在当晚订制好了印制有logo的staff衣物<br>11月5日，雾雨卡尔霍恩和Mose完成策划案，正式申请到教室。同期完成宣传文案，在<br>微博/qq空间/推特上进行宣传。<br>11月3-9日，联系各个社团的主催，请求宣传许可。<br>11月9日，ppt终稿完成。画师完成海报，放出最后的宣传。<br><strong>【茶会过程】（11.9——11.10晚上8：30）</strong><br>由策划的第一视角所感的茶会。<br>前一天晚上头痛昏重，以为自己第二天快不行了。冲泡了一点感冒灵，喝了下去之后才发现自己好了一点。第二天早上9点多起床，坐在寝室里慢慢喝热水，身体恢复了很多。<br>然后是准备这次茶会的零食等等东西。在超市里买好了近50块钱零食，提着一大袋东西回去了。过了一会儿整理了一下该带过去的东西，发现自己可能带不了这么多东西，一行李箱的天子cos服，一箱Alice手工坊寄过来的物品，还有一堆零食，背着电脑。<br>然后寻求staff帮忙，去寝室找他的时候发现人不在，心里觉得有点不对，可能要出一些意外事故。自己一个人强行背着所有东西赶往人文楼，鞋子全湿了。<br>1点钟的时候，终于等到门开了，进去之后开始布置东西。开始的时候发现大家都坐在座位上玩手机，气氛有点尴尬。不过也还好，是在开场之前。这里也很感谢AItheEliminated和CASPAR用柠檬茶堆成的茶山。<br>开始后各个环节也进行的相当顺利，值得一提的是原曲竞猜环节，在Hard难度下随机截取3秒的原曲，一作一作的过去，发现风神录和地灵殿的几首名曲（众神眷恋的幻想乡，少女第三只眼）大家都几乎猜不出来。（并且出现连续几首都是名曲，都猜不出来的情况）<br>果然hard还是太难了，extra难到我也做不出。<br>社团的介绍的话，也给大家一个对2018年新创立的同人社团一个印象，让大家知道国内的优秀社团也是不输给日本甚至还有更强的。<br>问答抽奖，送了很多东西出去，大家都玩得很开心。东方百问有些问题也真是变态（<br>最后选择在学校后的商业街吃饭，大家（大概13个人）一起吃火锅，吹水了一下江西和全国东方project的过去和未来。也是第一次参加南昌这边东方线下聚餐。整体的氛围还是很棒的。<br>【茶会总结】<br>第一次举办这种活动，没有经验在所难免，因此出现了一些不好的现象与问题，列举如下：</p><ol><li>   茶会海报问题。概念海报是我借用其他秘封专辑的封面图所制作的，没有联系画师获得其利用规约，在宣传上由于画师工期延期，我直接放了概念海报，出了利用规约上的偏差，作为策划我感到抱歉，希望各位活动举办者不要重蹈这种覆辙。</li><li>   茶会海报的资金筹备问题。策划一开始的目的是希望工作人员能够一起出钱把画师的稿费交齐，由于策划对“众筹“一词的误解，导致群内出现不好的纷争，经过调解后才彻底解决。</li><li>   茶会活动气氛问题。到场的各位东方众，无论是学校的还是来自学校外（大多来自南昌东方同好会）的东方众，大多线下见面次数少，交流过程出现中断停顿在所难免。策划在活动气氛的过程中衔接比较僵硬。</li><li>   主催因为考研过忙没有到场，非常遗憾的一件事情。</li><li>   有一些环节的遗漏：东方3D弹幕——Subterranean Stars，该环节没有在茶会上举行，策划控场时忘记了这一点。</li><li>   在进行东方百问环节和东方原曲竞猜环节时，有一些同好参加不够活跃。</li><li>   社团介绍时气氛显得略微尴尬。</li><li>   本次茶会准备方面也十分的仓促。东方枫华祭实际上是仅仅10天就举办好的茶会。<br>【反思】</li><li>茶会的策划不应该统揽这么多的职务，否则会造成事倍功半的情况，</li><li>各位工作人员要早点确定好自己的工作职务身份，调节好自己在活动当天的时间，确保能全身心投入活动参与。</li><li>茶会的主催必须要有强的组织能力。</li><li>茶会的零食，饮料等食品购买最好也要经过投票。</li><li>茶会的录播/直播需要经过参与东方众的许可。</li><li>绝对不能出现拖欠画师工资的情况。</li><li>茶会的场地必须经过学校的许可才可以进行。否则只能把活动转移到校外。此时要考虑资金问题</li><li>茶会的举办需要提前1-2星期的准备。<br>（不与总结一一对应）<br>这里谨代表东方枫华祭茶会主催香瓜子特别感谢各位工作人员不辞辛劳能来一起帮忙把这次茶会办好。<br>也感谢Alice手工坊对本次茶会物资奖品的大力支持。<br>还有南昌东方同好会和西农东方同好的建议与云支持。<br>以及各位来参加本次茶会的东方同好们。<br>附第二届海报图：<br><img src="http://newyorkhnt.com/wp-content/uploads/2021/02/%E4%B8%9C%E6%96%B9%E6%98%A5%E8%92%BF%E9%A3%A8-scaled.jpg"><br>附 来自南昌本地同好会负责人进击的小人族的Q&amp;A：<br>q1.作为“主催”你认为本次活动效果如何？<br>A1.首先要说明的是，本次茶会的主催是香瓜子，而不是我。我是作为执行策划总揽本次茶会活动的，但实际茶会的主催并不是我。那么关于本次活动效果，我认为是较好的，气氛的上升把握有度，在茶会平静的时候组织整体性参与活动，在茶会气氛活跃起来之后给予每名同好足够的自由活动时间。<br>q2.本次活动参与人数怎么样，现场氛围怎么样？<br>A2.本次活动现场参与人数固定约20多人，最多时有30人，中途是有人员退场的。之后参加茶会后聚餐的同好共计13人。现场的氛围同q1所述。<br>q3.是什么让您决定先举办这次活动？<br>A3.Reason：</li><li>   看到国内高校东方project活动如雨后春笋般的涌现，而后又考虑到江西没有出现这样的高校东方活动。</li><li>   南昌大学的东方组人数已经超过70人，有能力去举办这样一个茶会活动。</li><li>   自己心里也希望成为一个活动策划，以获得更多东方活动举办的经验，以后会有用武之地。<br>q4.在本次活动中有那些你最喜欢或者最留恋的部分？<br>A4.本次活动我最喜欢的是原曲竞猜和东方百问。原曲竞猜的程序和UI设计都做得很棒，在原曲竞猜的活动过程中，出现了很多很有意思的地方<br>q5.举办活动累吗？未来是否还会有类似的活动？<br>A5.举办活动非常的累，从策划出来之后的一个星期内都出现睡眠不足和精神压力过大的状况，可能原因是因为我本人所揽职务过多过繁。未来还会举办春季茶会活动，南昌大学的东方project活动已经准备做成系列——东方香樟梦<br>q6.还关于本次活动还有什么想说的么？<br>A6. 此外需要提到策划多次想玩营业梗，但是各位同好并没有继续玩梗，这是一种很好的现象，包括我自己个人观察南昌本地的东方爱好者们不喜欢去刻意玩这些梗，对于东方活动的纯净性有着积极意义。有一句话说得好，<strong>“当你注视着深渊，深渊也在注视着你。“</strong>我们的茶会活动氛围无需靠这些梗去维持，我相信这是在全国东方活动中少见的。</li></ol><p>附茶会PPT下载参考链接：<br>链接：<a href="https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA">https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA</a><br>提取码：45j3 </p>]]></content>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;http://newyorkhnt.com/wp-content/uploads/2021/02/IMG_1756-scaled.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
-    <category term="东方Project同人" scheme="http://seikasahara.com/categories/%E4%B8%9C%E6%96%B9Project%E5%90%8C%E4%BA%BA/"/>
+    <category term="东方Project同人" scheme="https://seikasahara.com/categories/%E4%B8%9C%E6%96%B9Project%E5%90%8C%E4%BA%BA/"/>
     
     
-    <category term="同人活动" scheme="http://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E6%B4%BB%E5%8A%A8/"/>
+    <category term="同人活动" scheme="https://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E6%B4%BB%E5%8A%A8/"/>
     
-    <category term="南昌大学" scheme="http://seikasahara.com/tags/%E5%8D%97%E6%98%8C%E5%A4%A7%E5%AD%A6/"/>
+    <category term="南昌大学" scheme="https://seikasahara.com/tags/%E5%8D%97%E6%98%8C%E5%A4%A7%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>二変数関数のテイラーの展開式証明とLatex使用練習</title>
-    <link href="http://seikasahara.com/p/rfti.html"/>
-    <id>http://seikasahara.com/p/rfti.html</id>
+    <link href="https://seikasahara.com/p/rfti.html"/>
+    <id>https://seikasahara.com/p/rfti.html</id>
     <published>2021-11-13T06:10:43.184Z</published>
     <updated>2021-10-17T22:15:36.513Z</updated>
     
@@ -223,17 +223,17 @@ $$
     
     
     
-    <category term="数学" scheme="http://seikasahara.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    <category term="数学" scheme="https://seikasahara.com/categories/%E6%95%B0%E5%AD%A6/"/>
     
     
-    <category term="二元函数" scheme="http://seikasahara.com/tags/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/"/>
+    <category term="二元函数" scheme="https://seikasahara.com/tags/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>《最高人民法院聂树斌案再审判决书》读书笔记</title>
-    <link href="http://seikasahara.com/p/1yui.html"/>
-    <id>http://seikasahara.com/p/1yui.html</id>
+    <link href="https://seikasahara.com/p/1yui.html"/>
+    <id>https://seikasahara.com/p/1yui.html</id>
     <published>2021-11-13T06:10:43.130Z</published>
     <updated>2021-06-09T13:49:01.767Z</updated>
     
@@ -247,17 +247,17 @@ $$
     
     
     
-    <category term="时评" scheme="http://seikasahara.com/categories/%E6%97%B6%E8%AF%84/"/>
+    <category term="时评" scheme="https://seikasahara.com/categories/%E6%97%B6%E8%AF%84/"/>
     
     
-    <category term="法律" scheme="http://seikasahara.com/tags/%E6%B3%95%E5%BE%8B/"/>
+    <category term="法律" scheme="https://seikasahara.com/tags/%E6%B3%95%E5%BE%8B/"/>
     
   </entry>
   
   <entry>
     <title>深空天体观测设备笔记</title>
-    <link href="http://seikasahara.com/p/0274.html"/>
-    <id>http://seikasahara.com/p/0274.html</id>
+    <link href="https://seikasahara.com/p/0274.html"/>
+    <id>https://seikasahara.com/p/0274.html</id>
     <published>2021-11-13T06:10:43.081Z</published>
     <updated>2021-05-06T14:38:33.341Z</updated>
     
@@ -268,40 +268,40 @@ $$
     
     
     
-    <category term="天文摄影" scheme="http://seikasahara.com/categories/%E5%A4%A9%E6%96%87%E6%91%84%E5%BD%B1/"/>
+    <category term="天文摄影" scheme="https://seikasahara.com/categories/%E5%A4%A9%E6%96%87%E6%91%84%E5%BD%B1/"/>
     
     
-    <category term="深空天体" scheme="http://seikasahara.com/tags/%E6%B7%B1%E7%A9%BA%E5%A4%A9%E4%BD%93/"/>
+    <category term="深空天体" scheme="https://seikasahara.com/tags/%E6%B7%B1%E7%A9%BA%E5%A4%A9%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>有机合成要点精析</title>
-    <link href="http://seikasahara.com/p/a661.html"/>
-    <id>http://seikasahara.com/p/a661.html</id>
+    <link href="https://seikasahara.com/p/a661.html"/>
+    <id>https://seikasahara.com/p/a661.html</id>
     <published>2021-11-13T06:10:43.031Z</published>
     <updated>2021-02-14T18:14:35.360Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="有机合成要点精析"><a href="#有机合成要点精析" class="headerlink" title="有机合成要点精析"></a>有机合成要点精析</h1><hr><p>—Edward Calhoun</p><blockquote><p>作者邮箱 <a href="mailto:&#x66;&#x6f;&#114;&#x74;&#104;&#101;&#97;&#112;&#x6f;&#x63;&#x61;&#108;&#121;&#112;&#115;&#x65;&#x40;&#x68;&#111;&#x74;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x66;&#x6f;&#114;&#x74;&#104;&#101;&#97;&#112;&#x6f;&#x63;&#x61;&#108;&#121;&#112;&#115;&#x65;&#x40;&#x68;&#111;&#x74;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a></p></blockquote><hr><p><strong>要点1：以周期表为依据</strong><br>众所周知，有机化学离不开3个元素，*<strong>碳，氮，氧*<strong>。<br>随着化学理论的深入和有机合成的前沿成果，有机化学衍生出了分支——金属有机化学。金属有机化学，顾名思义，是以碳链为结构基础，辅以以配位键锁住的金属原子进行一系列有机反应的二级学科总称。通过在有机物中引入金属原子，大大增强了其反应活性，降低其过渡态的活化能，达到了传统有机反应所不能做到的高度。近些年，以杂原子活性试剂为合成子的一些文献在合成界中异军突起，从另一个角度证明了以周期表为依据的重要性。遵循这些新兴化合物，有助于拓宽有机合成的思维。<br>**要点2：以羰基化合物为中心</strong><br>羰基反应是有机化学中出现最频繁的一类反应，可以断言，近乎每一个复杂物种的合成，都需要经过至少一个或多个的羰基反应。<br>羰基作为一个合成子和极性中心，常常是亲核物种或者亲电物种的反应中心，羰基所包含的碳氧双键，更是一个提供环过渡态的载体。最经典的案例是Wittig反应，极性的羰基与另一极性物种磷叶立德形成四元环过渡态，具有多样的反应性，通过一步构建环外双键，或者使其淬灭发生其他反应。<br>羰基反应是一个大类。经典的反应有Claisen酯缩合，Micheal加成反应和双羰基（羟醛缩合），*</strong>熟练地运用羰基反应，可以实现很多意想不到的效果。***<br><img src="https://i1.wp.com/assets.cn.chem-station.com/uploads/2014/01/wittig3.gif?resize=594,127&ssl=1"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="有机合成要点精析"><a href="#有机合成要点精析" class="headerlink" title="有机合成要点精析"></a>有机合成要点精析</h1><hr><p>—Edward Calhoun</p><blockquote><p>作者邮箱 <a href="mailto:&#102;&#111;&#x72;&#116;&#x68;&#101;&#97;&#112;&#x6f;&#x63;&#97;&#108;&#121;&#x70;&#115;&#101;&#x40;&#x68;&#111;&#x74;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#102;&#111;&#x72;&#116;&#x68;&#101;&#97;&#112;&#x6f;&#x63;&#97;&#108;&#121;&#x70;&#115;&#101;&#x40;&#x68;&#111;&#x74;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a></p></blockquote><hr><p><strong>要点1：以周期表为依据</strong><br>众所周知，有机化学离不开3个元素，*<strong>碳，氮，氧*<strong>。<br>随着化学理论的深入和有机合成的前沿成果，有机化学衍生出了分支——金属有机化学。金属有机化学，顾名思义，是以碳链为结构基础，辅以以配位键锁住的金属原子进行一系列有机反应的二级学科总称。通过在有机物中引入金属原子，大大增强了其反应活性，降低其过渡态的活化能，达到了传统有机反应所不能做到的高度。近些年，以杂原子活性试剂为合成子的一些文献在合成界中异军突起，从另一个角度证明了以周期表为依据的重要性。遵循这些新兴化合物，有助于拓宽有机合成的思维。<br>**要点2：以羰基化合物为中心</strong><br>羰基反应是有机化学中出现最频繁的一类反应，可以断言，近乎每一个复杂物种的合成，都需要经过至少一个或多个的羰基反应。<br>羰基作为一个合成子和极性中心，常常是亲核物种或者亲电物种的反应中心，羰基所包含的碳氧双键，更是一个提供环过渡态的载体。最经典的案例是Wittig反应，极性的羰基与另一极性物种磷叶立德形成四元环过渡态，具有多样的反应性，通过一步构建环外双键，或者使其淬灭发生其他反应。<br>羰基反应是一个大类。经典的反应有Claisen酯缩合，Micheal加成反应和双羰基（羟醛缩合），*</strong>熟练地运用羰基反应，可以实现很多意想不到的效果。***<br><img src="https://i1.wp.com/assets.cn.chem-station.com/uploads/2014/01/wittig3.gif?resize=594,127&ssl=1"></p>]]></content>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://th.bing.com/th/id/Rea15ad389da45e6b8eb7f1d7913549c5?rik=hPQNsPnpyStibQ&amp;riu=http://www.compoundchem.com/wp-content/uploads/2014/02/Organic-Reaction-Map-v5.png&amp;ehk=Buz39zNKfkJfgq+F2HznSpUC1nW4KtquAIn01urRav4=&amp;risl=&amp;pid=ImgRaw&quot;&gt;&lt;/p&gt;</summary>
     
     
     
-    <category term="有机化学" scheme="http://seikasahara.com/categories/%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6/"/>
+    <category term="有机化学" scheme="https://seikasahara.com/categories/%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6/"/>
     
     
-    <category term="有机合成" scheme="http://seikasahara.com/tags/%E6%9C%89%E6%9C%BA%E5%90%88%E6%88%90/"/>
+    <category term="有机合成" scheme="https://seikasahara.com/tags/%E6%9C%89%E6%9C%BA%E5%90%88%E6%88%90/"/>
     
-    <category term="羰基反应" scheme="http://seikasahara.com/tags/%E7%BE%B0%E5%9F%BA%E5%8F%8D%E5%BA%94/"/>
+    <category term="羰基反应" scheme="https://seikasahara.com/tags/%E7%BE%B0%E5%9F%BA%E5%8F%8D%E5%BA%94/"/>
     
   </entry>
   
   <entry>
     <title>風土論の視点から日本の家族構造について検討</title>
-    <link href="http://seikasahara.com/p/a123.html"/>
-    <id>http://seikasahara.com/p/a123.html</id>
+    <link href="https://seikasahara.com/p/a123.html"/>
+    <id>https://seikasahara.com/p/a123.html</id>
     <published>2021-11-13T06:10:42.976Z</published>
     <updated>2021-04-25T12:23:55.325Z</updated>
     
@@ -315,19 +315,19 @@ $$
     
     
     
-    <category term="社会学" scheme="http://seikasahara.com/categories/%E7%A4%BE%E4%BC%9A%E5%AD%A6/"/>
+    <category term="社会学" scheme="https://seikasahara.com/categories/%E7%A4%BE%E4%BC%9A%E5%AD%A6/"/>
     
     
-    <category term="風土論" scheme="http://seikasahara.com/tags/%E9%A2%A8%E5%9C%9F%E8%AB%96/"/>
+    <category term="風土論" scheme="https://seikasahara.com/tags/%E9%A2%A8%E5%9C%9F%E8%AB%96/"/>
     
-    <category term="家族構造" scheme="http://seikasahara.com/tags/%E5%AE%B6%E6%97%8F%E6%A7%8B%E9%80%A0/"/>
+    <category term="家族構造" scheme="https://seikasahara.com/tags/%E5%AE%B6%E6%97%8F%E6%A7%8B%E9%80%A0/"/>
     
   </entry>
   
   <entry>
     <title>如何从头开始运营一个同人音乐社团 初级运营篇</title>
-    <link href="http://seikasahara.com/p/1i2o.html"/>
-    <id>http://seikasahara.com/p/1i2o.html</id>
+    <link href="https://seikasahara.com/p/1i2o.html"/>
+    <id>https://seikasahara.com/p/1i2o.html</id>
     <published>2021-11-13T06:10:42.915Z</published>
     <updated>2021-03-08T09:51:36.819Z</updated>
     
@@ -341,19 +341,19 @@ $$
     
     
     
-    <category term="自传" scheme="http://seikasahara.com/categories/%E8%87%AA%E4%BC%A0/"/>
+    <category term="自传" scheme="https://seikasahara.com/categories/%E8%87%AA%E4%BC%A0/"/>
     
     
-    <category term="同人社团" scheme="http://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E7%A4%BE%E5%9B%A2/"/>
+    <category term="同人社团" scheme="https://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E7%A4%BE%E5%9B%A2/"/>
     
-    <category term="教程" scheme="http://seikasahara.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://seikasahara.com/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>NeuOrdung世界线印象片</title>
-    <link href="http://seikasahara.com/p/4665.html"/>
-    <id>http://seikasahara.com/p/4665.html</id>
+    <link href="https://seikasahara.com/p/4665.html"/>
+    <id>https://seikasahara.com/p/4665.html</id>
     <published>2021-11-13T06:10:42.783Z</published>
     <updated>2021-02-09T20:16:35.534Z</updated>
     
@@ -367,19 +367,19 @@ $$
     
     
     
-    <category term="架空世界" scheme="http://seikasahara.com/categories/%E6%9E%B6%E7%A9%BA%E4%B8%96%E7%95%8C/"/>
+    <category term="架空世界" scheme="https://seikasahara.com/categories/%E6%9E%B6%E7%A9%BA%E4%B8%96%E7%95%8C/"/>
     
     
-    <category term="德国" scheme="http://seikasahara.com/tags/%E5%BE%B7%E5%9B%BD/"/>
+    <category term="德国" scheme="https://seikasahara.com/tags/%E5%BE%B7%E5%9B%BD/"/>
     
-    <category term="日升之屋" scheme="http://seikasahara.com/tags/%E6%97%A5%E5%8D%87%E4%B9%8B%E5%B1%8B/"/>
+    <category term="日升之屋" scheme="https://seikasahara.com/tags/%E6%97%A5%E5%8D%87%E4%B9%8B%E5%B1%8B/"/>
     
   </entry>
   
   <entry>
     <title>Stairway to Heaven</title>
-    <link href="http://seikasahara.com/p/1adf.html"/>
-    <id>http://seikasahara.com/p/1adf.html</id>
+    <link href="https://seikasahara.com/p/1adf.html"/>
+    <id>https://seikasahara.com/p/1adf.html</id>
     <published>2021-11-13T06:10:42.716Z</published>
     <updated>2021-02-15T22:38:56.972Z</updated>
     
@@ -390,21 +390,21 @@ $$
     
     
     
-    <category term="自传" scheme="http://seikasahara.com/categories/%E8%87%AA%E4%BC%A0/"/>
+    <category term="自传" scheme="https://seikasahara.com/categories/%E8%87%AA%E4%BC%A0/"/>
     
     
-    <category term="高中生活" scheme="http://seikasahara.com/tags/%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/"/>
+    <category term="高中生活" scheme="https://seikasahara.com/tags/%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="自由" scheme="http://seikasahara.com/tags/%E8%87%AA%E7%94%B1/"/>
+    <category term="自由" scheme="https://seikasahara.com/tags/%E8%87%AA%E7%94%B1/"/>
     
-    <category term="反抗" scheme="http://seikasahara.com/tags/%E5%8F%8D%E6%8A%97/"/>
+    <category term="反抗" scheme="https://seikasahara.com/tags/%E5%8F%8D%E6%8A%97/"/>
     
   </entry>
   
   <entry>
     <title>日本語におけるネット新語・流行語の造語法について論じる</title>
-    <link href="http://seikasahara.com/p/1605.html"/>
-    <id>http://seikasahara.com/p/1605.html</id>
+    <link href="https://seikasahara.com/p/1605.html"/>
+    <id>https://seikasahara.com/p/1605.html</id>
     <published>2021-11-13T06:10:42.642Z</published>
     <updated>2021-02-14T18:21:56.324Z</updated>
     
@@ -415,21 +415,21 @@ $$
     
     
     
-    <category term="语言学" scheme="http://seikasahara.com/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/"/>
+    <category term="语言学" scheme="https://seikasahara.com/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/"/>
     
     
-    <category term="日语" scheme="http://seikasahara.com/tags/%E6%97%A5%E8%AF%AD/"/>
+    <category term="日语" scheme="https://seikasahara.com/tags/%E6%97%A5%E8%AF%AD/"/>
     
-    <category term="流行词" scheme="http://seikasahara.com/tags/%E6%B5%81%E8%A1%8C%E8%AF%8D/"/>
+    <category term="流行词" scheme="https://seikasahara.com/tags/%E6%B5%81%E8%A1%8C%E8%AF%8D/"/>
     
-    <category term="造语法" scheme="http://seikasahara.com/tags/%E9%80%A0%E8%AF%AD%E6%B3%95/"/>
+    <category term="造语法" scheme="https://seikasahara.com/tags/%E9%80%A0%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>夏日之恋运动：1967年的嬉皮士和披头士（1）</title>
-    <link href="http://seikasahara.com/p/71a0.html"/>
-    <id>http://seikasahara.com/p/71a0.html</id>
+    <link href="https://seikasahara.com/p/71a0.html"/>
+    <id>https://seikasahara.com/p/71a0.html</id>
     <published>2021-11-13T06:10:42.453Z</published>
     <updated>2021-02-09T20:18:35.362Z</updated>
     
@@ -444,23 +444,23 @@ $$
     
     
     
-    <category term="文献翻译" scheme="http://seikasahara.com/categories/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/"/>
+    <category term="文献翻译" scheme="https://seikasahara.com/categories/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/"/>
     
     
-    <category term="披头士" scheme="http://seikasahara.com/tags/%E6%8A%AB%E5%A4%B4%E5%A3%AB/"/>
+    <category term="披头士" scheme="https://seikasahara.com/tags/%E6%8A%AB%E5%A4%B4%E5%A3%AB/"/>
     
-    <category term="夏日之恋" scheme="http://seikasahara.com/tags/%E5%A4%8F%E6%97%A5%E4%B9%8B%E6%81%8B/"/>
+    <category term="夏日之恋" scheme="https://seikasahara.com/tags/%E5%A4%8F%E6%97%A5%E4%B9%8B%E6%81%8B/"/>
     
-    <category term="自由" scheme="http://seikasahara.com/tags/%E8%87%AA%E7%94%B1/"/>
+    <category term="自由" scheme="https://seikasahara.com/tags/%E8%87%AA%E7%94%B1/"/>
     
-    <category term="摇滚" scheme="http://seikasahara.com/tags/%E6%91%87%E6%BB%9A/"/>
+    <category term="摇滚" scheme="https://seikasahara.com/tags/%E6%91%87%E6%BB%9A/"/>
     
   </entry>
   
   <entry>
     <title>我做同人社团的日子（1）——旧日回忆</title>
-    <link href="http://seikasahara.com/p/c7bc.html"/>
-    <id>http://seikasahara.com/p/c7bc.html</id>
+    <link href="https://seikasahara.com/p/c7bc.html"/>
+    <id>https://seikasahara.com/p/c7bc.html</id>
     <published>2021-11-13T06:10:42.384Z</published>
     <updated>2021-02-15T22:38:46.047Z</updated>
     
@@ -471,19 +471,19 @@ $$
     
     
     
-    <category term="自传" scheme="http://seikasahara.com/categories/%E8%87%AA%E4%BC%A0/"/>
+    <category term="自传" scheme="https://seikasahara.com/categories/%E8%87%AA%E4%BC%A0/"/>
     
     
-    <category term="高中生活" scheme="http://seikasahara.com/tags/%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/"/>
+    <category term="高中生活" scheme="https://seikasahara.com/tags/%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="同人社团" scheme="http://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E7%A4%BE%E5%9B%A2/"/>
+    <category term="同人社团" scheme="https://seikasahara.com/tags/%E5%90%8C%E4%BA%BA%E7%A4%BE%E5%9B%A2/"/>
     
   </entry>
   
   <entry>
     <title>尼采的读书笔记1</title>
-    <link href="http://seikasahara.com/p/4966.html"/>
-    <id>http://seikasahara.com/p/4966.html</id>
+    <link href="https://seikasahara.com/p/4966.html"/>
+    <id>https://seikasahara.com/p/4966.html</id>
     <published>2021-11-13T06:10:42.280Z</published>
     <updated>2021-02-14T18:22:35.883Z</updated>
     
@@ -494,14 +494,14 @@ $$
     
     
     
-    <category term="哲学" scheme="http://seikasahara.com/categories/%E5%93%B2%E5%AD%A6/"/>
+    <category term="哲学" scheme="https://seikasahara.com/categories/%E5%93%B2%E5%AD%A6/"/>
     
     
-    <category term="尼采" scheme="http://seikasahara.com/tags/%E5%B0%BC%E9%87%87/"/>
+    <category term="尼采" scheme="https://seikasahara.com/tags/%E5%B0%BC%E9%87%87/"/>
     
-    <category term="理性" scheme="http://seikasahara.com/tags/%E7%90%86%E6%80%A7/"/>
+    <category term="理性" scheme="https://seikasahara.com/tags/%E7%90%86%E6%80%A7/"/>
     
-    <category term="现代性" scheme="http://seikasahara.com/tags/%E7%8E%B0%E4%BB%A3%E6%80%A7/"/>
+    <category term="现代性" scheme="https://seikasahara.com/tags/%E7%8E%B0%E4%BB%A3%E6%80%A7/"/>
     
   </entry>
   
