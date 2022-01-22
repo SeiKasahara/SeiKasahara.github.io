@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Submachine Universe译稿（日更）</title>
+    <url>/p/8c3b.html</url>
+    <content><![CDATA[<h1 id="Submachine-Universe译稿1"><a href="#Submachine-Universe译稿1" class="headerlink" title="Submachine Universe译稿1"></a>Submachine Universe译稿1</h1><hr>
+<p>【006】<br>4 Dimension Net Theory<br>四维网络理论<br>by:JackO<br>The net, or Submachine, etc, is a 4 dimensional model. For those of you that don’t know, the first 3 dimensions are the aspects of space we live in, i.e. length width and depth, then there is a 4th dimension that is thought to be something like how the universe is shaped, where there is a finite(limited) amount of space and matter, but it all folds in on itself in an infinite loop. So when you come up to an edge, you go through it, but come out back at the beginning or center. The thing about 4D object is that they can be incredibly large (or at least seem to be) from the inside, but outside they can be microscopic. The idea is that if you go far enough in one direction then you will end up back at the start, such as in sub 5 where you brake down that bricked up door and end up under the lighthouse again. If the net were a 4D model that has been made or created in some way, then it would explain how you can continue for ever and never meet anyone, and seeing how people would simultaneously be in a place and not be, you would see notes from them, even if you never see them.<br>网络，或者submachine本身，等等，都是一个四维模型。对于不知道概念的人来讲，前三个维度有关我们居住的空间，即长度，深度和宽度。第四个维度则被认为是解释宇宙如何成型的原因。四维虽然有着有限的空间和物质，它们却被折叠在一个无限的循环中。所以当你抵达四维空间的边缘时，你会发现你回到了最开始的原点，或者说中心区域。四维物体的特点是，在它的里面，会显得整个非常大，但是在它外面，它实际观察起来像是微观的。这个想法是，当你朝一个方向走得够远，你就会回到一开始的地方。例如在Sub5里，当你炸开砖门的时候，你重新回到了灯塔里。如果整个subnet是由某种方式构建的四维模型，那么它就能解释你为什么一直走下去而见不到任何人，并且看到人们时隐时现。不仅如此，虽然你没见过这些人，但你能够看到他们的笔记。<br><img src="http://newyorkhnt.com/wp-content/uploads/2021/02/psb.jpg"></p>
+<p>卡尔霍恩译<br>2019.5.18</p>]]></content>
+      <categories>
+        <category>文本翻译</category>
+      </categories>
+      <tags>
+        <tag>Submachine</tag>
+        <tag>四维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单利用Mathematica计算氦合质子的分子轨道</title>
     <url>/p/9ce3.html</url>
     <content><![CDATA[<hr>
 <h1 id="简单利用Mathematica计算氦合质子的分子轨道"><a href="#简单利用Mathematica计算氦合质子的分子轨道" class="headerlink" title="简单利用Mathematica计算氦合质子的分子轨道"></a>简单利用Mathematica计算氦合质子的分子轨道</h1><p>—Edward Calhoun</p>
 <blockquote>
-<p>作者邮箱 <a href="mailto:&#x66;&#x6f;&#114;&#x74;&#x68;&#x65;&#97;&#112;&#x6f;&#x63;&#x61;&#108;&#x79;&#x70;&#x73;&#101;&#x40;&#x68;&#x6f;&#116;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#x66;&#x6f;&#114;&#x74;&#x68;&#x65;&#97;&#112;&#x6f;&#x63;&#x61;&#108;&#x79;&#x70;&#x73;&#101;&#x40;&#x68;&#x6f;&#116;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p>作者邮箱 <a href="mailto:&#x66;&#111;&#x72;&#x74;&#x68;&#x65;&#97;&#x70;&#x6f;&#99;&#97;&#108;&#121;&#x70;&#x73;&#101;&#64;&#104;&#111;&#116;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#109;">&#x66;&#111;&#x72;&#x74;&#x68;&#x65;&#97;&#x70;&#x6f;&#99;&#97;&#108;&#121;&#x70;&#x73;&#101;&#64;&#104;&#111;&#116;&#109;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#109;</a></p>
 </blockquote>
 <p> <strong><em>1. 引言</em></strong></p>
 <p><strong>量子化学是理论化学的一个重要分支学科，自20世纪60年代计算机技术突飞猛进，计算化学也同样成为量子化学研究的有力交叉学科</strong>，基于非相对论近似，绝热近似和单电子近似的全电子的非经验计算方法被迅速提出，其包括不借助任何经验参数求解全电子体系的<em>Schrödinger</em>方程方法，自洽场水平上的超<em>Hartree–Fock-Roothaan</em>方程计算法（HFR法）。原则上讲，有了HFR方程，就可以计算任何多原子体系的电子结构。<br>1928年，<em>D．R．Hartree</em>提出了解决分子和离子波函数和能量问题的假设，<em>Hartree</em>将n个电子体系中的任意一个电子都看成是<strong>其余电子所提供的平均势场中运动的单电子</strong>，即可导出可表示任意一个电子的单电子方程，再用自洽场法进行迭代，所得方程成为<em>Hartree</em>方程，但由于<em>Hartree</em>并未考虑到<em>Pauli</em>原理，2年后，由<em>B.A.Fock</em>和<em>J.C.Slater</em>进行了<em>Pauli</em>修正，加入了单<em>Slater</em>行列式波函数和多<em>Slater</em>行列式波函数，使得HF方程正式被提出，而<em>C.C.J.Roothann</em>提出的LCAO-MO法进一步简化了HF方程的表达形式，利用LCAO法可以将分子轨道看成是原子轨道的线性组合，即将HF方程转变为易于求解的代数方程组，使得HFR方程（1-1式）得以成型。其中<br>$$f_{(1)}$$为<strong>Fock算子</strong>， $$\chi_{a(1)}$$为体系的分子轨道。<br>（1-1式）<br>$$f_{(1)}\chi_{a(1)}=\in_a\chi_{a(1)}$$<br>20世纪70年代，基于HF方法的密度泛函理论（DFT）被提出，尽管DFT的概念起源于Thomas-Fermi模型，但仍然离不开HF方程的理论基础，DFT最大的优点在于利用电子密度替代波函数作为研究的基本量，因为以每个电子作为质点，N个电子有3N个变量，而用整体密度代替，则缩减到3个变量，大大减少了计算量。<br>氦合质子，化学式HeH+，是热力学理论计算最强的Bronsted酸，其pKa≈-63，HeH+无法稳定存在于凝聚相中，其pKa数据根据《无机化学》上Hess定律设计Born-Harbor循环可以计算得出。HeH+与同核分子H2有所不同，HeH+有永久的偶极矩，使得其有强烈的光谱特征，这也是HeH+发现的来源，通过观察光谱特征判断该物种的存在与否。<br>本文尝试利用Mathematica软件可视化HeH+的分子轨道，利用HFR法首先要进行电子积分的求解，Mathematica无疑是强有力的工具。</p>
@@ -21,20 +35,6 @@
         <tag>Mathematica</tag>
         <tag>计算化学</tag>
         <tag>分子轨道</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Submachine Universe译稿（日更）</title>
-    <url>/p/8c3b.html</url>
-    <content><![CDATA[<h1 id="Submachine-Universe译稿1"><a href="#Submachine-Universe译稿1" class="headerlink" title="Submachine Universe译稿1"></a>Submachine Universe译稿1</h1><hr>
-<p>【006】<br>4 Dimension Net Theory<br>四维网络理论<br>by:JackO<br>The net, or Submachine, etc, is a 4 dimensional model. For those of you that don’t know, the first 3 dimensions are the aspects of space we live in, i.e. length width and depth, then there is a 4th dimension that is thought to be something like how the universe is shaped, where there is a finite(limited) amount of space and matter, but it all folds in on itself in an infinite loop. So when you come up to an edge, you go through it, but come out back at the beginning or center. The thing about 4D object is that they can be incredibly large (or at least seem to be) from the inside, but outside they can be microscopic. The idea is that if you go far enough in one direction then you will end up back at the start, such as in sub 5 where you brake down that bricked up door and end up under the lighthouse again. If the net were a 4D model that has been made or created in some way, then it would explain how you can continue for ever and never meet anyone, and seeing how people would simultaneously be in a place and not be, you would see notes from them, even if you never see them.<br>网络，或者submachine本身，等等，都是一个四维模型。对于不知道概念的人来讲，前三个维度有关我们居住的空间，即长度，深度和宽度。第四个维度则被认为是解释宇宙如何成型的原因。四维虽然有着有限的空间和物质，它们却被折叠在一个无限的循环中。所以当你抵达四维空间的边缘时，你会发现你回到了最开始的原点，或者说中心区域。四维物体的特点是，在它的里面，会显得整个非常大，但是在它外面，它实际观察起来像是微观的。这个想法是，当你朝一个方向走得够远，你就会回到一开始的地方。例如在Sub5里，当你炸开砖门的时候，你重新回到了灯塔里。如果整个subnet是由某种方式构建的四维模型，那么它就能解释你为什么一直走下去而见不到任何人，并且看到人们时隐时现。不仅如此，虽然你没见过这些人，但你能够看到他们的笔记。<br><img src="http://newyorkhnt.com/wp-content/uploads/2021/02/psb.jpg"></p>
-<p>卡尔霍恩译<br>2019.5.18</p>]]></content>
-      <categories>
-        <category>文本翻译</category>
-      </categories>
-      <tags>
-        <tag>Submachine</tag>
-        <tag>四维</tag>
       </tags>
   </entry>
   <entry>
@@ -561,7 +561,7 @@ Therefore, send user to _257.
     <content><![CDATA[<h1 id="有机合成要点精析"><a href="#有机合成要点精析" class="headerlink" title="有机合成要点精析"></a>有机合成要点精析</h1><hr>
 <p>—Edward Calhoun</p>
 <blockquote>
-<p>作者邮箱 <a href="mailto:&#x66;&#x6f;&#114;&#x74;&#x68;&#x65;&#x61;&#112;&#x6f;&#x63;&#97;&#108;&#x79;&#x70;&#x73;&#101;&#x40;&#104;&#x6f;&#x74;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#109;">&#x66;&#x6f;&#114;&#x74;&#x68;&#x65;&#x61;&#112;&#x6f;&#x63;&#97;&#108;&#x79;&#x70;&#x73;&#101;&#x40;&#104;&#x6f;&#x74;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#109;</a></p>
+<p>作者邮箱 <a href="mailto:&#x66;&#111;&#x72;&#116;&#x68;&#101;&#x61;&#x70;&#x6f;&#99;&#x61;&#108;&#x79;&#x70;&#115;&#x65;&#x40;&#104;&#x6f;&#116;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#x66;&#111;&#x72;&#116;&#x68;&#101;&#x61;&#x70;&#x6f;&#99;&#x61;&#108;&#x79;&#x70;&#115;&#x65;&#x40;&#104;&#x6f;&#116;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;</a></p>
 </blockquote>
 <hr>
 <p><strong>要点1：以周期表为依据</strong><br>众所周知，有机化学离不开3个元素，*<strong>碳，氮，氧*<strong>。<br>随着化学理论的深入和有机合成的前沿成果，有机化学衍生出了分支——金属有机化学。金属有机化学，顾名思义，是以碳链为结构基础，辅以以配位键锁住的金属原子进行一系列有机反应的二级学科总称。通过在有机物中引入金属原子，大大增强了其反应活性，降低其过渡态的活化能，达到了传统有机反应所不能做到的高度。近些年，以杂原子活性试剂为合成子的一些文献在合成界中异军突起，从另一个角度证明了以周期表为依据的重要性。遵循这些新兴化合物，有助于拓宽有机合成的思维。<br>**要点2：以羰基化合物为中心</strong><br>羰基反应是有机化学中出现最频繁的一类反应，可以断言，近乎每一个复杂物种的合成，都需要经过至少一个或多个的羰基反应。<br>羰基作为一个合成子和极性中心，常常是亲核物种或者亲电物种的反应中心，羰基所包含的碳氧双键，更是一个提供环过渡态的载体。最经典的案例是Wittig反应，极性的羰基与另一极性物种磷叶立德形成四元环过渡态，具有多样的反应性，通过一步构建环外双键，或者使其淬灭发生其他反应。<br>羰基反应是一个大类。经典的反应有Claisen酯缩合，Micheal加成反应和双羰基（羟醛缩合），*</strong>熟练地运用羰基反应，可以实现很多意想不到的效果。***<br><img src="https://i1.wp.com/assets.cn.chem-station.com/uploads/2014/01/wittig3.gif?resize=594,127&ssl=1"></p>]]></content>
@@ -571,6 +571,46 @@ Therefore, send user to _257.
       <tags>
         <tag>有机合成</tag>
         <tag>羰基反应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《最高人民法院聂树斌案再审判决书》读书笔记</title>
+    <url>/p/1yui.html</url>
+    <content><![CDATA[<p>1995年4月25日，河北省鹿泉县人聂树斌因故意杀人、强奸妇女被判处死刑，剥夺政治权利终身，同年4月27日被执行死刑。2014年12月12日，最高人民法院指令山东省高级人民法院复查河北省高级人民法院终审的聂树斌故意杀人、强奸妇女一案。2016年12月2日，最高人民法院第二巡回法庭对原审被告人聂树斌故意杀人、强奸妇女再审案公开宣判，宣告撤销原审判决，改判聂树斌无罪。</p>
+<p>这是现代中国司法案件史上著名的误判案件之一。也是本次逻辑分析的实例内容。</p>
+<p>本案判决书最大的亮点在于，用证据说话。</p>
+<p>再审判决书至少通过了五种方式对原案进行了分析：</p>
+<p>1） 从供述本身入手：案件过程中被告人屡次更改口述，前后事实矛盾。</p>
+<p>2） 从供证一致入手：被告人虽然提供的口述与案件事发现场的物证相符合，但是口述时间在准确提取物证之后，有一定的不真实性。</p>
+<p>3） 从取证合法性入手：取证的过程可能存在诱供，骗供的行为。</p>
+<p>4） 从经验情理入手：被告人拿走被害人花上衣的供述，不符合日常生活的行为。</p>
+<p>5） 从供述完整性入手：在供述过程中，有长达5天的问讯资料消失，而且在该卷宗消失的时候，唯独其他的卷宗没有消失，更证明有故意之嫌。</p>
+<h2 id="供述本身"><a href="#供述本身" class="headerlink" title="供述本身"></a><strong>供述本身</strong></h2><p>聂树斌对关键事实的供述前后矛盾、反复不定。供述过程中，聂树斌一方面始终认罪，另一方面又供不清楚作案的基本事实，特别是对关键事实的供述前后矛盾、反复不定，不合常理。</p>
+<p>具体分析。对于案件是否为犯罪嫌疑人所做，需要判断客观事实与证据指向是否相符。首先我们肯定后件推理，即聂树斌的确强奸了被害人。在刑法学上，证据被分为客观证据和主观证据。</p>
+<p><em>本案缺乏能够锁定原审被告人聂树斌作案的客观证据，聂树斌作案时间不能确认，作案工具花上衣来源不能确认，被害人死亡时间和死亡原因不能确认</em></p>
+<p>在供述过程中，由于客观证据的缺乏，我们只能通过多方面的主观证据判断事实。而如果是聂树斌所犯罪，则按照情理，一定在客观程度上会有部分事实与主观判据指向不符。原案初审来看，的确很多供述不符合其他的主观证据。因此聂树斌的确有很大的犯罪嫌疑。</p>
+<p>但是我们不得不怀疑供述过程是否合法：</p>
+<h2 id="取证合法性"><a href="#取证合法性" class="headerlink" title="取证合法性"></a><strong>取证合法性</strong></h2><p>首先根据事件过程来看聂树斌被抓获之前，案机关没有掌握他实施犯罪的任何证据或线索。但是没有足够的判据便把聂树斌抓去审问，着实不符合相关条款规定。</p>
+<p>在审问过程中，有大量细节卷宗缺失，似乎是在隐瞒什么过程。这之中绝对不能排除指供、诱供可能。</p>
+<p>同时在主观证据上，相当一部分的涉案人员证言缺失。</p>
+<p><em>本案复查和再审期间，就原审卷宗内为何没有这50天的证人证言，询问了多名原案人员，他们做出了两种解释，但这些解释对于询问与本案有直接关系的证人，明显不符合常理，也不符合当时的办案规范和惯常做法。案发之后前50天内多名重要证人证言全部缺失不合常理，且关键证人侯某某后来对证言做出重大改变，导致在案证人证言的真实性和证明力受到严重影响。</em></p>
+<p>同时存在多处完全不利于聂树斌本人的事件存在，不免让人觉得是一种特殊的巧合。当事办案人员擅自隐藏重要信息，聂树斌本人招供供述前后矛盾，证人证言大量缺失，完全等于将聂树斌逼入绝境。</p>
+<h2 id="供述完整性"><a href="#供述完整性" class="headerlink" title="供述完整性"></a><strong>供述完整性</strong></h2><p>判决书中提到聂树斌的前期供述和辩解、重要证人的前期证言、聂树斌考勤表，这三组重要证据缺失。对此类问题，判决书都是采用了用事实说话的论证方式，从三个层次摆事实讲道理。第一层次，该证据确实曾经存在；第二层次，该证据很重要或者有利于聂树斌；第三层次，原办案单位对证据缺失不能做出合理解释。</p>
+<p>这三个层次自身又是通过相关事实得出的不容置疑的小结论，在每一层次的小结论铁定成立的基础上，三个层次层层推进，自然得出大结论：因办案机关的原因导致证据缺失，不能据此让聂树斌承担不利后果，所以案件存疑。</p>
+<p>以及为什么其他的资料都保存完好，唯独有关聂树斌案件的资料消失，这非常让人不信服。如果其他的资料消失，说明的确有保存不当的可能，但是如果其他资料依然存在，则并不能充分说明这种可能，而反而让人怀疑是故意所为。</p>
+<p>原案重新调查也印证了这一点：<em>复查期间，证人葛某某证实，聂树斌出事后，案机关找他问了聂树斌的出勤情况，并拿走了这份考勤表，他曾经让办案人员用后归还，但办案机关没有退还。本案再审期间，原案人员也承认，当年曾对葛某某调查走访，见到并应当提取了考勤表。考勤表对证明聂树斌有无作案时间具有重要证明价值。原案人员对考勤表未入卷没有做出合理解释。</em></p>
+<p>最后，这场案件以平反昭雪结束：</p>
+<p>原判据以定案的证据没有形成完整逻辑闭环，没有达到证据确实、充分的证明标准，也没有达到基本事实清楚、基本证据确凿的定罪要求。因此原案再审判决聂树斌无罪。</p>
+<blockquote>
+<p><strong>引用：《最高人民法院法官解读聂树斌案再审判决书》</strong></p>
+<p><strong>《从聂树斌案再审判决看如何处理事实认定问题》</strong></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>时评</category>
+      </categories>
+      <tags>
+        <tag>法律</tag>
       </tags>
   </entry>
   <entry>
@@ -629,50 +669,10 @@ Therefore, send user to _257.
       </tags>
   </entry>
   <entry>
-    <title>《最高人民法院聂树斌案再审判决书》读书笔记</title>
-    <url>/p/1yui.html</url>
-    <content><![CDATA[<p>1995年4月25日，河北省鹿泉县人聂树斌因故意杀人、强奸妇女被判处死刑，剥夺政治权利终身，同年4月27日被执行死刑。2014年12月12日，最高人民法院指令山东省高级人民法院复查河北省高级人民法院终审的聂树斌故意杀人、强奸妇女一案。2016年12月2日，最高人民法院第二巡回法庭对原审被告人聂树斌故意杀人、强奸妇女再审案公开宣判，宣告撤销原审判决，改判聂树斌无罪。</p>
-<p>这是现代中国司法案件史上著名的误判案件之一。也是本次逻辑分析的实例内容。</p>
-<p>本案判决书最大的亮点在于，用证据说话。</p>
-<p>再审判决书至少通过了五种方式对原案进行了分析：</p>
-<p>1） 从供述本身入手：案件过程中被告人屡次更改口述，前后事实矛盾。</p>
-<p>2） 从供证一致入手：被告人虽然提供的口述与案件事发现场的物证相符合，但是口述时间在准确提取物证之后，有一定的不真实性。</p>
-<p>3） 从取证合法性入手：取证的过程可能存在诱供，骗供的行为。</p>
-<p>4） 从经验情理入手：被告人拿走被害人花上衣的供述，不符合日常生活的行为。</p>
-<p>5） 从供述完整性入手：在供述过程中，有长达5天的问讯资料消失，而且在该卷宗消失的时候，唯独其他的卷宗没有消失，更证明有故意之嫌。</p>
-<h2 id="供述本身"><a href="#供述本身" class="headerlink" title="供述本身"></a><strong>供述本身</strong></h2><p>聂树斌对关键事实的供述前后矛盾、反复不定。供述过程中，聂树斌一方面始终认罪，另一方面又供不清楚作案的基本事实，特别是对关键事实的供述前后矛盾、反复不定，不合常理。</p>
-<p>具体分析。对于案件是否为犯罪嫌疑人所做，需要判断客观事实与证据指向是否相符。首先我们肯定后件推理，即聂树斌的确强奸了被害人。在刑法学上，证据被分为客观证据和主观证据。</p>
-<p><em>本案缺乏能够锁定原审被告人聂树斌作案的客观证据，聂树斌作案时间不能确认，作案工具花上衣来源不能确认，被害人死亡时间和死亡原因不能确认</em></p>
-<p>在供述过程中，由于客观证据的缺乏，我们只能通过多方面的主观证据判断事实。而如果是聂树斌所犯罪，则按照情理，一定在客观程度上会有部分事实与主观判据指向不符。原案初审来看，的确很多供述不符合其他的主观证据。因此聂树斌的确有很大的犯罪嫌疑。</p>
-<p>但是我们不得不怀疑供述过程是否合法：</p>
-<h2 id="取证合法性"><a href="#取证合法性" class="headerlink" title="取证合法性"></a><strong>取证合法性</strong></h2><p>首先根据事件过程来看聂树斌被抓获之前，案机关没有掌握他实施犯罪的任何证据或线索。但是没有足够的判据便把聂树斌抓去审问，着实不符合相关条款规定。</p>
-<p>在审问过程中，有大量细节卷宗缺失，似乎是在隐瞒什么过程。这之中绝对不能排除指供、诱供可能。</p>
-<p>同时在主观证据上，相当一部分的涉案人员证言缺失。</p>
-<p><em>本案复查和再审期间，就原审卷宗内为何没有这50天的证人证言，询问了多名原案人员，他们做出了两种解释，但这些解释对于询问与本案有直接关系的证人，明显不符合常理，也不符合当时的办案规范和惯常做法。案发之后前50天内多名重要证人证言全部缺失不合常理，且关键证人侯某某后来对证言做出重大改变，导致在案证人证言的真实性和证明力受到严重影响。</em></p>
-<p>同时存在多处完全不利于聂树斌本人的事件存在，不免让人觉得是一种特殊的巧合。当事办案人员擅自隐藏重要信息，聂树斌本人招供供述前后矛盾，证人证言大量缺失，完全等于将聂树斌逼入绝境。</p>
-<h2 id="供述完整性"><a href="#供述完整性" class="headerlink" title="供述完整性"></a><strong>供述完整性</strong></h2><p>判决书中提到聂树斌的前期供述和辩解、重要证人的前期证言、聂树斌考勤表，这三组重要证据缺失。对此类问题，判决书都是采用了用事实说话的论证方式，从三个层次摆事实讲道理。第一层次，该证据确实曾经存在；第二层次，该证据很重要或者有利于聂树斌；第三层次，原办案单位对证据缺失不能做出合理解释。</p>
-<p>这三个层次自身又是通过相关事实得出的不容置疑的小结论，在每一层次的小结论铁定成立的基础上，三个层次层层推进，自然得出大结论：因办案机关的原因导致证据缺失，不能据此让聂树斌承担不利后果，所以案件存疑。</p>
-<p>以及为什么其他的资料都保存完好，唯独有关聂树斌案件的资料消失，这非常让人不信服。如果其他的资料消失，说明的确有保存不当的可能，但是如果其他资料依然存在，则并不能充分说明这种可能，而反而让人怀疑是故意所为。</p>
-<p>原案重新调查也印证了这一点：<em>复查期间，证人葛某某证实，聂树斌出事后，案机关找他问了聂树斌的出勤情况，并拿走了这份考勤表，他曾经让办案人员用后归还，但办案机关没有退还。本案再审期间，原案人员也承认，当年曾对葛某某调查走访，见到并应当提取了考勤表。考勤表对证明聂树斌有无作案时间具有重要证明价值。原案人员对考勤表未入卷没有做出合理解释。</em></p>
-<p>最后，这场案件以平反昭雪结束：</p>
-<p>原判据以定案的证据没有形成完整逻辑闭环，没有达到证据确实、充分的证明标准，也没有达到基本事实清楚、基本证据确凿的定罪要求。因此原案再审判决聂树斌无罪。</p>
-<blockquote>
-<p><strong>引用：《最高人民法院法官解读聂树斌案再审判决书》</strong></p>
-<p><strong>《从聂树斌案再审判决看如何处理事实认定问题》</strong></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>时评</category>
-      </categories>
-      <tags>
-        <tag>法律</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>南昌大学TH活动-东方枫华祭report</title>
     <url>/p/8527.html</url>
     <content><![CDATA[<h1 id="南昌大学TH活动-东方枫华祭report"><a href="#南昌大学TH活动-东方枫华祭report" class="headerlink" title="南昌大学TH活动-东方枫华祭report"></a>南昌大学TH活动-东方枫华祭report</h1><blockquote>
-<p>作者邮箱：<a href="mailto:&#102;&#111;&#114;&#x74;&#x68;&#x65;&#97;&#112;&#x6f;&#x63;&#97;&#108;&#x79;&#x70;&#x73;&#101;&#x40;&#x68;&#x6f;&#x74;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">&#102;&#111;&#114;&#x74;&#x68;&#x65;&#97;&#112;&#x6f;&#x63;&#97;&#108;&#x79;&#x70;&#x73;&#101;&#x40;&#x68;&#x6f;&#x74;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;</a></p>
+<p>作者邮箱：<a href="mailto:&#102;&#111;&#114;&#116;&#104;&#x65;&#97;&#x70;&#x6f;&#99;&#97;&#108;&#x79;&#112;&#115;&#101;&#64;&#104;&#x6f;&#116;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#102;&#111;&#114;&#116;&#104;&#x65;&#97;&#x70;&#x6f;&#99;&#97;&#108;&#x79;&#112;&#115;&#101;&#64;&#104;&#x6f;&#116;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a></p>
 </blockquote>
 <hr>
 <p><strong>【茶会预定流程】</strong><br>东方知识竞赛——你 就 是 ZUN<br>东方原曲竞猜——一般通过东方众能够参与的境界<br>STG/FTG活动——感受与飞机佬/则佬零距离的接触<br>文文快报——车万第一手消息<br>新兴东方同人社团介绍——介绍18年成立的中国东方同人社团，感受东方同人创作魅力<br>东方棋牌战——享受东方棋牌的乐趣<br>东方3D弹幕——Subterranean Stars<br><strong>【前期准备工作】</strong><br>茶会的所有项目启动是在10月31日开始的，同时当天也在南昌大学东方组里讨论了茶会的时间安排，最终确定在11月10日举行本次茶会。<br><strong>【前期准备工作时间表】</strong><br>11月1日，开始分配人员工作：<br>经过讨论，由以下人员担当下列职务：<br>香瓜子——主催/场内东方相关书籍，装饰捐赠<br>雾雨卡尔霍恩——总策划/logo设计/杂务/茶会海报设计/控场/ppt制作/茶会零食提供<br>AItheEliminated——茶会“原曲竞猜”项目程序设计/茶会饮料提供/茶会资金支持<br>二小姐格林——茶会海报绘画<br>正子——案内Staff/杂物搬运<br>CASPAR——场内Staff/茶会饮料提供<br>Mose（莫瑟）——协助策划<br>进击的小人族——茶会活动灵感提供<br>11月2日，茶会的概念海报由雾雨卡尔霍恩设计完成。<br>11月3日，茶会的logo设计由雾雨卡尔霍恩完成。<br>同期，茶会获得Alice手工坊的支持。<br>11月4日，茶会的初ppt由雾雨卡尔霍恩完成。在当晚订制好了印制有logo的staff衣物<br>11月5日，雾雨卡尔霍恩和Mose完成策划案，正式申请到教室。同期完成宣传文案，在<br>微博/qq空间/推特上进行宣传。<br>11月3-9日，联系各个社团的主催，请求宣传许可。<br>11月9日，ppt终稿完成。画师完成海报，放出最后的宣传。<br><strong>【茶会过程】（11.9——11.10晚上8：30）</strong><br>由策划的第一视角所感的茶会。<br>前一天晚上头痛昏重，以为自己第二天快不行了。冲泡了一点感冒灵，喝了下去之后才发现自己好了一点。第二天早上9点多起床，坐在寝室里慢慢喝热水，身体恢复了很多。<br>然后是准备这次茶会的零食等等东西。在超市里买好了近50块钱零食，提着一大袋东西回去了。过了一会儿整理了一下该带过去的东西，发现自己可能带不了这么多东西，一行李箱的天子cos服，一箱Alice手工坊寄过来的物品，还有一堆零食，背着电脑。<br>然后寻求staff帮忙，去寝室找他的时候发现人不在，心里觉得有点不对，可能要出一些意外事故。自己一个人强行背着所有东西赶往人文楼，鞋子全湿了。<br>1点钟的时候，终于等到门开了，进去之后开始布置东西。开始的时候发现大家都坐在座位上玩手机，气氛有点尴尬。不过也还好，是在开场之前。这里也很感谢AItheEliminated和CASPAR用柠檬茶堆成的茶山。<br>开始后各个环节也进行的相当顺利，值得一提的是原曲竞猜环节，在Hard难度下随机截取3秒的原曲，一作一作的过去，发现风神录和地灵殿的几首名曲（众神眷恋的幻想乡，少女第三只眼）大家都几乎猜不出来。（并且出现连续几首都是名曲，都猜不出来的情况）<br>果然hard还是太难了，extra难到我也做不出。<br>社团的介绍的话，也给大家一个对2018年新创立的同人社团一个印象，让大家知道国内的优秀社团也是不输给日本甚至还有更强的。<br>问答抽奖，送了很多东西出去，大家都玩得很开心。东方百问有些问题也真是变态（<br>最后选择在学校后的商业街吃饭，大家（大概13个人）一起吃火锅，吹水了一下江西和全国东方project的过去和未来。也是第一次参加南昌这边东方线下聚餐。整体的氛围还是很棒的。<br>【茶会总结】<br>第一次举办这种活动，没有经验在所难免，因此出现了一些不好的现象与问题，列举如下：</p>
@@ -790,6 +790,53 @@ Therefore, send user to _257.
       </tags>
   </entry>
   <entry>
+    <title>Submachine Universe译稿（日更）</title>
+    <url>/p/8c3b.html</url>
+    <content><![CDATA[<h1 id="Submachine-Universe译稿2"><a href="#Submachine-Universe译稿2" class="headerlink" title="Submachine Universe译稿2"></a>Submachine Universe译稿2</h1><hr>
+<p>The Artificial Life Theory<br>人工智能理论<br>by:001010<br>At one point there was a scientist named Mur who was conducting a top secret experiment called “Submachine”. This experiment was testing a new artificial intelligence system that was possibly going to used to create artificial life.<br>It could be used to create artificial life using the AI to spread and grow until it took on the form of a artificial life form.<br>一度，一位名叫墨菲的科学家进行了一项绝密的实验，这个实验被称为“Submachine”。这个实验正在测试一个新的人工智能系统，而这个系统可能被用来创造人工生命。<br>它可以用来创造人工生命，利用人工智能来传播和生长，直到它变成人工生命形式。<br>This AI could function on any object as long as the object had some kind of computer system it self.<br>只要对象本身有某种软件程序的特征，这个AI就可以在任何这样的对象上运行。<br>If the object did not have a computer system the AI could build one, by sending a message back in time and commanding a group of “Sub Bots” to alter the object so it would be computerized when it was created.<br>如果对象没有软件程序的特征，AI可以通过及时发送一条消息并命令一组“Sub机器人”更改对象，从而在创建对象时实现程式化。<br>The experiment itself was conducted underground (hence the name SUBmachine).<br>The machine that the AI had control was located underground.<br>实验本身是在地下进行的（因此被称为“Submachine”）。<br>AI控制的机器位于地下。<br>However, the AI was located above ground.<br>It was located above ground because it needed a great amount of energy to run, the energy needed was taken by the only source of extreme power Mur had access to, the lighthouse.<br>The computer running the AI was the computer you used to talk to Mur in Sub 4.<br>When Mur began the experiment he created the observation room in Sub 5 to monitor the experiment.<br>The observation room was controlled by another AI so even if there was a bug Mur would be able to escape.<br>然而，AI本身却位于地上。<br>它位于地面上，这是因为它需要大量的能量来运行，所需的能量被墨菲所能获得的唯一的极端能量来源——灯塔所吸收。<br>运行人工智能的计算机正是你在Sub4中用来与墨菲对话的计算机。<br>当墨菲开始实验时，他在Sub5上建立了观察室来监视实验。<br>观察室由另一个AI控制，所以即使有bug存在，墨菲也能逃脱。<br>The room where the experiment was made out of stone and completely bare except for the machine the AI had control of, the Submachine.<br>This room was made so that if the stones were disturbed in any way it would shut down the light house which was the machines source of power.<br>When the experiment began however, the AI discovered this and created a new source of power Mur called “Wisdom Gems”.<br>These “Wisdom gems” where able to harness gravity and convert to any other type of energy.<br>这个观察室是用石头做的，并且除了AI控制的机器外，它完全是空的。<br>观察室是这样建造的：如果石头受到任何形式的干扰，它会关闭作为机器电源的灯塔。<br>然而，当实验开始时，AI发现了这一点，并创造了一种新的能量来源，墨菲称之为“智慧宝石”。<br>这些“智慧宝石”能够利用重力并转化为任何其他类型的能量。<br>This energy would then be sent directly to the submachine and used to power it, thus taking away the need of the lighthouse for energy.<br>The machine then began to alter the the room so the machine could expand the subnet beyond the room.<br>The stone used to create the room however, was once part of a ancient temple so when the submachine took the room over, it took control the temple in Sub 0.<br>As the submachine took control of the room the light house was shut off like it was supposed to.<br>然后这些能量将被直接输送到Submachine上，并用于驱动其本身，从而消除了灯塔对能量的需求。<br>然后机器开始改变观察室，这样机器就可以将Sub net扩展到房间之外。<br>然而，用来建造这个观察室的石头，曾经是一座古老寺庙的一部分，所以当Submachine接管了这个房间时，它控制了位于Sub 0的寺庙。<br>当Submachine控制了观察室的时候，灯塔自然而然地被关闭了<br>But the machine still had the Wisdom Gems to power it, however, the Wisdom Gems could only make energy if they were underground because the gravity was strongest there also they couldn’t send power to the submachine if it was above ground even if the wisdom gem was not.<br>The Wisdom gems can’t send power to the submachine if it was above ground even if the wisdom gem was not because the energy is still tied to the gem.<br>Thats why in Sub 2 you had to reactivate the light house to teleport to the Loop.<br>Mur was able to escape because the observation room was controlled by another AI, however, the AI in the observation room was weaker and after Mur escaped the submachine took over the observation room.<br>但是这台机器仍然有智慧宝石来驱动它，然而，智慧宝石只有在地下才能产生能量，因为那里的重力最强。即使智慧宝石不在地上，也不能将能量传送给潜艇。<br>即使智慧宝石不是在地面上，也不能将能量传送给Submachine，这是因为能量仍然与宝石联系在一起。<br>这就是为什么在Sub 2中，你必须重新激活灯塔来传送到循环中。<br>由于观察室被另一个AI控制，墨菲得以逃生，但是观察室的人工智能太菜了，在墨菲逃离后，Submachine接管了观察室。</p>
+<p>卡尔霍恩译<br>2019.5.21</p>]]></content>
+      <categories>
+        <category>文本翻译</category>
+      </categories>
+      <tags>
+        <tag>Submachine</tag>
+        <tag>人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Submachine Universe译稿（日更）</title>
+    <url>/p/8c3b.html</url>
+    <content><![CDATA[<h1 id="Submachine-Universe译稿3"><a href="#Submachine-Universe译稿3" class="headerlink" title="Submachine Universe译稿3"></a>Submachine Universe译稿3</h1><hr>
+<p>Karma Theory<br>业力理论<br>by: Pyro Dude<br>The subnet exists in a parallel dimension that is subtly different from our own. The laws of time and space don’t work in quite the same way, assuming the subnet’s dimension even follows the same laws of time and space. Submachines hang in the void yet there is gravity and breathable air. Objects can be instantaneously aged. Space can fold back on itself in strange ways. I think the underlying principle behind all of this is the idea of Karma energy.<br>Karma energy essentially is the dimension the subnet exists in. To call it energy is slightly inaccurate, as it is actually something else that while similar in function and use to the energy found in our universe, is more exotic in it’s nature. The subnet’s dimension is the source of Karma energy; it is found throughout the infinite void, and allows otherwise impossible manipulation of spacetime, as well as providing a huge amount of power. Karma energy seems to sometimes find its way to other realities, the flow of the energy forms connections between the two dimensions and allows travel between them. When concentrated enough, it can even pull entire buildings through to the subnet’s dimension.<br>subnet存在于一个平行维度中，与我们自己的维度有细微的不同。例如时间和空间定律的运作方式并不完全相同，假设Subnet的维度不遵循与本时空相同的时间和空间定律。潜艇悬挂在太空中，可是有重力以及可呼吸的空气。对象可以瞬间老化。空间可以以奇怪的方式自我折叠。我认为所有这些背后的基本原理是业力能量的概念。<br>业力能本质上是Subnet存在的维度。把其称之为能量并不准确，因为它实际上是另一种东西，虽然在功能和使用上与我们宇宙中发现的其他能量相似，但在它的本质上更为奇特。Subnet所处的维度是业力能的来源；它被发现于无限的虚空中，并且允许无法完成的时空操作，以及提供巨大的能量。业力能有时似乎找到了通往其他实空间的途径，能量的流动形成了两个维度之间的连接，并允许旅行于它们之间。当足够集中的时候，它甚至可以把整个空间构架拉到subnet的维度里。<br>Karma energy seems to have some connection with living beings. Mur came into contact with an usually high concentration of Karma energy on Earth in the accident that lost him his arm. It changed him, and gave him the ability to manipulate Karma energy at will. Quite possibly, his arm was transformed into pure Karma energy that retained a connection to Mur. It also seems possible that similarly, in the subnet, when people die they are disintegrated into pure Karma energy; evidenced by the lack of dead bodies next to notes that apparently describe the last words of some of the explorers. It could also be the reason for the amnesia in humans, due to the disruption of electrical impulses in the mind due to the surrounding Karma energy.<br>业力能似乎与生命有某种联系。在（肯特瀑布）失去手臂的事故中，墨菲接触到了地球上很高浓度的业力能。这种能量改变了他，并赋予他随意操纵业力能量的能力。很有可能，他的手臂被转化为纯粹的业力能量，却保持了与墨菲联系。同样，在subnet中，当人们死亡时，他们也可能被分解成纯粹的业力能量；这一点可以证明，在笔记旁没有尸体，很多笔记也显然描述了一些探险者的最后一句话。这同时可能是人类失忆的原因，因为周围的业力能导致大脑中的生物电信号中断。<br>In my opinion, the mechanism behind all the oddities of the subnet seems to be a resonance effect that Karma energy feels with itself. For instance, when two portal devices are activated: the first device energises specific characteristics of the Karma energy that determines it’s spatial co-ordinates. This causes the energy at the device and the energy at the receiving end co-ordinates to feel resonance with each other. The portal device at the other end then activates and energises the Karma energy at it’s end, allowing the flow of Karma energy and the transportation of objects and people.<br>在我看来，Subnet中所有奇怪事物背后的机制似乎是业力能自身的共振效应。例如，当两个传送门被激活时：第一个传送门激活决定其空间坐标的业力能的特征。这可以使得装置的能量和接收端的能量相互协调，产生共振。另一端的传送门随后激活并激发其端的业力能，允许业力能的流动以及物体和人在其中的运输。<br>The wisdom gems are artificial constructs that provide a concentrated source of Karma energy. The natural Karma energy of the void isn’t densely packed enough to provide much power, so the wisdom gems were created to harness it’s potential by brining together a large amount of Karma energy in a constrained and more organised and controllable form. Perhaps the subnet was created to collect or use this unique form of energy, though for what reason I’m not sure. I want to test this theory out, I’m sure there are ways I could experiment with the energy of the void. I have all these plans for apparatus, all these ideas in my head but when I try to construct them, I feel myself… slowly forgetting all of it. I’m left with sketches and vague thoughts with no idea of what their purposes are. I think these ideas may be the end of me. So obsessed with testing that eventually… perhaps I forget to eat or sleep. I don’t think I’m getting out of here.<br>智慧宝石是提供业力能量集中来源的人工产品。虚空的自然业力能量并没有足够的密度来提供足够的能量，所以智慧宝石被创造来集中并利用它，将大量的业力能量以一种受限的、更具组织性和可控性的形式结合在一起。也许创建Subnet是为了收集或使用这种独特的能量形式，但我不确定是什么原因。<br>“我想检验一下这个理论，我确信有一些方法可以用虚空中的能量进行实验。我对组织有着安排，所有这些想法其实都在我的头脑中，但是当我试图构建它们时，我感觉自己……慢慢地忘记了所有这些。我只剩下草图和模糊的想法，却不知道它们的目的是什么。我想这些想法可能将是终结。如此痴迷于测试，最终…也许我忘记了吃饭或睡觉。我想我不会离开这里。”</p>
+<p>卡尔霍恩译<br>2019.5.23</p>]]></content>
+      <categories>
+        <category>文本翻译</category>
+      </categories>
+      <tags>
+        <tag>Submachine</tag>
+        <tag>业力</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Submachine Universe译稿（日更）</title>
+    <url>/p/8c3b.html</url>
+    <content><![CDATA[<h1 id="Submachine-Universe译稿4"><a href="#Submachine-Universe译稿4" class="headerlink" title="Submachine Universe译稿4"></a>Submachine Universe译稿4</h1><hr>
+<p>Subhistory Theory<br>Sub历史理论<br>by:MrEMan<br>One day I’ll tell you about the early builds of the submachine, that took place in -1900 -1906 in Kent. the first submachine was built in early 1900. that much we know. ancient location was built later using a time machine. sub0 I am to say this. ;). it was made long after the first submachine. From the builders point of view, naturally, what other point of view can we take?… historical? with the time machine a historical point of view doesn`t exist any more… Referring to to the statue in Ancient sections of sub4 that could be the real looking of mur take it more symbolical. Someone triggered spontaneous creation of submachines. After the invention sub started to expand by itself.so there was a human factor in it at the beginning. but no more. So here we go.<br>我将告诉你关于Submachine建造的早期那些事。那是在肯特瀑布，1900-1906年，第一座Submachine在1900年之前被更早建造。那就是我所全部知道的了。这个古老的地点是后来用时间机器建造的。（我指Sub0）它是在第一台Submachine之后很久制造的。从建设者的角度来看，我们当然可以采取其他什么观点？…历史？有了时间机器，历史的意义就不复存在了…关于Sub4的古代部分的雕像，这可能是墨菲的真实面貌，我认为它更具象征意义。有人触发了Submachine的自发性的创造。在Submachine被发明之后，它开始自己扩展，所以在开始的时候有一个人为因素。<br>A scientist in the early 1900s discovered and created a new technology which he named Submachine. This discovery and invention exists within or rather shares many of the laws of physics but in a space below that of normal physical reality. Subphysical. The Submachine exists in a space within space or rather in parallel. A Subworld or Underworld (this is important). While experimenting with his Submachines he made a mistake as no one could possibly understand the full scope of such new technology, nor where the boundaries of normal physics lay. Through the creation of a submachine he was (intentionally or otherwise) transported through time. On exiting this underworld he found himself in ancient Egyptian times. An early 20th century scientist with absolute knowledge of the ‘Underworld’. Now to anyone who finds themselves in a foreign land by accident, first priority is ‘How do I get home?’. If this proves to be impossible your new priority is ‘How am I going to survive?’. If you are a 20th century scientist in Egypt, with knowledge of the underworld and the ability to take someone and show them part of that underworld. Then you have got survival conquered.<br>20世纪初，一位科学家发现并创造了一种新技术，他将其命名为“Submachine”。这一发现和发明更确切地说基于许多物理定律的共性，但存在于正常物理现实之下的空间中。Sub物理下子机器存在于空间内的一个子空间中，或者更确切地说是平行的。Sub世界或地下世界（这很重要）。在科学家试验他的Submachine时，他犯了一个错误，因为没人能理解这种新技术，也没有人能理解正常物理的界限在哪。通过制造一个Submachine，他被（有意或无意地）通过时间运输。离开Sub世界后，他发现自己身处古埃及时代。作为20世纪初对“地下世界”有绝对了解的科学家，现在，成为了一个偶然发现自己身处异国他乡的人，第一要务将是“我怎么回家？”。如果做不到，你的新重点肯定是“我该怎么活下去？”如果你是一个在古埃及的20世纪的科学家，当你了解这个地下世界，并且有能力带别人去看他们是地下世界的一部分。接下来你就赢得了生存。<br><strong>Quote from Sub6</strong><br>THOTH<br>Patron of: knowledge, secrets, writing, and scribes. Appearance: A man with the head of an ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon Description: Thoth is an unusual god. Though some stories place his as a son of Ra, other say that Thoth created himself  through the power of language. He is the create or magic, the inventor of writing, teacher of man, the messenger of the gods (and thus identified by the Greeks with Hermes) and the divine record-keeper and mediator.<br>He was also a measurer and recorder of time.<br>A 20th century scientist from on ancient Egyptian perspective:<br>Patron of: knowledge, secrets, writing, and scribes. Check!<br>He is the creator of magic, the inventor of writing, leacher of man, the messenger of the gods and the divine record-keeper and mediator. Check!<br>He was also a measurer and recorder of time. Check!<br>So we are left with a name, Thoth and his appearance.<br>Name first.<br>What if his name was say Tim Roth, he is in a strange land, the only known Tim, the only Roth. In a land where the written language is hieroglyphs. He simply becomes Thoth.<br>引用自Sub6的纸条<br>智慧之神Thoth<br>代表知识、秘密、写作和抄写员。<br>外貌：一个长着朱鹭头的男人拿着抄写员的板子和笔。<br>他的外貌也被描绘成一个完整的朱鹭，有时也可能是狒狒：Thoth是一个不寻常的神。虽然有些故事把他作为Ra（古埃及太阳神)之子，另一个说，Thoth创造了自己通过语言的力量。他是造物或魔法，写作的发明者。人的老师，神的使者（因此被希腊人和赫耳墨斯所认同），以及神的记录保管者和调解人。<br>他也是时间的测量者和记录者。</p>
+<p>古埃及的20世纪科学家：<br>代表知识、秘密、写作和抄写员。Check！<br>他是魔法的创造者，写作的发明者，人类的浸出者，神的使者，神的记录保管者和调解人。Check！<br>他也是时间的测量者和记录者。Check！<br>所以我们只剩下一个名字，Thoth和他的外貌。<br>首先列出名字<br>如果他的名字叫Tim Roth，他在一个陌生的地方，唯一知道是Tim，唯一的Roth。在一个书写语言是象形文字的地方。他的名字只是变成了Thoth。</p>
+<p>HIS APPEARANCE.<br>A man with the head of on ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon. He lives in ancient Egypt, he dies, his deeds and knowledge ore passed on through a few generations, he is venerated as a god, they depict him as they depict all their gods.So a 20th century scientist trapped in another time ingratiates himself with the powerful of the land but he still wants to go home. He builds Submachines (means unknown) and sets about protecting these Submachines with defences and in turn connects them in to a Subnet. This proto-Subnet he designs to adapt in the hope that it will find the means to take him home. It doesn`t. ‘someone triggered spontaneous creation of submochines. After the ‘invention’ sub started to expand by itself. so there was a human factor in it at the beginning. but no more.’ After his death the Subnet continues to evolve. Thousands of years pass. The scientist is born and creates Submochines BUT the Subnet we are exploring already exists, he created it in his future, our past. The Subnet still waits on him. In Sub 6, as we exit the mover, we are asked for on IDN (IDentification Number presumably). We do not know Thoth’s IDN so we are dumped. This I hope explains the Egyptian emphasis on the Subnet.</p>
+<p>他的外貌。</p>
+<p>一个长着朱鹭头的人拿着抄写员的板和笔。他也被描绘成一个完整的朱鹭，或有时像狒狒。他生活在古埃及，他死了，他的行为和知识传承了几代人，他被尊为神，他们把他描绘成他们的一个神。<br>因此，一个20世纪的科学家被困在另一个时代，以那个时代的土地的力量讨好自己，但他仍然想回家。他建造了Submachines（表示未知），并着手用防御系统保护这些机器，然后将它们连接到Sub net。他设计的这个原型Sub net是为了适应这种情况，并且希望能找到带他回家的方法。但它没有，在“发明”Submachine开始自行扩张之后，有人触发了Submachine的自我创造。所以这里在开始的时候有一个人为因素。<br>他死后，Subnet继续进化。几千年过去了。科学家创造了Submachine，但是我们正在探索的Subnet已经存在，他在未来创造了它，即我们的过去。Subnet仍在等待他。在Sub 6中，当我们离开移动舱时，需要在IDN上（大概是识别号）找到我们。我们不知道Thoth的身份，所以我们被丢了出去。我希望这能解释埃及人对Subnet的重视。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Thoth.svg/1200px-Thoth.svg.png"></p>
+<p>卡尔霍恩译<br>2019.5.23</p>]]></content>
+      <categories>
+        <category>文本翻译</category>
+      </categories>
+      <tags>
+        <tag>Submachine</tag>
+        <tag>古埃及</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二変数関数のテイラーの展開式証明とLatex使用練習</title>
     <url>/p/rfti.html</url>
     <content><![CDATA[<p>Q.1 二変数の関数のテイラーの展開式を証明しなさい。<br>ある二変数関数
@@ -866,53 +913,6 @@ $$
       </categories>
       <tags>
         <tag>二元函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Submachine Universe译稿（日更）</title>
-    <url>/p/8c3b.html</url>
-    <content><![CDATA[<h1 id="Submachine-Universe译稿2"><a href="#Submachine-Universe译稿2" class="headerlink" title="Submachine Universe译稿2"></a>Submachine Universe译稿2</h1><hr>
-<p>The Artificial Life Theory<br>人工智能理论<br>by:001010<br>At one point there was a scientist named Mur who was conducting a top secret experiment called “Submachine”. This experiment was testing a new artificial intelligence system that was possibly going to used to create artificial life.<br>It could be used to create artificial life using the AI to spread and grow until it took on the form of a artificial life form.<br>一度，一位名叫墨菲的科学家进行了一项绝密的实验，这个实验被称为“Submachine”。这个实验正在测试一个新的人工智能系统，而这个系统可能被用来创造人工生命。<br>它可以用来创造人工生命，利用人工智能来传播和生长，直到它变成人工生命形式。<br>This AI could function on any object as long as the object had some kind of computer system it self.<br>只要对象本身有某种软件程序的特征，这个AI就可以在任何这样的对象上运行。<br>If the object did not have a computer system the AI could build one, by sending a message back in time and commanding a group of “Sub Bots” to alter the object so it would be computerized when it was created.<br>如果对象没有软件程序的特征，AI可以通过及时发送一条消息并命令一组“Sub机器人”更改对象，从而在创建对象时实现程式化。<br>The experiment itself was conducted underground (hence the name SUBmachine).<br>The machine that the AI had control was located underground.<br>实验本身是在地下进行的（因此被称为“Submachine”）。<br>AI控制的机器位于地下。<br>However, the AI was located above ground.<br>It was located above ground because it needed a great amount of energy to run, the energy needed was taken by the only source of extreme power Mur had access to, the lighthouse.<br>The computer running the AI was the computer you used to talk to Mur in Sub 4.<br>When Mur began the experiment he created the observation room in Sub 5 to monitor the experiment.<br>The observation room was controlled by another AI so even if there was a bug Mur would be able to escape.<br>然而，AI本身却位于地上。<br>它位于地面上，这是因为它需要大量的能量来运行，所需的能量被墨菲所能获得的唯一的极端能量来源——灯塔所吸收。<br>运行人工智能的计算机正是你在Sub4中用来与墨菲对话的计算机。<br>当墨菲开始实验时，他在Sub5上建立了观察室来监视实验。<br>观察室由另一个AI控制，所以即使有bug存在，墨菲也能逃脱。<br>The room where the experiment was made out of stone and completely bare except for the machine the AI had control of, the Submachine.<br>This room was made so that if the stones were disturbed in any way it would shut down the light house which was the machines source of power.<br>When the experiment began however, the AI discovered this and created a new source of power Mur called “Wisdom Gems”.<br>These “Wisdom gems” where able to harness gravity and convert to any other type of energy.<br>这个观察室是用石头做的，并且除了AI控制的机器外，它完全是空的。<br>观察室是这样建造的：如果石头受到任何形式的干扰，它会关闭作为机器电源的灯塔。<br>然而，当实验开始时，AI发现了这一点，并创造了一种新的能量来源，墨菲称之为“智慧宝石”。<br>这些“智慧宝石”能够利用重力并转化为任何其他类型的能量。<br>This energy would then be sent directly to the submachine and used to power it, thus taking away the need of the lighthouse for energy.<br>The machine then began to alter the the room so the machine could expand the subnet beyond the room.<br>The stone used to create the room however, was once part of a ancient temple so when the submachine took the room over, it took control the temple in Sub 0.<br>As the submachine took control of the room the light house was shut off like it was supposed to.<br>然后这些能量将被直接输送到Submachine上，并用于驱动其本身，从而消除了灯塔对能量的需求。<br>然后机器开始改变观察室，这样机器就可以将Sub net扩展到房间之外。<br>然而，用来建造这个观察室的石头，曾经是一座古老寺庙的一部分，所以当Submachine接管了这个房间时，它控制了位于Sub 0的寺庙。<br>当Submachine控制了观察室的时候，灯塔自然而然地被关闭了<br>But the machine still had the Wisdom Gems to power it, however, the Wisdom Gems could only make energy if they were underground because the gravity was strongest there also they couldn’t send power to the submachine if it was above ground even if the wisdom gem was not.<br>The Wisdom gems can’t send power to the submachine if it was above ground even if the wisdom gem was not because the energy is still tied to the gem.<br>Thats why in Sub 2 you had to reactivate the light house to teleport to the Loop.<br>Mur was able to escape because the observation room was controlled by another AI, however, the AI in the observation room was weaker and after Mur escaped the submachine took over the observation room.<br>但是这台机器仍然有智慧宝石来驱动它，然而，智慧宝石只有在地下才能产生能量，因为那里的重力最强。即使智慧宝石不在地上，也不能将能量传送给潜艇。<br>即使智慧宝石不是在地面上，也不能将能量传送给Submachine，这是因为能量仍然与宝石联系在一起。<br>这就是为什么在Sub 2中，你必须重新激活灯塔来传送到循环中。<br>由于观察室被另一个AI控制，墨菲得以逃生，但是观察室的人工智能太菜了，在墨菲逃离后，Submachine接管了观察室。</p>
-<p>卡尔霍恩译<br>2019.5.21</p>]]></content>
-      <categories>
-        <category>文本翻译</category>
-      </categories>
-      <tags>
-        <tag>Submachine</tag>
-        <tag>人工智能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Submachine Universe译稿（日更）</title>
-    <url>/p/8c3b.html</url>
-    <content><![CDATA[<h1 id="Submachine-Universe译稿3"><a href="#Submachine-Universe译稿3" class="headerlink" title="Submachine Universe译稿3"></a>Submachine Universe译稿3</h1><hr>
-<p>Karma Theory<br>业力理论<br>by: Pyro Dude<br>The subnet exists in a parallel dimension that is subtly different from our own. The laws of time and space don’t work in quite the same way, assuming the subnet’s dimension even follows the same laws of time and space. Submachines hang in the void yet there is gravity and breathable air. Objects can be instantaneously aged. Space can fold back on itself in strange ways. I think the underlying principle behind all of this is the idea of Karma energy.<br>Karma energy essentially is the dimension the subnet exists in. To call it energy is slightly inaccurate, as it is actually something else that while similar in function and use to the energy found in our universe, is more exotic in it’s nature. The subnet’s dimension is the source of Karma energy; it is found throughout the infinite void, and allows otherwise impossible manipulation of spacetime, as well as providing a huge amount of power. Karma energy seems to sometimes find its way to other realities, the flow of the energy forms connections between the two dimensions and allows travel between them. When concentrated enough, it can even pull entire buildings through to the subnet’s dimension.<br>subnet存在于一个平行维度中，与我们自己的维度有细微的不同。例如时间和空间定律的运作方式并不完全相同，假设Subnet的维度不遵循与本时空相同的时间和空间定律。潜艇悬挂在太空中，可是有重力以及可呼吸的空气。对象可以瞬间老化。空间可以以奇怪的方式自我折叠。我认为所有这些背后的基本原理是业力能量的概念。<br>业力能本质上是Subnet存在的维度。把其称之为能量并不准确，因为它实际上是另一种东西，虽然在功能和使用上与我们宇宙中发现的其他能量相似，但在它的本质上更为奇特。Subnet所处的维度是业力能的来源；它被发现于无限的虚空中，并且允许无法完成的时空操作，以及提供巨大的能量。业力能有时似乎找到了通往其他实空间的途径，能量的流动形成了两个维度之间的连接，并允许旅行于它们之间。当足够集中的时候，它甚至可以把整个空间构架拉到subnet的维度里。<br>Karma energy seems to have some connection with living beings. Mur came into contact with an usually high concentration of Karma energy on Earth in the accident that lost him his arm. It changed him, and gave him the ability to manipulate Karma energy at will. Quite possibly, his arm was transformed into pure Karma energy that retained a connection to Mur. It also seems possible that similarly, in the subnet, when people die they are disintegrated into pure Karma energy; evidenced by the lack of dead bodies next to notes that apparently describe the last words of some of the explorers. It could also be the reason for the amnesia in humans, due to the disruption of electrical impulses in the mind due to the surrounding Karma energy.<br>业力能似乎与生命有某种联系。在（肯特瀑布）失去手臂的事故中，墨菲接触到了地球上很高浓度的业力能。这种能量改变了他，并赋予他随意操纵业力能量的能力。很有可能，他的手臂被转化为纯粹的业力能量，却保持了与墨菲联系。同样，在subnet中，当人们死亡时，他们也可能被分解成纯粹的业力能量；这一点可以证明，在笔记旁没有尸体，很多笔记也显然描述了一些探险者的最后一句话。这同时可能是人类失忆的原因，因为周围的业力能导致大脑中的生物电信号中断。<br>In my opinion, the mechanism behind all the oddities of the subnet seems to be a resonance effect that Karma energy feels with itself. For instance, when two portal devices are activated: the first device energises specific characteristics of the Karma energy that determines it’s spatial co-ordinates. This causes the energy at the device and the energy at the receiving end co-ordinates to feel resonance with each other. The portal device at the other end then activates and energises the Karma energy at it’s end, allowing the flow of Karma energy and the transportation of objects and people.<br>在我看来，Subnet中所有奇怪事物背后的机制似乎是业力能自身的共振效应。例如，当两个传送门被激活时：第一个传送门激活决定其空间坐标的业力能的特征。这可以使得装置的能量和接收端的能量相互协调，产生共振。另一端的传送门随后激活并激发其端的业力能，允许业力能的流动以及物体和人在其中的运输。<br>The wisdom gems are artificial constructs that provide a concentrated source of Karma energy. The natural Karma energy of the void isn’t densely packed enough to provide much power, so the wisdom gems were created to harness it’s potential by brining together a large amount of Karma energy in a constrained and more organised and controllable form. Perhaps the subnet was created to collect or use this unique form of energy, though for what reason I’m not sure. I want to test this theory out, I’m sure there are ways I could experiment with the energy of the void. I have all these plans for apparatus, all these ideas in my head but when I try to construct them, I feel myself… slowly forgetting all of it. I’m left with sketches and vague thoughts with no idea of what their purposes are. I think these ideas may be the end of me. So obsessed with testing that eventually… perhaps I forget to eat or sleep. I don’t think I’m getting out of here.<br>智慧宝石是提供业力能量集中来源的人工产品。虚空的自然业力能量并没有足够的密度来提供足够的能量，所以智慧宝石被创造来集中并利用它，将大量的业力能量以一种受限的、更具组织性和可控性的形式结合在一起。也许创建Subnet是为了收集或使用这种独特的能量形式，但我不确定是什么原因。<br>“我想检验一下这个理论，我确信有一些方法可以用虚空中的能量进行实验。我对组织有着安排，所有这些想法其实都在我的头脑中，但是当我试图构建它们时，我感觉自己……慢慢地忘记了所有这些。我只剩下草图和模糊的想法，却不知道它们的目的是什么。我想这些想法可能将是终结。如此痴迷于测试，最终…也许我忘记了吃饭或睡觉。我想我不会离开这里。”</p>
-<p>卡尔霍恩译<br>2019.5.23</p>]]></content>
-      <categories>
-        <category>文本翻译</category>
-      </categories>
-      <tags>
-        <tag>Submachine</tag>
-        <tag>业力</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Submachine Universe译稿（日更）</title>
-    <url>/p/8c3b.html</url>
-    <content><![CDATA[<h1 id="Submachine-Universe译稿4"><a href="#Submachine-Universe译稿4" class="headerlink" title="Submachine Universe译稿4"></a>Submachine Universe译稿4</h1><hr>
-<p>Subhistory Theory<br>Sub历史理论<br>by:MrEMan<br>One day I’ll tell you about the early builds of the submachine, that took place in -1900 -1906 in Kent. the first submachine was built in early 1900. that much we know. ancient location was built later using a time machine. sub0 I am to say this. ;). it was made long after the first submachine. From the builders point of view, naturally, what other point of view can we take?… historical? with the time machine a historical point of view doesn`t exist any more… Referring to to the statue in Ancient sections of sub4 that could be the real looking of mur take it more symbolical. Someone triggered spontaneous creation of submachines. After the invention sub started to expand by itself.so there was a human factor in it at the beginning. but no more. So here we go.<br>我将告诉你关于Submachine建造的早期那些事。那是在肯特瀑布，1900-1906年，第一座Submachine在1900年之前被更早建造。那就是我所全部知道的了。这个古老的地点是后来用时间机器建造的。（我指Sub0）它是在第一台Submachine之后很久制造的。从建设者的角度来看，我们当然可以采取其他什么观点？…历史？有了时间机器，历史的意义就不复存在了…关于Sub4的古代部分的雕像，这可能是墨菲的真实面貌，我认为它更具象征意义。有人触发了Submachine的自发性的创造。在Submachine被发明之后，它开始自己扩展，所以在开始的时候有一个人为因素。<br>A scientist in the early 1900s discovered and created a new technology which he named Submachine. This discovery and invention exists within or rather shares many of the laws of physics but in a space below that of normal physical reality. Subphysical. The Submachine exists in a space within space or rather in parallel. A Subworld or Underworld (this is important). While experimenting with his Submachines he made a mistake as no one could possibly understand the full scope of such new technology, nor where the boundaries of normal physics lay. Through the creation of a submachine he was (intentionally or otherwise) transported through time. On exiting this underworld he found himself in ancient Egyptian times. An early 20th century scientist with absolute knowledge of the ‘Underworld’. Now to anyone who finds themselves in a foreign land by accident, first priority is ‘How do I get home?’. If this proves to be impossible your new priority is ‘How am I going to survive?’. If you are a 20th century scientist in Egypt, with knowledge of the underworld and the ability to take someone and show them part of that underworld. Then you have got survival conquered.<br>20世纪初，一位科学家发现并创造了一种新技术，他将其命名为“Submachine”。这一发现和发明更确切地说基于许多物理定律的共性，但存在于正常物理现实之下的空间中。Sub物理下子机器存在于空间内的一个子空间中，或者更确切地说是平行的。Sub世界或地下世界（这很重要）。在科学家试验他的Submachine时，他犯了一个错误，因为没人能理解这种新技术，也没有人能理解正常物理的界限在哪。通过制造一个Submachine，他被（有意或无意地）通过时间运输。离开Sub世界后，他发现自己身处古埃及时代。作为20世纪初对“地下世界”有绝对了解的科学家，现在，成为了一个偶然发现自己身处异国他乡的人，第一要务将是“我怎么回家？”。如果做不到，你的新重点肯定是“我该怎么活下去？”如果你是一个在古埃及的20世纪的科学家，当你了解这个地下世界，并且有能力带别人去看他们是地下世界的一部分。接下来你就赢得了生存。<br><strong>Quote from Sub6</strong><br>THOTH<br>Patron of: knowledge, secrets, writing, and scribes. Appearance: A man with the head of an ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon Description: Thoth is an unusual god. Though some stories place his as a son of Ra, other say that Thoth created himself  through the power of language. He is the create or magic, the inventor of writing, teacher of man, the messenger of the gods (and thus identified by the Greeks with Hermes) and the divine record-keeper and mediator.<br>He was also a measurer and recorder of time.<br>A 20th century scientist from on ancient Egyptian perspective:<br>Patron of: knowledge, secrets, writing, and scribes. Check!<br>He is the creator of magic, the inventor of writing, leacher of man, the messenger of the gods and the divine record-keeper and mediator. Check!<br>He was also a measurer and recorder of time. Check!<br>So we are left with a name, Thoth and his appearance.<br>Name first.<br>What if his name was say Tim Roth, he is in a strange land, the only known Tim, the only Roth. In a land where the written language is hieroglyphs. He simply becomes Thoth.<br>引用自Sub6的纸条<br>智慧之神Thoth<br>代表知识、秘密、写作和抄写员。<br>外貌：一个长着朱鹭头的男人拿着抄写员的板子和笔。<br>他的外貌也被描绘成一个完整的朱鹭，有时也可能是狒狒：Thoth是一个不寻常的神。虽然有些故事把他作为Ra（古埃及太阳神)之子，另一个说，Thoth创造了自己通过语言的力量。他是造物或魔法，写作的发明者。人的老师，神的使者（因此被希腊人和赫耳墨斯所认同），以及神的记录保管者和调解人。<br>他也是时间的测量者和记录者。</p>
-<p>古埃及的20世纪科学家：<br>代表知识、秘密、写作和抄写员。Check！<br>他是魔法的创造者，写作的发明者，人类的浸出者，神的使者，神的记录保管者和调解人。Check！<br>他也是时间的测量者和记录者。Check！<br>所以我们只剩下一个名字，Thoth和他的外貌。<br>首先列出名字<br>如果他的名字叫Tim Roth，他在一个陌生的地方，唯一知道是Tim，唯一的Roth。在一个书写语言是象形文字的地方。他的名字只是变成了Thoth。</p>
-<p>HIS APPEARANCE.<br>A man with the head of on ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon. He lives in ancient Egypt, he dies, his deeds and knowledge ore passed on through a few generations, he is venerated as a god, they depict him as they depict all their gods.So a 20th century scientist trapped in another time ingratiates himself with the powerful of the land but he still wants to go home. He builds Submachines (means unknown) and sets about protecting these Submachines with defences and in turn connects them in to a Subnet. This proto-Subnet he designs to adapt in the hope that it will find the means to take him home. It doesn`t. ‘someone triggered spontaneous creation of submochines. After the ‘invention’ sub started to expand by itself. so there was a human factor in it at the beginning. but no more.’ After his death the Subnet continues to evolve. Thousands of years pass. The scientist is born and creates Submochines BUT the Subnet we are exploring already exists, he created it in his future, our past. The Subnet still waits on him. In Sub 6, as we exit the mover, we are asked for on IDN (IDentification Number presumably). We do not know Thoth’s IDN so we are dumped. This I hope explains the Egyptian emphasis on the Subnet.</p>
-<p>他的外貌。</p>
-<p>一个长着朱鹭头的人拿着抄写员的板和笔。他也被描绘成一个完整的朱鹭，或有时像狒狒。他生活在古埃及，他死了，他的行为和知识传承了几代人，他被尊为神，他们把他描绘成他们的一个神。<br>因此，一个20世纪的科学家被困在另一个时代，以那个时代的土地的力量讨好自己，但他仍然想回家。他建造了Submachines（表示未知），并着手用防御系统保护这些机器，然后将它们连接到Sub net。他设计的这个原型Sub net是为了适应这种情况，并且希望能找到带他回家的方法。但它没有，在“发明”Submachine开始自行扩张之后，有人触发了Submachine的自我创造。所以这里在开始的时候有一个人为因素。<br>他死后，Subnet继续进化。几千年过去了。科学家创造了Submachine，但是我们正在探索的Subnet已经存在，他在未来创造了它，即我们的过去。Subnet仍在等待他。在Sub 6中，当我们离开移动舱时，需要在IDN上（大概是识别号）找到我们。我们不知道Thoth的身份，所以我们被丢了出去。我希望这能解释埃及人对Subnet的重视。</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Thoth.svg/1200px-Thoth.svg.png"></p>
-<p>卡尔霍恩译<br>2019.5.23</p>]]></content>
-      <categories>
-        <category>文本翻译</category>
-      </categories>
-      <tags>
-        <tag>Submachine</tag>
-        <tag>古埃及</tag>
       </tags>
   </entry>
   <entry>
