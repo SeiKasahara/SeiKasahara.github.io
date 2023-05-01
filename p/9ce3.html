@@ -597,7 +597,7 @@
         <hr>
 <h1 id="简单利用Mathematica计算氦合质子的分子轨道"><a href="#简单利用Mathematica计算氦合质子的分子轨道" class="headerlink" title="简单利用Mathematica计算氦合质子的分子轨道"></a>简单利用Mathematica计算氦合质子的分子轨道</h1><p>—Edward Calhoun</p>
 <blockquote>
-<p>作者邮箱 <a href="mailto:&#x66;&#111;&#x72;&#116;&#104;&#x65;&#x61;&#x70;&#111;&#99;&#97;&#108;&#121;&#112;&#115;&#x65;&#x40;&#x68;&#111;&#x74;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x66;&#111;&#x72;&#116;&#104;&#x65;&#x61;&#x70;&#111;&#99;&#97;&#108;&#121;&#112;&#115;&#x65;&#x40;&#x68;&#111;&#x74;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p>作者邮箱 <a href="mailto:&#102;&#x6f;&#x72;&#116;&#x68;&#x65;&#x61;&#112;&#x6f;&#99;&#97;&#x6c;&#x79;&#112;&#x73;&#101;&#64;&#x68;&#111;&#116;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#102;&#x6f;&#x72;&#116;&#x68;&#x65;&#x61;&#112;&#x6f;&#99;&#97;&#x6c;&#x79;&#112;&#x73;&#101;&#64;&#x68;&#111;&#116;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 <p> <strong><em>1. 引言</em></strong></p>
 <p><strong>量子化学是理论化学的一个重要分支学科，自20世纪60年代计算机技术突飞猛进，计算化学也同样成为量子化学研究的有力交叉学科</strong>，基于非相对论近似，绝热近似和单电子近似的全电子的非经验计算方法被迅速提出，其包括不借助任何经验参数求解全电子体系的<em>Schrödinger</em>方程方法，自洽场水平上的超<em>Hartree–Fock-Roothaan</em>方程计算法（HFR法）。原则上讲，有了HFR方程，就可以计算任何多原子体系的电子结构。<br>1928年，<em>D．R．Hartree</em>提出了解决分子和离子波函数和能量问题的假设，<em>Hartree</em>将n个电子体系中的任意一个电子都看成是<strong>其余电子所提供的平均势场中运动的单电子</strong>，即可导出可表示任意一个电子的单电子方程，再用自洽场法进行迭代，所得方程成为<em>Hartree</em>方程，但由于<em>Hartree</em>并未考虑到<em>Pauli</em>原理，2年后，由<em>B.A.Fock</em>和<em>J.C.Slater</em>进行了<em>Pauli</em>修正，加入了单<em>Slater</em>行列式波函数和多<em>Slater</em>行列式波函数，使得HF方程正式被提出，而<em>C.C.J.Roothann</em>提出的LCAO-MO法进一步简化了HF方程的表达形式，利用LCAO法可以将分子轨道看成是原子轨道的线性组合，即将HF方程转变为易于求解的代数方程组，使得HFR方程（1-1式）得以成型。其中<br>$$f_{(1)}$$为<strong>Fock算子</strong>， $$\chi_{a(1)}$$为体系的分子轨道。<br>（1-1式）<br>$$f_{(1)}\chi_{a(1)}=\in_a\chi_{a(1)}$$<br>20世纪70年代，基于HF方法的密度泛函理论（DFT）被提出，尽管DFT的概念起源于Thomas-Fermi模型，但仍然离不开HF方程的理论基础，DFT最大的优点在于利用电子密度替代波函数作为研究的基本量，因为以每个电子作为质点，N个电子有3N个变量，而用整体密度代替，则缩减到3个变量，大大减少了计算量。<br>氦合质子，化学式HeH+，是热力学理论计算最强的Bronsted酸，其pKa≈-63，HeH+无法稳定存在于凝聚相中，其pKa数据根据《无机化学》上Hess定律设计Born-Harbor循环可以计算得出。HeH+与同核分子H2有所不同，HeH+有永久的偶极矩，使得其有强烈的光谱特征，这也是HeH+发现的来源，通过观察光谱特征判断该物种的存在与否。<br>本文尝试利用Mathematica软件可视化HeH+的分子轨道，利用HFR法首先要进行电子积分的求解，Mathematica无疑是强有力的工具。</p>
@@ -1365,7 +1365,7 @@ show_date_time();
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
