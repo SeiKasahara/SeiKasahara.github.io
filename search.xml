@@ -20,7 +20,7 @@
     <content><![CDATA[<hr>
 <h1 id="简单利用Mathematica计算氦合质子的分子轨道"><a href="#简单利用Mathematica计算氦合质子的分子轨道" class="headerlink" title="简单利用Mathematica计算氦合质子的分子轨道"></a>简单利用Mathematica计算氦合质子的分子轨道</h1><p>—Edward Calhoun</p>
 <blockquote>
-<p>作者邮箱 <a href="mailto:&#x66;&#111;&#114;&#116;&#x68;&#x65;&#x61;&#x70;&#x6f;&#99;&#x61;&#108;&#121;&#112;&#x73;&#x65;&#x40;&#104;&#111;&#x74;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#x6d;">&#x66;&#111;&#114;&#116;&#x68;&#x65;&#x61;&#x70;&#x6f;&#99;&#x61;&#108;&#121;&#112;&#x73;&#x65;&#x40;&#104;&#111;&#x74;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#x6d;</a></p>
+<p>作者邮箱 <a href="mailto:&#x66;&#111;&#114;&#x74;&#x68;&#x65;&#97;&#112;&#111;&#99;&#97;&#108;&#121;&#x70;&#x73;&#101;&#x40;&#104;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x66;&#111;&#114;&#x74;&#x68;&#x65;&#97;&#112;&#111;&#99;&#97;&#108;&#121;&#x70;&#x73;&#101;&#x40;&#104;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a></p>
 </blockquote>
 <p> <strong><em>1. 引言</em></strong></p>
 <p><strong>量子化学是理论化学的一个重要分支学科，自20世纪60年代计算机技术突飞猛进，计算化学也同样成为量子化学研究的有力交叉学科</strong>，基于非相对论近似，绝热近似和单电子近似的全电子的非经验计算方法被迅速提出，其包括不借助任何经验参数求解全电子体系的<em>Schrödinger</em>方程方法，自洽场水平上的超<em>Hartree–Fock-Roothaan</em>方程计算法（HFR法）。原则上讲，有了HFR方程，就可以计算任何多原子体系的电子结构。<br>1928年，<em>D．R．Hartree</em>提出了解决分子和离子波函数和能量问题的假设，<em>Hartree</em>将n个电子体系中的任意一个电子都看成是<strong>其余电子所提供的平均势场中运动的单电子</strong>，即可导出可表示任意一个电子的单电子方程，再用自洽场法进行迭代，所得方程成为<em>Hartree</em>方程，但由于<em>Hartree</em>并未考虑到<em>Pauli</em>原理，2年后，由<em>B.A.Fock</em>和<em>J.C.Slater</em>进行了<em>Pauli</em>修正，加入了单<em>Slater</em>行列式波函数和多<em>Slater</em>行列式波函数，使得HF方程正式被提出，而<em>C.C.J.Roothann</em>提出的LCAO-MO法进一步简化了HF方程的表达形式，利用LCAO法可以将分子轨道看成是原子轨道的线性组合，即将HF方程转变为易于求解的代数方程组，使得HFR方程（1-1式）得以成型。其中<br>$$f_{(1)}$$为<strong>Fock算子</strong>， $$\chi_{a(1)}$$为体系的分子轨道。<br>（1-1式）<br>$$f_{(1)}\chi_{a(1)}=\in_a\chi_{a(1)}$$<br>20世纪70年代，基于HF方法的密度泛函理论（DFT）被提出，尽管DFT的概念起源于Thomas-Fermi模型，但仍然离不开HF方程的理论基础，DFT最大的优点在于利用电子密度替代波函数作为研究的基本量，因为以每个电子作为质点，N个电子有3N个变量，而用整体密度代替，则缩减到3个变量，大大减少了计算量。<br>氦合质子，化学式HeH+，是热力学理论计算最强的Bronsted酸，其pKa≈-63，HeH+无法稳定存在于凝聚相中，其pKa数据根据《无机化学》上Hess定律设计Born-Harbor循环可以计算得出。HeH+与同核分子H2有所不同，HeH+有永久的偶极矩，使得其有强烈的光谱特征，这也是HeH+发现的来源，通过观察光谱特征判断该物种的存在与否。<br>本文尝试利用Mathematica软件可视化HeH+的分子轨道，利用HFR法首先要进行电子积分的求解，Mathematica无疑是强有力的工具。</p>
@@ -35,24 +35,6 @@
         <tag>Mathematica</tag>
         <tag>计算化学</tag>
         <tag>分子轨道</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>尼采的读书笔记1</title>
-    <url>/p/4966.html</url>
-    <content><![CDATA[<h1 id="Reading-Notes-from-Nietzsche-Philosophy"><a href="#Reading-Notes-from-Nietzsche-Philosophy" class="headerlink" title="Reading Notes from Nietzsche Philosophy"></a>Reading Notes from Nietzsche Philosophy</h1><hr>
-<p>本文为委托投稿。</p>
-<p>尼采是一个伟大的人。这是废话，但是我必须得说，因为我不是道听途说，我发自内心。这篇文我断断续续差不多花了一个月，而通过写这篇文章我对尼采的认识也比一个月前提高了很多。是的，读尼采真的是一种折磨（我不知道是不是翻译的问题），咋一看过去就像一个疯子在拼命对你大吼大叫，更要命的是你还知道这个疯子肯定是不一般的，所以他的疯言疯语中肯定有特殊的含义，但是这都没什么，我只遗憾我没有去学德语读不了原著。（嗯要学的话完全有时间嗯…）而这一个月我也想通了一些事情，至少我现在真的可以拍起胸膛说哲学拯救了我了，呃…这个还是要看情况，我也说不准。最后我必须要说的是，我完整地看了的只有《善恶的彼岸》这一本书，不过后来我在查资料的时候发现这也是他后期一本很重要的过渡书，所以说我挑书的眼光还是很准的。</p>
-<p>那么，要讨论尼同学对价值的重估我们不妨从一句话谈起：“外部世界上是感官的产物。”如果你看过黑客帝国，你就会很容易从直观上理解这句话到底是什么意思。总之，这是一种直接掀桌子的说法，结合后面尼同学对笛卡尔“我思”之意的质疑，我们得到一个结论：没有一个确定性的“我”，不论是从物质层面还是从精神层面讲。<br>这是现代性除魅的一部分：现代科学逐渐将世界的迷雾揭开，这让我们对自身理性的信心大为增加，也让我们开始思考自己一直以来所坚信的东西是否是正确的，其价值是否无懈可击。这些东西包括一切传统价值，宗教，历史，等等。<br>但即使“一个确定性的我”是非常不严谨的，它仍旧是生存所需要的东西，因为没有人会在说“我”这个字的时候对自己强调，真正的物性之我可能并不在这个世界，而是在一个培养皿里，现在的我只是那个培养皿的我的意识的产物，对吧？这个问题本身就是没有答案的，追问它不仅无法得到答案，反而会造成自我分裂。所以尼采说道：“放弃错误判断即是放弃生命，否决生命。”尼采不呼吁人们放弃错误判断，而是要求人们承认自己的判断是错误的。咋一看来这是根本就做不到的事情，当然也很简单，你可以把这理解成一种意见保留，这个小点后面会展开来讲：“承认非真实是生命的必要条件，<strong>无疑是以一种危险的方式与习以为常的价值感作对。</strong>”而，“一种哲学敢于如此，便将自己孑然一身置于善恶的彼岸。”并且他要求哲人们都要做到这一点，而不被传统的道德律令所阻碍。<br>于是我们突然恍然大悟，原来相比起所谓的真理，谬误和虚假在我们的生活中占据的分量要大得多，甚至根本就没有办法丢弃它们。前言里这段话很好，<br>“如果说，康德对认识可能性的条件进行发问时已经假定这种认识的意义和目的毋庸置疑，那么尼采就要追问企图获得这种认识的目的何在。前者只是探讨真理产生的前提，后者则也在研究真理引发的后果。发生了这种根本性的思维转向，就不会像莱辛那样，还认为寻求真理本身既是一种自在的价值，似乎正因为这种寻求必须不受阻碍地继续下去，这种价值就具备了合理性。正相反，尼采想知道的是，这种认识的渴望如何获得能量以及它会把人引向（诱往）何方。<strong>他不把追求真理的意志视为理所当然的公理，而是追问其成立的合理性</strong>。”<br>是的，尼同学竟然把自柏拉图以来的西方哲学拨回了原点，甚至还向后退了一步，至少柏拉图从没有怀疑过追求真理的内在价值。但他的正确已经得到了承认，推翻那个无比浪漫，无比伟大的“我思”之“我”的，正是尼采和一干人等创立的语言哲学。从此以后，确定性的我成为了一种语言效果，简单来说，就是变成了一种文字游戏。<br>  我真不知道苏格拉底说“我只知道自己什么都不知道”的时候是一种什么样的心情。也许沉浸在求知和好奇之中的人确实会觉得很开心，但当他逐渐地真正体认到自己究竟哪里无知时，这种生于无知的开心究竟会不会转化为一种痛苦，一种像得了胃绞痛一样痛苦？<br>尼采的答案是是。我不觉得过去不曾有哲学家预见到这个情况，但是在现代科学的除魅面前，他们毫无胜算。理性主义者正在狂欢，他们庆祝着一切无法被理性所证明的事物之死亡，道德，宗教，但当他们的兴奋劲过去之后，他们将会发现由于理性有太多问题无法回答，失去了确定性的世界变成了褪色的童话世界，其中的一切都被旋转颠倒，巫师不一定是凶暴的，公主不一定是善良的，王子也不一定是是正义的，因为传统可不会在一瞬间崩塌，它将是一个漫长而痛苦的过程，直到组成巫师，王子，公主，城堡的颜料全部彻彻底底地化为尘土为止。但这还不是最重要的问题，最重要的问题是，在某一天，在现代科学终于把童话世界彻底砸碎之后的某一天，我们还能拿什么来重新面对这个原来是如此荒谬的世界？真的，从这个角度来看，人类历史再没有比这更加绝望的时期了，这就是进取的，暴烈的，狂喜的十九世纪背后所悄然开始的进程，并在今天愈发明显，愈发露骨。<br>这就是尼采要重估价值的动机！“<strong>第三阶段发端于《快乐的科学》，从《扎拉图斯特拉如是说》（1883-1885）直至终结。此时尼采试图克服对真理的狂热。“权力意志”与“同一事物的永恒轮回”这两大主题取代了启蒙式的怀疑。从《扎拉图斯特拉如是说》那一声“是”以后，尼采开始了价值的转变，开始建立其宏大的形而上学。艺术得以恢复名誉，并以其积极的、独一无二地起着激励作用的生命力获得了至高无上的地位。</strong>”尼采哲学是狂热而生机勃勃的，因为尼采继承了自己的早期思想，因为尼采认为它必须充满生命力，才能全副武装地面对童话世界彻底崩塌之后的严酷挑战，但这理由仍旧不充分，因为他的言辞像一个疯子一样偏激，而一个声称要砸烂道德，重估价值，颠倒善恶的人应该完全以一个局外观察体的角度来看待一切，如此才能客观。所以最重要的理由是，尼采将这份改变人类命运的重担挑在了自己身上！我顺便贴一段知乎上别人的话，让你们可以更好地理解尼采的那种感觉。<br>原问题：为什么尼采哭马？<br>建议你去读《罪与罚》，其中有一段农夫鞭打马的片段。<br>“一匹不堪重负的小母马被主人无辜打死，小拉斯科利尼科夫从人群冲进去，抱住死去的马脸，吻它，吻它的眼睛、嘴唇……”<br>尼采看到的不是马，是他自己，一个一辈子为了人类的超越奉献一生劳作一生，却得不到人类理解反而被鞭笞的自己。他一辈子的孤独、骄傲、还有眼泪， 在那一刻如同雪崩一般释放而出，从此精神失常。<br>是的，尼采读过罪与罚。<br>所以海德格尔才说尼采跳来跳去，仍旧是在搞形而上学。尼采虽然看到了价值的崩坏，但既然他把这份重担挑在了自己身上，他就必须创造出一套新的，能够用于全人类的体系，但又由于他否定普世价值，他的解决办法也就不再与某种特定的价值有关，而与<strong>指导每个个体为自己创造价值有关。</strong>当然，不是方法论，他本人也不知道该如何塑造一个如此强壮的人，他所做的是打地基，抽象而宏观，为了便于理解，你可以把它想象成基础物理理论，至于涉及实践的应用物理，他留给未来哲学去做了，别忘了《善恶彼岸》那个恨不得藏起来的副标题——<strong>未来哲学的前奏。</strong><br>于是建立宏大形而上学的进程开始了。既然真理本身没有已然设定好的内在价值，那么我们通常所认为的真理就是后天的产物，是人之思想的产物。所以哲人的思想不再是为了恒久本质服务，其体系的根基也不再是所谓的客观真理，而是认识的目的。先有认识的目的，再以这个目的为出发点，去认识想要认识的东西，并力图得出想要去得出的结论，<strong>所有的理性都建立在了非理性的基础上。</strong>而知道了这些之后我们就可以进一步问尼同学，“既然没有一个恒久本质在背后等着我们去发现，真理与真相又是有害的，那么，第一：<strong>哲人凭什么还要不顾一切地求真？第二：为什么即使知道了这个道理的哲人仍旧会不由自主地去追寻真理？</strong>比如尼同学自己？”好吧，这个问题其实是对整个旧形而上学发出的质疑，而尼同学给出的答案，也就是他的晚期学说的核心部分，因为“权力意志”。那么权力意志是什么?<br>首先，人的本能转化为意志。当然在尼采这里，人的本能还能够转化为灵魂，理性（思考，推理，原因结果，甚至意识等等）。它的本质意义仍然是认知，不针对个体，也就是说你的意愿和实践手段不影响研究结果，因此与这两者无关，也因此它谈的是整体的人，也因此说它是形而上学。而这里的“本能”甚至可以没有主体，这我就不太懂了，因为我不懂德文。本能不停地想要达到某个目的，在一个由目的，意志，诠释构成的封闭体中释放克服自我。意志在追求目标的过程中如果被阻碍就会升华，这种升华就是这样一种自我克服的过程，在这种过程中会产生强大的权力（power）。划重点，<strong>自我克服</strong>，这就是尼采和纳粹，和暴君，和屠夫，和嗜血者的区别！前者是force，是可以来自于任何地方的一种纯粹的强力。前面看不懂没关系，你只要记住这句，即尼采的权力意志表现为一种自我克服的过程。<br>那么何谓超越，何谓克服呢？这就有无数种答案了，而对于这个被神抛弃的世界尼采有一个钦定的答案，<strong>就是克服虚无，从而使生命充盈。既然否定了先天价值，那么价值就必须在后天由一个强有力的意志去赋予，也因此，新的形而上学所要做的事情也不再是去发现，而是解释和创造新价值。现在请告诉我，谁能做到这些？</strong>答案显而易见，<strong>是生命。生命将是这种的载体。</strong>尼采抛弃了旧形而上学所想要研究的那个静态实体，转为动态的。<br>所以，<strong>追求真理不再是对恒久本质的认识，而是同样处于变化状态的各种现象臣服于的，一种不断变化的，追求真理的意志，即权力意志的精神表现。而这种意志发轫于人的本能，理性的推论无法阻挡非理性的冲动，后者高于前者。</strong><br>然后我们把视线从形而上学转到更狭隘更现实的东西上来，当然，就是地球，所以下面“生命”的范围就被限定为，在地球上的，从四十亿年前到现在出现过的所有有机形式，呃，大概可以这样表述这个我也不太懂嗯…即使是这样“生命”这个词依然没有明确的定义，科学上没有，尼同学这里也没有。所以我会用二分法再把生命这玩意一分为二（我不确定这样做是否符合基本的严谨，我的能力目前就到此为止）。我首先指出第一种意思，这是生物学背书得到的结论：生命的存在是为了将自身的遗传物质延续下去。而为了做到这一点，生命的本能就只有两件事情，一是保存自我，一是繁衍，<strong>不断重复</strong>。所以生命本身首先考虑自己的生命如何立足，解决这个问题之后就考虑如何扩大自己的生命。又由于生命是权力意志的载体，我们可以发现权力意志在地球上很多时候表现为丛林法则，表现为上对下的无限吞食，“<strong>生命本身就是占有、伤害、征服异类和弱者，是压制、磨砺、强迫自身的各种形式，是侵吞，至少是、以最温和的措辞来表达也是剥削</strong>”。一种有能力无限扩张的权力意志会毫不犹豫地将所有低于自己的人都贬为奴隶，借助这些奴隶让自己的这一部分无限壮大。尼采说，这是“富有生命力的表现”。他错了吗？一点都没错，生命原就是如此肮脏的东西，我还记得ever17里小町鸠说过的话，人这种生物注定是一种无论如何都要靠吞噬他物来存活的东西，不然他自己就活不下去。<br>但这些并不重要，重要的是“自我超越”。所以纯粹的吞吃和杀戮是毫无意义的，可耻的，懦弱的，没有自制力的，因为这种行为无法克服虚无。所以，生命必须为自己的一切行为做出能<strong>令自己信服的解释</strong>，“令自己信服的解释”，如若它还想进一步言说，将自己给出的诠释告诉其他人，张扬自己的主张，那么这种解释就必须合乎理性，如此才能说出口。这就是第二种：作为精神载体的生命想要保证自己意志的存续与完整。你甚至可以说这是生命本能的延续，就像它想保证自己的基因能够完整延续下去一样，因为实践中没有任何人会把自己的肉体和精神分成完全不相干的两部分，也没人能做到。<br>因此这个世界是荒谬的。处在这个世界中的人不仅连自身的确定性都存疑，还要靠自己去寻找或者创造意义，更不要说还有一个尼采在你耳边悄咪咪地说：“寻找？找个屁！传统价值拜除魅所赐都泥菩萨过江自身难保了。找不到的，你得自己去创造。“但创造价值谈何容易呢？这样一个堡垒要求的施工难度太高了，因为建立堡垒的过程相当于自残：由于你深知自己的渺小，你会不由自主地不停逼问自己这座堡垒是否存在着可能的漏洞，即使你找不到漏洞，你也不禁会怀疑这是否只是因为自己的无知。所以：</p>
-<p>”一个心理学家——天生的、无可避免的心理学家和灵魂破译者——越是关注那些相对杰出的例证和人物，他因同情而窒息的危险也就越大：他必须比其他任何人更加坚强和欢快。因为高等人及其异常的灵魂走向堕落和毁灭乃是规律，而始终目睹这样一条规律是可怕的事情。心理学家发现这种毁灭，发现高等人完全“无可救药”的内在状态，发现在任何意义上都是“为时已晚！”</p>
-<p>而且没有不会陷落的堡垒，因为理性在不断进步，你几乎可以肯定即使你的堡垒搭得再完美，它也总有一天会被后人攻破，想想柏拉图描绘过的那个天真烂漫的理念世界吧。所以活在这个世界上必定是痛苦的，但尼采不否认痛苦，因为人有一种非常简单的办法来回避上述问题：放弃思考。放弃思考有很多种情况：从一开始就不思考，思考到一个阶段就拿走既有成果而不再思考，尼采这都说不行，你既不能从一开始就放弃思考，那并不是出路，你也不能把克服痛苦视为规避更大的痛苦所要经历的阵痛，这也不行，因为人图快乐，而一个快乐的人会因为安逸而停下超越的步伐，从而陷入无意义的生命循环，所以你永远也不能停止思考，而要将痛苦化为洗礼肉体凡胎的无尽火焰，令自己的权力意志无限壮大，无限循环。没有多少生命会真正走完这条道路，想要走完这条道路的少数又多数将在烈焰中死亡，那些遵循求生的本能攀登到顶峰的，爱上这种不断自我克服的过程的的少数中的少数，奇迹般地把克服痛苦与痛苦本身化为了自身的一部分，并被尼采尊称为：<br><strong>超人。</strong><br>超人，权力意志之极致的化身。这个词很容易引起误会，但是我喜欢这个词，因为它蕴含着一股无尽的力量。尼采正是借着这股力量向所有人宣布，超人的存在是对”存在无意义“这条铁律的无尽嘲笑，因为超人硬是要在这个无意义的世界中不断创造出不可撼动的价值，因为超人在自知必败的情况下仍然敢于以自己的行动嘲笑造物主，因为超人出于人内心深处能够发出的最为深沉难测厌恶而硬是把最大的痛苦化为了最大的享受！”勇气是人类的赞歌“，而我想，最大的勇气，就是敢于高傲地起身，脸上浮现出最为阴森可怕的笑容，然后对着这个荒谬虚无的世界哈哈大笑！超人不是上帝，因为超人不是全能的，更因为超人在前进的道路上不在乎任何人，即使在求真的道路上，这个世界的一切站不住脚的价值都被超人碾为齑粉，一切跟不上超人脚步的凡人都因为价值的消散陷入精神真空之域而死亡，超人也毫不在乎！”我教你们超人的道路，人类是应该被超越的东西，不要左顾右盼，也不要为自己的行为感到内疚与不安，顺着强力意志一往无前吧，哪管它伏尸百万，血流滔天。而想要如此，就要逼得人走投无路，山穷水尽，才有希望达到超人的境界。“超人甚至疯狂到如果再来一次轮回，他也会毫不犹豫地接受，即使是永恒的轮回。 <strong>“假如某一天或某个夜晚，一个恶魔闯入你最深的孤寂中，并对你说：‘你现在和过去的生活，你将再过一遍，并且会无限次地再次经历它，且毫无新意。你的生活中的每种痛苦、欢乐、思想、叹息，以及一切无可言说、或大或小的事情皆会在你身上重现，会以同样的顺序重现，同样会出现此刻树丛中的蜘蛛和月光，同样会出现在这样的时刻和我自己。存在的永恒沙漏将不停地转动，你和它一样，只不过是一粒尘土罢了！’你听了这恶魔的话，是否会自己摔倒在地咬牙切齿地诅咒这个口出狂言的恶魔呢？或者，你在以前曾经历过这样的伟大时刻——那时你这样回答恶魔说：‘神明，我从未听见过比这更神圣的话呢！’倘若这思想压倒了你，它就会改变你，说不定会把你碾得粉碎。‘你是否还想再来一遍，并无数次地再来一遍？’这一所有人的问题，这一万物的问题，作为最重的重担置放在你们的行为中！或者，你将如何恰好地规划自己成为你自身，规划自己成为这样的生命：渴望最终的永恒肯定和印记。”</strong><br>这就是尼采提出的最终解决方案。超人完成了对生命的超越，也变相地否定了生命。因为生命无时无刻不在寻求一种静止的状态，却往往在寻求此种静止状态的途中陷入了永远也无法求得这样一种状态的绝望之境，这样的生命同时具有权力意志与永恒轮回的特征。这也就是为什么尼采说追求恒久本质是人的一种幼稚的想当然。超人放弃了这种想法，甘愿陷入无尽的运动之中，将生命从这样一种矛盾的状态中拯救了出来，达到权力意志之极致，从而完成了对生命的超越。为了方便理解这里的“静止状态”，你可以将永生作为例子，自行想象。<br><img src="http://i1.fuimg.com/652216/dd652bcf909de0f0.jpg" alt="此处输入图片的描述"></p>]]></content>
-      <categories>
-        <category>哲学</category>
-      </categories>
-      <tags>
-        <tag>尼采</tag>
-        <tag>理性</tag>
-        <tag>现代性</tag>
       </tags>
   </entry>
   <entry>
@@ -127,6 +109,24 @@ Therefore, send user to _257.
       <tags>
         <tag>Submachine</tag>
         <tag>坐标系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>尼采的读书笔记1</title>
+    <url>/p/4966.html</url>
+    <content><![CDATA[<h1 id="Reading-Notes-from-Nietzsche-Philosophy"><a href="#Reading-Notes-from-Nietzsche-Philosophy" class="headerlink" title="Reading Notes from Nietzsche Philosophy"></a>Reading Notes from Nietzsche Philosophy</h1><hr>
+<p>本文为委托投稿。</p>
+<p>尼采是一个伟大的人。这是废话，但是我必须得说，因为我不是道听途说，我发自内心。这篇文我断断续续差不多花了一个月，而通过写这篇文章我对尼采的认识也比一个月前提高了很多。是的，读尼采真的是一种折磨（我不知道是不是翻译的问题），咋一看过去就像一个疯子在拼命对你大吼大叫，更要命的是你还知道这个疯子肯定是不一般的，所以他的疯言疯语中肯定有特殊的含义，但是这都没什么，我只遗憾我没有去学德语读不了原著。（嗯要学的话完全有时间嗯…）而这一个月我也想通了一些事情，至少我现在真的可以拍起胸膛说哲学拯救了我了，呃…这个还是要看情况，我也说不准。最后我必须要说的是，我完整地看了的只有《善恶的彼岸》这一本书，不过后来我在查资料的时候发现这也是他后期一本很重要的过渡书，所以说我挑书的眼光还是很准的。</p>
+<p>那么，要讨论尼同学对价值的重估我们不妨从一句话谈起：“外部世界上是感官的产物。”如果你看过黑客帝国，你就会很容易从直观上理解这句话到底是什么意思。总之，这是一种直接掀桌子的说法，结合后面尼同学对笛卡尔“我思”之意的质疑，我们得到一个结论：没有一个确定性的“我”，不论是从物质层面还是从精神层面讲。<br>这是现代性除魅的一部分：现代科学逐渐将世界的迷雾揭开，这让我们对自身理性的信心大为增加，也让我们开始思考自己一直以来所坚信的东西是否是正确的，其价值是否无懈可击。这些东西包括一切传统价值，宗教，历史，等等。<br>但即使“一个确定性的我”是非常不严谨的，它仍旧是生存所需要的东西，因为没有人会在说“我”这个字的时候对自己强调，真正的物性之我可能并不在这个世界，而是在一个培养皿里，现在的我只是那个培养皿的我的意识的产物，对吧？这个问题本身就是没有答案的，追问它不仅无法得到答案，反而会造成自我分裂。所以尼采说道：“放弃错误判断即是放弃生命，否决生命。”尼采不呼吁人们放弃错误判断，而是要求人们承认自己的判断是错误的。咋一看来这是根本就做不到的事情，当然也很简单，你可以把这理解成一种意见保留，这个小点后面会展开来讲：“承认非真实是生命的必要条件，<strong>无疑是以一种危险的方式与习以为常的价值感作对。</strong>”而，“一种哲学敢于如此，便将自己孑然一身置于善恶的彼岸。”并且他要求哲人们都要做到这一点，而不被传统的道德律令所阻碍。<br>于是我们突然恍然大悟，原来相比起所谓的真理，谬误和虚假在我们的生活中占据的分量要大得多，甚至根本就没有办法丢弃它们。前言里这段话很好，<br>“如果说，康德对认识可能性的条件进行发问时已经假定这种认识的意义和目的毋庸置疑，那么尼采就要追问企图获得这种认识的目的何在。前者只是探讨真理产生的前提，后者则也在研究真理引发的后果。发生了这种根本性的思维转向，就不会像莱辛那样，还认为寻求真理本身既是一种自在的价值，似乎正因为这种寻求必须不受阻碍地继续下去，这种价值就具备了合理性。正相反，尼采想知道的是，这种认识的渴望如何获得能量以及它会把人引向（诱往）何方。<strong>他不把追求真理的意志视为理所当然的公理，而是追问其成立的合理性</strong>。”<br>是的，尼同学竟然把自柏拉图以来的西方哲学拨回了原点，甚至还向后退了一步，至少柏拉图从没有怀疑过追求真理的内在价值。但他的正确已经得到了承认，推翻那个无比浪漫，无比伟大的“我思”之“我”的，正是尼采和一干人等创立的语言哲学。从此以后，确定性的我成为了一种语言效果，简单来说，就是变成了一种文字游戏。<br>  我真不知道苏格拉底说“我只知道自己什么都不知道”的时候是一种什么样的心情。也许沉浸在求知和好奇之中的人确实会觉得很开心，但当他逐渐地真正体认到自己究竟哪里无知时，这种生于无知的开心究竟会不会转化为一种痛苦，一种像得了胃绞痛一样痛苦？<br>尼采的答案是是。我不觉得过去不曾有哲学家预见到这个情况，但是在现代科学的除魅面前，他们毫无胜算。理性主义者正在狂欢，他们庆祝着一切无法被理性所证明的事物之死亡，道德，宗教，但当他们的兴奋劲过去之后，他们将会发现由于理性有太多问题无法回答，失去了确定性的世界变成了褪色的童话世界，其中的一切都被旋转颠倒，巫师不一定是凶暴的，公主不一定是善良的，王子也不一定是是正义的，因为传统可不会在一瞬间崩塌，它将是一个漫长而痛苦的过程，直到组成巫师，王子，公主，城堡的颜料全部彻彻底底地化为尘土为止。但这还不是最重要的问题，最重要的问题是，在某一天，在现代科学终于把童话世界彻底砸碎之后的某一天，我们还能拿什么来重新面对这个原来是如此荒谬的世界？真的，从这个角度来看，人类历史再没有比这更加绝望的时期了，这就是进取的，暴烈的，狂喜的十九世纪背后所悄然开始的进程，并在今天愈发明显，愈发露骨。<br>这就是尼采要重估价值的动机！“<strong>第三阶段发端于《快乐的科学》，从《扎拉图斯特拉如是说》（1883-1885）直至终结。此时尼采试图克服对真理的狂热。“权力意志”与“同一事物的永恒轮回”这两大主题取代了启蒙式的怀疑。从《扎拉图斯特拉如是说》那一声“是”以后，尼采开始了价值的转变，开始建立其宏大的形而上学。艺术得以恢复名誉，并以其积极的、独一无二地起着激励作用的生命力获得了至高无上的地位。</strong>”尼采哲学是狂热而生机勃勃的，因为尼采继承了自己的早期思想，因为尼采认为它必须充满生命力，才能全副武装地面对童话世界彻底崩塌之后的严酷挑战，但这理由仍旧不充分，因为他的言辞像一个疯子一样偏激，而一个声称要砸烂道德，重估价值，颠倒善恶的人应该完全以一个局外观察体的角度来看待一切，如此才能客观。所以最重要的理由是，尼采将这份改变人类命运的重担挑在了自己身上！我顺便贴一段知乎上别人的话，让你们可以更好地理解尼采的那种感觉。<br>原问题：为什么尼采哭马？<br>建议你去读《罪与罚》，其中有一段农夫鞭打马的片段。<br>“一匹不堪重负的小母马被主人无辜打死，小拉斯科利尼科夫从人群冲进去，抱住死去的马脸，吻它，吻它的眼睛、嘴唇……”<br>尼采看到的不是马，是他自己，一个一辈子为了人类的超越奉献一生劳作一生，却得不到人类理解反而被鞭笞的自己。他一辈子的孤独、骄傲、还有眼泪， 在那一刻如同雪崩一般释放而出，从此精神失常。<br>是的，尼采读过罪与罚。<br>所以海德格尔才说尼采跳来跳去，仍旧是在搞形而上学。尼采虽然看到了价值的崩坏，但既然他把这份重担挑在了自己身上，他就必须创造出一套新的，能够用于全人类的体系，但又由于他否定普世价值，他的解决办法也就不再与某种特定的价值有关，而与<strong>指导每个个体为自己创造价值有关。</strong>当然，不是方法论，他本人也不知道该如何塑造一个如此强壮的人，他所做的是打地基，抽象而宏观，为了便于理解，你可以把它想象成基础物理理论，至于涉及实践的应用物理，他留给未来哲学去做了，别忘了《善恶彼岸》那个恨不得藏起来的副标题——<strong>未来哲学的前奏。</strong><br>于是建立宏大形而上学的进程开始了。既然真理本身没有已然设定好的内在价值，那么我们通常所认为的真理就是后天的产物，是人之思想的产物。所以哲人的思想不再是为了恒久本质服务，其体系的根基也不再是所谓的客观真理，而是认识的目的。先有认识的目的，再以这个目的为出发点，去认识想要认识的东西，并力图得出想要去得出的结论，<strong>所有的理性都建立在了非理性的基础上。</strong>而知道了这些之后我们就可以进一步问尼同学，“既然没有一个恒久本质在背后等着我们去发现，真理与真相又是有害的，那么，第一：<strong>哲人凭什么还要不顾一切地求真？第二：为什么即使知道了这个道理的哲人仍旧会不由自主地去追寻真理？</strong>比如尼同学自己？”好吧，这个问题其实是对整个旧形而上学发出的质疑，而尼同学给出的答案，也就是他的晚期学说的核心部分，因为“权力意志”。那么权力意志是什么?<br>首先，人的本能转化为意志。当然在尼采这里，人的本能还能够转化为灵魂，理性（思考，推理，原因结果，甚至意识等等）。它的本质意义仍然是认知，不针对个体，也就是说你的意愿和实践手段不影响研究结果，因此与这两者无关，也因此它谈的是整体的人，也因此说它是形而上学。而这里的“本能”甚至可以没有主体，这我就不太懂了，因为我不懂德文。本能不停地想要达到某个目的，在一个由目的，意志，诠释构成的封闭体中释放克服自我。意志在追求目标的过程中如果被阻碍就会升华，这种升华就是这样一种自我克服的过程，在这种过程中会产生强大的权力（power）。划重点，<strong>自我克服</strong>，这就是尼采和纳粹，和暴君，和屠夫，和嗜血者的区别！前者是force，是可以来自于任何地方的一种纯粹的强力。前面看不懂没关系，你只要记住这句，即尼采的权力意志表现为一种自我克服的过程。<br>那么何谓超越，何谓克服呢？这就有无数种答案了，而对于这个被神抛弃的世界尼采有一个钦定的答案，<strong>就是克服虚无，从而使生命充盈。既然否定了先天价值，那么价值就必须在后天由一个强有力的意志去赋予，也因此，新的形而上学所要做的事情也不再是去发现，而是解释和创造新价值。现在请告诉我，谁能做到这些？</strong>答案显而易见，<strong>是生命。生命将是这种的载体。</strong>尼采抛弃了旧形而上学所想要研究的那个静态实体，转为动态的。<br>所以，<strong>追求真理不再是对恒久本质的认识，而是同样处于变化状态的各种现象臣服于的，一种不断变化的，追求真理的意志，即权力意志的精神表现。而这种意志发轫于人的本能，理性的推论无法阻挡非理性的冲动，后者高于前者。</strong><br>然后我们把视线从形而上学转到更狭隘更现实的东西上来，当然，就是地球，所以下面“生命”的范围就被限定为，在地球上的，从四十亿年前到现在出现过的所有有机形式，呃，大概可以这样表述这个我也不太懂嗯…即使是这样“生命”这个词依然没有明确的定义，科学上没有，尼同学这里也没有。所以我会用二分法再把生命这玩意一分为二（我不确定这样做是否符合基本的严谨，我的能力目前就到此为止）。我首先指出第一种意思，这是生物学背书得到的结论：生命的存在是为了将自身的遗传物质延续下去。而为了做到这一点，生命的本能就只有两件事情，一是保存自我，一是繁衍，<strong>不断重复</strong>。所以生命本身首先考虑自己的生命如何立足，解决这个问题之后就考虑如何扩大自己的生命。又由于生命是权力意志的载体，我们可以发现权力意志在地球上很多时候表现为丛林法则，表现为上对下的无限吞食，“<strong>生命本身就是占有、伤害、征服异类和弱者，是压制、磨砺、强迫自身的各种形式，是侵吞，至少是、以最温和的措辞来表达也是剥削</strong>”。一种有能力无限扩张的权力意志会毫不犹豫地将所有低于自己的人都贬为奴隶，借助这些奴隶让自己的这一部分无限壮大。尼采说，这是“富有生命力的表现”。他错了吗？一点都没错，生命原就是如此肮脏的东西，我还记得ever17里小町鸠说过的话，人这种生物注定是一种无论如何都要靠吞噬他物来存活的东西，不然他自己就活不下去。<br>但这些并不重要，重要的是“自我超越”。所以纯粹的吞吃和杀戮是毫无意义的，可耻的，懦弱的，没有自制力的，因为这种行为无法克服虚无。所以，生命必须为自己的一切行为做出能<strong>令自己信服的解释</strong>，“令自己信服的解释”，如若它还想进一步言说，将自己给出的诠释告诉其他人，张扬自己的主张，那么这种解释就必须合乎理性，如此才能说出口。这就是第二种：作为精神载体的生命想要保证自己意志的存续与完整。你甚至可以说这是生命本能的延续，就像它想保证自己的基因能够完整延续下去一样，因为实践中没有任何人会把自己的肉体和精神分成完全不相干的两部分，也没人能做到。<br>因此这个世界是荒谬的。处在这个世界中的人不仅连自身的确定性都存疑，还要靠自己去寻找或者创造意义，更不要说还有一个尼采在你耳边悄咪咪地说：“寻找？找个屁！传统价值拜除魅所赐都泥菩萨过江自身难保了。找不到的，你得自己去创造。“但创造价值谈何容易呢？这样一个堡垒要求的施工难度太高了，因为建立堡垒的过程相当于自残：由于你深知自己的渺小，你会不由自主地不停逼问自己这座堡垒是否存在着可能的漏洞，即使你找不到漏洞，你也不禁会怀疑这是否只是因为自己的无知。所以：</p>
+<p>”一个心理学家——天生的、无可避免的心理学家和灵魂破译者——越是关注那些相对杰出的例证和人物，他因同情而窒息的危险也就越大：他必须比其他任何人更加坚强和欢快。因为高等人及其异常的灵魂走向堕落和毁灭乃是规律，而始终目睹这样一条规律是可怕的事情。心理学家发现这种毁灭，发现高等人完全“无可救药”的内在状态，发现在任何意义上都是“为时已晚！”</p>
+<p>而且没有不会陷落的堡垒，因为理性在不断进步，你几乎可以肯定即使你的堡垒搭得再完美，它也总有一天会被后人攻破，想想柏拉图描绘过的那个天真烂漫的理念世界吧。所以活在这个世界上必定是痛苦的，但尼采不否认痛苦，因为人有一种非常简单的办法来回避上述问题：放弃思考。放弃思考有很多种情况：从一开始就不思考，思考到一个阶段就拿走既有成果而不再思考，尼采这都说不行，你既不能从一开始就放弃思考，那并不是出路，你也不能把克服痛苦视为规避更大的痛苦所要经历的阵痛，这也不行，因为人图快乐，而一个快乐的人会因为安逸而停下超越的步伐，从而陷入无意义的生命循环，所以你永远也不能停止思考，而要将痛苦化为洗礼肉体凡胎的无尽火焰，令自己的权力意志无限壮大，无限循环。没有多少生命会真正走完这条道路，想要走完这条道路的少数又多数将在烈焰中死亡，那些遵循求生的本能攀登到顶峰的，爱上这种不断自我克服的过程的的少数中的少数，奇迹般地把克服痛苦与痛苦本身化为了自身的一部分，并被尼采尊称为：<br><strong>超人。</strong><br>超人，权力意志之极致的化身。这个词很容易引起误会，但是我喜欢这个词，因为它蕴含着一股无尽的力量。尼采正是借着这股力量向所有人宣布，超人的存在是对”存在无意义“这条铁律的无尽嘲笑，因为超人硬是要在这个无意义的世界中不断创造出不可撼动的价值，因为超人在自知必败的情况下仍然敢于以自己的行动嘲笑造物主，因为超人出于人内心深处能够发出的最为深沉难测厌恶而硬是把最大的痛苦化为了最大的享受！”勇气是人类的赞歌“，而我想，最大的勇气，就是敢于高傲地起身，脸上浮现出最为阴森可怕的笑容，然后对着这个荒谬虚无的世界哈哈大笑！超人不是上帝，因为超人不是全能的，更因为超人在前进的道路上不在乎任何人，即使在求真的道路上，这个世界的一切站不住脚的价值都被超人碾为齑粉，一切跟不上超人脚步的凡人都因为价值的消散陷入精神真空之域而死亡，超人也毫不在乎！”我教你们超人的道路，人类是应该被超越的东西，不要左顾右盼，也不要为自己的行为感到内疚与不安，顺着强力意志一往无前吧，哪管它伏尸百万，血流滔天。而想要如此，就要逼得人走投无路，山穷水尽，才有希望达到超人的境界。“超人甚至疯狂到如果再来一次轮回，他也会毫不犹豫地接受，即使是永恒的轮回。 <strong>“假如某一天或某个夜晚，一个恶魔闯入你最深的孤寂中，并对你说：‘你现在和过去的生活，你将再过一遍，并且会无限次地再次经历它，且毫无新意。你的生活中的每种痛苦、欢乐、思想、叹息，以及一切无可言说、或大或小的事情皆会在你身上重现，会以同样的顺序重现，同样会出现此刻树丛中的蜘蛛和月光，同样会出现在这样的时刻和我自己。存在的永恒沙漏将不停地转动，你和它一样，只不过是一粒尘土罢了！’你听了这恶魔的话，是否会自己摔倒在地咬牙切齿地诅咒这个口出狂言的恶魔呢？或者，你在以前曾经历过这样的伟大时刻——那时你这样回答恶魔说：‘神明，我从未听见过比这更神圣的话呢！’倘若这思想压倒了你，它就会改变你，说不定会把你碾得粉碎。‘你是否还想再来一遍，并无数次地再来一遍？’这一所有人的问题，这一万物的问题，作为最重的重担置放在你们的行为中！或者，你将如何恰好地规划自己成为你自身，规划自己成为这样的生命：渴望最终的永恒肯定和印记。”</strong><br>这就是尼采提出的最终解决方案。超人完成了对生命的超越，也变相地否定了生命。因为生命无时无刻不在寻求一种静止的状态，却往往在寻求此种静止状态的途中陷入了永远也无法求得这样一种状态的绝望之境，这样的生命同时具有权力意志与永恒轮回的特征。这也就是为什么尼采说追求恒久本质是人的一种幼稚的想当然。超人放弃了这种想法，甘愿陷入无尽的运动之中，将生命从这样一种矛盾的状态中拯救了出来，达到权力意志之极致，从而完成了对生命的超越。为了方便理解这里的“静止状态”，你可以将永生作为例子，自行想象。<br><img src="http://i1.fuimg.com/652216/dd652bcf909de0f0.jpg" alt="此处输入图片的描述"></p>]]></content>
+      <categories>
+        <category>哲学</category>
+      </categories>
+      <tags>
+        <tag>尼采</tag>
+        <tag>理性</tag>
+        <tag>现代性</tag>
       </tags>
   </entry>
   <entry>
@@ -300,77 +300,6 @@ Therefore, send user to _257.
       </tags>
   </entry>
   <entry>
-    <title>NeuOrdung世界线印象片</title>
-    <url>/p/4665.html</url>
-    <content><![CDATA[<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=285620649&bvid=BV1wf4y1U7ME&cid=186822537&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> 
-    </iframe>
-</div>
-
-
-
-
-<p>NeuOrdung时间线是UP主一个人制作的架空历史世界线，讲述了轴心国胜利后的世界。与高堡奇人、德军总部或者TNO不同的是，世界线更多的将描述放在反抗军和更多的架空事件上，以描述一个持续30年悲壮的反抗历程。当然后续还会有更多神秘的新国家更新。 知乎专栏链接：<a href="https://zhuanlan.zhihu.com/c_1239232515036246016">https://zhuanlan.zhihu.com/c_1239232515036246016</a> </p>
-<p>采用素材：德军总部宣传片||Fatherland||辛德勒的名单||真实二战西线战事剪辑||沙皇氢弹纪录片</p>]]></content>
-      <categories>
-        <category>架空世界</category>
-      </categories>
-      <tags>
-        <tag>德国</tag>
-        <tag>日升之屋</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客Next主题如何在移动端上设置不同的背景</title>
-    <url>/p/1578.html</url>
-    <content><![CDATA[<h2 id="基本的背景添加"><a href="#基本的背景添加" class="headerlink" title="基本的背景添加"></a>基本的背景添加</h2><p>如果学过CSS函数，就可以很容易的明白如何自定义一个新的背景，当然，本教程面向html小白。（虽然我自己也比较菜就是了）</p>
-<p>我们在网络上看到的教程有教学如何添加背景，根据hexo的机制。我们常用到</p>
-<blockquote>
-<p>/themes/hexo-themes-next(任意合适的主题)/source/css/_custom/custom.styl</p>
-</blockquote>
-<p>这个自定义文件去修改我们网页的布局。</p>
-<p>一般的添加背景是通过修改body元素：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg.jpg</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>都是非常基本的元素设置，例如size，repeat，attachment等等子选项。</p>
-<h2 id="移动端设置"><a href="#移动端设置" class="headerlink" title="移动端设置"></a>移动端设置</h2><p>但是我们一般的网页布局都是横构图，且背景图片常因中心需要填充内容，设计上主要内容都会往两边靠。所以为了适配移动端我们可能需要找到一张合适的竖构图海报背景重新作为我们的博客背景图片。</p>
-<p>设置移动端很简单，这里我们只需要用到一个规则</p>
-<blockquote>
-<p>@media</p>
-</blockquote>
-<p>这个规则很简单，我们通过一个实例去理解它</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>顾名思义，<code>使用</code>@media` 规则可以为不同的媒体类型/设备应用不同的样式。</p>
-<p>媒体查询可用于检查内容，例如：</p>
-<ul>
-<li>视窗的宽度和高度</li>
-<li>设备的宽度和高度</li>
-<li>方向（平板电脑/手机处于横向还是纵向模式？）</li>
-<li>解析度</li>
-</ul>
-<p>因此上面的代码内容执行的效果为：当浏览器窗口的宽度为600px或更小时，将<code>&lt;body&gt;</code>元素的背景颜色更改为“浅蓝色”。</p>
-<p>那么同理，作为一个设备长宽的判断我们还可以利用它去适配更多的设备。</p>
-<p>由于大多数人都使用手机浏览网站，我们需要知道手机的参数。这些参数被记录在</p>
-<blockquote>
-<p>/themes/hexo-themes-next(任意合适主题)/source/css/_mixins/base.styl</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">mobile-smallest() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">413px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mobile-small() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">567px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mobile() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">767px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tablet-mobile() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">991px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tablet() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">991px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">desktop() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">992px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">desktop-large() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1600px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们一般设置到Tablet的最大值即可，即</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">991px</span>) </span><br></pre></td></tr></table></figure>
-<p>如果对设备还有其他的适配要求，例如平板浏览器以及手机浏览器仍需要不同的画面，可以依次类推设置。</p>
-<p>我们只需要在Custom.styl里添加如下字符串就行了</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg.jpg</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1000px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg2.jpg</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="iOS适配问题"><a href="#iOS适配问题" class="headerlink" title="iOS适配问题"></a>iOS适配问题</h2><p>但是通过此类单纯设置发现iOS的适配性很差，由于Hexo的渲染属于长条式，图片被失真拉伸，因此不美观，经过发现是<code>background-attachment:fixed</code>和 <code>background-size:cover</code>两项的共同输出结果不能被Safari识别渲染~~（iOS是真的让人无语了）~</p>
-<p>这个时候我们需要更改如下的字符串</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1000px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span>:before&#123;</span><br><span class="line">  content:<span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>:block;</span><br><span class="line">  <span class="attribute">position</span>:fixed;</span><br><span class="line">  <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>:-<span class="number">1</span>;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg2.png</span>) center <span class="number">0</span> no-repeat;</span><br><span class="line">  <span class="attribute">background-size</span>:cover;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过强制固定来保证fixed的执行。</p>]]></content>
-      <categories>
-        <category>Hexo博客技巧</category>
-      </categories>
-      <tags>
-        <tag>移动端优化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Stairway to Heaven</title>
     <url>/p/1adf.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请检查大小写是否拼写错误" data-whm="您的密码错误，但您依然可以浏览本文章">
@@ -522,6 +451,56 @@ Therefore, send user to _257.
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客Next主题如何在移动端上设置不同的背景</title>
+    <url>/p/1578.html</url>
+    <content><![CDATA[<h2 id="基本的背景添加"><a href="#基本的背景添加" class="headerlink" title="基本的背景添加"></a>基本的背景添加</h2><p>如果学过CSS函数，就可以很容易的明白如何自定义一个新的背景，当然，本教程面向html小白。（虽然我自己也比较菜就是了）</p>
+<p>我们在网络上看到的教程有教学如何添加背景，根据hexo的机制。我们常用到</p>
+<blockquote>
+<p>/themes/hexo-themes-next(任意合适的主题)/source/css/_custom/custom.styl</p>
+</blockquote>
+<p>这个自定义文件去修改我们网页的布局。</p>
+<p>一般的添加背景是通过修改body元素：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg.jpg</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>都是非常基本的元素设置，例如size，repeat，attachment等等子选项。</p>
+<h2 id="移动端设置"><a href="#移动端设置" class="headerlink" title="移动端设置"></a>移动端设置</h2><p>但是我们一般的网页布局都是横构图，且背景图片常因中心需要填充内容，设计上主要内容都会往两边靠。所以为了适配移动端我们可能需要找到一张合适的竖构图海报背景重新作为我们的博客背景图片。</p>
+<p>设置移动端很简单，这里我们只需要用到一个规则</p>
+<blockquote>
+<p>@media</p>
+</blockquote>
+<p>这个规则很简单，我们通过一个实例去理解它</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: lightblue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>顾名思义，<code>使用</code>@media` 规则可以为不同的媒体类型/设备应用不同的样式。</p>
+<p>媒体查询可用于检查内容，例如：</p>
+<ul>
+<li>视窗的宽度和高度</li>
+<li>设备的宽度和高度</li>
+<li>方向（平板电脑/手机处于横向还是纵向模式？）</li>
+<li>解析度</li>
+</ul>
+<p>因此上面的代码内容执行的效果为：当浏览器窗口的宽度为600px或更小时，将<code>&lt;body&gt;</code>元素的背景颜色更改为“浅蓝色”。</p>
+<p>那么同理，作为一个设备长宽的判断我们还可以利用它去适配更多的设备。</p>
+<p>由于大多数人都使用手机浏览网站，我们需要知道手机的参数。这些参数被记录在</p>
+<blockquote>
+<p>/themes/hexo-themes-next(任意合适主题)/source/css/_mixins/base.styl</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">mobile-smallest() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">413px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mobile-small() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">567px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mobile() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">767px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tablet-mobile() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">991px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tablet() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">991px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">desktop() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">992px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">desktop-large() &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1600px</span>) &#123;</span><br><span class="line">    &#123;block&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们一般设置到Tablet的最大值即可，即</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">991px</span>) </span><br></pre></td></tr></table></figure>
+<p>如果对设备还有其他的适配要求，例如平板浏览器以及手机浏览器仍需要不同的画面，可以依次类推设置。</p>
+<p>我们只需要在Custom.styl里添加如下字符串就行了</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg.jpg</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1000px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg2.jpg</span>);</span><br><span class="line">    <span class="attribute">background-size</span>:cover;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed;</span><br><span class="line">    <span class="attribute">background-position</span>:center;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="iOS适配问题"><a href="#iOS适配问题" class="headerlink" title="iOS适配问题"></a>iOS适配问题</h2><p>但是通过此类单纯设置发现iOS的适配性很差，由于Hexo的渲染属于长条式，图片被失真拉伸，因此不美观，经过发现是<code>background-attachment:fixed</code>和 <code>background-size:cover</code>两项的共同输出结果不能被Safari识别渲染~~（iOS是真的让人无语了）~</p>
+<p>这个时候我们需要更改如下的字符串</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1000px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span>:before&#123;</span><br><span class="line">  content:<span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>:block;</span><br><span class="line">  <span class="attribute">position</span>:fixed;</span><br><span class="line">  <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>:-<span class="number">1</span>;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">/images/bg2.png</span>) center <span class="number">0</span> no-repeat;</span><br><span class="line">  <span class="attribute">background-size</span>:cover;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过强制固定来保证fixed的执行。</p>]]></content>
+      <categories>
+        <category>Hexo博客技巧</category>
+      </categories>
+      <tags>
+        <tag>移动端优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>風土論の視点から日本の家族構造について検討</title>
     <url>/p/a123.html</url>
     <content><![CDATA[<h2 id="１．はじめに"><a href="#１．はじめに" class="headerlink" title="１．はじめに"></a>１．はじめに</h2><p>環境、とりわけ自然環境について研究する学科はいわゆる地理学である。その中には色々な問題を検討している。人間と環境の相互関係について探究する地理学において、環境がどうやって人間に影響を与えているのだろうか、人間自体はどうその環境の影響を受け止めているのだろうか、という諸問題は、人間と環境との根源的な関係について探求することである。</p>
@@ -561,7 +540,7 @@ Therefore, send user to _257.
     <content><![CDATA[<h1 id="有机合成要点精析"><a href="#有机合成要点精析" class="headerlink" title="有机合成要点精析"></a>有机合成要点精析</h1><hr>
 <p>—Edward Calhoun</p>
 <blockquote>
-<p>作者邮箱 <a href="mailto:&#x66;&#111;&#x72;&#x74;&#104;&#101;&#97;&#x70;&#111;&#x63;&#97;&#x6c;&#x79;&#x70;&#x73;&#x65;&#64;&#104;&#x6f;&#116;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#x66;&#111;&#x72;&#x74;&#104;&#101;&#97;&#x70;&#111;&#x63;&#97;&#x6c;&#x79;&#x70;&#x73;&#x65;&#64;&#104;&#x6f;&#116;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>作者邮箱 <a href="mailto:&#102;&#111;&#x72;&#116;&#x68;&#101;&#x61;&#112;&#111;&#x63;&#97;&#x6c;&#121;&#x70;&#115;&#101;&#64;&#x68;&#111;&#116;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;">&#102;&#111;&#x72;&#116;&#x68;&#101;&#x61;&#112;&#111;&#x63;&#97;&#x6c;&#121;&#x70;&#115;&#101;&#64;&#x68;&#111;&#116;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#x6d;</a></p>
 </blockquote>
 <hr>
 <p><strong>要点1：以周期表为依据</strong><br>众所周知，有机化学离不开3个元素，*<strong>碳，氮，氧*<strong>。<br>随着化学理论的深入和有机合成的前沿成果，有机化学衍生出了分支——金属有机化学。金属有机化学，顾名思义，是以碳链为结构基础，辅以以配位键锁住的金属原子进行一系列有机反应的二级学科总称。通过在有机物中引入金属原子，大大增强了其反应活性，降低其过渡态的活化能，达到了传统有机反应所不能做到的高度。近些年，以杂原子活性试剂为合成子的一些文献在合成界中异军突起，从另一个角度证明了以周期表为依据的重要性。遵循这些新兴化合物，有助于拓宽有机合成的思维。<br>**要点2：以羰基化合物为中心</strong><br>羰基反应是有机化学中出现最频繁的一类反应，可以断言，近乎每一个复杂物种的合成，都需要经过至少一个或多个的羰基反应。<br>羰基作为一个合成子和极性中心，常常是亲核物种或者亲电物种的反应中心，羰基所包含的碳氧双键，更是一个提供环过渡态的载体。最经典的案例是Wittig反应，极性的羰基与另一极性物种磷叶立德形成四元环过渡态，具有多样的反应性，通过一步构建环外双键，或者使其淬灭发生其他反应。<br>羰基反应是一个大类。经典的反应有Claisen酯缩合，Micheal加成反应和双羰基（羟醛缩合），*</strong>熟练地运用羰基反应，可以实现很多意想不到的效果。***<br><img src="https://i1.wp.com/assets.cn.chem-station.com/uploads/2014/01/wittig3.gif?resize=594,127&ssl=1"></p>]]></content>
@@ -571,6 +550,27 @@ Therefore, send user to _257.
       <tags>
         <tag>有机合成</tag>
         <tag>羰基反应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NeuOrdung世界线印象片</title>
+    <url>/p/4665.html</url>
+    <content><![CDATA[<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=285620649&bvid=BV1wf4y1U7ME&cid=186822537&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> 
+    </iframe>
+</div>
+
+
+
+
+<p>NeuOrdung时间线是UP主一个人制作的架空历史世界线，讲述了轴心国胜利后的世界。与高堡奇人、德军总部或者TNO不同的是，世界线更多的将描述放在反抗军和更多的架空事件上，以描述一个持续30年悲壮的反抗历程。当然后续还会有更多神秘的新国家更新。 知乎专栏链接：<a href="https://zhuanlan.zhihu.com/c_1239232515036246016">https://zhuanlan.zhihu.com/c_1239232515036246016</a> </p>
+<p>采用素材：德军总部宣传片||Fatherland||辛德勒的名单||真实二战西线战事剪辑||沙皇氢弹纪录片</p>]]></content>
+      <categories>
+        <category>架空世界</category>
+      </categories>
+      <tags>
+        <tag>德国</tag>
+        <tag>日升之屋</tag>
       </tags>
   </entry>
   <entry>
@@ -869,44 +869,6 @@ $$
       </tags>
   </entry>
   <entry>
-    <title>南昌大学TH活动-东方枫华祭report</title>
-    <url>/p/8527.html</url>
-    <content><![CDATA[<h1 id="南昌大学TH活动-东方枫华祭report"><a href="#南昌大学TH活动-东方枫华祭report" class="headerlink" title="南昌大学TH活动-东方枫华祭report"></a>南昌大学TH活动-东方枫华祭report</h1><blockquote>
-<p>作者邮箱：<a href="mailto:&#x66;&#x6f;&#114;&#x74;&#104;&#101;&#x61;&#112;&#x6f;&#x63;&#x61;&#x6c;&#x79;&#112;&#x73;&#101;&#x40;&#104;&#x6f;&#116;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;">&#x66;&#x6f;&#114;&#x74;&#104;&#101;&#x61;&#112;&#x6f;&#x63;&#x61;&#x6c;&#x79;&#112;&#x73;&#101;&#x40;&#104;&#x6f;&#116;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-<hr>
-<p><strong>【茶会预定流程】</strong><br>东方知识竞赛——你 就 是 ZUN<br>东方原曲竞猜——一般通过东方众能够参与的境界<br>STG/FTG活动——感受与飞机佬/则佬零距离的接触<br>文文快报——车万第一手消息<br>新兴东方同人社团介绍——介绍18年成立的中国东方同人社团，感受东方同人创作魅力<br>东方棋牌战——享受东方棋牌的乐趣<br>东方3D弹幕——Subterranean Stars<br><strong>【前期准备工作】</strong><br>茶会的所有项目启动是在10月31日开始的，同时当天也在南昌大学东方组里讨论了茶会的时间安排，最终确定在11月10日举行本次茶会。<br><strong>【前期准备工作时间表】</strong><br>11月1日，开始分配人员工作：<br>经过讨论，由以下人员担当下列职务：<br>香瓜子——主催/场内东方相关书籍，装饰捐赠<br>雾雨卡尔霍恩——总策划/logo设计/杂务/茶会海报设计/控场/ppt制作/茶会零食提供<br>AItheEliminated——茶会“原曲竞猜”项目程序设计/茶会饮料提供/茶会资金支持<br>二小姐格林——茶会海报绘画<br>正子——案内Staff/杂物搬运<br>CASPAR——场内Staff/茶会饮料提供<br>Mose（莫瑟）——协助策划<br>进击的小人族——茶会活动灵感提供<br>11月2日，茶会的概念海报由雾雨卡尔霍恩设计完成。<br>11月3日，茶会的logo设计由雾雨卡尔霍恩完成。<br>同期，茶会获得Alice手工坊的支持。<br>11月4日，茶会的初ppt由雾雨卡尔霍恩完成。在当晚订制好了印制有logo的staff衣物<br>11月5日，雾雨卡尔霍恩和Mose完成策划案，正式申请到教室。同期完成宣传文案，在<br>微博/qq空间/推特上进行宣传。<br>11月3-9日，联系各个社团的主催，请求宣传许可。<br>11月9日，ppt终稿完成。画师完成海报，放出最后的宣传。<br><strong>【茶会过程】（11.9——11.10晚上8：30）</strong><br>由策划的第一视角所感的茶会。<br>前一天晚上头痛昏重，以为自己第二天快不行了。冲泡了一点感冒灵，喝了下去之后才发现自己好了一点。第二天早上9点多起床，坐在寝室里慢慢喝热水，身体恢复了很多。<br>然后是准备这次茶会的零食等等东西。在超市里买好了近50块钱零食，提着一大袋东西回去了。过了一会儿整理了一下该带过去的东西，发现自己可能带不了这么多东西，一行李箱的天子cos服，一箱Alice手工坊寄过来的物品，还有一堆零食，背着电脑。<br>然后寻求staff帮忙，去寝室找他的时候发现人不在，心里觉得有点不对，可能要出一些意外事故。自己一个人强行背着所有东西赶往人文楼，鞋子全湿了。<br>1点钟的时候，终于等到门开了，进去之后开始布置东西。开始的时候发现大家都坐在座位上玩手机，气氛有点尴尬。不过也还好，是在开场之前。这里也很感谢AItheEliminated和CASPAR用柠檬茶堆成的茶山。<br>开始后各个环节也进行的相当顺利，值得一提的是原曲竞猜环节，在Hard难度下随机截取3秒的原曲，一作一作的过去，发现风神录和地灵殿的几首名曲（众神眷恋的幻想乡，少女第三只眼）大家都几乎猜不出来。（并且出现连续几首都是名曲，都猜不出来的情况）<br>果然hard还是太难了，extra难到我也做不出。<br>社团的介绍的话，也给大家一个对2018年新创立的同人社团一个印象，让大家知道国内的优秀社团也是不输给日本甚至还有更强的。<br>问答抽奖，送了很多东西出去，大家都玩得很开心。东方百问有些问题也真是变态（<br>最后选择在学校后的商业街吃饭，大家（大概13个人）一起吃火锅，吹水了一下江西和全国东方project的过去和未来。也是第一次参加南昌这边东方线下聚餐。整体的氛围还是很棒的。<br>【茶会总结】<br>第一次举办这种活动，没有经验在所难免，因此出现了一些不好的现象与问题，列举如下：</p>
-<ol>
-<li>   茶会海报问题。概念海报是我借用其他秘封专辑的封面图所制作的，没有联系画师获得其利用规约，在宣传上由于画师工期延期，我直接放了概念海报，出了利用规约上的偏差，作为策划我感到抱歉，希望各位活动举办者不要重蹈这种覆辙。</li>
-<li>   茶会海报的资金筹备问题。策划一开始的目的是希望工作人员能够一起出钱把画师的稿费交齐，由于策划对“众筹“一词的误解，导致群内出现不好的纷争，经过调解后才彻底解决。</li>
-<li>   茶会活动气氛问题。到场的各位东方众，无论是学校的还是来自学校外（大多来自南昌东方同好会）的东方众，大多线下见面次数少，交流过程出现中断停顿在所难免。策划在活动气氛的过程中衔接比较僵硬。</li>
-<li>   主催因为考研过忙没有到场，非常遗憾的一件事情。</li>
-<li>   有一些环节的遗漏：东方3D弹幕——Subterranean Stars，该环节没有在茶会上举行，策划控场时忘记了这一点。</li>
-<li>   在进行东方百问环节和东方原曲竞猜环节时，有一些同好参加不够活跃。</li>
-<li>   社团介绍时气氛显得略微尴尬。</li>
-<li>   本次茶会准备方面也十分的仓促。东方枫华祭实际上是仅仅10天就举办好的茶会。<br>【反思】</li>
-<li>茶会的策划不应该统揽这么多的职务，否则会造成事倍功半的情况，</li>
-<li>各位工作人员要早点确定好自己的工作职务身份，调节好自己在活动当天的时间，确保能全身心投入活动参与。</li>
-<li>茶会的主催必须要有强的组织能力。</li>
-<li>茶会的零食，饮料等食品购买最好也要经过投票。</li>
-<li>茶会的录播/直播需要经过参与东方众的许可。</li>
-<li>绝对不能出现拖欠画师工资的情况。</li>
-<li>茶会的场地必须经过学校的许可才可以进行。否则只能把活动转移到校外。此时要考虑资金问题</li>
-<li>茶会的举办需要提前1-2星期的准备。<br>（不与总结一一对应）<br>这里谨代表东方枫华祭茶会主催香瓜子特别感谢各位工作人员不辞辛劳能来一起帮忙把这次茶会办好。<br>也感谢Alice手工坊对本次茶会物资奖品的大力支持。<br>还有南昌东方同好会和西农东方同好的建议与云支持。<br>以及各位来参加本次茶会的东方同好们。<br>附第二届海报图：<br><img src="http://newyorkhnt.com/wp-content/uploads/2021/02/%E4%B8%9C%E6%96%B9%E6%98%A5%E8%92%BF%E9%A3%A8-scaled.jpg"><br>附 来自南昌本地同好会负责人进击的小人族的Q&amp;A：<br>q1.作为“主催”你认为本次活动效果如何？<br>A1.首先要说明的是，本次茶会的主催是香瓜子，而不是我。我是作为执行策划总揽本次茶会活动的，但实际茶会的主催并不是我。那么关于本次活动效果，我认为是较好的，气氛的上升把握有度，在茶会平静的时候组织整体性参与活动，在茶会气氛活跃起来之后给予每名同好足够的自由活动时间。<br>q2.本次活动参与人数怎么样，现场氛围怎么样？<br>A2.本次活动现场参与人数固定约20多人，最多时有30人，中途是有人员退场的。之后参加茶会后聚餐的同好共计13人。现场的氛围同q1所述。<br>q3.是什么让您决定先举办这次活动？<br>A3.Reason：</li>
-<li>   看到国内高校东方project活动如雨后春笋般的涌现，而后又考虑到江西没有出现这样的高校东方活动。</li>
-<li>   南昌大学的东方组人数已经超过70人，有能力去举办这样一个茶会活动。</li>
-<li>   自己心里也希望成为一个活动策划，以获得更多东方活动举办的经验，以后会有用武之地。<br>q4.在本次活动中有那些你最喜欢或者最留恋的部分？<br>A4.本次活动我最喜欢的是原曲竞猜和东方百问。原曲竞猜的程序和UI设计都做得很棒，在原曲竞猜的活动过程中，出现了很多很有意思的地方<br>q5.举办活动累吗？未来是否还会有类似的活动？<br>A5.举办活动非常的累，从策划出来之后的一个星期内都出现睡眠不足和精神压力过大的状况，可能原因是因为我本人所揽职务过多过繁。未来还会举办春季茶会活动，南昌大学的东方project活动已经准备做成系列——东方香樟梦<br>q6.还关于本次活动还有什么想说的么？<br>A6. 此外需要提到策划多次想玩营业梗，但是各位同好并没有继续玩梗，这是一种很好的现象，包括我自己个人观察南昌本地的东方爱好者们不喜欢去刻意玩这些梗，对于东方活动的纯净性有着积极意义。有一句话说得好，<strong>“当你注视着深渊，深渊也在注视着你。“</strong>我们的茶会活动氛围无需靠这些梗去维持，我相信这是在全国东方活动中少见的。</li>
-</ol>
-<p>附茶会PPT下载参考链接：<br>链接：<a href="https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA">https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA</a><br>提取码：45j3 </p>]]></content>
-      <categories>
-        <category>东方Project同人</category>
-      </categories>
-      <tags>
-        <tag>同人活动</tag>
-        <tag>南昌大学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>逐星有顶天 ~Tour to the edge of Universe.</title>
     <url>/p/ae4b.html</url>
     <content><![CDATA[<h1 id="逐星有顶天-Tour-to-the-edge-of-Universe-———"><a href="#逐星有顶天-Tour-to-the-edge-of-Universe-———" class="headerlink" title="逐星有顶天 ~Tour to the edge of Universe. ———-"></a>逐星有顶天 ~Tour to the edge of Universe. ———-</h1><p>深夜的时候经常去思考各种各样的东西，有关人生，有关自己喜爱的东西，有关自己喜爱的人。于是自己也逐渐尝试着去做一些同人创作，以传达自己的价值观和对作品本身的爱。逐星有顶天是一个AVG游戏剧本，但本人实在是没有能力，所以说还是停留在剧本阶段。大概就是这样的吧，下面的内容，请好好欣赏呢。</p>
@@ -966,6 +928,44 @@ $$
       </categories>
       <tags>
         <tag>兰切斯特战术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>南昌大学TH活动-东方枫华祭report</title>
+    <url>/p/8527.html</url>
+    <content><![CDATA[<h1 id="南昌大学TH活动-东方枫华祭report"><a href="#南昌大学TH活动-东方枫华祭report" class="headerlink" title="南昌大学TH活动-东方枫华祭report"></a>南昌大学TH活动-东方枫华祭report</h1><blockquote>
+<p>作者邮箱：<a href="mailto:&#102;&#x6f;&#114;&#116;&#104;&#x65;&#97;&#x70;&#x6f;&#99;&#x61;&#x6c;&#x79;&#x70;&#x73;&#101;&#64;&#x68;&#x6f;&#x74;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#109;">&#102;&#x6f;&#114;&#116;&#104;&#x65;&#97;&#x70;&#x6f;&#99;&#x61;&#x6c;&#x79;&#x70;&#x73;&#101;&#64;&#x68;&#x6f;&#x74;&#109;&#97;&#x69;&#x6c;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+<hr>
+<p><strong>【茶会预定流程】</strong><br>东方知识竞赛——你 就 是 ZUN<br>东方原曲竞猜——一般通过东方众能够参与的境界<br>STG/FTG活动——感受与飞机佬/则佬零距离的接触<br>文文快报——车万第一手消息<br>新兴东方同人社团介绍——介绍18年成立的中国东方同人社团，感受东方同人创作魅力<br>东方棋牌战——享受东方棋牌的乐趣<br>东方3D弹幕——Subterranean Stars<br><strong>【前期准备工作】</strong><br>茶会的所有项目启动是在10月31日开始的，同时当天也在南昌大学东方组里讨论了茶会的时间安排，最终确定在11月10日举行本次茶会。<br><strong>【前期准备工作时间表】</strong><br>11月1日，开始分配人员工作：<br>经过讨论，由以下人员担当下列职务：<br>香瓜子——主催/场内东方相关书籍，装饰捐赠<br>雾雨卡尔霍恩——总策划/logo设计/杂务/茶会海报设计/控场/ppt制作/茶会零食提供<br>AItheEliminated——茶会“原曲竞猜”项目程序设计/茶会饮料提供/茶会资金支持<br>二小姐格林——茶会海报绘画<br>正子——案内Staff/杂物搬运<br>CASPAR——场内Staff/茶会饮料提供<br>Mose（莫瑟）——协助策划<br>进击的小人族——茶会活动灵感提供<br>11月2日，茶会的概念海报由雾雨卡尔霍恩设计完成。<br>11月3日，茶会的logo设计由雾雨卡尔霍恩完成。<br>同期，茶会获得Alice手工坊的支持。<br>11月4日，茶会的初ppt由雾雨卡尔霍恩完成。在当晚订制好了印制有logo的staff衣物<br>11月5日，雾雨卡尔霍恩和Mose完成策划案，正式申请到教室。同期完成宣传文案，在<br>微博/qq空间/推特上进行宣传。<br>11月3-9日，联系各个社团的主催，请求宣传许可。<br>11月9日，ppt终稿完成。画师完成海报，放出最后的宣传。<br><strong>【茶会过程】（11.9——11.10晚上8：30）</strong><br>由策划的第一视角所感的茶会。<br>前一天晚上头痛昏重，以为自己第二天快不行了。冲泡了一点感冒灵，喝了下去之后才发现自己好了一点。第二天早上9点多起床，坐在寝室里慢慢喝热水，身体恢复了很多。<br>然后是准备这次茶会的零食等等东西。在超市里买好了近50块钱零食，提着一大袋东西回去了。过了一会儿整理了一下该带过去的东西，发现自己可能带不了这么多东西，一行李箱的天子cos服，一箱Alice手工坊寄过来的物品，还有一堆零食，背着电脑。<br>然后寻求staff帮忙，去寝室找他的时候发现人不在，心里觉得有点不对，可能要出一些意外事故。自己一个人强行背着所有东西赶往人文楼，鞋子全湿了。<br>1点钟的时候，终于等到门开了，进去之后开始布置东西。开始的时候发现大家都坐在座位上玩手机，气氛有点尴尬。不过也还好，是在开场之前。这里也很感谢AItheEliminated和CASPAR用柠檬茶堆成的茶山。<br>开始后各个环节也进行的相当顺利，值得一提的是原曲竞猜环节，在Hard难度下随机截取3秒的原曲，一作一作的过去，发现风神录和地灵殿的几首名曲（众神眷恋的幻想乡，少女第三只眼）大家都几乎猜不出来。（并且出现连续几首都是名曲，都猜不出来的情况）<br>果然hard还是太难了，extra难到我也做不出。<br>社团的介绍的话，也给大家一个对2018年新创立的同人社团一个印象，让大家知道国内的优秀社团也是不输给日本甚至还有更强的。<br>问答抽奖，送了很多东西出去，大家都玩得很开心。东方百问有些问题也真是变态（<br>最后选择在学校后的商业街吃饭，大家（大概13个人）一起吃火锅，吹水了一下江西和全国东方project的过去和未来。也是第一次参加南昌这边东方线下聚餐。整体的氛围还是很棒的。<br>【茶会总结】<br>第一次举办这种活动，没有经验在所难免，因此出现了一些不好的现象与问题，列举如下：</p>
+<ol>
+<li>   茶会海报问题。概念海报是我借用其他秘封专辑的封面图所制作的，没有联系画师获得其利用规约，在宣传上由于画师工期延期，我直接放了概念海报，出了利用规约上的偏差，作为策划我感到抱歉，希望各位活动举办者不要重蹈这种覆辙。</li>
+<li>   茶会海报的资金筹备问题。策划一开始的目的是希望工作人员能够一起出钱把画师的稿费交齐，由于策划对“众筹“一词的误解，导致群内出现不好的纷争，经过调解后才彻底解决。</li>
+<li>   茶会活动气氛问题。到场的各位东方众，无论是学校的还是来自学校外（大多来自南昌东方同好会）的东方众，大多线下见面次数少，交流过程出现中断停顿在所难免。策划在活动气氛的过程中衔接比较僵硬。</li>
+<li>   主催因为考研过忙没有到场，非常遗憾的一件事情。</li>
+<li>   有一些环节的遗漏：东方3D弹幕——Subterranean Stars，该环节没有在茶会上举行，策划控场时忘记了这一点。</li>
+<li>   在进行东方百问环节和东方原曲竞猜环节时，有一些同好参加不够活跃。</li>
+<li>   社团介绍时气氛显得略微尴尬。</li>
+<li>   本次茶会准备方面也十分的仓促。东方枫华祭实际上是仅仅10天就举办好的茶会。<br>【反思】</li>
+<li>茶会的策划不应该统揽这么多的职务，否则会造成事倍功半的情况，</li>
+<li>各位工作人员要早点确定好自己的工作职务身份，调节好自己在活动当天的时间，确保能全身心投入活动参与。</li>
+<li>茶会的主催必须要有强的组织能力。</li>
+<li>茶会的零食，饮料等食品购买最好也要经过投票。</li>
+<li>茶会的录播/直播需要经过参与东方众的许可。</li>
+<li>绝对不能出现拖欠画师工资的情况。</li>
+<li>茶会的场地必须经过学校的许可才可以进行。否则只能把活动转移到校外。此时要考虑资金问题</li>
+<li>茶会的举办需要提前1-2星期的准备。<br>（不与总结一一对应）<br>这里谨代表东方枫华祭茶会主催香瓜子特别感谢各位工作人员不辞辛劳能来一起帮忙把这次茶会办好。<br>也感谢Alice手工坊对本次茶会物资奖品的大力支持。<br>还有南昌东方同好会和西农东方同好的建议与云支持。<br>以及各位来参加本次茶会的东方同好们。<br>附第二届海报图：<br><img src="http://newyorkhnt.com/wp-content/uploads/2021/02/%E4%B8%9C%E6%96%B9%E6%98%A5%E8%92%BF%E9%A3%A8-scaled.jpg"><br>附 来自南昌本地同好会负责人进击的小人族的Q&amp;A：<br>q1.作为“主催”你认为本次活动效果如何？<br>A1.首先要说明的是，本次茶会的主催是香瓜子，而不是我。我是作为执行策划总揽本次茶会活动的，但实际茶会的主催并不是我。那么关于本次活动效果，我认为是较好的，气氛的上升把握有度，在茶会平静的时候组织整体性参与活动，在茶会气氛活跃起来之后给予每名同好足够的自由活动时间。<br>q2.本次活动参与人数怎么样，现场氛围怎么样？<br>A2.本次活动现场参与人数固定约20多人，最多时有30人，中途是有人员退场的。之后参加茶会后聚餐的同好共计13人。现场的氛围同q1所述。<br>q3.是什么让您决定先举办这次活动？<br>A3.Reason：</li>
+<li>   看到国内高校东方project活动如雨后春笋般的涌现，而后又考虑到江西没有出现这样的高校东方活动。</li>
+<li>   南昌大学的东方组人数已经超过70人，有能力去举办这样一个茶会活动。</li>
+<li>   自己心里也希望成为一个活动策划，以获得更多东方活动举办的经验，以后会有用武之地。<br>q4.在本次活动中有那些你最喜欢或者最留恋的部分？<br>A4.本次活动我最喜欢的是原曲竞猜和东方百问。原曲竞猜的程序和UI设计都做得很棒，在原曲竞猜的活动过程中，出现了很多很有意思的地方<br>q5.举办活动累吗？未来是否还会有类似的活动？<br>A5.举办活动非常的累，从策划出来之后的一个星期内都出现睡眠不足和精神压力过大的状况，可能原因是因为我本人所揽职务过多过繁。未来还会举办春季茶会活动，南昌大学的东方project活动已经准备做成系列——东方香樟梦<br>q6.还关于本次活动还有什么想说的么？<br>A6. 此外需要提到策划多次想玩营业梗，但是各位同好并没有继续玩梗，这是一种很好的现象，包括我自己个人观察南昌本地的东方爱好者们不喜欢去刻意玩这些梗，对于东方活动的纯净性有着积极意义。有一句话说得好，<strong>“当你注视着深渊，深渊也在注视着你。“</strong>我们的茶会活动氛围无需靠这些梗去维持，我相信这是在全国东方活动中少见的。</li>
+</ol>
+<p>附茶会PPT下载参考链接：<br>链接：<a href="https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA">https://pan.baidu.com/s/1vBs9EbHz6h6_IOThfO1sZA</a><br>提取码：45j3 </p>]]></content>
+      <categories>
+        <category>东方Project同人</category>
+      </categories>
+      <tags>
+        <tag>同人活动</tag>
+        <tag>南昌大学</tag>
       </tags>
   </entry>
   <entry>
@@ -1097,6 +1097,25 @@ $$
       </tags>
   </entry>
   <entry>
+    <title>Submachine Universe译稿（日更）</title>
+    <url>/p/8c3b.html</url>
+    <content><![CDATA[<h1 id="Submachine-Universe译稿4"><a href="#Submachine-Universe译稿4" class="headerlink" title="Submachine Universe译稿4"></a>Submachine Universe译稿4</h1><hr>
+<p>Subhistory Theory<br>Sub历史理论<br>by:MrEMan<br>One day I’ll tell you about the early builds of the submachine, that took place in -1900 -1906 in Kent. the first submachine was built in early 1900. that much we know. ancient location was built later using a time machine. sub0 I am to say this. ;). it was made long after the first submachine. From the builders point of view, naturally, what other point of view can we take?… historical? with the time machine a historical point of view doesn`t exist any more… Referring to to the statue in Ancient sections of sub4 that could be the real looking of mur take it more symbolical. Someone triggered spontaneous creation of submachines. After the invention sub started to expand by itself.so there was a human factor in it at the beginning. but no more. So here we go.<br>我将告诉你关于Submachine建造的早期那些事。那是在肯特瀑布，1900-1906年，第一座Submachine在1900年之前被更早建造。那就是我所全部知道的了。这个古老的地点是后来用时间机器建造的。（我指Sub0）它是在第一台Submachine之后很久制造的。从建设者的角度来看，我们当然可以采取其他什么观点？…历史？有了时间机器，历史的意义就不复存在了…关于Sub4的古代部分的雕像，这可能是墨菲的真实面貌，我认为它更具象征意义。有人触发了Submachine的自发性的创造。在Submachine被发明之后，它开始自己扩展，所以在开始的时候有一个人为因素。<br>A scientist in the early 1900s discovered and created a new technology which he named Submachine. This discovery and invention exists within or rather shares many of the laws of physics but in a space below that of normal physical reality. Subphysical. The Submachine exists in a space within space or rather in parallel. A Subworld or Underworld (this is important). While experimenting with his Submachines he made a mistake as no one could possibly understand the full scope of such new technology, nor where the boundaries of normal physics lay. Through the creation of a submachine he was (intentionally or otherwise) transported through time. On exiting this underworld he found himself in ancient Egyptian times. An early 20th century scientist with absolute knowledge of the ‘Underworld’. Now to anyone who finds themselves in a foreign land by accident, first priority is ‘How do I get home?’. If this proves to be impossible your new priority is ‘How am I going to survive?’. If you are a 20th century scientist in Egypt, with knowledge of the underworld and the ability to take someone and show them part of that underworld. Then you have got survival conquered.<br>20世纪初，一位科学家发现并创造了一种新技术，他将其命名为“Submachine”。这一发现和发明更确切地说基于许多物理定律的共性，但存在于正常物理现实之下的空间中。Sub物理下子机器存在于空间内的一个子空间中，或者更确切地说是平行的。Sub世界或地下世界（这很重要）。在科学家试验他的Submachine时，他犯了一个错误，因为没人能理解这种新技术，也没有人能理解正常物理的界限在哪。通过制造一个Submachine，他被（有意或无意地）通过时间运输。离开Sub世界后，他发现自己身处古埃及时代。作为20世纪初对“地下世界”有绝对了解的科学家，现在，成为了一个偶然发现自己身处异国他乡的人，第一要务将是“我怎么回家？”。如果做不到，你的新重点肯定是“我该怎么活下去？”如果你是一个在古埃及的20世纪的科学家，当你了解这个地下世界，并且有能力带别人去看他们是地下世界的一部分。接下来你就赢得了生存。<br><strong>Quote from Sub6</strong><br>THOTH<br>Patron of: knowledge, secrets, writing, and scribes. Appearance: A man with the head of an ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon Description: Thoth is an unusual god. Though some stories place his as a son of Ra, other say that Thoth created himself  through the power of language. He is the create or magic, the inventor of writing, teacher of man, the messenger of the gods (and thus identified by the Greeks with Hermes) and the divine record-keeper and mediator.<br>He was also a measurer and recorder of time.<br>A 20th century scientist from on ancient Egyptian perspective:<br>Patron of: knowledge, secrets, writing, and scribes. Check!<br>He is the creator of magic, the inventor of writing, leacher of man, the messenger of the gods and the divine record-keeper and mediator. Check!<br>He was also a measurer and recorder of time. Check!<br>So we are left with a name, Thoth and his appearance.<br>Name first.<br>What if his name was say Tim Roth, he is in a strange land, the only known Tim, the only Roth. In a land where the written language is hieroglyphs. He simply becomes Thoth.<br>引用自Sub6的纸条<br>智慧之神Thoth<br>代表知识、秘密、写作和抄写员。<br>外貌：一个长着朱鹭头的男人拿着抄写员的板子和笔。<br>他的外貌也被描绘成一个完整的朱鹭，有时也可能是狒狒：Thoth是一个不寻常的神。虽然有些故事把他作为Ra（古埃及太阳神)之子，另一个说，Thoth创造了自己通过语言的力量。他是造物或魔法，写作的发明者。人的老师，神的使者（因此被希腊人和赫耳墨斯所认同），以及神的记录保管者和调解人。<br>他也是时间的测量者和记录者。</p>
+<p>古埃及的20世纪科学家：<br>代表知识、秘密、写作和抄写员。Check！<br>他是魔法的创造者，写作的发明者，人类的浸出者，神的使者，神的记录保管者和调解人。Check！<br>他也是时间的测量者和记录者。Check！<br>所以我们只剩下一个名字，Thoth和他的外貌。<br>首先列出名字<br>如果他的名字叫Tim Roth，他在一个陌生的地方，唯一知道是Tim，唯一的Roth。在一个书写语言是象形文字的地方。他的名字只是变成了Thoth。</p>
+<p>HIS APPEARANCE.<br>A man with the head of on ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon. He lives in ancient Egypt, he dies, his deeds and knowledge ore passed on through a few generations, he is venerated as a god, they depict him as they depict all their gods.So a 20th century scientist trapped in another time ingratiates himself with the powerful of the land but he still wants to go home. He builds Submachines (means unknown) and sets about protecting these Submachines with defences and in turn connects them in to a Subnet. This proto-Subnet he designs to adapt in the hope that it will find the means to take him home. It doesn`t. ‘someone triggered spontaneous creation of submochines. After the ‘invention’ sub started to expand by itself. so there was a human factor in it at the beginning. but no more.’ After his death the Subnet continues to evolve. Thousands of years pass. The scientist is born and creates Submochines BUT the Subnet we are exploring already exists, he created it in his future, our past. The Subnet still waits on him. In Sub 6, as we exit the mover, we are asked for on IDN (IDentification Number presumably). We do not know Thoth’s IDN so we are dumped. This I hope explains the Egyptian emphasis on the Subnet.</p>
+<p>他的外貌。</p>
+<p>一个长着朱鹭头的人拿着抄写员的板和笔。他也被描绘成一个完整的朱鹭，或有时像狒狒。他生活在古埃及，他死了，他的行为和知识传承了几代人，他被尊为神，他们把他描绘成他们的一个神。<br>因此，一个20世纪的科学家被困在另一个时代，以那个时代的土地的力量讨好自己，但他仍然想回家。他建造了Submachines（表示未知），并着手用防御系统保护这些机器，然后将它们连接到Sub net。他设计的这个原型Sub net是为了适应这种情况，并且希望能找到带他回家的方法。但它没有，在“发明”Submachine开始自行扩张之后，有人触发了Submachine的自我创造。所以这里在开始的时候有一个人为因素。<br>他死后，Subnet继续进化。几千年过去了。科学家创造了Submachine，但是我们正在探索的Subnet已经存在，他在未来创造了它，即我们的过去。Subnet仍在等待他。在Sub 6中，当我们离开移动舱时，需要在IDN上（大概是识别号）找到我们。我们不知道Thoth的身份，所以我们被丢了出去。我希望这能解释埃及人对Subnet的重视。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Thoth.svg/1200px-Thoth.svg.png"></p>
+<p>卡尔霍恩译<br>2019.5.23</p>]]></content>
+      <categories>
+        <category>文本翻译</category>
+      </categories>
+      <tags>
+        <tag>Submachine</tag>
+        <tag>古埃及</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python实现利用蒙特卡洛法求Pi的值</title>
     <url>/p/acop.html</url>
     <content><![CDATA[<h1 id="蒙特卡洛法的介绍："><a href="#蒙特卡洛法的介绍：" class="headerlink" title="蒙特卡洛法的介绍："></a>蒙特卡洛法的介绍：</h1><p>蒙特卡洛（Monte Carlo）法是一类<strong>随机算法</strong>的统称。</p>
@@ -1124,25 +1143,6 @@ $$
       </categories>
       <tags>
         <tag>蒙特卡洛法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Submachine Universe译稿（日更）</title>
-    <url>/p/8c3b.html</url>
-    <content><![CDATA[<h1 id="Submachine-Universe译稿4"><a href="#Submachine-Universe译稿4" class="headerlink" title="Submachine Universe译稿4"></a>Submachine Universe译稿4</h1><hr>
-<p>Subhistory Theory<br>Sub历史理论<br>by:MrEMan<br>One day I’ll tell you about the early builds of the submachine, that took place in -1900 -1906 in Kent. the first submachine was built in early 1900. that much we know. ancient location was built later using a time machine. sub0 I am to say this. ;). it was made long after the first submachine. From the builders point of view, naturally, what other point of view can we take?… historical? with the time machine a historical point of view doesn`t exist any more… Referring to to the statue in Ancient sections of sub4 that could be the real looking of mur take it more symbolical. Someone triggered spontaneous creation of submachines. After the invention sub started to expand by itself.so there was a human factor in it at the beginning. but no more. So here we go.<br>我将告诉你关于Submachine建造的早期那些事。那是在肯特瀑布，1900-1906年，第一座Submachine在1900年之前被更早建造。那就是我所全部知道的了。这个古老的地点是后来用时间机器建造的。（我指Sub0）它是在第一台Submachine之后很久制造的。从建设者的角度来看，我们当然可以采取其他什么观点？…历史？有了时间机器，历史的意义就不复存在了…关于Sub4的古代部分的雕像，这可能是墨菲的真实面貌，我认为它更具象征意义。有人触发了Submachine的自发性的创造。在Submachine被发明之后，它开始自己扩展，所以在开始的时候有一个人为因素。<br>A scientist in the early 1900s discovered and created a new technology which he named Submachine. This discovery and invention exists within or rather shares many of the laws of physics but in a space below that of normal physical reality. Subphysical. The Submachine exists in a space within space or rather in parallel. A Subworld or Underworld (this is important). While experimenting with his Submachines he made a mistake as no one could possibly understand the full scope of such new technology, nor where the boundaries of normal physics lay. Through the creation of a submachine he was (intentionally or otherwise) transported through time. On exiting this underworld he found himself in ancient Egyptian times. An early 20th century scientist with absolute knowledge of the ‘Underworld’. Now to anyone who finds themselves in a foreign land by accident, first priority is ‘How do I get home?’. If this proves to be impossible your new priority is ‘How am I going to survive?’. If you are a 20th century scientist in Egypt, with knowledge of the underworld and the ability to take someone and show them part of that underworld. Then you have got survival conquered.<br>20世纪初，一位科学家发现并创造了一种新技术，他将其命名为“Submachine”。这一发现和发明更确切地说基于许多物理定律的共性，但存在于正常物理现实之下的空间中。Sub物理下子机器存在于空间内的一个子空间中，或者更确切地说是平行的。Sub世界或地下世界（这很重要）。在科学家试验他的Submachine时，他犯了一个错误，因为没人能理解这种新技术，也没有人能理解正常物理的界限在哪。通过制造一个Submachine，他被（有意或无意地）通过时间运输。离开Sub世界后，他发现自己身处古埃及时代。作为20世纪初对“地下世界”有绝对了解的科学家，现在，成为了一个偶然发现自己身处异国他乡的人，第一要务将是“我怎么回家？”。如果做不到，你的新重点肯定是“我该怎么活下去？”如果你是一个在古埃及的20世纪的科学家，当你了解这个地下世界，并且有能力带别人去看他们是地下世界的一部分。接下来你就赢得了生存。<br><strong>Quote from Sub6</strong><br>THOTH<br>Patron of: knowledge, secrets, writing, and scribes. Appearance: A man with the head of an ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon Description: Thoth is an unusual god. Though some stories place his as a son of Ra, other say that Thoth created himself  through the power of language. He is the create or magic, the inventor of writing, teacher of man, the messenger of the gods (and thus identified by the Greeks with Hermes) and the divine record-keeper and mediator.<br>He was also a measurer and recorder of time.<br>A 20th century scientist from on ancient Egyptian perspective:<br>Patron of: knowledge, secrets, writing, and scribes. Check!<br>He is the creator of magic, the inventor of writing, leacher of man, the messenger of the gods and the divine record-keeper and mediator. Check!<br>He was also a measurer and recorder of time. Check!<br>So we are left with a name, Thoth and his appearance.<br>Name first.<br>What if his name was say Tim Roth, he is in a strange land, the only known Tim, the only Roth. In a land where the written language is hieroglyphs. He simply becomes Thoth.<br>引用自Sub6的纸条<br>智慧之神Thoth<br>代表知识、秘密、写作和抄写员。<br>外貌：一个长着朱鹭头的男人拿着抄写员的板子和笔。<br>他的外貌也被描绘成一个完整的朱鹭，有时也可能是狒狒：Thoth是一个不寻常的神。虽然有些故事把他作为Ra（古埃及太阳神)之子，另一个说，Thoth创造了自己通过语言的力量。他是造物或魔法，写作的发明者。人的老师，神的使者（因此被希腊人和赫耳墨斯所认同），以及神的记录保管者和调解人。<br>他也是时间的测量者和记录者。</p>
-<p>古埃及的20世纪科学家：<br>代表知识、秘密、写作和抄写员。Check！<br>他是魔法的创造者，写作的发明者，人类的浸出者，神的使者，神的记录保管者和调解人。Check！<br>他也是时间的测量者和记录者。Check！<br>所以我们只剩下一个名字，Thoth和他的外貌。<br>首先列出名字<br>如果他的名字叫Tim Roth，他在一个陌生的地方，唯一知道是Tim，唯一的Roth。在一个书写语言是象形文字的地方。他的名字只是变成了Thoth。</p>
-<p>HIS APPEARANCE.<br>A man with the head of on ibis holding a scribe’s palette and stylus. He was also shown as a full ibis, or sometimes as baboon. He lives in ancient Egypt, he dies, his deeds and knowledge ore passed on through a few generations, he is venerated as a god, they depict him as they depict all their gods.So a 20th century scientist trapped in another time ingratiates himself with the powerful of the land but he still wants to go home. He builds Submachines (means unknown) and sets about protecting these Submachines with defences and in turn connects them in to a Subnet. This proto-Subnet he designs to adapt in the hope that it will find the means to take him home. It doesn`t. ‘someone triggered spontaneous creation of submochines. After the ‘invention’ sub started to expand by itself. so there was a human factor in it at the beginning. but no more.’ After his death the Subnet continues to evolve. Thousands of years pass. The scientist is born and creates Submochines BUT the Subnet we are exploring already exists, he created it in his future, our past. The Subnet still waits on him. In Sub 6, as we exit the mover, we are asked for on IDN (IDentification Number presumably). We do not know Thoth’s IDN so we are dumped. This I hope explains the Egyptian emphasis on the Subnet.</p>
-<p>他的外貌。</p>
-<p>一个长着朱鹭头的人拿着抄写员的板和笔。他也被描绘成一个完整的朱鹭，或有时像狒狒。他生活在古埃及，他死了，他的行为和知识传承了几代人，他被尊为神，他们把他描绘成他们的一个神。<br>因此，一个20世纪的科学家被困在另一个时代，以那个时代的土地的力量讨好自己，但他仍然想回家。他建造了Submachines（表示未知），并着手用防御系统保护这些机器，然后将它们连接到Sub net。他设计的这个原型Sub net是为了适应这种情况，并且希望能找到带他回家的方法。但它没有，在“发明”Submachine开始自行扩张之后，有人触发了Submachine的自我创造。所以这里在开始的时候有一个人为因素。<br>他死后，Subnet继续进化。几千年过去了。科学家创造了Submachine，但是我们正在探索的Subnet已经存在，他在未来创造了它，即我们的过去。Subnet仍在等待他。在Sub 6中，当我们离开移动舱时，需要在IDN上（大概是识别号）找到我们。我们不知道Thoth的身份，所以我们被丢了出去。我希望这能解释埃及人对Subnet的重视。</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Thoth.svg/1200px-Thoth.svg.png"></p>
-<p>卡尔霍恩译<br>2019.5.23</p>]]></content>
-      <categories>
-        <category>文本翻译</category>
-      </categories>
-      <tags>
-        <tag>Submachine</tag>
-        <tag>古埃及</tag>
       </tags>
   </entry>
   <entry>
