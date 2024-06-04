@@ -185,7 +185,7 @@
 <meta property="og:site_name" content="Calhoun&#39;s House">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-04T07:00:32.041Z">
-<meta property="article:modified_time" content="2024-06-04T07:05:19.963Z">
+<meta property="article:modified_time" content="2024-06-04T07:08:02.374Z">
 <meta property="article:author" content="Edward Calhoun">
 <meta property="article:tag" content="Cryptography">
 <meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@
     </div>
     
       
-        <p class="site-subtitle">AI/Diary/Technology</p>
+        <p class="site-subtitle">AI/Daily Life/Technology</p>
       
     
   </div>
@@ -473,7 +473,7 @@
                 
               
 
-              <time title="Created: 2024-06-04 15:00:32 / Modified: 15:05:19" itemprop="dateCreated datePublished" datetime="2024-06-04T15:00:32+08:00">2024-06-04</time>
+              <time title="Created: 2024-06-04 15:00:32 / Modified: 15:08:02" itemprop="dateCreated datePublished" datetime="2024-06-04T15:00:32+08:00">2024-06-04</time>
             
 
             
@@ -569,7 +569,7 @@
       
 
       
-        <h1 id="Introduction-of-Cryptography"><a href="#Introduction-of-Cryptography" class="headerlink" title="Introduction of Cryptography"></a>Introduction of Cryptography</h1><h4 id="Caesar-Cipher"><a href="#Caesar-Cipher" class="headerlink" title="Caesar Cipher"></a>Caesar Cipher</h4><p>Assume letters are numbered from 0 - 25, we have the following two functions:</p>
+        <h1 id="Introduction-of-Cryptography"><a href="#Introduction-of-Cryptography" class="headerlink" title="Introduction of Cryptography"></a>Introduction of Cryptography</h1><h2 id="Caesar-Cipher"><a href="#Caesar-Cipher" class="headerlink" title="Caesar Cipher"></a>Caesar Cipher</h2><p>Assume letters are numbered from 0 - 25, we have the following two functions:</p>
 <ul>
 <li><p>Encryption function </p>
 <p>$E_n(x)=(x+n)\mod26$</p>
@@ -582,21 +582,21 @@
 <p><strong>It can be attacked using cryptanalysis, in this case using:</strong></p>
 <p><strong>Brute force: just decrypt using 1 to 25 as the shift and search for meaningful text</strong></p>
 <p><strong>Letter frequency – just measure the frequency of the letters in ciphertext and compare to see how much it has shifted</strong></p>
-<h4 id="Polyalphabetic-Cipher"><a href="#Polyalphabetic-Cipher" class="headerlink" title="Polyalphabetic Cipher"></a>Polyalphabetic Cipher</h4><p>Vigenère cipher was invented by <strong>Giovan</strong> <strong>Battista</strong> <strong>Bellaso</strong> in 1553</p>
+<h2 id="Polyalphabetic-Cipher"><a href="#Polyalphabetic-Cipher" class="headerlink" title="Polyalphabetic Cipher"></a>Polyalphabetic Cipher</h2><p>Vigenère cipher was invented by <strong>Giovan</strong> <strong>Battista</strong> <strong>Bellaso</strong> in 1553</p>
 <p>Misattributed to Blaise de Vigenère</p>
 <p>Works by using a repeating key word: letters are shifted by the number code of the letter in the key</p>
-<h4 id="Confusion-and-Diffusion"><a href="#Confusion-and-Diffusion" class="headerlink" title="Confusion and Diffusion"></a>Confusion and Diffusion</h4><p>Claude Shannon (1945) A Mathematical Theory of Cryptography</p>
+<h2 id="Confusion-and-Diffusion"><a href="#Confusion-and-Diffusion" class="headerlink" title="Confusion and Diffusion"></a>Confusion and Diffusion</h2><p>Claude Shannon (1945) A Mathematical Theory of Cryptography</p>
 <p><strong>Confusion</strong></p>
 <p>Each part of the ciphertext depends on several parts of the key<br>Hides the relationship between ciphertext and key</p>
 <p><strong>Diffusion</strong><br>Change in plain text will result in larger changes in ciphertext</p>
 <p>Hide the relationship between the ciphertext and plaintext</p>
 <p>We can achieve confusion/diffusion using a combination of substitution</p>
-<h4 id="Cryptography-Today"><a href="#Cryptography-Today" class="headerlink" title="Cryptography Today"></a>Cryptography Today</h4><p>Two types of encryption used:</p>
+<h2 id="Cryptography-Today"><a href="#Cryptography-Today" class="headerlink" title="Cryptography Today"></a>Cryptography Today</h2><p>Two types of encryption used:</p>
 <p><strong>Symmetric key cryptography:</strong> Both parties share the same single key</p>
 <p><strong>Asymmetric key cryptography:</strong> Each party has 2 keys: public key and private key</p>
 <p>Both types or encryption are used for different purposes and have different benefits and drawbacks</p>
 <p>In addition to the above, there are other cryptographic functions that do not require a key e.g. Hash functions</p>
-<h4 id="DES（Data-Encryption-Standard）"><a href="#DES（Data-Encryption-Standard）" class="headerlink" title="DES（Data Encryption Standard）"></a>DES（Data Encryption Standard）</h4><p>Key Space:$2^{56}$</p>
+<h2 id="DES（Data-Encryption-Standard）"><a href="#DES（Data-Encryption-Standard）" class="headerlink" title="DES（Data Encryption Standard）"></a>DES（Data Encryption Standard）</h2><p>Key Space:$2^{56}$</p>
 <p>Block length is 64 bits</p>
 <p><strong>Key length is 56 bits (64 bits with 8 bits as parity)</strong></p>
 <p>The process for encryption involves:</p>
@@ -623,7 +623,7 @@
 <li>192 bits with 12 rounds of encryption  Key Space  $2^{192}$</li>
 <li>256 bits with 14 rounds of encryption Key Space  $2^{256}$</li>
 </ul>
-<h4 id="Public-key-and-private-key-encryption-and-decryption"><a href="#Public-key-and-private-key-encryption-and-decryption" class="headerlink" title="Public key and private key encryption and decryption"></a>Public key and private key encryption and decryption</h4><p><strong>Combine the two processes</strong><br>1.Alice encrypts the document with her private key 2.Alice then encrypts again with Bob’s public key<br>3.Bob decrypts the document with Bob’s private key 4.Bob decrypts the document with Alice’s public key</p>
+<h2 id="Public-key-and-private-key-encryption-and-decryption"><a href="#Public-key-and-private-key-encryption-and-decryption" class="headerlink" title="Public key and private key encryption and decryption"></a>Public key and private key encryption and decryption</h2><p><strong>Combine the two processes</strong><br>1.Alice encrypts the document with her private key 2.Alice then encrypts again with Bob’s public key<br>3.Bob decrypts the document with Bob’s private key 4.Bob decrypts the document with Alice’s public key</p>
 <blockquote>
 <p>[!NOTE]</p>
 <p>Can be attacked by <strong>Man-in-the-Middle (MitM)</strong> attack</p>
@@ -632,7 +632,7 @@
 <p>Eve intercepts the public key exchange between Alice and Bob, </p>
 <p>Eve substitutes her own public keys for Alice’s and Bob’s. </p>
 <p>As a result, when Alice and Bob send encrypted messages to each other, they are actually encrypted with Eve’s public keys, allowing her to decrypt the messages with her private keys.</p>
-<h5 id="How-to-Prevent-This-MitM-Attack"><a href="#How-to-Prevent-This-MitM-Attack" class="headerlink" title="How to Prevent This MitM Attack"></a>How to Prevent This MitM Attack</h5><p>To protect against this type of attack, Alice and Bob should use <strong>Public Key Infrastructure (PKI)</strong> and other secure key exchange mechanisms. Here are the steps and techniques to prevent Eve’s MitM attack:</p>
+<h2 id="How-to-Prevent-This-MitM-Attack"><a href="#How-to-Prevent-This-MitM-Attack" class="headerlink" title="How to Prevent This MitM Attack"></a>How to Prevent This MitM Attack</h2><p>To protect against this type of attack, Alice and Bob should use <strong>Public Key Infrastructure (PKI)</strong> and other secure key exchange mechanisms. Here are the steps and techniques to prevent Eve’s MitM attack:</p>
 <ol>
 <li><strong>Public Key Infrastructure (PKI)</strong>:<ul>
 <li><strong>Certificates</strong>: Use digital certificates issued by trusted Certificate Authorities (CAs) to verify the authenticity of public keys. A digital certificate binds a public key to an entity (Alice or Bob) and is signed by a CA.</li>
@@ -653,7 +653,7 @@
 </ul>
 </li>
 </ol>
-<h4 id="Public-key-distribution"><a href="#Public-key-distribution" class="headerlink" title="Public key distribution"></a>Public key distribution</h4><p><strong>Decentralised models</strong>: PGP, OpenPGP</p>
+<h2 id="Public-key-distribution"><a href="#Public-key-distribution" class="headerlink" title="Public key distribution"></a>Public key distribution</h2><p><strong>Decentralised models</strong>: PGP, OpenPGP</p>
 <p><strong>Centralised models:</strong> Estonian ID-Card</p>
 <p>PGP (Pretty Good Privacy) Phil Zimmerman 1991</p>
 <p>1.Uses variety of symmetric and public key ciphers 2.Uses Web of Trust </p>
@@ -661,13 +661,13 @@
 <p>In 1977,  MIT researchers Ron Rivest, Adi Shamir and Leonard Adleman came up with RSA Key Generation: Create a public and private key. Public key is shared, private key is kept secret</p>
 <p><strong>Encryption:</strong> Encrypt a message to someone with their public key</p>
 <p><strong>Decryption:</strong> Decrypt a message with the private key</p>
-<h4 id="Hash-functions"><a href="#Hash-functions" class="headerlink" title="Hash functions"></a>Hash functions</h4><p>Used for password storage and verification</p>
+<h2 id="Hash-functions"><a href="#Hash-functions" class="headerlink" title="Hash functions"></a>Hash functions</h2><p>Used for password storage and verification</p>
 <p>Password + Salt (random bytes) is hashed and the hash stored for verification<br><strong>Never store the plaintext</strong><br>Linux stores passwords in a file called shadow:<br><code>openssl passwd -6 -salt randomtext mysecretpassword</code><br>In practice, Linux will do the hash 5000 times in an attempt to stop brute forcing passwords</p>
 <p>Message Authentication Codes (MAC): </p>
 <p>1.message is combined with key and hashed 2.confirms that a message has not been changed 3.provides data integrity and authenticity</p>
 <p>Digital signature</p>
 <p>1.proposed by Diffie and Hellman in 1976 2.Digital Signature Algorithm (DSA) part of NIST’s Digital Signature Standard (DSS)<br>Message is hashed and then processed using the private key to produce a signature 3.Checking the signature involves taking the hash of the message and the signature and using the public key to verify the signature.</p>
-<h3 id="Why-do-we-salt-passwords-before-hashing-them"><a href="#Why-do-we-salt-passwords-before-hashing-them" class="headerlink" title="Why do we salt passwords before hashing them?"></a>Why do we salt passwords before hashing them?</h3><p>Salting passwords before hashing is a critical security practice that addresses several vulnerabilities in storing hashed passwords:</p>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="Why-do-we-salt-passwords-before-hashing-them"><a href="#Why-do-we-salt-passwords-before-hashing-them" class="headerlink" title="Why do we salt passwords before hashing them?"></a>Why do we salt passwords before hashing them?</h3><p>Salting passwords before hashing is a critical security practice that addresses several vulnerabilities in storing hashed passwords:</p>
 <p><strong>Prevents Rainbow Table Attacks</strong>:</p>
 <ul>
 <li>Rainbow tables are precomputed tables for reversing cryptographic hash functions, mainly used to crack password hashes. By adding a unique salt to each password before hashing, even if two users have the same password, their hashes will be different. This makes rainbow tables ineffective because each entry in the table would need to be salted in the same way as the stored passwords.</li>
@@ -1554,7 +1554,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-Cryptography"><span class="nav-number">1.</span> <span class="nav-text">Introduction of Cryptography</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Caesar-Cipher"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Caesar Cipher</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Polyalphabetic-Cipher"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">Polyalphabetic Cipher</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confusion-and-Diffusion"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Confusion and Diffusion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cryptography-Today"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Cryptography Today</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DES%EF%BC%88Data-Encryption-Standard%EF%BC%89"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">DES（Data Encryption Standard）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Public-key-and-private-key-encryption-and-decryption"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">Public key and private key encryption and decryption</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#How-to-Prevent-This-MitM-Attack"><span class="nav-number">1.0.0.6.1.</span> <span class="nav-text">How to Prevent This MitM Attack</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Public-key-distribution"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">Public key distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash-functions"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">Hash functions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-do-we-salt-passwords-before-hashing-them"><span class="nav-number">1.0.1.</span> <span class="nav-text">Why do we salt passwords before hashing them?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Are-Hash-Functions-Secure"><span class="nav-number">1.0.2.</span> <span class="nav-text">Are Hash Functions Secure?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Your-Diffie-Hellman-Key-Exchange-Didn%E2%80%99t-Work-What-Went-Wrong"><span class="nav-number">1.0.3.</span> <span class="nav-text">Your Diffie-Hellman Key Exchange Didn’t Work, What Went Wrong?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Safe-Use-of-CBC-Mode"><span class="nav-number">1.0.4.</span> <span class="nav-text">Safe Use of CBC Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-DES-and-Security"><span class="nav-number">1.0.5.</span> <span class="nav-text">n-DES and Security</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fully-Utilising-the-Key-Space"><span class="nav-number">1.0.6.</span> <span class="nav-text">Fully Utilising the Key Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-Substitution-and-or-Transposition-Layers"><span class="nav-number">1.0.7.</span> <span class="nav-text">Adding Substitution and&#x2F;or Transposition Layers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Diffie-Hellman-Vulnerability"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">Diffie Hellman Vulnerability</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-of-Cryptography"><span class="nav-number">1.</span> <span class="nav-text">Introduction of Cryptography</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Caesar-Cipher"><span class="nav-number">1.1.</span> <span class="nav-text">Caesar Cipher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polyalphabetic-Cipher"><span class="nav-number">1.2.</span> <span class="nav-text">Polyalphabetic Cipher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Confusion-and-Diffusion"><span class="nav-number">1.3.</span> <span class="nav-text">Confusion and Diffusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cryptography-Today"><span class="nav-number">1.4.</span> <span class="nav-text">Cryptography Today</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DES%EF%BC%88Data-Encryption-Standard%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">DES（Data Encryption Standard）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-key-and-private-key-encryption-and-decryption"><span class="nav-number">1.6.</span> <span class="nav-text">Public key and private key encryption and decryption</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Prevent-This-MitM-Attack"><span class="nav-number">1.7.</span> <span class="nav-text">How to Prevent This MitM Attack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-key-distribution"><span class="nav-number">1.8.</span> <span class="nav-text">Public key distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash-functions"><span class="nav-number">1.9.</span> <span class="nav-text">Hash functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">1.10.</span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-do-we-salt-passwords-before-hashing-them"><span class="nav-number">1.10.1.</span> <span class="nav-text">Why do we salt passwords before hashing them?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Are-Hash-Functions-Secure"><span class="nav-number">1.10.2.</span> <span class="nav-text">Are Hash Functions Secure?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Your-Diffie-Hellman-Key-Exchange-Didn%E2%80%99t-Work-What-Went-Wrong"><span class="nav-number">1.10.3.</span> <span class="nav-text">Your Diffie-Hellman Key Exchange Didn’t Work, What Went Wrong?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Safe-Use-of-CBC-Mode"><span class="nav-number">1.10.4.</span> <span class="nav-text">Safe Use of CBC Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-DES-and-Security"><span class="nav-number">1.10.5.</span> <span class="nav-text">n-DES and Security</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fully-Utilising-the-Key-Space"><span class="nav-number">1.10.6.</span> <span class="nav-text">Fully Utilising the Key Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-Substitution-and-or-Transposition-Layers"><span class="nav-number">1.10.7.</span> <span class="nav-text">Adding Substitution and&#x2F;or Transposition Layers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Diffie-Hellman-Vulnerability"><span class="nav-number">1.10.7.1.</span> <span class="nav-text">Diffie Hellman Vulnerability</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
