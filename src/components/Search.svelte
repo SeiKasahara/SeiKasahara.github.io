@@ -4,32 +4,21 @@ import { i18n } from "@i18n/translation";
 import Icon from "@iconify/svelte";
 import { url } from "@utils/url-utils.ts";
 import { onMount } from "svelte";
-import type { SearchResult } from "@/global";
+
+interface SearchResult {
+	url: string;
+	meta: {
+		title: string;
+	};
+	excerpt: string;
+	urlPath?: string;
+}
 
 let keywordDesktop = "";
 let keywordMobile = "";
 let result: SearchResult[] = [];
 let isSearching = false;
-let pagefindLoaded = false;
-let initialized = false;
-
-const fakeResult: SearchResult[] = [
-	{
-		url: url("/"),
-		meta: {
-			title: "This Is a Fake Search Result",
-		},
-		excerpt:
-			"Because the search cannot work in the <mark>dev</mark> environment.",
-	},
-	{
-		url: url("/"),
-		meta: {
-			title: "If You Want to Test the Search",
-		},
-		excerpt: "Try running <mark>npm build && npm preview</mark> instead.",
-	},
-];
+let posts: any[] = [];
 
 const togglePanel = () => {
 	const panel = document.getElementById("search-panel");
@@ -47,6 +36,13 @@ const setPanelVisibility = (show: boolean, isDesktop: boolean): void => {
 	}
 };
 
+const highlightText = (text: string, keyword: string): string => {
+    if (!keyword) return text;
+    const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedKeyword})`, "gi");
+    return text.replace(regex, "<mark>$1</mark>");
+};
+
 const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 	if (!keyword) {
 		setPanelVisibility(false, isDesktop);
@@ -54,26 +50,49 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 		return;
 	}
 
-	if (!initialized) {
-		return;
-	}
-
 	isSearching = true;
 
 	try {
-		let searchResults: SearchResult[] = [];
+		const searchResults = posts
+			.filter((post) => {
+				const keywordLower = keyword.toLowerCase();
+				const searchText =
+					`${post.title} ${post.description} ${post.content}`.toLowerCase();
+				const urlPath = `/posts/${post.link}`;
+				
+				// 支持内容搜索和URL后缀搜索
+				return searchText.includes(keywordLower) || 
+					   urlPath.toLowerCase().includes(keywordLower) ||
+					   post.link.toLowerCase().includes(keywordLower);
+			})
+			.map((post) => {
+				const contentLower = post.content.toLowerCase();
+				const keywordLower = keyword.toLowerCase();
+				const contentIndex = contentLower.indexOf(keywordLower);
+				
+				let excerpt = '';
+				if (contentIndex !== -1) {
+					const start = Math.max(0, contentIndex - 50);
+					const end = Math.min(post.content.length, contentIndex + 100);
+					excerpt = post.content.substring(start, end);
+					if (start > 0) excerpt = '...' + excerpt;
+					if (end < post.content.length) excerpt = excerpt + '...';
+				} else {
+					excerpt = post.description || post.content.substring(0, 150) + '...';
+				}
 
-		if (import.meta.env.PROD && pagefindLoaded && window.pagefind) {
-			const response = await window.pagefind.search(keyword);
-			searchResults = await Promise.all(
-				response.results.map((item) => item.data()),
-			);
-		} else if (import.meta.env.DEV) {
-			searchResults = fakeResult;
-		} else {
-			searchResults = [];
-			console.error("Pagefind is not available in production environment.");
-		}
+				// 确保 URL 构建正确
+				const postUrl = post.link.startsWith('/') ? post.link : `/posts/${post.link}/`;
+
+				return {
+					url: url(postUrl),
+					meta: {
+						title: post.title
+					},
+					excerpt: highlightText(excerpt, keyword),
+					urlPath: postUrl
+				};
+			});
 
 		result = searchResults;
 		setPanelVisibility(result.length > 0, isDesktop);
@@ -86,55 +105,65 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 	}
 };
 
-onMount(() => {
-	const initializeSearch = () => {
-		initialized = true;
-		pagefindLoaded =
-			typeof window !== "undefined" &&
-			!!window.pagefind &&
-			typeof window.pagefind.search === "function";
-		console.log("Pagefind status on init:", pagefindLoaded);
-		if (keywordDesktop) search(keywordDesktop, true);
-		if (keywordMobile) search(keywordMobile, false);
-	};
+onMount(async () => {
+	try {
+		const response = await fetch("/rss.xml");
+		const text = await response.text();
+		const parser = new DOMParser();
+		const xml = parser.parseFromString(text, "text/xml");
+		const items = xml.querySelectorAll("item");
 
-	if (import.meta.env.DEV) {
-		console.log(
-			"Pagefind is not available in development mode. Using mock data.",
-		);
-		initializeSearch();
-	} else {
-		document.addEventListener("pagefindready", () => {
-			console.log("Pagefind ready event received.");
-			initializeSearch();
-		});
-		document.addEventListener("pagefindloaderror", () => {
-			console.warn(
-				"Pagefind load error event received. Search functionality will be limited.",
-			);
-			initializeSearch(); // Initialize with pagefindLoaded as false
-		});
-
-		// Fallback in case events are not caught or pagefind is already loaded by the time this script runs
-		setTimeout(() => {
-			if (!initialized) {
-				console.log("Fallback: Initializing search after timeout.");
-				initializeSearch();
+		posts = Array.from(items).map((item) => {
+			// 尝试多种方式获取content:encoded内容
+			let content = "";
+			const contentEncoded = 
+				item.getElementsByTagNameNS("*", "encoded")[0]?.textContent ||
+				item.querySelector("*|encoded")?.textContent ||
+				"";
+			
+			if (contentEncoded) {
+				// 移除HTML标签并解码HTML实体
+				const tempDiv = document.createElement("div");
+				tempDiv.innerHTML = contentEncoded;
+				content = tempDiv.textContent || tempDiv.innerText || "";
 			}
-		}, 2000); // Adjust timeout as needed
+
+			// 从link中提取相对路径
+			const linkText = item.querySelector("link")?.textContent || "";
+			let relativePath = "";
+			
+			// 处理多种可能的URL格式
+			if (linkText.includes("/posts/")) {
+				// 匹配 /posts/ 后的所有内容（包括多级路径）
+				const match = linkText.match(/\/posts\/(.+?)(?:\/$|$)/);
+				if (match) {
+					relativePath = match[1];
+				}
+			} else {
+				// 如果不包含 /posts/，尝试获取最后的路径部分
+				const urlParts = linkText.split('/').filter(Boolean);
+				relativePath = urlParts[urlParts.length - 1] || "";
+			}
+
+			return {
+				title: item.querySelector("title")?.textContent || "",
+				description: item.querySelector("description")?.textContent || "",
+				content: content,
+				link: relativePath,
+				fullLink: linkText // 保留完整链接以备用
+			};
+		});
+	} catch (error) {
+		console.error("Error fetching RSS:", error);
 	}
 });
 
-$: if (initialized && keywordDesktop) {
-	(async () => {
-		await search(keywordDesktop, true);
-	})();
+$: if (keywordDesktop !== undefined) {
+    search(keywordDesktop, true);
 }
 
-$: if (initialized && keywordMobile) {
-	(async () => {
-		await search(keywordMobile, false);
-	})();
+$: if (keywordMobile !== undefined) {
+    search(keywordMobile, false);
 }
 </script>
 
@@ -179,6 +208,9 @@ top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2">
        rounded-xl text-lg px-3 py-2 hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)]">
             <div class="transition text-90 inline-flex font-bold group-hover:text-[var(--primary)]">
                 {item.meta.title}<Icon icon="fa6-solid:chevron-right" class="transition text-[0.75rem] translate-x-1 my-auto text-[var(--primary)]"></Icon>
+            </div>
+            <div class="transition text-xs text-white/60 mb-1 font-mono">
+                {item.urlPath}
             </div>
             <div class="transition text-sm text-50">
                 {@html item.excerpt}

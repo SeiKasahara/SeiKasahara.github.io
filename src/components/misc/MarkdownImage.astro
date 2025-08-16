@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+const isRemote = src.startsWith("http");
+
+// 动态导入本地图片
+const localImage = !isRemote ? await import(/* @vite-ignore */ `../../${src}`) : null;
+---
+
+<figure class="flex flex-col items-center">
+  {
+    isRemote ? (
+      <img src={src} alt={alt} class="rounded-lg" />
+    ) : (
+      <Image
+        src={localImage.default}
+        alt={alt}
+        class="rounded-lg"
+        widths={[400, 800, 1200]}
+        sizes="(max-width: 800px) 100vw, 800px"
+        format="webp"
+      />
+    )
+  }
+  {alt && <figcaption class="mt-2 text-center text-sm">{alt}</figcaption>}
+</figure>

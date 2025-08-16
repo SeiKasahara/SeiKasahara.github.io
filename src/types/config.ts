@@ -4,17 +4,7 @@ export type SiteConfig = {
 	title: string;
 	subtitle: string;
 
-	lang:
-		| "en"
-		| "zh_CN"
-		| "zh_TW"
-		| "ja"
-		| "ko"
-		| "es"
-		| "th"
-		| "vi"
-		| "tr"
-		| "id";
+	lang: string;
 
 	themeColor: {
 		hue: number;
@@ -47,7 +37,9 @@ export type Favicon = {
 export enum LinkPreset {
 	Home = 0,
 	Archive = 1,
-	About = 2,
+	Series = 2,
+	About = 3,
+	Friends = 4,
 }
 
 export type NavBarLink = {
@@ -93,8 +85,10 @@ export type BlogPostData = {
 	category?: string;
 	prevTitle?: string;
 	prevSlug?: string;
+	pinned?: boolean;
 	nextTitle?: string;
 	nextSlug?: string;
+	series?: string;
 };
 
 export type ExpressiveCodeConfig = {

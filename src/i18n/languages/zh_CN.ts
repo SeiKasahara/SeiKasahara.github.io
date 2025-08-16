@@ -4,7 +4,7 @@ import type { Translation } from "../translation";
 export const zh_CN: Translation = {
 	[Key.home]: "主页",
 	[Key.about]: "关于",
-	[Key.archive]: "归档",
+	[Key.archive]: "时间线",
 	[Key.search]: "搜索",
 
 	[Key.tags]: "标签",
@@ -19,8 +19,8 @@ export const zh_CN: Translation = {
 
 	[Key.wordCount]: "字",
 	[Key.wordsCount]: "字",
-	[Key.minuteCount]: "分钟",
-	[Key.minutesCount]: "分钟",
+	[Key.minuteCount]: "min",
+	[Key.minutesCount]: "min",
 	[Key.postCount]: "篇文章",
 	[Key.postsCount]: "篇文章",
 
@@ -35,4 +35,7 @@ export const zh_CN: Translation = {
 	[Key.author]: "作者",
 	[Key.publishedAt]: "发布于",
 	[Key.license]: "许可协议",
+
+	[Key.series]: '专栏',
+	[Key.friends]: '友链',
 };

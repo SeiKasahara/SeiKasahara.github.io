@@ -11,8 +11,8 @@
       }
     ],
     "paths": {
-      "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
       "@utils/*": ["src/utils/*"],
       "@i18n/*": ["src/i18n/*"],
