@@ -44,12 +44,6 @@ importers:
       '@fastify/deepmerge':
         specifier: ^3.1.0
         version: 3.1.0
-      '@fontsource-variable/jetbrains-mono':
-        specifier: ^5.2.6
-        version: 5.2.6
-      '@fontsource/roboto':
-        specifier: ^5.2.6
-        version: 5.2.6
       '@iconify-json/fa6-brands':
         specifier: ^1.2.6
         version: 1.2.6
@@ -1129,12 +1123,6 @@ packages:
 
   '@fastify/deepmerge@3.1.0':
     resolution: {integrity: sha512-lCVONBQINyNhM6LLezB6+2afusgEYR4G8xenMsfe+AT+iZ7Ca6upM5Ha8UkZuYSnuMw3GWl/BiPXnLMi/gSxuQ==}
-
-  '@fontsource-variable/jetbrains-mono@5.2.6':
-    resolution: {integrity: sha512-1pvtyK6H1paBOixbtZ9xfQgArVQ4SJMW3WSGZPOd5PiW3yg0t8umwKnjDMzW2ofb7qSdiXnsnIaHPT36vEOdlg==}
-
-  '@fontsource/roboto@5.2.6':
-    resolution: {integrity: sha512-hzarG7yAhMoP418smNgfY4fO7UmuUEm5JUtbxCoCcFHT0hOJB+d/qAEyoNjz7YkPU5OjM2LM8rJnW8hfm0JLaA==}
 
   '@iconify-json/fa6-brands@1.2.6':
     resolution: {integrity: sha512-twL3X4KWcxAhbc1vz/mIDsVr+CAItk1/EIfxKUVQtpv6O4eydk5KNYqTZWdvJNHGInUgd6vKg21aWfVgb5DXEg==}
@@ -6516,10 +6504,6 @@ snapshots:
   '@fancyapps/ui@6.0.22': {}
 
   '@fastify/deepmerge@3.1.0': {}
-
-  '@fontsource-variable/jetbrains-mono@5.2.6': {}
-
-  '@fontsource/roboto@5.2.6': {}
 
   '@iconify-json/fa6-brands@1.2.6':
     dependencies:
