@@ -84,7 +84,7 @@ export default defineConfig({
         borderRadius: "0.25rem",
         borderColor: "none",
         codeFontSize: "0.875rem",
-        codeFontFamily: "'MiSans VF'",
+        codeFontFamily: "'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
         codeLineHeight: "1.5rem",
         frames: {
           editorBackground: "var(--codeblock-bg)",

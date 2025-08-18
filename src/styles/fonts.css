@@ -5,8 +5,8 @@
 
 /* 定义 CSS 变量 */
 :root {
-    --font-family-base: 'MiSans VF';
-    --font-family-mono: 'MiSans VF';
+    --font-family-base: 'MiSans VF', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-family-mono: 'JetBrains Mono Variable', 'Consolas', monospace;
 }
 
 /* 全局字体设置 */
