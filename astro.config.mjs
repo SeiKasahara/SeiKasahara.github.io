@@ -32,6 +32,10 @@ import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    concurrency: 1,
+  },
+  
   site: "https://fuwari.oh1.top/",
   base: "/",
   trailingSlash: "always",

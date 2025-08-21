@@ -45,11 +45,11 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Series,
 		LinkPreset.About,
 		LinkPreset.Friends,
-		{
+		/*{
 			name: "GitHub",
 			url: "https://github.com/yCENzh", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
-		},
+		},*/
 		{
 			name: "开往",
 			url: "https://www.travellings.cn/train.html",
