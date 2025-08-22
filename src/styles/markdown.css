@@ -39,7 +39,7 @@
 
   /* 全局可复用的链接样式 */
   .link {
-    @apply relative bg-none font-medium underline decoration-dashed decoration-1 underline-offset-4;
+    @apply relative bg-none font-medium underline decoration-dashed decoration-1 underline-offset-4 inline-block;
     color: var(--primary);
     text-decoration-color: var(--link-underline);
     box-decoration-break: clone;
@@ -167,7 +167,7 @@
 /* 全局作用域中的 link 类 */
 a.link,
 .link {
-  @apply relative bg-none font-medium underline decoration-dashed decoration-1 underline-offset-4;
+  @apply relative bg-none font-medium underline decoration-dashed decoration-1 underline-offset-4 inline-block;
   color: var(--primary);
   text-decoration-color: var(--link-underline);
   box-decoration-break: clone;

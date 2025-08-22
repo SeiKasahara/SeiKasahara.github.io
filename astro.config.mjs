@@ -23,12 +23,11 @@ import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
-import fuwariLinkCard from "./src/plugins/fuwari-link-card.ts";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
-import compress from "astro-compress";
 import rehypeExternalLinks from 'rehype-external-links';
+import { LinkCardComponent } from "./src/plugins/rehype-component-link-card.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -114,27 +113,6 @@ export default defineConfig({
     mdx(),
     svelte(),
     sitemap(),
-    fuwariLinkCard({
-      internalLink: { enabled: true },
-      cache: true,
-    }),
-    compress({
-      html: {
-        minify: true,
-      },
-      css: {
-        minify: true,
-      },
-      js: {
-        minify: true,
-      },
-      svg: {
-        minify: true,
-      },
-      image: false,
-      brotli: true,
-      gzip: true,
-    }),
   ],
 
   markdown: {
@@ -155,6 +133,7 @@ export default defineConfig({
         {
           components: {
             github: GithubCardComponent,
+            "link-card": LinkCardComponent,
             note: (x, y) => AdmonitionComponent(x, y, "note"),
             tip: (x, y) => AdmonitionComponent(x, y, "tip"),
             important: (x, y) => AdmonitionComponent(x, y, "important"),
