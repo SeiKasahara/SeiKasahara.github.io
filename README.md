@@ -26,4 +26,5 @@ Fuwari 是一个开源的主题。本网站用于该项目的文档、演示与�
 This project is licensed under the MIT License.
 
 ## Other
+
 Special thanks to ZMTO for sponsoring and supporting this project.

@@ -16,6 +16,20 @@ Link Cards are similar to the `<LinkCard>` component in [Starlight](https://star
 
 ## Usage  
 ## 使用方法
+> 现已更新,调用方法如下
+### 自定义标题和描述
+```
+::link-card{url="https://fuwari.oh1.top" title="yCENzh's Blog" description="Ciallo~"}
+```
+::link-card{url="https://fuwari.oh1.top" title="yCENzh's Blog" description="Ciallo~"}
+
+### 带图片
+```
+::link-card{url="https://github.com" title="Github" description="Hello World!" icon="https://github.com/github.png"}
+```
+::link-card{url="https://github.com" title="Github" description="Hello World!" icon="https://github.com/github.png"}
+
+> 下列均已失效
 
 Include only a single "bare" link (a link without descriptive text), or something similar, within a paragraph in Markdown, and it will automatically be converted into a Link Card.  
 在 Markdown 段落中仅包含一个"裸链接"（无描述文本的纯 URL）或类似结构，它将自动转换为链接卡片。
