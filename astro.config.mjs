@@ -33,6 +33,11 @@ import { LinkCardComponent } from "./src/plugins/rehype-component-link-card.mjs"
 export default defineConfig({
   build: {
     concurrency: 1,
+    compressHTML: true,
+  },
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport"
   },
   
   site: "https://fuwari.oh1.top/",

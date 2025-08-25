@@ -70,8 +70,7 @@ const bannerOffset =
 	<head>
 	    <Fonts />
 	
-		<!-- ✅ [优化] 使用 partytown 将 Umami 脚本移出主线程，防止网络延迟阻塞页面切换 -->
-		<script type="text/partytown" src="https://umami.14131413.xyz/script.js" data-website-id="79b06c28-877c-4eeb-8c6e-8a5ce1119ed2"></script>
+		<!-- <script type="text/partytown" src="https://umami.14131413.xyz/script.js" data-website-id="79b06c28-877c-4eeb-8c6e-8a5ce1119ed2"></script> -->
 		<script type="text/partytown" src="https://cloud.umami.is/script.js" data-website-id="a1a1f897-326f-4e68-a6f0-54e9dc361522"></script>
 
 		<title>{pageTitle}</title>
@@ -186,11 +185,9 @@ const bannerOffset =
 		@apply opacity-0 -translate-y-16
 	}
 	
-	/* ✅ [移除] 原有的 Linear Progress 样式，因为我们使用 ImageWrapper 组件自带的加载动画 */
 }
 </style>
 
-<!-- ✅ [优化] 将所有客户端脚本合并到一个地方，并进行优化 -->
 <script>
 import { OverlayScrollbars } from 'overlayscrollbars';
 import { getHue, getStoredTheme, setHue, setTheme } from "../utils/setting-utils";
