@@ -1,0 +1,178 @@
+---
+import { SEO as AstroSEO } from "astro-seo";
+import { siteConfig, profileConfig } from "@/config";
+import { supportedLanguages } from "@utils/hreflang-utils";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	canonical?: string;
+	noindex?: boolean;
+	nofollow?: boolean;
+	type?: "website" | "article";
+	publishedTime?: string;
+	modifiedTime?: string;
+	tags?: string[];
+	lang?: string;
+	// 为文章添加额外的元数据支持
+	author?: string;
+	category?: string;
+	wordCount?: number;
+	readingTime?: number;
+	// hreflang 支持
+	alternateLanguages?: { lang: string; url: string }[];
+}
+
+const {
+	title,
+	description,
+	image,
+	canonical,
+	noindex = false,
+	nofollow = false,
+	type = "website",
+	publishedTime,
+	modifiedTime,
+	tags,
+	lang,
+	author,
+	category,
+	wordCount,
+	readingTime,
+	alternateLanguages,
+} = Astro.props;
+
+// 构建页面标题
+const pageTitle = title 
+	? `${title} - ${siteConfig.title}` 
+	: `${siteConfig.title} - ${siteConfig.subtitle}`;
+
+// 使用传入的描述或站点默认描述
+const pageDescription = description || siteConfig.subtitle || "";
+
+// 确定使用的图片
+const ogImage = image || siteConfig.seo?.defaultImage || siteConfig.banner.src;
+// 如果图片是相对路径，转换为绝对路径
+const fullImageUrl = ogImage?.startsWith('http') 
+	? ogImage 
+	: ogImage?.startsWith('/') 
+		? new URL(ogImage, Astro.site).href
+		: new URL(`/src/${ogImage}`, Astro.site).href;
+
+// 构建规范链接
+const canonicalUrl = canonical || (siteConfig.seo?.canonical?.enable ? Astro.url.href : undefined);
+
+// 构建关键词（合并页面标签和全局关键词）
+const allKeywords = [
+	...(tags || []),
+	...(siteConfig.seo?.keywords || [])
+].join(", ");
+
+// 构建 OpenGraph 配置
+const openGraphConfig = {
+	basic: {
+		title: title || siteConfig.title,
+		type: type as "website" | "article",
+		image: fullImageUrl,
+		url: Astro.url.href,
+	},
+	optional: {
+		description: pageDescription,
+		siteName: siteConfig.seo?.openGraph?.siteName || siteConfig.title,
+		locale: (lang || siteConfig.lang).replace("_", "-"),
+	},
+	...(type === "article" && publishedTime && {
+		article: {
+			publishedTime,
+			...(modifiedTime && { modifiedTime }),
+			...(tags && tags.length > 0 && { tags }),
+		}
+	})
+};
+
+// 构建 Twitter 配置（仅在有配置时才添加）
+const twitterConfig = siteConfig.seo?.twitter ? {
+	card: siteConfig.seo.twitter.card || "summary_large_image",
+	...(siteConfig.seo.twitter.creator && { creator: siteConfig.seo.twitter.creator }),
+	...(siteConfig.seo.twitter.site && { site: siteConfig.seo.twitter.site }),
+	title: title || siteConfig.title,
+	description: pageDescription,
+	...(fullImageUrl && { image: fullImageUrl }),
+} : undefined;
+
+// 生成 hreflang 链接
+const generateHreflangLinks = () => {
+	if (!alternateLanguages || alternateLanguages.length === 0) {
+		// 如果没有提供备用语言，生成默认的语言版本
+		const currentLang = lang || siteConfig.lang;
+		const normalizedLang = supportedLanguages[currentLang] || currentLang.replace('_', '-');
+		
+		return [
+			{ rel: "alternate", hreflang: normalizedLang, href: Astro.url.href },
+			{ rel: "alternate", hreflang: "x-default", href: Astro.url.href }
+		];
+	}
+	
+	// 使用提供的备用语言列表
+	const hreflangLinks = alternateLanguages.map(alt => ({
+		rel: "alternate",
+		hreflang: supportedLanguages[alt.lang] || alt.lang.replace('_', '-'),
+		href: alt.url
+	}));
+	
+	// 添加 x-default 链接（通常指向主要语言版本）
+	const defaultLang = alternateLanguages.find(alt => alt.lang === siteConfig.lang) || alternateLanguages[0];
+	if (defaultLang) {
+		hreflangLinks.push({
+			rel: "alternate",
+			hreflang: "x-default",
+			href: defaultLang.url
+		});
+	}
+	
+	return hreflangLinks;
+};
+
+const hreflangLinks = generateHreflangLinks();
+
+// 扩展 meta 标签
+const extendMeta = [
+	...(allKeywords && [{ name: "keywords", content: allKeywords }]),
+	{ name: "author", content: author || profileConfig.name },
+	{ name: "generator", content: Astro.generator },
+	// 添加语言备用链接的支持
+	...(lang && lang !== siteConfig.lang ? [
+		{ name: "language", content: lang.replace("_", "-") }
+	] : []),
+	// 文章特有的 meta 标签
+	...(type === "article" && category ? [
+		{ name: "article:section", content: category }
+	] : []),
+	...(type === "article" && wordCount ? [
+		{ name: "article:word_count", content: wordCount.toString() }
+	] : []),
+	...(type === "article" && readingTime ? [
+		{ name: "article:reading_time", content: readingTime.toString() }
+	] : []),
+].filter(Boolean);
+
+// 扩展 link 标签（包含 hreflang）
+const extendLink = [
+	...hreflangLinks
+];
+---
+
+<AstroSEO
+	title={pageTitle}
+	description={pageDescription}
+	canonical={canonicalUrl}
+	noindex={noindex}
+	nofollow={nofollow}
+	openGraph={openGraphConfig}
+	twitter={twitterConfig}
+	extend={{
+		meta: extendMeta,
+		link: extendLink,
+	}}
+/>

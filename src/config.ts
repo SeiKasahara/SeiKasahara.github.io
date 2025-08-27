@@ -4,6 +4,7 @@ import type {
 	NavBarConfig,
 	ProfileConfig,
 	SiteConfig,
+	SEOConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
@@ -36,6 +37,18 @@ export const siteConfig: SiteConfig = {
 		//   sizes: '32x32',
 		   }
 	],
+	seo: {
+		defaultImage: "/assets/images/Celestia.webp", // 默认 OG 图片
+		openGraph: {
+			defaultType: "website",
+			siteName: "yCENzh's Blog",
+			defaultImage: "/assets/images/Celestia.webp",
+		},
+		keywords: ["yCENzh", "Fuwari", "Astro", "博客", "技术", "编程", "开发", "前端"],
+		canonical: {
+			enable: true, // 启用规范链接
+		},
+	},
 };
 
 export const navBarConfig: NavBarConfig = {

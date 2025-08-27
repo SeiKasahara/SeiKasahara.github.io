@@ -1,5 +1,6 @@
 ---
 import Fonts from './Fonts.astro';
+import SEO from "@components/SEO.astro";
 
 import ConfigCarrier from "@components/ConfigCarrier.astro";
 import { profileConfig, siteConfig } from "@/config";
@@ -24,9 +25,19 @@ interface Props {
 	description?: string;
 	lang?: string;
 	setOGTypeArticle?: boolean;
+	// SEO 相关属性
+	publishedTime?: string;
+	modifiedTime?: string;
+	tags?: string[];
+	author?: string;
+	category?: string;
+	wordCount?: number;
+	readingTime?: number;
+	// hreflang 支持
+	alternateLanguages?: { lang: string; url: string }[];
 }
 
-let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
+let { title, banner, description, lang, setOGTypeArticle, publishedTime, modifiedTime, tags, author, category, wordCount, readingTime, alternateLanguages } = Astro.props;
 
 const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
 
@@ -38,13 +49,6 @@ if (!banner || typeof banner !== "string" || banner.trim() === "") {
 banner = siteConfig.banner.src;
 
 const enableBanner = siteConfig.banner.enable;
-
-let pageTitle: string;
-if (title) {
-	pageTitle = `${title} - ${siteConfig.title}`;
-} else {
-	pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`;
-}
 
 const favicons: Favicon[] =
 	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
@@ -69,33 +73,28 @@ const bannerOffset =
 >
 	<head>
 	    <Fonts />
+	    
+	    <!-- SEO Meta Tags -->
+	    <SEO
+	        title={title}
+	        description={description}
+	        lang={lang}
+	        type={setOGTypeArticle ? "article" : "website"}
+	        publishedTime={publishedTime}
+	        modifiedTime={modifiedTime}
+	        tags={tags}
+	        author={author}
+	        category={category}
+	        wordCount={wordCount}
+	        readingTime={readingTime}
+	        alternateLanguages={alternateLanguages}
+	    />
 	
+		<!-- Analytics -->
 		<!-- <script type="text/partytown" src="https://umami.14131413.xyz/script.js" data-website-id="79b06c28-877c-4eeb-8c6e-8a5ce1119ed2"></script> -->
 		<script type="text/partytown" src="https://cloud.umami.is/script.js" data-website-id="a1a1f897-326f-4e68-a6f0-54e9dc361522"></script>
 
-		<title>{pageTitle}</title>
-
-		<meta charset="UTF-8" />
-		<meta name="description" content={description || pageTitle}>
-		<meta name="author" content={profileConfig.name}>
-
-		<meta property="og:site_name" content={siteConfig.title}>
-		<meta property="og:url" content={Astro.url}>
-		<meta property="og:title" content={pageTitle}>
-		<meta property="og:description" content={description || pageTitle}>
-		{setOGTypeArticle ? (
-        <meta property="og:type" content="article" />
-        ) : (
-        <meta property="og:type" content="website" />
-        )}
-
-		<meta name="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content={Astro.url}>
-		<meta name="twitter:title" content={pageTitle}>
-		<meta name="twitter:description" content={description || pageTitle}>
-
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
 		{favicons.map(favicon => (
 			<link rel="icon"
 				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
