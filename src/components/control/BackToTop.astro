@@ -3,9 +3,11 @@ import { Icon } from "astro-icon/components";
 ---
 
 <!-- There can't be a filter on parent element, or it will break `fixed` -->
-<div class="back-to-top-wrapper hidden lg:block">
-    <div id="back-to-top-btn" class="back-to-top-btn hide flex items-center rounded-2xl overflow-hidden transition" onclick="backToTop()">
-        <button aria-label="Back to Top" class="btn-card h-[3.75rem] w-[3.75rem]">
+<div class="back-to-top-wrapper">
+    <div id="back-to-top-btn" class="back-to-top-btn hide flex items-center rounded-2xl overflow-hidden transition">
+        <button aria-label="Back to Top" class="btn-card 
+                h-12 w-12 md:h-[3.75rem] md:w-[3.75rem]
+                text-lg md:text-2xl">
             <Icon name="material-symbols:keyboard-arrow-up-rounded" class="mx-auto"></Icon>
         </button>
     </div>
@@ -13,37 +15,154 @@ import { Icon } from "astro-icon/components";
 
 <style lang="stylus">
 .back-to-top-wrapper
-    width: 3.75rem
-    height: 3.75rem
-    position: absolute
-    right: 0
-    top: 0
     pointer-events: none
+    z-index: 999
 
 .back-to-top-btn
     color: var(--primary)
-    font-size: 2.25rem
-    font-weight: bold
     border: none
     position: fixed
-    bottom: 10rem
     opacity: 1
     cursor: pointer
-    transform: translateX(5rem)
     pointer-events: auto
-    i
-        font-size: 1.75rem
+    transition: all 0.3s ease
+    
+    // 移动端样式（竖屏和横屏）
+    width: 3rem
+    height: 3rem
+    bottom: 1.5rem
+    right: 1rem
+    font-size: 1.5rem
+    transform: scale(1)
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+    backdrop-filter: blur(10px)
+    
+    // 移动端横屏调整
+    @media (max-width: 1023px) and (orientation: landscape)
+        bottom: 1rem
+        right: 1rem
+        width: 2.5rem
+        height: 2.5rem
+        font-size: 1.25rem
+    
+    // 桌面端样式
+    @media (min-width: 1024px)
+        width: 3.75rem
+        height: 3.75rem
+        bottom: 10rem
+        right: 0
+        font-size: 2.25rem
+        transform: translateX(5rem)
+        box-shadow: none
+        backdrop-filter: none
+    
+    // 图标样式
+    i, svg
+        font-size: 1.25rem
+        
+        @media (min-width: 1024px)
+            font-size: 1.75rem
+    
+    // 隐藏状态
     &.hide
-        transform: translateX(5rem) scale(0.9)
         opacity: 0
         pointer-events: none
+        transform: scale(0.8)
+        
+        @media (min-width: 1024px)
+            transform: translateX(5rem) scale(0.9)
+    
+    // 显示状态 - 修复横屏问题
+    &:not(.hide)
+        opacity: 1
+        pointer-events: auto
+        transform: scale(1)
+        
+        @media (min-width: 1024px)
+            transform: translateX(0)
+    
+    // 激活状态
     &:active
-      transform: translateX(5rem) scale(0.9)
+        transform: scale(0.9)
+        
+        @media (min-width: 1024px)
+            transform: translateX(0) scale(0.9)
+    
+    // 悬停状态（仅桌面端）
+    @media (min-width: 1024px)
+        &:hover:not(.hide)
+            transform: translateX(-0.5rem) scale(1.05)
 
 </style>
 
-<script is:raw is:inline>
+<script is:raw>
 function backToTop() {
     window.scroll({ top: 0, behavior: 'smooth' });
 }
+
+// 初始化返回顶部按钮
+(function initBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+    if (!backToTopBtn) return;
+    
+    let ticking = false;
+    let lastScrollTop = 0;
+    
+    function updateBackToTop() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // 当滚动超过 200px 时显示按钮
+        if (scrollTop > 200) {
+            backToTopBtn.classList.remove('hide');
+        } else {
+            backToTopBtn.classList.add('hide');
+        }
+        
+        lastScrollTop = scrollTop;
+        ticking = false;
+    }
+    
+    // 使用 requestAnimationFrame 优化性能
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateBackToTop);
+            ticking = true;
+        }
+    }
+    
+    // 监听滚动事件
+    window.addEventListener('scroll', requestTick, { passive: true });
+    
+    // 监听方向改变和窗口大小改变
+    window.addEventListener('orientationchange', function() {
+        // 延迟执行以确保布局完成
+        setTimeout(function() {
+            requestTick();
+        }, 100);
+    });
+    
+    window.addEventListener('resize', function() {
+        // 防抖处理
+        clearTimeout(window.resizeTimer);
+        window.resizeTimer = setTimeout(function() {
+            requestTick();
+        }, 100);
+    });
+    
+    // 点击事件绑定
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        backToTop();
+    });
+    
+    // 初始化时检查一次
+    updateBackToTop();
+    
+    // 页面可见性改变时重新检查
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+            requestTick();
+        }
+    });
+})();
 </script>

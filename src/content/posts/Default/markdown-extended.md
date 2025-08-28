@@ -107,3 +107,16 @@ This is a note with a custom title.
 > [!TIP]
 > The GitHub syntax is also supported.
 ```
+
+### Spoiler
+### 剧透
+
+You can add spoilers to your text. The text also supports **Markdown** syntax.  
+你可以给文本添加剧透效果。文本同样支持 Markdown 语法。
+
+The content :spoiler[is hidden **ayyy**]!
+内容：剧透[被隐藏了 **哎呀**]！
+
+```markdown
+The content :spoiler[is hidden **ayyy**]!
+```

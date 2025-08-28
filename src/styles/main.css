@@ -141,3 +141,98 @@
 .collapsed {
     height: var(--collapsedHeight);
 }
+
+.custom-md spoiler {
+  @apply relative inline-block px-1 py-0.5 rounded cursor-pointer select-none;
+  
+  /* 默认状态 - 显示噪点遮罩 */
+  &:not(:hover) {
+    @apply bg-black/10 dark:bg-white/10;
+    
+    /* 隐藏原始内容 */
+    color: transparent;
+    * {
+      color: transparent;
+    }
+    
+    /* 添加噪点效果的伪元素 */
+    &::before {
+      content: "";
+      @apply absolute inset-0 rounded;
+      background-image: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 1px,
+          rgba(0, 0, 0, 0.15) 1px,
+          rgba(0, 0, 0, 0.15) 2px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 1px,
+          rgba(0, 0, 0, 0.1) 1px,
+          rgba(0, 0, 0, 0.1) 2px
+        );
+      background-size: 3px 3px;
+      pointer-events: none;
+      animation: spoiler-shift 0.5s infinite linear;
+    }
+    
+    /* 暗色模式下的噪点 */
+    .dark & {
+      &::before {
+        background-image: 
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 1px,
+            rgba(255, 255, 255, 0.15) 1px,
+            rgba(255, 255, 255, 0.15) 2px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 1px,
+            rgba(255, 255, 255, 0.1) 1px,
+            rgba(255, 255, 255, 0.1) 2px
+          );
+      }
+    }
+  }
+  
+  /* 悬停状态 - 显示内容 */
+  &:hover {
+    @apply bg-black/5 dark:bg-white/5;
+    animation: spoiler-reveal 0.2s ease-out;
+    
+    &::before {
+      display: none;
+    }
+  }
+  
+  /* 添加过渡效果 */
+  transition: all 0.2s ease-out;
+}
+
+/* 噪点动画 */
+@keyframes spoiler-shift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 3px 3px, -3px -3px;
+  }
+}
+
+/* 显示动画 */
+@keyframes spoiler-reveal {
+  0% {
+    filter: blur(5px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}

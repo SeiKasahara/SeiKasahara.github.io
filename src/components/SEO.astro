@@ -1,8 +1,6 @@
 ---
 import { SEO as AstroSEO } from "astro-seo";
 import { siteConfig, profileConfig } from "@/config";
-import { supportedLanguages } from "@utils/hreflang-utils";
-
 interface Props {
 	title?: string;
 	description?: string;
@@ -14,14 +12,11 @@ interface Props {
 	publishedTime?: string;
 	modifiedTime?: string;
 	tags?: string[];
-	lang?: string;
 	// 为文章添加额外的元数据支持
 	author?: string;
 	category?: string;
 	wordCount?: number;
 	readingTime?: number;
-	// hreflang 支持
-	alternateLanguages?: { lang: string; url: string }[];
 }
 
 const {
@@ -35,12 +30,10 @@ const {
 	publishedTime,
 	modifiedTime,
 	tags,
-	lang,
 	author,
 	category,
 	wordCount,
 	readingTime,
-	alternateLanguages,
 } = Astro.props;
 
 // 构建页面标题
@@ -80,7 +73,7 @@ const openGraphConfig = {
 	optional: {
 		description: pageDescription,
 		siteName: siteConfig.seo?.openGraph?.siteName || siteConfig.title,
-		locale: (lang || siteConfig.lang).replace("_", "-"),
+		locale: "zh-CN",
 	},
 	...(type === "article" && publishedTime && {
 		article: {
@@ -101,50 +94,13 @@ const twitterConfig = siteConfig.seo?.twitter ? {
 	...(fullImageUrl && { image: fullImageUrl }),
 } : undefined;
 
-// 生成 hreflang 链接
-const generateHreflangLinks = () => {
-	if (!alternateLanguages || alternateLanguages.length === 0) {
-		// 如果没有提供备用语言，生成默认的语言版本
-		const currentLang = lang || siteConfig.lang;
-		const normalizedLang = supportedLanguages[currentLang] || currentLang.replace('_', '-');
-		
-		return [
-			{ rel: "alternate", hreflang: normalizedLang, href: Astro.url.href },
-			{ rel: "alternate", hreflang: "x-default", href: Astro.url.href }
-		];
-	}
-	
-	// 使用提供的备用语言列表
-	const hreflangLinks = alternateLanguages.map(alt => ({
-		rel: "alternate",
-		hreflang: supportedLanguages[alt.lang] || alt.lang.replace('_', '-'),
-		href: alt.url
-	}));
-	
-	// 添加 x-default 链接（通常指向主要语言版本）
-	const defaultLang = alternateLanguages.find(alt => alt.lang === siteConfig.lang) || alternateLanguages[0];
-	if (defaultLang) {
-		hreflangLinks.push({
-			rel: "alternate",
-			hreflang: "x-default",
-			href: defaultLang.url
-		});
-	}
-	
-	return hreflangLinks;
-};
-
-const hreflangLinks = generateHreflangLinks();
 
 // 扩展 meta 标签
 const extendMeta = [
 	...(allKeywords && [{ name: "keywords", content: allKeywords }]),
 	{ name: "author", content: author || profileConfig.name },
 	{ name: "generator", content: Astro.generator },
-	// 添加语言备用链接的支持
-	...(lang && lang !== siteConfig.lang ? [
-		{ name: "language", content: lang.replace("_", "-") }
-	] : []),
+	{ name: "language", content: "zh-CN" },
 	// 文章特有的 meta 标签
 	...(type === "article" && category ? [
 		{ name: "article:section", content: category }
@@ -157,10 +113,8 @@ const extendMeta = [
 	] : []),
 ].filter(Boolean);
 
-// 扩展 link 标签（包含 hreflang）
-const extendLink = [
-	...hreflangLinks
-];
+// 扩展 link 标签
+const extendLink = [];
 ---
 
 <AstroSEO

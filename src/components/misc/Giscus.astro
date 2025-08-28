@@ -8,7 +8,6 @@ interface Props {
   reactionsEnabled?: boolean;
   emitMetadata?: boolean;
   inputPosition?: 'top' | 'bottom';
-  lang?: string;
 }
 
 const {
@@ -19,9 +18,10 @@ const {
   mapping = 'pathname',
   reactionsEnabled = true,
   emitMetadata = false,
-  inputPosition = 'bottom',
-  lang = 'zh-CN'
+  inputPosition = 'bottom'
 } = Astro.props;
+
+const lang = 'zh-CN';
 ---
 
 <div id="giscus-container"></div>

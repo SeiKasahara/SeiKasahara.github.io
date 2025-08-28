@@ -2,8 +2,6 @@
 
 import { getEntry, render } from "astro:content";
 import Markdown from "@components/misc/Markdown.astro";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
 const friendsPost = await getEntry("spec", "friends");
@@ -47,7 +45,7 @@ const items = [
 
 const shuffledItems = items;
 ---
-<MainGridLayout title={i18n(I18nKey.friends)} description={i18n(I18nKey.friends)}>
+<MainGridLayout title="友链" description="友链">
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
         <div class="card-base z-10 px-9 py-6 relative w-full ">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8 my-4">
@@ -68,7 +66,7 @@ const shuffledItems = items;
                                     <span class="transition text-50 text-sm font-medium">
                                         {tag}
                                     </span>))}
-                                    {!(item.tags && item.tags.length > 0) && <div class="transition text-50 text-sm font-medium">{i18n(I18nKey.noTags)}</div>}
+                                    {!(item.tags && item.tags.length > 0) && <div class="transition text-50 text-sm font-medium">无标签</div>}
                                 </div>
                             </div>
                         </div>

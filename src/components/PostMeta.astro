@@ -1,7 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
 import { formatDateToYYYYMMDD } from "../utils/date-utils";
 import { getCategoryUrl, getTagUrl } from "../utils/url-utils";
 
@@ -90,7 +88,7 @@ const hasTags = tags && tags.length > 0;
                hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
       >
         {/* 显示分类名称，若无分类则显示"未分类" */}
-        {category || i18n(I18nKey.uncategorized)}
+        {category || "未分类"}
       </a>
     </div>
   </div>
@@ -132,7 +130,7 @@ const hasTags = tags && tags.length > 0;
       ) : (
         // 无标签时显示"无标签"文本
         <div class="transition text-50 text-sm font-medium">
-          {i18n(I18nKey.noTags)}
+          无标签
         </div>
       )}
     </div>

@@ -23,7 +23,6 @@ interface Props {
 	title?: string;
 	banner?: string;
 	description?: string;
-	lang?: string;
 	setOGTypeArticle?: boolean;
 	// SEO 相关属性
 	publishedTime?: string;
@@ -33,11 +32,9 @@ interface Props {
 	category?: string;
 	wordCount?: number;
 	readingTime?: number;
-	// hreflang 支持
-	alternateLanguages?: { lang: string; url: string }[];
 }
 
-let { title, banner, description, lang, setOGTypeArticle, publishedTime, modifiedTime, tags, author, category, wordCount, readingTime, alternateLanguages } = Astro.props;
+let { title, banner, description, setOGTypeArticle, publishedTime, modifiedTime, tags, author, category, wordCount, readingTime } = Astro.props;
 
 const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
 
@@ -53,10 +50,7 @@ const enableBanner = siteConfig.banner.enable;
 const favicons: Favicon[] =
 	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
 
-if (!lang) {
-	lang = `${siteConfig.lang}`;
-}
-const siteLang = lang.replace("_", "-");
+const siteLang = "zh-CN";
 
 const bannerOffsetByPosition = {
 	top: `${BANNER_HEIGHT_EXTEND}vh`,
@@ -78,7 +72,7 @@ const bannerOffset =
 	    <SEO
 	        title={title}
 	        description={description}
-	        lang={lang}
+	        lang="zh-CN"
 	        type={setOGTypeArticle ? "article" : "website"}
 	        publishedTime={publishedTime}
 	        modifiedTime={modifiedTime}
@@ -87,7 +81,6 @@ const bannerOffset =
 	        category={category}
 	        wordCount={wordCount}
 	        readingTime={readingTime}
-	        alternateLanguages={alternateLanguages}
 	    />
 	
 		<!-- Analytics -->

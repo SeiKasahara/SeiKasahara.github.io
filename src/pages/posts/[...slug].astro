@@ -2,12 +2,9 @@
 import path from "node:path";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@utils/content-utils";
 import { getDir, getPostUrlBySlug } from "@utils/url-utils";
-import { generatePostAlternateLanguages } from "@utils/hreflang-utils";
 import { Icon } from "astro-icon/components";
 import { licenseConfig } from "src/config";
 import ImageWrapper from "../../components/misc/ImageWrapper.astro";
@@ -30,9 +27,6 @@ const { Content, headings } = await entry.render();
 
 const { remarkPluginFrontmatter } = await entry.render();
 
-// 生成多语言替代链接
-// 你可以根据实际情况调整支持的语言列表
-const alternateLanguages = generatePostAlternateLanguages(entry.slug, ['zh_CN', 'en']);
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -46,9 +40,7 @@ const jsonLd = {
 		url: Astro.site,
 	},
 	datePublished: formatDateToYYYYMMDD(entry.data.published),
-	inLanguage: entry.data.lang
-		? entry.data.lang.replace("_", "-")
-		: siteConfig.lang.replace("_", "-"),
+	inLanguage: "zh-CN",
 	// TODO include cover image here
 };
 ---
@@ -56,7 +48,6 @@ const jsonLd = {
     banner={entry.data.image} 
     title={entry.data.title} 
     description={entry.data.description} 
-    lang={entry.data.lang} 
     setOGTypeArticle={true} 
     headings={headings} 
     series={entry.data.series}
@@ -67,7 +58,6 @@ const jsonLd = {
     category={entry.data.category || undefined}
     wordCount={remarkPluginFrontmatter.words}
     readingTime={remarkPluginFrontmatter.minutes}
-    alternateLanguages={alternateLanguages}
 >
     <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
@@ -80,14 +70,14 @@ const jsonLd = {
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
                         <Icon name="material-symbols:notes-rounded"></Icon>
                     </div>
-                    <div class="text-sm">{remarkPluginFrontmatter.words} {" " + i18n(I18nKey.wordsCount)}</div>
+                    <div class="text-sm">{remarkPluginFrontmatter.words} 字</div>
                 </div>
                 <div class="flex flex-row items-center">
                     <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
                         <Icon name="material-symbols:schedule-outline-rounded"></Icon>
                     </div>
                     <div class="text-sm">
-                        {remarkPluginFrontmatter.minutes} {" " + i18n(remarkPluginFrontmatter.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
+                        {remarkPluginFrontmatter.minutes} min
                     </div>
                 </div>
             </div>

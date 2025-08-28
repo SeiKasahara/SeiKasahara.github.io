@@ -1,7 +1,5 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import I18nKey from "../i18n/i18nKey";
-import { i18n } from "../i18n/translation";
 import { getPostUrlBySlug } from "../utils/url-utils";
 
 // 定义组件接收的属性
@@ -116,7 +114,7 @@ onMount(async () => {
                 
                 <!-- 文章数量统计 -->
                 <div class="w-[70%] md:w-[80%] transition text-left text-50">
-                    {group.posts.length} {i18n(group.posts.length === 1 ? I18nKey.postCount : I18nKey.postsCount)}
+                    {group.posts.length} 篇文章
                 </div>
             </div>
 

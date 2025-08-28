@@ -1,9 +1,19 @@
 <script lang="ts">
-import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
 import Icon from "@iconify/svelte";
 import { url } from "@utils/url-utils.ts";
 import { onMount } from "svelte";
+
+// 防抖函数
+function debounce<T extends (...args: any[]) => any>(
+	func: T,
+	wait: number
+): (...args: Parameters<T>) => void {
+	let timeout: NodeJS.Timeout;
+	return (...args: Parameters<T>) => {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func(...args), wait);
+	};
+}
 
 interface SearchResult {
 	url: string;
@@ -43,8 +53,9 @@ const highlightText = (text: string, keyword: string): string => {
     return text.replace(regex, "<mark>$1</mark>");
 };
 
+// 优化的搜索函数，提升性能
 const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
-	if (!keyword) {
+	if (!keyword.trim()) {
 		setPanelVisibility(false, isDesktop);
 		result = [];
 		return;
@@ -53,21 +64,19 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 	isSearching = true;
 
 	try {
+		const keywordLower = keyword.toLowerCase().trim();
 		const searchResults = posts
 			.filter((post) => {
-				const keywordLower = keyword.toLowerCase();
-				const searchText =
-					`${post.title} ${post.description} ${post.content}`.toLowerCase();
-				const urlPath = `/posts/${post.link}`;
+				// 优化搜索逻辑，减少字符串操作
+				const titleMatch = post.title.toLowerCase().includes(keywordLower);
+				const descMatch = post.description?.toLowerCase().includes(keywordLower);
+				const linkMatch = post.link.toLowerCase().includes(keywordLower);
+				const contentMatch = post.content.toLowerCase().includes(keywordLower);
 				
-				// 支持内容搜索和URL后缀搜索
-				return searchText.includes(keywordLower) || 
-					   urlPath.toLowerCase().includes(keywordLower) ||
-					   post.link.toLowerCase().includes(keywordLower);
+				return titleMatch || descMatch || linkMatch || contentMatch;
 			})
 			.map((post) => {
 				const contentLower = post.content.toLowerCase();
-				const keywordLower = keyword.toLowerCase();
 				const contentIndex = contentLower.indexOf(keywordLower);
 				
 				let excerpt = '';
@@ -81,7 +90,6 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 					excerpt = post.description || post.content.substring(0, 150) + '...';
 				}
 
-				// 确保 URL 构建正确
 				const postUrl = post.link.startsWith('/') ? post.link : `/posts/${post.link}/`;
 
 				return {
@@ -104,6 +112,9 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 		isSearching = false;
 	}
 };
+
+// 创建防抖搜索函数
+const debouncedSearch = debounce(search, 300);
 
 onMount(async () => {
 	try {
@@ -159,11 +170,11 @@ onMount(async () => {
 });
 
 $: if (keywordDesktop !== undefined) {
-    search(keywordDesktop, true);
+    debouncedSearch(keywordDesktop, true);
 }
 
 $: if (keywordMobile !== undefined) {
-    search(keywordMobile, false);
+    debouncedSearch(keywordMobile, false);
 }
 </script>
 
@@ -173,7 +184,7 @@ $: if (keywordMobile !== undefined) {
       dark:bg-white/5 dark:hover:bg-white/10 dark:focus-within:bg-white/10
 ">
     <Icon icon="material-symbols:search" class="absolute text-[1.25rem] pointer-events-none ml-3 transition my-auto text-black/30 dark:text-white/30"></Icon>
-    <input placeholder="{i18n(I18nKey.search)}" bind:value={keywordDesktop} on:focus={() => search(keywordDesktop, true)}
+    <input placeholder="搜索" bind:value={keywordDesktop} on:focus={() => debouncedSearch(keywordDesktop, true)}
            class="transition-all pl-10 text-sm bg-transparent outline-0
          h-full w-40 active:w-60 focus:w-60 text-black/50 dark:text-white/50"
     >
@@ -209,7 +220,8 @@ top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2">
             <div class="transition text-90 inline-flex font-bold group-hover:text-[var(--primary)]">
                 {item.meta.title}<Icon icon="fa6-solid:chevron-right" class="transition text-[0.75rem] translate-x-1 my-auto text-[var(--primary)]"></Icon>
             </div>
-            <div class="transition text-xs text-white/60 mb-1 font-mono">
+            <div class="transition text-xs mb-1 font-mono text-black/40 dark:text-white/40
+                        group-hover:text-black/60 dark:group-hover:text-white/60">
                 {item.urlPath}
             </div>
             <div class="transition text-sm text-50">
