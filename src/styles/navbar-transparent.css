@@ -1,0 +1,56 @@
+/**
+ * 导航栏半透明效果样式
+ * Navbar Translucent Effects Styles
+ * 只有当页面启用banner时才应用半透明效果
+ */
+
+/* 默认导航栏样式 - 保持原有的card-base样式 */
+#navbar > div {
+    background: var(--card-bg);
+    border-radius: var(--radius-large);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 当页面有banner时，导航栏使用半透明效果 */
+#banner-wrapper ~ * #navbar > div,
+body:has(#banner-wrapper) #navbar > div {
+    backdrop-filter: blur(20px) !important;
+    background: rgba(255, 255, 255, 0.55) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 暗色主题下的半透明效果 */
+:root.dark #banner-wrapper ~ * #navbar > div,
+:root.dark body:has(#banner-wrapper) #navbar > div {
+    background: rgba(0, 0, 0, 0.55) !important;
+    border: 1px solid rgba(0, 0, 0, 0.55) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 显示设置面板的半透明效果 */
+#banner-wrapper ~ * #display-setting,
+body:has(#banner-wrapper) #display-setting {
+    backdrop-filter: blur(20px) !important;
+    background: rgba(255, 255, 255, 0.55) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 暗色主题下的显示设置面板半透明效果 */
+:root.dark #banner-wrapper ~ * #display-setting,
+:root.dark body:has(#banner-wrapper) #display-setting {
+    background: rgba(0, 0, 0, 0.55) !important;
+    border: 1px solid rgba(0, 0, 0, 0.55) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 主题切换保护 - 禁用过渡动画以防止闪烁 */
+.is-theme-transitioning #navbar > div,
+.is-theme-transitioning #banner-wrapper ~ * #navbar > div,
+.is-theme-transitioning body:has(#banner-wrapper) #navbar > div,
+.is-theme-transitioning #display-setting {
+    transition: none !important;
+}

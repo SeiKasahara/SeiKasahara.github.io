@@ -7,6 +7,8 @@ import { getImage } from 'astro:assets';
 import type { APIContext, ImageMetadata } from 'astro';
 import type { RSSFeedItem } from '@astrojs/rss';
 import { getSortedPosts } from '@/utils/content-utils';
+import path from 'node:path';
+import { getDir } from '@/utils/url-utils';
 
 const markdownParser = new MarkdownIt();
 
@@ -46,11 +48,18 @@ export async function GET(context: APIContext) {
 				let importPath: string | null = null;
 
 				if (src.startsWith('./')) {
+					// 获取文章所在的目录
+					const postDir = getDir(post.id);
 					const prefixRemoved = src.slice(2);
-					importPath = `/src/content/posts/${prefixRemoved}`;
+					// 构建正确的路径：/src/content/posts/{postDir}/{imageName}
+					importPath = `/src/content/posts/${postDir}${prefixRemoved}`;
 				} else {
+					// 处理 ../image.jpg 的情况
+					const postDir = getDir(post.id);
 					const cleaned = src.replace(/^\.\.\//, '');
-					importPath = `/src/content/${cleaned}`;
+					// 向上一级目录
+					const parentDir = path.dirname(postDir.slice(0, -1)); // 移除末尾的/，然后获取父目录
+					importPath = `/src/content/posts/${parentDir === '.' ? '' : parentDir + '/'}${cleaned}`;
 				}
 
 				try {
@@ -58,6 +67,10 @@ export async function GET(context: APIContext) {
 					if (imageMod) {
 						const optimizedImg = await getImage({ src: imageMod });
 						img.setAttribute('src', new URL(optimizedImg.src, context.site).href);
+					} else {
+						console.warn(`Image not found in glob: ${importPath}`);
+						// 降级为相对URL
+						img.setAttribute('src', new URL(src, context.site).href);
 					}
 				} catch (error) {
 					console.warn(`Failed to process image: ${importPath}`, error);
