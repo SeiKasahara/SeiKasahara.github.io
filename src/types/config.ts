@@ -24,7 +24,6 @@ export type SiteConfig = {
 	};
 
 	favicon: Favicon[];
-	seo?: SEOConfig;
 };
 
 export type Favicon = {
@@ -92,23 +91,4 @@ export type BlogPostData = {
 
 export type ExpressiveCodeConfig = {
 	theme: string;
-};
-
-export type SEOConfig = {
-	defaultImage?: string;
-	twitter?: {
-		creator?: string;
-		site?: string;
-		card?: "summary" | "summary_large_image" | "app" | "player";
-	};
-	openGraph?: {
-		defaultType?: "website" | "article" | "profile" | "book";
-		defaultImage?: string;
-		siteName?: string;
-	};
-	keywords?: string[];
-	canonical?: {
-		enable: boolean;
-		baseUrl?: string;
-	};
 };

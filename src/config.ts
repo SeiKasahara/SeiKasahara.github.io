@@ -4,7 +4,6 @@ import type {
 	NavBarConfig,
 	ProfileConfig,
 	SiteConfig,
-	SEOConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
@@ -36,18 +35,6 @@ export const siteConfig: SiteConfig = {
 		//   sizes: '32x32',
 		   }
 	],
-	seo: {
-		defaultImage: "/assets/images/Celestia.webp", // 默认 OG 图片
-		openGraph: {
-			defaultType: "website",
-			siteName: "yCENzh's Blog",
-			defaultImage: "/assets/images/Celestia.webp",
-		},
-		keywords: ["yCENzh", "Fuwari", "Astro", "博客", "技术", "编程", "开发", "前端"],
-		canonical: {
-			enable: true, // 启用规范链接
-		},
-	},
 };
 
 export const navBarConfig: NavBarConfig = {
@@ -71,7 +58,7 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/' 原assets/images/demo-avatar.png,可选https://q2.qlogo.cn/headimg_dl?dst_uin=189563385&spec=0
+	avatar: "/avatar.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/' 原assets/images/demo-avatar.png,可选https://q2.qlogo.cn/headimg_dl?dst_uin=189563385&spec=0
 	name: "yCENzh",
 	bio: "Protect What You Love./爱你所爱！",
 	links: [

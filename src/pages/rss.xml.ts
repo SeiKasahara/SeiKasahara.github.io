@@ -8,7 +8,7 @@ import type { APIContext, ImageMetadata } from 'astro';
 import type { RSSFeedItem } from '@astrojs/rss';
 import { getSortedPosts } from '@/utils/content-utils';
 import path from 'node:path';
-import { getDir } from '@/utils/url-utils';
+import { url } from '@/utils/url-utils';
 
 const markdownParser = new MarkdownIt();
 
@@ -49,13 +49,13 @@ export async function GET(context: APIContext) {
 
 				if (src.startsWith('./')) {
 					// 获取文章所在的目录
-					const postDir = getDir(post.id);
+					const postDir = url(post.id);
 					const prefixRemoved = src.slice(2);
 					// 构建正确的路径：/src/content/posts/{postDir}/{imageName}
 					importPath = `/src/content/posts/${postDir}${prefixRemoved}`;
 				} else {
 					// 处理 ../image.jpg 的情况
-					const postDir = getDir(post.id);
+					const postDir = url(post.id);
 					const cleaned = src.replace(/^\.\.\//, '');
 					// 向上一级目录
 					const parentDir = path.dirname(postDir.slice(0, -1)); // 移除末尾的/，然后获取父目录
@@ -89,7 +89,7 @@ export async function GET(context: APIContext) {
 			title: stripInvalidXmlChars(post.data.title),
 			description: stripInvalidXmlChars(post.data.description || ''),
 			pubDate: post.data.published,
-			link: `/posts/${post.slug}/`,
+			link: url(`/posts/${post.slug}/`),
 			content: sanitizeHtml(finalContent, {
 				allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
 				allowedAttributes: {

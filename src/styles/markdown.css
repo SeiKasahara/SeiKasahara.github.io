@@ -44,6 +44,7 @@
     text-decoration-color: var(--link-underline);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+    display: inline-block;
     transition: all 0.2s ease;
     
     &:is(:hover, :active) {
