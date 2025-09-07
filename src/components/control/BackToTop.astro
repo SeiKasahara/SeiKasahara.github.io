@@ -2,13 +2,28 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<!-- There can't be a filter on parent element, or it will break `fixed` -->
 <div class="back-to-top-wrapper">
-    <div id="back-to-top-btn" class="back-to-top-btn hide flex items-center rounded-2xl overflow-hidden transition">
-        <button aria-label="Back to Top" class="btn-card 
-                h-12 w-12 md:h-[3.75rem] md:w-[3.75rem]
-                text-lg md:text-2xl">
-            <Icon name="material-symbols:keyboard-arrow-up-rounded" class="mx-auto"></Icon>
+    <div id="back-to-top-btn" class="back-to-top-btn hide">
+        <button aria-label="Back to Top" class="btn-card">
+            <svg class="progress-ring" viewBox="0 0 48 48">
+                <circle
+                    class="progress-bar"
+                    cx="24"
+                    cy="24"
+                    r="20"
+                    fill="none"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-dasharray="125.66"
+                    stroke-dashoffset="125.66"
+                />
+            </svg>
+            
+            <div class="btn-center">
+                <Icon name="material-symbols:keyboard-arrow-up-rounded" 
+                      class="icon-arrow" />
+                <span class="percent-text">0</span>
+            </div>
         </button>
     </div>
 </div>
@@ -19,149 +34,319 @@ import { Icon } from "astro-icon/components";
     z-index: 999
 
 .back-to-top-btn
-    color: var(--primary)
-    border: none
     position: fixed
-    opacity: 1
-    cursor: pointer
     pointer-events: auto
-    transition: all 0.3s ease
-    
-    // 移动端样式（竖屏和横屏）
+    opacity: 0
+    transform: scale(0.9)
+    transition: opacity 0.3s ease, transform 0.3s ease
     width: 3rem
     height: 3rem
     bottom: 1.5rem
     right: 1rem
-    font-size: 1.5rem
-    transform: scale(1)
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
-    backdrop-filter: blur(10px)
     
-    // 移动端横屏调整
     @media (max-width: 1023px) and (orientation: landscape)
-        bottom: 1rem
-        right: 1rem
         width: 2.5rem
         height: 2.5rem
-        font-size: 1.25rem
+        bottom: 1rem
+        right: 1rem
     
-    // 桌面端样式
     @media (min-width: 1024px)
         width: 3.75rem
         height: 3.75rem
-        bottom: 10rem
-        right: 0
-        font-size: 2.25rem
-        transform: translateX(5rem)
-        box-shadow: none
-        backdrop-filter: none
+        bottom: 2rem
+        right: 2rem
     
-    // 图标样式
-    i, svg
-        font-size: 1.25rem
-        
-        @media (min-width: 1024px)
-            font-size: 1.75rem
-    
-    // 隐藏状态
-    &.hide
-        opacity: 0
-        pointer-events: none
-        transform: scale(0.8)
-        
-        @media (min-width: 1024px)
-            transform: translateX(5rem) scale(0.9)
-    
-    // 显示状态 - 修复横屏问题
-    &:not(.hide)
+    &.show
         opacity: 1
-        pointer-events: auto
+        transform: scale(1)
+        
+        // 空闲状态（显示箭头时）半透明
+        &.idle
+            opacity: 0.5
+            transition: opacity 0.3s ease
+            
+            &:hover
+                opacity: 1
+        
+        &:hover
+            .icon-arrow
+                opacity: 0
+                transform: scale(0.5)
+            
+            .percent-text
+                opacity: 1
+                transform: scale(1)
+    
+    &.hide
+        pointer-events: none
+    
+    &:active
+        transform: scale(0.95)
+        opacity: 1
+
+.btn-card
+    position: relative
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    background: var(--card-bg)
+    backdrop-filter: blur(12px)
+    -webkit-backdrop-filter: blur(12px)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+    border: 1px solid rgba(128, 128, 128, 0.1)
+    cursor: pointer
+    overflow: hidden
+    color: var(--primary)
+    
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: var(--card-bg)
+        opacity: 0.9
+        z-index: -1
+
+.progress-ring
+    position: absolute
+    inset: 0
+    width: 100%
+    height: 100%
+    transform: rotate(-90deg)
+    pointer-events: none
+    
+    .progress-bar
+        stroke: var(--primary)
+        transition: none
+        will-change: stroke-dashoffset
+        opacity: 0.9
+
+.btn-center
+    position: absolute
+    inset: 0
+    display: grid
+    place-items: center
+    
+    > *
+        grid-area: 1 / 1
+    
+    .icon-arrow
+        width: 1.5rem
+        height: 1.5rem
+        transition: all 0.2s ease
+        color: var(--primary)
+        opacity: 1
         transform: scale(1)
         
         @media (min-width: 1024px)
-            transform: translateX(0)
+            width: 1.75rem
+            height: 1.75rem
     
-    // 激活状态
-    &:active
-        transform: scale(0.9)
+    .percent-text
+        font-size: 0.75rem
+        font-weight: 600
+        line-height: 1
+        opacity: 0
+        transform: scale(0.5)
+        transition: all 0.2s ease
+        color: var(--primary)
         
         @media (min-width: 1024px)
-            transform: translateX(0) scale(0.9)
-    
-    // 悬停状态（仅桌面端）
-    @media (min-width: 1024px)
-        &:hover:not(.hide)
-            transform: translateX(-0.5rem) scale(1.05)
+            font-size: 0.875rem
+        
+        &::after
+            content: '%'
 
+// 滚动时显示百分比
+.back-to-top-btn.scrolling
+    opacity: 1 !important  // 滚动时恢复不透明
+    
+    .icon-arrow
+        opacity: 0
+        transform: scale(0.5)
+    
+    .percent-text
+        opacity: 1
+        transform: scale(1)
+
+// 点击动画
+.back-to-top-btn.complete
+    animation: gentlePulse 0.4s ease
+    
+@keyframes gentlePulse
+    0%, 100%
+        transform: scale(1)
+    50%
+        transform: scale(1.05)
 </style>
 
-<script is:raw>
-function backToTop() {
-    window.scroll({ top: 0, behavior: 'smooth' });
-}
-
-// 初始化返回顶部按钮
-(function initBackToTop() {
-    const backToTopBtn = document.getElementById('back-to-top-btn');
-    if (!backToTopBtn) return;
+<script>
+(function() {
+    'use strict';
     
-    let ticking = false;
+    const btn = document.getElementById('back-to-top-btn');
+    if (!btn) return;
+    
+    const progressBar = btn.querySelector('.progress-bar');
+    const percentText = btn.querySelector('.percent-text');
+    
+    // 常量配置
+    const CIRCUMFERENCE = 125.66;
+    const SCROLL_THRESHOLD = 200;
+    const IDLE_TIMEOUT = 500;  // 变为箭头的延迟时间
+    
+    // 状态管理
+    let scrollPercent = 0;
+    let isVisible = false;
+    let scrollTimer = null;
+    let isHovering = false;
+    let docHeight = 0;
+    let viewHeight = 0;
     let lastScrollTop = 0;
+    let isScrolling = false;
     
-    function updateBackToTop() {
+    // 更新文档高度
+    function updateDocHeight() {
+        viewHeight = document.documentElement.clientHeight;
+        docHeight = document.documentElement.scrollHeight - viewHeight;
+    }
+    
+    // 主更新函数
+    function updateButton() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const shouldShow = scrollTop > SCROLL_THRESHOLD;
         
-        // 当滚动超过 200px 时显示按钮
-        if (scrollTop > 200) {
-            backToTopBtn.classList.remove('hide');
-        } else {
-            backToTopBtn.classList.add('hide');
+        // 显示/隐藏按钮
+        if (shouldShow !== isVisible) {
+            isVisible = shouldShow;
+            btn.classList.toggle('show', shouldShow);
+            btn.classList.toggle('hide', !shouldShow);
+            
+            // 首次显示时添加idle状态
+            if (shouldShow) {
+                btn.classList.add('idle');
+            }
         }
         
-        lastScrollTop = scrollTop;
-        ticking = false;
-    }
-    
-    // 使用 requestAnimationFrame 优化性能
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateBackToTop);
-            ticking = true;
+        if (shouldShow && docHeight > 0) {
+            // 计算并更新进度
+            scrollPercent = Math.min(100, Math.round((scrollTop / docHeight) * 100));
+            
+            if (progressBar) {
+                const offset = CIRCUMFERENCE - (scrollPercent / 100) * CIRCUMFERENCE;
+                progressBar.style.strokeDashoffset = offset;
+            }
+            
+            if (percentText) {
+                percentText.textContent = scrollPercent;
+            }
+            
+            // 检测滚动（避免微小抖动）
+            const scrollDiff = Math.abs(scrollTop - lastScrollTop);
+            if (scrollDiff > 2 && !isHovering) {
+                if (!isScrolling) {
+                    isScrolling = true;
+                    btn.classList.add('scrolling');
+                    btn.classList.remove('idle');  // 滚动时移除半透明
+                }
+                
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    if (!isHovering) {
+                        isScrolling = false;
+                        btn.classList.remove('scrolling');
+                        btn.classList.add('idle');  // 恢复箭头时添加半透明
+                    }
+                }, IDLE_TIMEOUT);
+            }
+            
+            lastScrollTop = scrollTop;
         }
     }
     
-    // 监听滚动事件
-    window.addEventListener('scroll', requestTick, { passive: true });
+    // 返回顶部
+    function scrollToTop() {
+        btn.classList.add('complete');
+        btn.classList.remove('scrolling', 'idle');
+        isScrolling = false;
+        
+        // 平滑重置进度条
+        if (progressBar) {
+            progressBar.style.transition = 'stroke-dashoffset 0.5s ease';
+            progressBar.style.strokeDashoffset = CIRCUMFERENCE;
+            setTimeout(() => {
+                progressBar.style.transition = 'none';
+            }, 500);
+        }
+        
+        if (percentText) {
+            percentText.textContent = '0';
+        }
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        setTimeout(() => {
+            btn.classList.remove('complete');
+        }, 400);
+    }
     
-    // 监听方向改变和窗口大小改变
-    window.addEventListener('orientationchange', function() {
-        // 延迟执行以确保布局完成
-        setTimeout(function() {
-            requestTick();
-        }, 100);
+    // 事件监听
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(updateButton);
+    }, { passive: true });
+    
+    window.addEventListener('resize', () => {
+        updateDocHeight();
+        updateButton();
     });
     
-    window.addEventListener('resize', function() {
-        // 防抖处理
-        clearTimeout(window.resizeTimer);
-        window.resizeTimer = setTimeout(function() {
-            requestTick();
-        }, 100);
-    });
-    
-    // 点击事件绑定
-    backToTopBtn.addEventListener('click', function(e) {
+    btn.addEventListener('click', (e) => {
         e.preventDefault();
-        backToTop();
+        scrollToTop();
     });
     
-    // 初始化时检查一次
-    updateBackToTop();
+    // 悬停处理
+    btn.addEventListener('mouseenter', () => {
+        isHovering = true;
+        btn.classList.remove('idle');  // 悬停时移除半透明
+        clearTimeout(scrollTimer);
+    });
     
-    // 页面可见性改变时重新检查
-    document.addEventListener('visibilitychange', function() {
+    btn.addEventListener('mouseleave', () => {
+        isHovering = false;
+        btn.classList.remove('scrolling');
+        isScrolling = false;
+        
+        // 离开时如果不在滚动，添加半透明
+        if (!isScrolling && isVisible) {
+            btn.classList.add('idle');
+        }
+    });
+    
+    // 触摸设备支持
+    let touchTimer;
+    btn.addEventListener('touchstart', () => {
+        isHovering = true;
+        btn.classList.remove('idle');
+        clearTimeout(scrollTimer);
+        clearTimeout(touchTimer);
+        
+        touchTimer = setTimeout(() => {
+            isHovering = false;
+            btn.classList.remove('scrolling');
+            btn.classList.add('idle');
+            isScrolling = false;
+        }, 2000);
+    }, { passive: true });
+    
+    // 初始化
+    updateDocHeight();
+    updateButton();
+    
+    // 页面可见性改变时更新
+    document.addEventListener('visibilitychange', () => {
         if (!document.hidden) {
-            requestTick();
+            updateDocHeight();
+            updateButton();
         }
     });
 })();
