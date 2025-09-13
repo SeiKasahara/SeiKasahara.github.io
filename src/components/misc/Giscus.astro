@@ -10,7 +10,7 @@ const configHTML = `
         data-reactions-enabled="1"
         data-emit-metadata="1"
         data-input-position="top"
-        data-theme="preferred_color_scheme"
+        data-theme="https://giscus-dkh.pages.dev/A.css"
         data-lang="zh-CN"
         data-loading="lazy"
         crossorigin="anonymous"
@@ -77,76 +77,10 @@ const config = {
     container.appendChild(script);
   }
 
-  // 更新 Giscus 主题
-  function updateGiscusTheme() {
-    if (config.theme !== 'preferred_color_scheme') return;
-    
-    const giscusFrame = document.querySelector('iframe[src*="giscus"]');
-    if (!giscusFrame || !giscusFrame.contentWindow) return;
-
-    try {
-      giscusFrame.contentWindow.postMessage({
-        giscus: {
-          setConfig: {
-            theme: getCurrentTheme()
-          }
-        }
-      }, 'https://giscus.app');
-    } catch (error) {
-      console.error('Failed to update Giscus theme:', error);
-    }
-  }
-
-  // 防抖函数
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-
-  // 使用防抖包装主题更新函数
-  const debouncedUpdateTheme = debounce(updateGiscusTheme, 100);
-
-  // 监听DOM变化来检测主题切换
-  let observer;
-  
-  function initObserver() {
-    observer = new MutationObserver((mutations) => {
-      for (const mutation of mutations) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          debouncedUpdateTheme();
-          break; // 只需要处理一次
-        }
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
-  }
-
   // 页面加载时初始化
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      loadGiscus();
-      initObserver();
-    });
+    document.addEventListener('DOMContentLoaded', loadGiscus);
   } else {
     loadGiscus();
-    initObserver();
   }
-
-  // 页面卸载时清理（SPA场景）
-  window.addEventListener('beforeunload', () => {
-    if (observer) {
-      observer.disconnect();
-    }
-  });
 </script>
