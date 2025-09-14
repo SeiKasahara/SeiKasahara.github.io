@@ -26,6 +26,7 @@ function extractAttribute(html: string, attr: string): string {
 }
 
 const config = {
+  src: extractAttribute(configHTML, 'src'),
   repo: extractAttribute(configHTML, 'data-repo'),
   repoId: extractAttribute(configHTML, 'data-repo-id'),
   category: extractAttribute(configHTML, 'data-category'),
@@ -58,7 +59,7 @@ const config = {
     if (!container || container.querySelector('script')) return; // 避免重复加载
 
     const script = document.createElement('script');
-    script.src = 'https://giscus.app/client.js';
+    script.src = config.src || 'https://giscus.app/client.js';
     script.setAttribute('data-repo', config.repo);
     script.setAttribute('data-repo-id', config.repoId);
     script.setAttribute('data-category', config.category);

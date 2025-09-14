@@ -33,6 +33,9 @@ const shouldShowUpdated =
 
 // 预计算是否有标签
 const hasTags = tags && tags.length > 0;
+
+// 预计算是否有分类
+const hasCategory = category && category.trim() !== "";
 ---
 
 <!-- 
@@ -73,44 +76,45 @@ const hasTags = tags && tags.length > 0;
     </div>
   )}
 
-  <!-- 文章分类 -->
-  <div class="flex items-center">
-    <div class="meta-icon">
-      <!-- 书本图标 -->
-      <Icon name="material-symbols:book-2-outline-rounded" class="text-xl" />
+  <!-- 文章分类（仅在有分类时显示） -->
+  {hasCategory && (
+    <div class="flex items-center">
+      <div class="meta-icon">
+        <!-- 书本图标 -->
+        <Icon name="material-symbols:book-2-outline-rounded" class="text-xl" />
+      </div>
+      <div class="flex flex-row flex-nowrap items-center">
+        <!-- 分类链接 -->
+        <a 
+          href={getCategoryUrl(category)} 
+          aria-label={`View all posts in the ${category} category`}
+          class="link-lg transition text-50 text-sm font-medium
+                 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
+        >
+          {category}
+        </a>
+      </div>
     </div>
-    <div class="flex flex-row flex-nowrap items-center">
-      <!-- 分类链接 -->
-      <a 
-        href={getCategoryUrl(category)} 
-        aria-label={`View all posts in the ${category} category`}
-        class="link-lg transition text-50 text-sm font-medium
-               hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
-      >
-        {/* 显示分类名称，若无分类则显示"未分类" */}
-        {category || "未分类"}
-      </a>
-    </div>
-  </div>
+  )}
 
-  <!-- 文章标签 -->
-  <div 
-    class:list={[
-      "items-center",
-      {
-        "flex": !hideTagsForMobile, // 在PC端和未隐藏时显示
-        "hidden md:flex": hideTagsForMobile // 在移动端隐藏，中等屏幕以上显示
-      }
-    ]}
-  >
-    <div class="meta-icon">
-      <!-- 标签图标 -->
-      <Icon name="material-symbols:tag-rounded" class="text-xl" />
-    </div>
-    <div class="flex flex-row flex-nowrap items-center">
-      {hasTags ? (
-        // 有标签时渲染标签列表
-        tags.map((tag, index) => (
+  <!-- 文章标签（仅在有标签时显示） -->
+  {hasTags && (
+    <div 
+      class:list={[
+        "items-center",
+        {
+          "flex": !hideTagsForMobile, // 在PC端和未隐藏时显示
+          "hidden md:flex": hideTagsForMobile // 在移动端隐藏，中等屏幕以上显示
+        }
+      ]}
+    >
+      <div class="meta-icon">
+        <!-- 标签图标 -->
+        <Icon name="material-symbols:tag-rounded" class="text-xl" />
+      </div>
+      <div class="flex flex-row flex-nowrap items-center">
+        <!-- 渲染标签列表 -->
+        {tags.map((tag, index) => (
           <>
             {/* 在标签之间添加分隔符（第一个标签前不添加） */}
             {index > 0 && (
@@ -126,13 +130,8 @@ const hasTags = tags && tags.length > 0;
               {tag.trim()}
             </a>
           </>
-        ))
-      ) : (
-        // 无标签时显示"无标签"文本
-        <div class="transition text-50 text-sm font-medium">
-          无标签
-        </div>
-      )}
+        ))}
+      </div>
     </div>
-  </div>
+  )}
 </div>

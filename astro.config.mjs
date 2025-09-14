@@ -36,13 +36,20 @@ export default defineConfig({
     compressHTML: true,
   },
   prefetch: {
-    prefetchAll: true,
-    defaultStrategy: "viewport"
+    prefetchAll: false,
+    defaultStrategy: "hover"
   },
   
   site: "https://fuwari.oh1.top/",
   base: "/",
   trailingSlash: "always",
+
+  /*image: {
+    service: {
+      entrypoint: "astro/assets/services/noop",
+      config: {}
+    }
+  },*/
 
   integrations: [
     tailwind({
@@ -89,7 +96,7 @@ export default defineConfig({
       },
       styleOverrides: {
         codeBackground: "var(--codeblock-bg)",
-        borderRadius: "0.25rem",
+        borderRadius: "0.5rem",
         borderColor: "none",
         codeFontSize: "0.875rem",
         codeFontFamily: "'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",

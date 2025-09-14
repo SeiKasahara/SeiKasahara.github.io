@@ -85,8 +85,7 @@ export async function getCategoryList(): Promise<Category[]> {
 	const count: { [key: string]: number } = {};
 	allBlogPosts.forEach((post: { data: { category: string | null } }) => {
 		if (!post.data.category) {
-			const ucKey = "未分类";
-			count[ucKey] = count[ucKey] ? count[ucKey] + 1 : 1;
+			// 不再为未分类的文章创建"未分类"分类
 			return;
 		}
 
