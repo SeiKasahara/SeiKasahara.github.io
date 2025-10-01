@@ -1,49 +1,70 @@
 ---
-import { getPostSeries } from '../../utils/content-utils'
+import { getSortedPosts } from '../../utils/content-utils'
 import { getPostUrlBySlug } from '../../utils/url-utils'
-import WidgetLayout from './WidgetLayout.astro'
-
-const COLLAPSED_HEIGHT = '7.5rem'
 
 interface Props {
-  class?: string
-  style?: string
   series: string
 }
-const className = Astro.props.class
-const style = Astro.props.style
-const seriesName = Astro.props.series
 
-const series = await getPostSeries(seriesName)
+const { series } = Astro.props
 
-const isCollapsed = series.length >= 10
+// 获取所有文章并筛选出属于指定系列的文章
+const allPosts = await getSortedPosts()
+const seriesPosts = allPosts.filter(post => post.data.series === series)
+
+// 按时间倒序排列（最新的在前）
+const sortedSeriesPosts = [...seriesPosts].sort((a, b) => 
+  new Date(b.data.published).getTime() - new Date(a.data.published).getTime()
+)
+
+// 设置折叠阈值
+const COLLAPSE_THRESHOLD = 5
+const isCollapsed = sortedSeriesPosts.length > COLLAPSE_THRESHOLD
 ---
-<WidgetLayout name={"专栏 - " + series[0].data.series} id="series" isCollapsed={isCollapsed} collapsedHeight={COLLAPSED_HEIGHT} class={className} style={style}>
-    <div class="flex flex-col gap-1">
-        {series.map(t => (
-            <a href={getPostUrlBySlug(t.slug)}
-                aria-label={t.data.title}
-                class="group btn-plain h-10 w-full rounded-lg hover:text-[initial]"
-            >
-                <!-- dot and line -->
-                <div class="w-[15%] md:w-[10%] relative dash-line h-full flex items-center">
-                    <div class="transition-all mx-auto w-1 h-1 rounded group-hover:h-5
-                    bg-[oklch(0.5_0.05_var(--hue))] group-hover:bg-[var(--primary)]
-                    outline outline-4 z-50
-                    outline-[var(--card-bg)]
-                    group-hover:outline-[var(--btn-plain-bg-hover)]
-                    group-active:outline-[var(--btn-plain-bg-active)]
-                    "
-                    ></div>
-                </div>
-                <!-- post title -->
-                <div class="w-[85%] text-left font-bold
-                    group-hover:translate-x-1 transition-all group-hover:text-[var(--primary)]
-                    text-75 pr-15 whitespace-nowrap overflow-ellipsis overflow-hidden" title={t.data.title}
-                >
-                        {t.data.title}
-                </div>
-            </a>
-        ))}
+
+<div class="card-base p-4">
+  <div class="font-bold text-lg text-neutral-900 dark:text-neutral-100 relative mb-3
+    before:w-1 before:h-4 before:rounded-md before:bg-[var(--primary)]
+    before:absolute before:left-[-16px] before:top-[5.5px]">
+    专栏：{series}
+  </div>
+  
+  <div id="series-posts" class:list={["space-y-2", 
+    {"overflow-hidden max-h-60": isCollapsed, "max-h-[10000px]": !isCollapsed}]}>
+    {sortedSeriesPosts.map((post) => (
+      <a href={getPostUrlBySlug(post.slug)} 
+         class="block p-2 rounded hover:bg-[var(--btn-plain-bg-hover)] truncate">
+        <div class="text-sm font-medium text-neutral-800 dark:text-neutral-200 truncate">
+          {post.data.title}
+        </div>
+        <div class="text-xs text-neutral-500 dark:text-neutral-400">
+          {post.data.published.toLocaleDateString('zh-CN')}
+        </div>
+      </a>
+    ))}
+  </div>
+  
+  {isCollapsed && (
+    <div class="pt-2">
+      <button id="expand-series-btn" class="btn-plain text-xs text-[var(--primary)]">
+        展开 共 {sortedSeriesPosts.length} 篇文章
+      </button>
     </div>
-</WidgetLayout>
+  )}
+</div>
+
+<script>
+  // 添加展开功能
+  document.addEventListener('DOMContentLoaded', () => {
+    const expandBtn = document.getElementById('expand-series-btn')
+    const content = document.getElementById('series-posts')
+    
+    if (expandBtn && content) {
+      expandBtn.addEventListener('click', () => {
+        content.classList.remove('max-h-60')
+        content.classList.add('max-h-[10000px]')
+        expandBtn.classList.add('hidden')
+      })
+    }
+  })
+</script>

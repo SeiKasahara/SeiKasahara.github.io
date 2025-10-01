@@ -73,7 +73,7 @@ const groups: { category: string; series: Series[] }[] = (() => {
                 <!-- 分类行（包含总文章数、圆点和系列计数） -->
                 <div class="flex flex-row w-full items-center h-[3.75rem]">
                     <!-- 左侧添加总文章数 -->
-                    <div class="w-[20%] md:w-[15%] transition text-sm text-right text-50 flex flex-row justify-end items-center pr-2">
+                    <div class="w-[20%] md:w-[15%] text-sm text-right text-50 flex flex-row justify-end items-center pr-2">
                         <span class="font-semibold text-75">{totalPosts} 篇文章</span>
                     </div>
                     
@@ -83,7 +83,7 @@ const groups: { category: string; series: Series[] }[] = (() => {
                     </div>
                     
                     <!-- 系列计数 -->
-                    <div class="w-[65%] md:w-[75%] transition text-left text-50">{group.series.length} 个专栏</div>
+                    <div class="w-[65%] md:w-[75%] text-left text-50">{group.series.length} 个专栏</div>
                 </div>
                 
                 {group.series.map(s => (
@@ -93,12 +93,12 @@ const groups: { category: string; series: Series[] }[] = (() => {
                     >
                         <div class="flex flex-row justify-start items-center h-full">
                             <!-- count -->
-                            <div class="w-[20%] md:w-[15%] transition text-sm text-right text-50">
+                            <div class="w-[20%] md:w-[15%] text-sm text-right text-50">
                                 { s.count } 篇文章
                             </div>
                             <!-- dot and line -->
                             <div class="w-[15%] md:w-[10%] relative dash-line h-full flex items-center">
-                                <div class="transition-all mx-auto w-1 h-1 rounded group-hover:h-5
+                                <div class="mx-auto w-1 h-1 rounded group-hover:h-5
                                 bg-[oklch(0.5_0.05_var(--hue))] group-hover:bg-[var(--primary)]
                                 outline outline-4 z-50
                                 outline-[var(--card-bg)]
@@ -109,7 +109,7 @@ const groups: { category: string; series: Series[] }[] = (() => {
                             </div>
                             <!-- post title -->
                             <div class="w-[65%] md:max-w-[75%] md:w-[75%] text-left font-bold
-                                group-hover:translate-x-1 transition-all group-hover:text-[var(--primary)]
+                                group-hover:translate-x-1 group-hover:text-[var(--primary)]
                                 text-75 pr-8 whitespace-nowrap overflow-ellipsis overflow-hidden"
                             >
                                     {s.name}
