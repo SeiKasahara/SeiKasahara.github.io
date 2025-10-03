@@ -49,23 +49,27 @@ export async function GET(context: APIContext) {
 
 				if (src.startsWith('./')) {
 					// 获取文章所在的目录
-					const postDir = url(post.id);
+					const postDir = path.dirname(post.id);
 					const prefixRemoved = src.slice(2);
 					// 构建正确的路径：/src/content/posts/{postDir}/{imageName}
-					importPath = `/src/content/posts/${postDir}${prefixRemoved}`;
+					importPath = `/src/content/posts/${postDir}/${prefixRemoved}`;
 				} else {
 					// 处理 ../image.jpg 的情况
-					const postDir = url(post.id);
+					const postDir = path.dirname(post.id);
 					const cleaned = src.replace(/^\.\.\//, '');
 					// 向上一级目录
-					const parentDir = path.dirname(postDir.slice(0, -1)); // 移除末尾的/，然后获取父目录
+					const parentDir = path.dirname(postDir);
 					importPath = `/src/content/posts/${parentDir === '.' ? '' : parentDir + '/'}${cleaned}`;
 				}
 
+				// 规范化路径
+				importPath = path.normalize(importPath).replace(/\\/g, '/');
+
 				try {
-					const imageMod = await imagesGlob[importPath]?.()?.then((res) => res.default);
+					const imageMod = await imagesGlob[importPath]?.();
 					if (imageMod) {
-						const optimizedImg = await getImage({ src: imageMod });
+						const optimizedImg = await getImage({ src: imageMod.default, format: 'webp' });
+						// 使用 Astro 优化后的图片 URL
 						img.setAttribute('src', new URL(optimizedImg.src, context.site).href);
 					} else {
 						console.warn(`Image not found in glob: ${importPath}`);
@@ -77,7 +81,11 @@ export async function GET(context: APIContext) {
 					img.setAttribute('src', new URL(src, context.site).href);
 				}
 			} else if (src.startsWith('/')) {
+				// 处理绝对路径的图片
 				img.setAttribute('src', new URL(src, context.site).href);
+			} else if (src.startsWith('http')) {
+				// 处理外部链接，保持原样
+				continue;
 			}
 		}
 

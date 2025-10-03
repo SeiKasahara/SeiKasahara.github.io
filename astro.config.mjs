@@ -77,6 +77,8 @@ export default defineConfig({
         "fa6-regular": ["*"],
         "fa6-solid": ["*"],
       },
+      optimize: true,
+      cache: true,
     }),
     expressiveCode({
       themes: [expressiveCodeConfig.theme, expressiveCodeConfig.theme],

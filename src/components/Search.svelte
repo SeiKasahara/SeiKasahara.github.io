@@ -29,6 +29,65 @@ let keywordMobile = "";
 let result: SearchResult[] = [];
 let isSearching = false;
 let posts: any[] = [];
+let rssLoaded = false; // 标记 RSS 是否已加载
+
+// 按需加载 RSS 数据
+const loadRSS = async (): Promise<void> => {
+	if (rssLoaded) return; // 如果已经加载过，直接返回
+	
+	try {
+		const response = await fetch("/rss.xml");
+		const text = await response.text();
+		const parser = new DOMParser();
+		const xml = parser.parseFromString(text, "text/xml");
+		const items = xml.querySelectorAll("item");
+
+		posts = Array.from(items).map((item) => {
+			// 尝试多种方式获取content:encoded内容
+			let content = "";
+			const contentEncoded = 
+				item.getElementsByTagNameNS("*", "encoded")[0]?.textContent ||
+				item.querySelector("*|encoded")?.textContent ||
+				"";
+			
+			if (contentEncoded) {
+				// 移除HTML标签并解码HTML实体
+				const tempDiv = document.createElement("div");
+				tempDiv.innerHTML = contentEncoded;
+				content = tempDiv.textContent || tempDiv.innerText || "";
+			}
+
+			// 从link中提取相对路径
+			const linkText = item.querySelector("link")?.textContent || "";
+			let relativePath = "";
+			
+			// 处理多种可能的URL格式
+			if (linkText.includes("/posts/")) {
+				// 匹配 /posts/ 后的所有内容（包括多级路径）
+				const match = linkText.match(/\/posts\/(.+?)(?:\/$|$)/);
+				if (match) {
+					relativePath = match[1];
+				}
+			} else {
+				// 如果不包含 /posts/，尝试获取最后的路径部分
+				const urlParts = linkText.split('/').filter(Boolean);
+				relativePath = urlParts[urlParts.length - 1] || "";
+			}
+
+			return {
+				title: item.querySelector("title")?.textContent || "",
+				description: item.querySelector("description")?.textContent || "",
+				content: content,
+				link: relativePath,
+				fullLink: linkText // 保留完整链接以备用
+			};
+		});
+		
+		rssLoaded = true; // 标记为已加载
+	} catch (error) {
+		console.error("Error fetching RSS:", error);
+	}
+};
 
 const togglePanel = () => {
 	const panel = document.getElementById("search-panel");
@@ -60,6 +119,9 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 		result = [];
 		return;
 	}
+
+	// 在搜索前确保 RSS 数据已加载
+	await loadRSS();
 
 	isSearching = true;
 
@@ -116,58 +178,10 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 // 创建防抖搜索函数
 const debouncedSearch = debounce(search, 300);
 
-onMount(async () => {
-	try {
-		const response = await fetch("/rss.xml");
-		const text = await response.text();
-		const parser = new DOMParser();
-		const xml = parser.parseFromString(text, "text/xml");
-		const items = xml.querySelectorAll("item");
-
-		posts = Array.from(items).map((item) => {
-			// 尝试多种方式获取content:encoded内容
-			let content = "";
-			const contentEncoded = 
-				item.getElementsByTagNameNS("*", "encoded")[0]?.textContent ||
-				item.querySelector("*|encoded")?.textContent ||
-				"";
-			
-			if (contentEncoded) {
-				// 移除HTML标签并解码HTML实体
-				const tempDiv = document.createElement("div");
-				tempDiv.innerHTML = contentEncoded;
-				content = tempDiv.textContent || tempDiv.innerText || "";
-			}
-
-			// 从link中提取相对路径
-			const linkText = item.querySelector("link")?.textContent || "";
-			let relativePath = "";
-			
-			// 处理多种可能的URL格式
-			if (linkText.includes("/posts/")) {
-				// 匹配 /posts/ 后的所有内容（包括多级路径）
-				const match = linkText.match(/\/posts\/(.+?)(?:\/$|$)/);
-				if (match) {
-					relativePath = match[1];
-				}
-			} else {
-				// 如果不包含 /posts/，尝试获取最后的路径部分
-				const urlParts = linkText.split('/').filter(Boolean);
-				relativePath = urlParts[urlParts.length - 1] || "";
-			}
-
-			return {
-				title: item.querySelector("title")?.textContent || "",
-				description: item.querySelector("description")?.textContent || "",
-				content: content,
-				link: relativePath,
-				fullLink: linkText // 保留完整链接以备用
-			};
-		});
-	} catch (error) {
-		console.error("Error fetching RSS:", error);
-	}
-});
+// 不再在组件挂载时自动加载 RSS，改为按需加载
+// onMount(async () => {
+// 	// RSS 现在会在首次搜索时按需加载
+// });
 
 $: if (keywordDesktop !== undefined) {
     debouncedSearch(keywordDesktop, true);

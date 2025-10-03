@@ -19,21 +19,14 @@ interface Props {
 	title?: string;
 	banner?: string;
 	description?: string;
+	lang?: string;
 	setOGTypeArticle?: boolean;
 	headings?: MarkdownHeading[];
-        series?: string;
-    lang?: string;
+	series?: CollectionEntry<"series">;
 }
 
-const {
-	title,
-	banner,
-	description,
-	setOGTypeArticle,
-	headings = [],
-        series,
-    lang = "zh-CN",
-} = Astro.props;
+const { title, banner, description, lang, setOGTypeArticle, headings = [], series } = Astro.props;
+
 const hasBannerCredit =
 	siteConfig.banner.enable && siteConfig.banner.credit.enable;
 const hasBannerLink = !!siteConfig.banner.credit.url;
@@ -44,10 +37,7 @@ const mainPanelTop = siteConfig.banner.enable
 ---
 
 <Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle}>
-
-<!-- Navbar -->
-<slot slot="head" name="head"></slot>
-<div id="top-row" class="z-50 pointer-events-none relative transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto" class:list={[""]}>
+<div id="top-row" class="transition absolute w-full z-50 pointer-events-none">
     <div id="navbar-wrapper" class="pointer-events-auto sticky top-0 transition-all">
         <Navbar></Navbar>
     </div>
@@ -56,7 +46,7 @@ const mainPanelTop = siteConfig.banner.enable
 <!-- Banner -->
 {siteConfig.banner.enable && <div id="banner-wrapper" class={`absolute z-10 w-full transition duration-700 overflow-hidden`} style={`top: -${BANNER_HEIGHT_EXTEND}vh`}>
     <ImageWrapper id="banner" alt="Banner image of the blog" class:list={["object-cover h-full transition duration-700 scale-105"]}
-                  src={siteConfig.banner.src} position={siteConfig.banner.position}
+                  src={siteConfig.banner.src} position={siteConfig.banner.position} fetchpriority="high"
     >
     </ImageWrapper>
 </div>}
