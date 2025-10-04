@@ -22,7 +22,6 @@ import { Icon } from "astro-icon/components";
             <div class="btn-center">
                 <Icon name="material-symbols:keyboard-arrow-up-rounded" 
                       class="icon-arrow" />
-                <span class="percent-text">0</span>
             </div>
         </button>
     </div>
@@ -67,15 +66,6 @@ import { Icon } from "astro-icon/components";
             
             &:hover
                 opacity: 1
-        
-        &:hover
-            .icon-arrow
-                opacity: 0
-                transform: scale(0.5)
-            
-            .percent-text
-                opacity: 1
-                transform: scale(1)
     
     &.hide
         pointer-events: none
@@ -113,12 +103,16 @@ import { Icon } from "astro-icon/components";
     height: 100%
     transform: rotate(-90deg)
     pointer-events: none
+    // 启用硬件加速
+    will-change: transform
     
     .progress-bar
         stroke: var(--primary)
         transition: none
         will-change: stroke-dashoffset
         opacity: 0.9
+        // 启用硬件加速
+        transform: translateZ(0)
 
 .btn-center
     position: absolute
@@ -132,41 +126,11 @@ import { Icon } from "astro-icon/components";
     .icon-arrow
         width: 1.5rem
         height: 1.5rem
-        transition: all 0.2s ease
         color: var(--primary)
-        opacity: 1
-        transform: scale(1)
         
         @media (min-width: 1024px)
             width: 1.75rem
             height: 1.75rem
-    
-    .percent-text
-        font-size: 0.75rem
-        font-weight: 600
-        line-height: 1
-        opacity: 0
-        transform: scale(0.5)
-        transition: all 0.2s ease
-        color: var(--primary)
-        
-        @media (min-width: 1024px)
-            font-size: 0.875rem
-        
-        &::after
-            content: '%'
-
-// 滚动时显示百分比
-.back-to-top-btn.scrolling
-    opacity: 1 !important  // 滚动时恢复不透明
-    
-    .icon-arrow
-        opacity: 0
-        transform: scale(0.5)
-    
-    .percent-text
-        opacity: 1
-        transform: scale(1)
 
 // 点击动画
 .back-to-top-btn.complete
@@ -187,57 +151,88 @@ import { Icon } from "astro-icon/components";
     if (!btn) return;
     
     const progressBar = btn.querySelector('.progress-bar');
-    const percentText = btn.querySelector('.percent-text');
     
     // 常量配置
     const CIRCUMFERENCE = 125.66;
     const SCROLL_THRESHOLD = 200;
     const IDLE_TIMEOUT = 500;  // 变为箭头的延迟时间
+    const UPDATE_INTERVAL = 16; // 约60fps更新频率
     
     // 状态管理
-    let scrollPercent = 0;
     let isVisible = false;
     let scrollTimer = null;
     let isHovering = false;
     let docHeight = 0;
-    let viewHeight = 0;
     let lastScrollTop = 0;
     let isScrolling = false;
+    let ticking = false; // 防止过度频繁的更新
+    let lastUpdate = 0; // 上次更新时间
+    let observer = null; // Intersection Observer实例
     
     // 更新文档高度
     function updateDocHeight() {
-        viewHeight = document.documentElement.clientHeight;
-        docHeight = document.documentElement.scrollHeight - viewHeight;
+        docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     }
     
-    // 主更新函数
-    function updateButton() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const shouldShow = scrollTop > SCROLL_THRESHOLD;
+    // 初始化Intersection Observer
+    function initIntersectionObserver() {
+        // 创建一个标记元素用于检测滚动位置
+        const marker = document.createElement('div');
+        marker.id = 'back-to-top-marker';
+        marker.style.position = 'absolute';
+        marker.style.top = `${SCROLL_THRESHOLD}px`;
+        marker.style.height = '1px';
+        marker.style.width = '1px';
+        marker.style.visibility = 'hidden';
+        marker.style.pointerEvents = 'none';
+        document.body.appendChild(marker);
         
-        // 显示/隐藏按钮
-        if (shouldShow !== isVisible) {
-            isVisible = shouldShow;
-            btn.classList.toggle('show', shouldShow);
-            btn.classList.toggle('hide', !shouldShow);
-            
-            // 首次显示时添加idle状态
-            if (shouldShow) {
-                btn.classList.add('idle');
-            }
+        // 创建Intersection Observer
+        observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const shouldShow = !entry.isIntersecting; // 如果标记元素不可见，说明滚动超过了阈值
+                
+                // 显示/隐藏按钮
+                if (shouldShow !== isVisible) {
+                    isVisible = shouldShow;
+                    btn.classList.toggle('show', shouldShow);
+                    btn.classList.toggle('hide', !shouldShow);
+                    
+                    // 首次显示时添加idle状态
+                    if (shouldShow) {
+                        btn.classList.add('idle');
+                    }
+                }
+            });
+        }, {
+            root: null, // 使用视窗作为根
+            rootMargin: '0px',
+            threshold: 0 // 任何部分可见时触发
+        });
+        
+        observer.observe(marker);
+    }
+    
+    // 主更新函数 - 仅用于进度环更新
+    function updateProgress() {
+        const now = Date.now();
+        // 限制更新频率以提高动画流畅度
+        if (now - lastUpdate < UPDATE_INTERVAL) {
+            return;
         }
+        lastUpdate = now;
         
-        if (shouldShow && docHeight > 0) {
-            // 计算并更新进度
-            scrollPercent = Math.min(100, Math.round((scrollTop / docHeight) * 100));
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (isVisible && docHeight > 0) {
+            // 计算并更新进度环
+            const scrollPercent = Math.min(100, Math.round((scrollTop / docHeight) * 100));
+            // 确保从12点钟方向开始绘制（修正计算逻辑）
+            const offset = CIRCUMFERENCE * (1 - scrollPercent / 100);
             
             if (progressBar) {
-                const offset = CIRCUMFERENCE - (scrollPercent / 100) * CIRCUMFERENCE;
+                // 直接设置属性以提高性能
                 progressBar.style.strokeDashoffset = offset;
-            }
-            
-            if (percentText) {
-                percentText.textContent = scrollPercent;
             }
             
             // 检测滚动（避免微小抖动）
@@ -245,7 +240,6 @@ import { Icon } from "astro-icon/components";
             if (scrollDiff > 2 && !isHovering) {
                 if (!isScrolling) {
                     isScrolling = true;
-                    btn.classList.add('scrolling');
                     btn.classList.remove('idle');  // 滚动时移除半透明
                 }
                 
@@ -253,20 +247,33 @@ import { Icon } from "astro-icon/components";
                 scrollTimer = setTimeout(() => {
                     if (!isHovering) {
                         isScrolling = false;
-                        btn.classList.remove('scrolling');
-                        btn.classList.add('idle');  // 恢复箭头时添加半透明
+                        btn.classList.add('idle');  // 恢复半透明
                     }
                 }, IDLE_TIMEOUT);
             }
             
             lastScrollTop = scrollTop;
         }
+        
+        ticking = false;
+    }
+    
+    // 优化的滚动处理函数 - 仅用于进度环更新
+    function onScroll() {
+        // 使用 requestAnimationFrame 防抖
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateProgress();
+                ticking = false;
+            });
+            ticking = true;
+        }
     }
     
     // 返回顶部
     function scrollToTop() {
         btn.classList.add('complete');
-        btn.classList.remove('scrolling', 'idle');
+        btn.classList.remove('idle');
         isScrolling = false;
         
         // 平滑重置进度条
@@ -278,10 +285,6 @@ import { Icon } from "astro-icon/components";
             }, 500);
         }
         
-        if (percentText) {
-            percentText.textContent = '0';
-        }
-        
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
         setTimeout(() => {
@@ -289,14 +292,11 @@ import { Icon } from "astro-icon/components";
         }, 400);
     }
     
-    // 事件监听
-    window.addEventListener('scroll', () => {
-        requestAnimationFrame(updateButton);
-    }, { passive: true });
+    // 事件监听 - 仅用于进度环更新
+    window.addEventListener('scroll', onScroll, { passive: true });
     
     window.addEventListener('resize', () => {
         updateDocHeight();
-        updateButton();
     });
     
     btn.addEventListener('click', (e) => {
@@ -316,8 +316,8 @@ import { Icon } from "astro-icon/components";
         btn.classList.remove('scrolling');
         isScrolling = false;
         
-        // 离开时如果不在滚动，添加半透明
-        if (!isScrolling && isVisible) {
+        // 离开时如果可见，添加半透明
+        if (isVisible) {
             btn.classList.add('idle');
         }
     });
@@ -332,21 +332,27 @@ import { Icon } from "astro-icon/components";
         
         touchTimer = setTimeout(() => {
             isHovering = false;
-            btn.classList.remove('scrolling');
-            btn.classList.add('idle');
-            isScrolling = false;
+            if (isVisible) {
+                btn.classList.add('idle');
+            }
         }, 2000);
     }, { passive: true });
     
     // 初始化
     updateDocHeight();
-    updateButton();
+    initIntersectionObserver();
     
     // 页面可见性改变时更新
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden) {
             updateDocHeight();
-            updateButton();
+        }
+    });
+    
+    // 清理函数
+    window.addEventListener('beforeunload', () => {
+        if (observer) {
+            observer.disconnect();
         }
     });
 })();

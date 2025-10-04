@@ -201,7 +201,8 @@ export default defineConfig({
           warn(warning);
         },
       },
+      cssMinify: true,
+      assetsInlineLimit: 4096,
     },
   },
-
 });

@@ -12,26 +12,37 @@ import type { LIGHT_DARK_MODE } from "@/types/config.ts";
 const seq: LIGHT_DARK_MODE[] = [LIGHT_MODE, DARK_MODE, AUTO_MODE];
 let mode: LIGHT_DARK_MODE = $state(AUTO_MODE);
 
+// 存储媒体查询监听器，避免重复创建
+let darkModePreference: MediaQueryList;
+let changeThemeWhenSchemeChanged: (e: MediaQueryListEvent) => void;
+
 onMount(() => {
 	mode = getStoredTheme();
-	const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
-	const changeThemeWhenSchemeChanged: Parameters<
-		typeof darkModePreference.addEventListener<"change">
-	>[1] = (_e) => {
-		applyThemeToDocument(mode);
+	
+	// 监听系统主题变化（当处于AUTO_MODE时）
+	darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+	changeThemeWhenSchemeChanged = (e) => {
+		// 只有在自动模式下才响应系统主题变化
+		if (mode === AUTO_MODE) {
+			applyThemeToDocument(AUTO_MODE);
+		}
 	};
 	darkModePreference.addEventListener("change", changeThemeWhenSchemeChanged);
+	
+	// 清理函数
 	return () => {
-		darkModePreference.removeEventListener(
-			"change",
-			changeThemeWhenSchemeChanged,
-		);
+		darkModePreference.removeEventListener("change", changeThemeWhenSchemeChanged);
 	};
 });
 
 function switchScheme(newMode: LIGHT_DARK_MODE) {
 	mode = newMode;
 	setTheme(newMode);
+	
+	// 如果切换到自动模式，立即应用系统主题
+	if (newMode === AUTO_MODE) {
+		applyThemeToDocument(AUTO_MODE);
+	}
 }
 
 function toggleScheme() {
@@ -44,14 +55,34 @@ function toggleScheme() {
 	switchScheme(seq[(i + 1) % seq.length]);
 }
 
+// 使用防抖函数优化面板显示/隐藏
+let panelTimeout: number | null = null;
+
 function showPanel() {
-	const panel = document.querySelector("#light-dark-panel");
-	panel.classList.remove("float-panel-closed");
+	if (panelTimeout) {
+		clearTimeout(panelTimeout);
+		panelTimeout = null;
+	}
+	
+	const panel = document.querySelector("#light-dark-panel") as HTMLElement | null;
+	if (panel) {
+		panel.classList.remove("float-panel-closed");
+	}
 }
 
 function hidePanel() {
-	const panel = document.querySelector("#light-dark-panel");
-	panel.classList.add("float-panel-closed");
+	// 添加防抖延迟，避免鼠标快速移动时的闪烁
+	if (panelTimeout) {
+		clearTimeout(panelTimeout);
+	}
+	
+	panelTimeout = window.setTimeout(() => {
+		const panel = document.querySelector("#light-dark-panel") as HTMLElement | null;
+		if (panel) {
+			panel.classList.add("float-panel-closed");
+		}
+		panelTimeout = null;
+	}, 150);
 }
 </script>
 

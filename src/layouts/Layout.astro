@@ -205,7 +205,7 @@ const bannerOffset =
 
 <script>
 import { OverlayScrollbars } from 'overlayscrollbars';
-import { getHue, getStoredTheme, setHue, setTheme } from "../utils/setting-utils";
+import { getHue, getStoredTheme, setHue, setTheme, onThemeChange } from "../utils/setting-utils";
 import { pathsEqual, url } from "../utils/url-utils";
 import {
 	BANNER_HEIGHT,
@@ -247,11 +247,14 @@ function loadHue() {
 }
 
 /**
- * ✅ [新增] 图片加载处理函数
+ * 图片加载处理函数
  * 处理所有使用 ImageWrapper 组件的图片的加载动画
  */
 function initImageLoading() {
     const imageWrappers = document.querySelectorAll('[data-image-wrapper]');
+    
+    // 如果没有图片，直接返回
+    if (imageWrappers.length === 0) return;
     
     imageWrappers.forEach(wrapper => {
         const img = wrapper.querySelector('[data-image-element]');
@@ -285,10 +288,14 @@ function initImageLoading() {
 }
 
 /**
- * ✅ [新增] 图片懒加载观察器
+ * 图片懒加载观察器
  * 监听新添加的图片并自动初始化加载动画
  */
 function setupImageObserver() {
+    // 只有当页面上有图片时才创建观察器
+    const hasImages = document.querySelectorAll('[data-image-wrapper]').length > 0;
+    if (!hasImages) return;
+    
     const observer = new MutationObserver((mutations) => {
         let hasNewImages = false;
         mutations.forEach((mutation) => {
@@ -310,7 +317,7 @@ function setupImageObserver() {
 }
 
 /**
- * ✅ [优化] 按需初始化 KaTeX 公式的自定义滚动条
+ * 按需初始化 KaTeX 公式的自定义滚动条
  * 只有当页面上存在 .katex-display 元素时，才会执行相关逻辑。
  */
 function initCustomScrollbar() {
@@ -354,15 +361,16 @@ function initCustomScrollbar() {
 }
 
 /**
- * ✅ [优化] 按需初始化 Fancybox 图片灯箱
+ * 按需初始化 Fancybox 图片灯箱
  * 只有当页面上存在符合条件的图片时，才创建实例。
  */
 function createFancybox() {
     const gallerySelector = ".custom-md img, #post-cover img";
     const images = document.querySelectorAll(gallerySelector);
 
+    // 如果页面上没有图片，则不初始化灯箱，节省性能
     if (images.length === 0) {
-        return; // 如果页面上没有图片，则不初始化灯箱，节省性能
+        return;
     }
 
     // 为每个图片添加 data-fancybox 属性
@@ -452,9 +460,21 @@ function resizeFunction() {
  * 在首次加载和每次 swup 页面切换后运行
  */
 function initPageContent() {
-	initCustomScrollbar();
-	createFancybox();
-	initImageLoading(); // ✅ [新增] 初始化图片加载
+	// 使用 requestIdleCallback 延迟执行非关键任务
+	if ('requestIdleCallback' in window) {
+		requestIdleCallback(() => {
+			initCustomScrollbar();
+			createFancybox();
+			initImageLoading();
+		}, { timeout: 200 });
+	} else {
+		// 降级到 setTimeout
+		setTimeout(() => {
+			initCustomScrollbar();
+			createFancybox();
+			initImageLoading();
+		}, 0);
+	}
 }
 
 /**
@@ -542,8 +562,10 @@ function initializeSite() {
 	// 首次加载页面时，执行内容初始化
 	initPageContent();
 	
-	// ✅ [新增] 设置图片观察器
-	setupImageObserver();
+	// [新增] 设置图片观察器（仅当页面上有图片时）
+	if (document.querySelectorAll('[data-image-wrapper]').length > 0) {
+		setupImageObserver();
+	}
 }
 
 // 启动逻辑：等待 swup 可用后，初始化所有功能
