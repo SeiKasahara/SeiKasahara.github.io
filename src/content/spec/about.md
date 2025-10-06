@@ -13,7 +13,7 @@
 
 本网站是一个静态网站，采用`Fuwari`框架，使用`MIT`协议开源于`Github`，我们非常重视您的隐私。本隐私政策说明了当您访问我们的网站时，可能收集、使用和披露您信息的方式。
 
-::github{repo="saicaca/fuwari"}
+::github{repo="yCENzh/Fuwari-yCENzh"}
 
 ## 网站性质
 
