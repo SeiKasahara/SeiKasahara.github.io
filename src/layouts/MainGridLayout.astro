@@ -19,13 +19,12 @@ interface Props {
 	title?: string;
 	banner?: string;
 	description?: string;
-	lang?: string;
 	setOGTypeArticle?: boolean;
 	headings?: MarkdownHeading[];
-	series?: CollectionEntry<"series">;
+	series?: any;
 }
 
-const { title, banner, description, lang, setOGTypeArticle, headings = [], series } = Astro.props;
+const { title, banner, description, setOGTypeArticle, headings = [], series } = Astro.props;
 
 const hasBannerCredit =
 	siteConfig.banner.enable && siteConfig.banner.credit.enable;
@@ -36,7 +35,7 @@ const mainPanelTop = siteConfig.banner.enable
 	: "5.5rem";
 ---
 
-<Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle}>
+<Layout title={title} banner={banner} description={description} setOGTypeArticle={setOGTypeArticle}>
 <div id="top-row" class="transition absolute w-full z-50 pointer-events-none">
     <div id="navbar-wrapper" class="pointer-events-auto sticky top-0 transition-all">
         <Navbar></Navbar>

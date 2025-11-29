@@ -4,6 +4,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 import ConfigCarrier from "@components/ConfigCarrier.astro";
+import Lightbox from "../components/lightbox.astro";
 import { profileConfig, siteConfig } from "@/config";
 import {
 	AUTO_MODE,
@@ -79,8 +80,17 @@ const bannerOffset =
 		<!-- Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8YKHXY480"></script>
 		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
+			// Google Analytics setup
+			// biome-ignore lint/suspicious/noExplicitAny: Google Analytics requires any type
+			const dataLayer: any[] = (window as any).dataLayer || [];
+			(window as any).dataLayer = dataLayer;
+			
+			// biome-ignore lint/suspicious/noExplicitAny: Google Analytics requires any type
+			function gtag(...args: any[]) {
+				(window as any).dataLayer = (window as any).dataLayer || [];
+				(window as any).dataLayer.push(args);
+			}
+			
 			gtag('js', new Date());
 			gtag('config', 'G-D8YKHXY480');
 		</script>
@@ -162,6 +172,7 @@ const bannerOffset =
 	>
 		<ConfigCarrier></ConfigCarrier>
 		<slot />
+		<Lightbox />
 
 		<div id="page-height-extend" class="hidden h-[300vh]"></div>
 	</body>
@@ -215,14 +226,10 @@ import {
 } from "../constants/constants";
 import { siteConfig } from '../config';
 
-// 导入 Fancybox
-import { Fancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 const bannerEnabled = !!document.getElementById('banner-wrapper');
-let fancyboxInstance; // Fancybox 实例
 
-function setClickOutsideToClose(panel, ignores) {
+function setClickOutsideToClose(panel: string, ignores: string[]) {
 	document.addEventListener("click", event => {
 		let panelDom = document.getElementById(panel);
 		let tDom = event.target;
@@ -263,7 +270,7 @@ function initImageLoading() {
         if (!img || !loadingBar) return;
         
         // 检查图片是否已经加载完成（从缓存）
-        if (img.complete && img.naturalHeight !== 0) {
+        if ((img as HTMLImageElement).complete && (img as HTMLImageElement).naturalHeight !== 0) {
             img.classList.add('loaded');
             loadingBar.classList.add('hide');
             return;
@@ -271,7 +278,7 @@ function initImageLoading() {
         
         // 创建新的 Image 对象来检测加载
         const tempImg = new Image();
-        tempImg.src = img.src;
+        tempImg.src = (img as HTMLImageElement).src;
         
         tempImg.onload = () => {
             img.classList.add('loaded');
@@ -300,7 +307,7 @@ function setupImageObserver() {
         let hasNewImages = false;
         mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
-                if (node.nodeType === 1 && node.querySelector && node.querySelector('[data-image-wrapper]')) {
+                if (node.nodeType === 1 && (node as Element).querySelector && (node as Element).querySelector('[data-image-wrapper]')) {
                     hasNewImages = true;
                 }
             });
@@ -335,7 +342,7 @@ function initCustomScrollbar() {
 	}
 
 	const katexObserverOptions = { root: null, rootMargin: '100px', threshold: 0.1 };
-	const processKatexElement = (element) => {
+	const processKatexElement = (element: Element) => {
 		if (!element.parentNode || element.hasAttribute('data-scrollbar-initialized')) return;
 		const container = document.createElement('div');
 		container.className = 'katex-display-container';
@@ -358,48 +365,6 @@ function initCustomScrollbar() {
 	}, katexObserverOptions);
 
 	katexElements.forEach(element => katexObserver.observe(element));
-}
-
-/**
- * 按需初始化 Fancybox 图片灯箱
- * 只有当页面上存在符合条件的图片时，才创建实例。
- */
-function createFancybox() {
-    const gallerySelector = ".custom-md img, #post-cover img";
-    const images = document.querySelectorAll(gallerySelector);
-
-    // 如果页面上没有图片，则不初始化灯箱，节省性能
-    if (images.length === 0) {
-        return;
-    }
-
-    // 为每个图片添加 data-fancybox 属性
-    images.forEach((img, index) => {
-        if (!img.hasAttribute('data-fancybox')) {
-            img.setAttribute('data-fancybox', 'gallery');
-            // 可选：添加标题，例如从 alt 属性获取
-            if (img.alt && !img.hasAttribute('data-caption')) {
-                img.setAttribute('data-caption', img.alt);
-            }
-        }
-    });
-
-    // 初始化 Fancybox
-    fancyboxInstance = Fancybox.bind(gallerySelector, {
-        // Fancybox 配置选项
-        dragToClose: false,
-        Toolbar: {
-            display: {
-                left: ['infobar'],
-                middle: [],
-                right: ['close'],
-            },
-        },
-        closeButton: 'top',
-        click: false,
-        dblclick: false,
-        wheel: 'toggleZoom',
-    });
 }
 
 function showBanner() {
@@ -464,14 +429,12 @@ function initPageContent() {
 	if ('requestIdleCallback' in window) {
 		requestIdleCallback(() => {
 			initCustomScrollbar();
-			createFancybox();
 			initImageLoading();
 		}, { timeout: 200 });
 	} else {
 		// 降级到 setTimeout
 		setTimeout(() => {
 			initCustomScrollbar();
-			createFancybox();
 			initImageLoading();
 		}, 0);
 	}
@@ -494,13 +457,6 @@ function setupSwupHooks() {
 		}
 	});
     
-	window.swup.hooks.on('content:replace', () => {
-        // 在替换内容前，销毁旧的灯箱实例
-        if (fancyboxInstance) {
-            fancyboxInstance.destroy();
-            fancyboxInstance = null;
-        }
-	}, { before: true });
 
 	window.swup.hooks.on('page:view', () => {
         // 页面切换动画完成后，为新内容初始化脚本
@@ -514,7 +470,7 @@ function setupSwupHooks() {
         if (toc) toc.classList.remove('toc-not-ready');
 	});
 
-	window.swup.hooks.on('visit:start', (visit) => {
+	window.swup.hooks.on('visit:start', (visit: any) => {
 		const bodyElement = document.querySelector('body');
 		if (pathsEqual(visit.to.url, url('/'))) {
 			bodyElement?.classList.add('lg:is-home');
@@ -574,4 +530,3 @@ if (window.swup) {
 } else {
 	document.addEventListener('swup:enable', initializeSite);
 }
-</script>

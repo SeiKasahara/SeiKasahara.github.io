@@ -7,6 +7,7 @@ export type SiteConfig = {
 	themeColor: {
 		hue: number;
 		fixed: boolean;
+		forceDarkMode?: boolean;
 	};
 	banner: {
 		enable: boolean;

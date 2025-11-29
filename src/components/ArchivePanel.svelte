@@ -3,8 +3,6 @@ import { onMount } from "svelte";
 import { getPostUrlBySlug } from "../utils/url-utils";
 
 // 定义组件接收的属性
-export let tags: string[] = [];
-export let categories: string[] = [];
 export let sortedPosts: Post[] = [];
 
 // 定义文章和年份分组的数据结构

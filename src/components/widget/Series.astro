@@ -55,16 +55,37 @@ const isCollapsed = sortedSeriesPosts.length > COLLAPSE_THRESHOLD
 
 <script>
   // 添加展开功能
-  document.addEventListener('DOMContentLoaded', () => {
+  function initExpandButton() {
     const expandBtn = document.getElementById('expand-series-btn')
     const content = document.getElementById('series-posts')
     
     if (expandBtn && content) {
-      expandBtn.addEventListener('click', () => {
+      // 使用事件委托，避免重复绑定监听器
+      const handleClick = function() {
         content.classList.remove('max-h-60')
         content.classList.add('max-h-[10000px]')
         expandBtn.classList.add('hidden')
-      })
+        // 移除事件监听器，因为按钮已经隐藏不会再被点击
+        expandBtn.removeEventListener('click', handleClick)
+      }
+      
+      // 检查是否已经绑定了事件，避免重复绑定
+      if (!expandBtn.dataset.listenerAdded) {
+        expandBtn.addEventListener('click', handleClick)
+        expandBtn.dataset.listenerAdded = 'true'
+      }
     }
-  })
+  }
+  
+  // 页面加载时初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExpandButton)
+  } else {
+    initExpandButton()
+  }
+  
+  // 如果 swup 可用，也绑定到 swup 的页面视图事件
+  if (window.swup) {
+    window.swup.hooks.on('page:view', initExpandButton)
+  }
 </script>

@@ -1,0 +1,27 @@
+/* 默认导航栏样式 */
+#navbar > div {
+    background: var(--card-bg);
+    border-radius: var(--radius-large);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 有 banner 时启用半透明效果 - 亮色主题 */
+body:has(#banner-wrapper) #navbar > div {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 有 banner 时启用半透明效果 - 暗色主题 */
+:root.dark body:has(#banner-wrapper) #navbar > div {
+    background: rgba(0, 0, 0, 0.55);
+    border-color: rgba(0, 0, 0, 0.55);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 主题切换时禁用过渡防止闪烁 */
+.is-theme-transitioning #navbar > div {
+    transition: none !important;
+}

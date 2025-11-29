@@ -2,358 +2,53 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="back-to-top-wrapper">
-    <div id="back-to-top-btn" class="back-to-top-btn hide">
-        <button aria-label="Back to Top" class="btn-card">
-            <svg class="progress-ring" viewBox="0 0 48 48">
-                <circle
-                    class="progress-bar"
-                    cx="24"
-                    cy="24"
-                    r="20"
-                    fill="none"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-dasharray="125.66"
-                    stroke-dashoffset="125.66"
-                />
-            </svg>
-            
-            <div class="btn-center">
-                <Icon name="material-symbols:keyboard-arrow-up-rounded" 
-                      class="icon-arrow" />
-            </div>
+<!-- There can't be a filter on parent element, or it will break `fixed` -->
+<div class="back-to-top-wrapper block">
+    <div id="back-to-top-btn" class="back-to-top-btn flex items-center rounded-2xl overflow-hidden transition" onclick="backToTop()">
+        <button aria-label="Back to Top" class="btn-card h-[3.75rem] w-[3.75rem]">
+            <Icon name="material-symbols:keyboard-arrow-up-rounded" class="mx-auto"></Icon>
         </button>
     </div>
 </div>
 
 <style lang="stylus">
 .back-to-top-wrapper
+    width: 3.75rem
+    height: 3.75rem
+    position: absolute
+    right: 0
+    top: 0
     pointer-events: none
-    z-index: 999
 
 .back-to-top-btn
-    position: fixed
-    pointer-events: auto
-    opacity: 0
-    transform: scale(0.9)
-    transition: opacity 0.3s ease, transform 0.3s ease
-    width: 3rem
-    height: 3rem
-    bottom: 1.5rem
-    right: 1rem
-    
-    @media (max-width: 1023px) and (orientation: landscape)
-        width: 2.5rem
-        height: 2.5rem
-        bottom: 1rem
-        right: 1rem
-    
-    @media (min-width: 1024px)
-        width: 3.75rem
-        height: 3.75rem
-        bottom: 2rem
-        right: 2rem
-    
-    &.show
-        opacity: 1
-        transform: scale(1)
-        
-        // 空闲状态（显示箭头时）半透明
-        &.idle
-            opacity: 0.5
-            transition: opacity 0.3s ease
-            
-            &:hover
-                opacity: 1
-    
-    &.hide
-        pointer-events: none
-    
-    &:active
-        transform: scale(0.95)
-        opacity: 1
-
-.btn-card
-    position: relative
-    width: 100%
-    height: 100%
-    border-radius: 50%
-    background: var(--card-bg)
-    backdrop-filter: blur(12px)
-    -webkit-backdrop-filter: blur(12px)
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
-    border: 1px solid rgba(128, 128, 128, 0.1)
-    cursor: pointer
-    overflow: hidden
     color: var(--primary)
-    
-    &::before
-        content: ''
-        position: absolute
-        inset: 0
-        background: var(--card-bg)
-        opacity: 0.9
-        z-index: -1
-
-.progress-ring
-    position: absolute
-    inset: 0
-    width: 100%
-    height: 100%
-    transform: rotate(-90deg)
-    pointer-events: none
-    // 启用硬件加速
-    will-change: transform
-    
-    .progress-bar
-        stroke: var(--primary)
-        transition: none
-        will-change: stroke-dashoffset
-        opacity: 0.9
-        // 启用硬件加速
-        transform: translateZ(0)
-
-.btn-center
-    position: absolute
-    inset: 0
-    display: grid
-    place-items: center
-    
-    > *
-        grid-area: 1 / 1
-    
-    .icon-arrow
-        width: 1.5rem
-        height: 1.5rem
-        color: var(--primary)
-        
-        @media (min-width: 1024px)
-            width: 1.75rem
-            height: 1.75rem
-
-// 点击动画
-.back-to-top-btn.complete
-    animation: gentlePulse 0.4s ease
-    
-@keyframes gentlePulse
-    0%, 100%
-        transform: scale(1)
-    50%
-        transform: scale(1.05)
+    font-size: 2.25rem
+    font-weight: bold
+    border: none
+    position: fixed
+    bottom: 10rem
+    opacity: 0.6
+    cursor: pointer
+    transform: translateX(0)
+    pointer-events: auto
+    transition: opacity 0.3s ease
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15)
+    i
+        font-size: 1.75rem
+    &.hide
+        transform: translateX(5rem) scale(0.9)
+        opacity: 0
+        pointer-events: none
+    &:hover
+        opacity: 1
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2)
+    &:active
+      transform: translateX(0) scale(0.9)
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1)
 </style>
 
-<script>
-(function() {
-    'use strict';
-    
-    const btn = document.getElementById('back-to-top-btn');
-    if (!btn) return;
-    
-    const progressBar = btn.querySelector('.progress-bar');
-    
-    // 常量配置
-    const CIRCUMFERENCE = 125.66;
-    const SCROLL_THRESHOLD = 200;
-    const IDLE_TIMEOUT = 500;  // 变为箭头的延迟时间
-    const UPDATE_INTERVAL = 16; // 约60fps更新频率
-    
-    // 状态管理
-    let isVisible = false;
-    let scrollTimer = null;
-    let isHovering = false;
-    let docHeight = 0;
-    let lastScrollTop = 0;
-    let isScrolling = false;
-    let ticking = false; // 防止过度频繁的更新
-    let lastUpdate = 0; // 上次更新时间
-    let observer = null; // Intersection Observer实例
-    
-    // 更新文档高度
-    function updateDocHeight() {
-        docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    }
-    
-    // 初始化Intersection Observer
-    function initIntersectionObserver() {
-        // 创建一个标记元素用于检测滚动位置
-        const marker = document.createElement('div');
-        marker.id = 'back-to-top-marker';
-        marker.style.position = 'absolute';
-        marker.style.top = `${SCROLL_THRESHOLD}px`;
-        marker.style.height = '1px';
-        marker.style.width = '1px';
-        marker.style.visibility = 'hidden';
-        marker.style.pointerEvents = 'none';
-        document.body.appendChild(marker);
-        
-        // 创建Intersection Observer
-        observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const shouldShow = !entry.isIntersecting; // 如果标记元素不可见，说明滚动超过了阈值
-                
-                // 显示/隐藏按钮
-                if (shouldShow !== isVisible) {
-                    isVisible = shouldShow;
-                    btn.classList.toggle('show', shouldShow);
-                    btn.classList.toggle('hide', !shouldShow);
-                    
-                    // 首次显示时添加idle状态
-                    if (shouldShow) {
-                        btn.classList.add('idle');
-                    }
-                }
-            });
-        }, {
-            root: null, // 使用视窗作为根
-            rootMargin: '0px',
-            threshold: 0 // 任何部分可见时触发
-        });
-        
-        observer.observe(marker);
-    }
-    
-    // 主更新函数 - 仅用于进度环更新
-    function updateProgress() {
-        const now = Date.now();
-        // 限制更新频率以提高动画流畅度
-        if (now - lastUpdate < UPDATE_INTERVAL) {
-            return;
-        }
-        lastUpdate = now;
-        
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (isVisible && docHeight > 0) {
-            // 计算并更新进度环
-            const scrollPercent = Math.min(100, Math.round((scrollTop / docHeight) * 100));
-            // 确保从12点钟方向开始绘制（修正计算逻辑）
-            const offset = CIRCUMFERENCE * (1 - scrollPercent / 100);
-            
-            if (progressBar) {
-                // 直接设置属性以提高性能
-                progressBar.style.strokeDashoffset = offset;
-            }
-            
-            // 检测滚动（避免微小抖动）
-            const scrollDiff = Math.abs(scrollTop - lastScrollTop);
-            if (scrollDiff > 2 && !isHovering) {
-                if (!isScrolling) {
-                    isScrolling = true;
-                    btn.classList.remove('idle');  // 滚动时移除半透明
-                }
-                
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                    if (!isHovering) {
-                        isScrolling = false;
-                        btn.classList.add('idle');  // 恢复半透明
-                    }
-                }, IDLE_TIMEOUT);
-            }
-            
-            lastScrollTop = scrollTop;
-        }
-        
-        ticking = false;
-    }
-    
-    // 优化的滚动处理函数 - 仅用于进度环更新
-    function onScroll() {
-        // 使用 requestAnimationFrame 防抖
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                updateProgress();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-    
-    // 返回顶部
-    function scrollToTop() {
-        btn.classList.add('complete');
-        btn.classList.remove('idle');
-        isScrolling = false;
-        
-        // 平滑重置进度条
-        if (progressBar) {
-            progressBar.style.transition = 'stroke-dashoffset 0.5s ease';
-            progressBar.style.strokeDashoffset = CIRCUMFERENCE;
-            setTimeout(() => {
-                progressBar.style.transition = 'none';
-            }, 500);
-        }
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        setTimeout(() => {
-            btn.classList.remove('complete');
-        }, 400);
-    }
-    
-    // 事件监听 - 仅用于进度环更新
-    window.addEventListener('scroll', onScroll, { passive: true });
-    
-    window.addEventListener('resize', () => {
-        updateDocHeight();
-    });
-    
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        scrollToTop();
-    });
-    
-    // 悬停处理
-    btn.addEventListener('mouseenter', () => {
-        isHovering = true;
-        btn.classList.remove('idle');  // 悬停时移除半透明
-        clearTimeout(scrollTimer);
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-        isHovering = false;
-        btn.classList.remove('scrolling');
-        isScrolling = false;
-        
-        // 离开时如果可见，添加半透明
-        if (isVisible) {
-            btn.classList.add('idle');
-        }
-    });
-    
-    // 触摸设备支持
-    let touchTimer;
-    btn.addEventListener('touchstart', () => {
-        isHovering = true;
-        btn.classList.remove('idle');
-        clearTimeout(scrollTimer);
-        clearTimeout(touchTimer);
-        
-        touchTimer = setTimeout(() => {
-            isHovering = false;
-            if (isVisible) {
-                btn.classList.add('idle');
-            }
-        }, 2000);
-    }, { passive: true });
-    
-    // 初始化
-    updateDocHeight();
-    initIntersectionObserver();
-    
-    // 页面可见性改变时更新
-    document.addEventListener('visibilitychange', () => {
-        if (!document.hidden) {
-            updateDocHeight();
-        }
-    });
-    
-    // 清理函数
-    window.addEventListener('beforeunload', () => {
-        if (observer) {
-            observer.disconnect();
-        }
-    });
-})();
+<script is:raw is:inline>
+function backToTop() {
+    window.scroll({ top: 0, behavior: 'smooth' });
+}
 </script>

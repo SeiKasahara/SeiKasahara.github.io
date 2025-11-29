@@ -13,6 +13,7 @@ export const siteConfig: SiteConfig = {
 	themeColor: {
 		hue: 275, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: false, // Hide the theme color picker for visitors
+		forceDarkMode: false, // Force dark mode and hide the light/dark switcher
 	},
 	banner: {
 		enable: true,
@@ -50,7 +51,7 @@ export const navBarConfig: NavBarConfig = {
 			external: true, // Show an external link icon and will open in a new tab
 		},*/
 		{
-			name: "开往",
+			name: "Travelling",
 			url: "https://www.travellings.cn/train.html",
 			external: true,
 		},
@@ -83,12 +84,12 @@ export const profileConfig: ProfileConfig = {
 			name: "Telegram",
 			icon: "fa6-brands:telegram",
 			url: "https://t.me/yCENzh",
-		},
+		},/*
 		{
 			name: "开往",
 			icon: "fa6-solid:train-subway",
 			url: "https://www.travellings.cn/train.html",
-		},
+		},*/
 	],
 };
 

@@ -1,0 +1,64 @@
+---
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+---
+
+<script>
+import { Fancybox } from "@fancyapps/ui";
+
+function createFancybox() {
+    const gallerySelector = ".custom-md img, #post-cover img";
+    const images = document.querySelectorAll(gallerySelector);
+
+    // 如果页面上没有图片，则不初始化灯箱
+    if (images.length === 0) {
+        return;
+    }
+
+    // 为每个图片添加 data-fancybox 属性
+    images.forEach((img) => {
+        const imageElement = img as HTMLImageElement;
+        if (!imageElement.hasAttribute('data-fancybox')) {
+            imageElement.setAttribute('data-fancybox', 'gallery');
+            // 添加标题，1. 从 alt 属性获取
+            if (imageElement.alt && !imageElement.hasAttribute('data-caption')) {
+                imageElement.setAttribute('data-caption', imageElement.alt);
+            }
+        }
+    });
+
+    // 初始化 Fancybox
+    Fancybox.bind(gallerySelector, {
+        dragToClose: false,
+        Toolbar: {
+            display: {
+                left: ['infobar'],
+                middle: [],
+                right: ['close'],
+            },
+        },
+        closeButton: true,
+        click: false,
+        dblclick: false,
+        wheel: 'slide',
+    } as any);
+}
+
+// 页面加载完成后初始化 Fancybox
+document.addEventListener('DOMContentLoaded', () => {
+    createFancybox();
+});
+
+// 监听 Astro 页面切换事件
+document.addEventListener('astro:page-load', () => {
+    // 销毁旧的实例
+    Fancybox.unbind(".custom-md img, #post-cover img");
+    // 创建新的实例
+    createFancybox();
+});
+
+// 监听 Astro 页面切换前事件
+document.addEventListener('astro:before-swap', () => {
+    // 销毁旧的实例
+    Fancybox.unbind(".custom-md img, #post-cover img");
+});
+</script>

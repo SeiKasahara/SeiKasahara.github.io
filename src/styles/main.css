@@ -1,5 +1,4 @@
-/* 导入导航栏半透明效果样式 */
-@import './navbar-transparent.css';
+@import './navbar.css';
 
 @tailwind base;
 @tailwind components;

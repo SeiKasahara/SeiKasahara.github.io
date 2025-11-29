@@ -32,7 +32,6 @@ import { LinkCardComponent } from "./src/plugins/rehype-component-link-card.mjs"
 // https://astro.build/config
 export default defineConfig({
   build: {
-    concurrency: 1,
     compressHTML: true,
   },
   prefetch: {
@@ -43,13 +42,6 @@ export default defineConfig({
   site: "https://fuwari.oh1.top/",
   base: "/",
   trailingSlash: "always",
-
-  /*image: {
-    service: {
-      entrypoint: "astro/assets/services/noop",
-      config: {}
-    }
-  },*/
 
   integrations: [
     tailwind({
@@ -203,6 +195,7 @@ export default defineConfig({
       },
       cssMinify: true,
       assetsInlineLimit: 4096,
+      parallel: true,
     },
   },
 });

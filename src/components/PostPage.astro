@@ -29,7 +29,6 @@ type PostEntry = CollectionEntry<"posts">;
       return (
         // 渲染文章卡片组件
         <PostCard
-          key={entry.slug}  // 添加唯一key值提升性能
           entry={entry}
           title={entry.data.title}
           tags={entry.data.tags}
