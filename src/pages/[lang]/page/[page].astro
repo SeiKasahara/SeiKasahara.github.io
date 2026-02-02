@@ -1,0 +1,55 @@
+---
+import type { GetStaticPaths } from "astro";
+import Pagination from "@components/control/Pagination.astro";
+import PostPage from "@components/PostPage.astro";
+import { PAGE_SIZE } from "@constants/constants";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@utils/content-utils";
+import { languages, type Lang } from "@/i18n";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const allBlogPosts = await getSortedPosts();
+	const totalPages = Math.ceil(allBlogPosts.length / PAGE_SIZE);
+
+	const paths = [];
+
+	for (const lang of Object.keys(languages)) {
+		for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+			const start = (pageNum - 1) * PAGE_SIZE;
+			const end = start + PAGE_SIZE;
+			const pagePosts = allBlogPosts.slice(start, end);
+
+			paths.push({
+				params: {
+					lang,
+					page: String(pageNum),
+				},
+				props: {
+					page: {
+						data: pagePosts,
+						currentPage: pageNum,
+						lastPage: totalPages,
+						url: {
+							current: `/${lang}/page/${pageNum}/`,
+							prev: pageNum > 1 ? (pageNum === 2 ? `/${lang}/` : `/${lang}/page/${pageNum - 1}/`) : undefined,
+							next: pageNum < totalPages ? `/${lang}/page/${pageNum + 1}/` : undefined,
+						},
+					},
+				},
+			});
+		}
+	}
+
+	return paths;
+};
+
+const { page } = Astro.props;
+const { lang } = Astro.params as { lang: Lang };
+
+const len = page.data.length;
+---
+
+<MainGridLayout lang={lang}>
+    <PostPage page={page} lang={lang}></PostPage>
+    <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>
+</MainGridLayout>

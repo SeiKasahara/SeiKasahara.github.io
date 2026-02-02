@@ -1,0 +1,54 @@
+---
+import type { GetStaticPaths } from "astro";
+import PostPage from "@components/PostPage.astro";
+import { PAGE_SIZE } from "@constants/constants";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPosts } from "@utils/content-utils";
+import { languages, type Lang } from "@/i18n";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const allBlogPosts = await getSortedPosts();
+
+	// Generate paths for each language (first page only, no pagination param needed)
+	return Object.keys(languages).map((lang) => ({
+		params: { lang },
+		props: {
+			posts: allBlogPosts.slice(0, PAGE_SIZE),
+			totalPosts: allBlogPosts.length,
+		},
+	}));
+};
+
+interface Props {
+	posts: Awaited<ReturnType<typeof getSortedPosts>>;
+	totalPosts: number;
+}
+
+const { posts, totalPosts } = Astro.props;
+const { lang } = Astro.params as { lang: Lang };
+
+// Create a page-like object for PostPage component
+const page = {
+	data: posts,
+	currentPage: 1,
+	lastPage: Math.ceil(totalPosts / PAGE_SIZE),
+	url: {
+		current: `/${lang}/`,
+		prev: undefined,
+		next: totalPosts > PAGE_SIZE ? `/${lang}/page/2/` : undefined,
+	},
+};
+
+const len = page.data.length;
+---
+
+<MainGridLayout lang={lang}>
+    <PostPage page={page} lang={lang}></PostPage>
+    {page.lastPage > 1 && (
+        <div class="flex justify-center mt-4 onload-animation" style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms);`}>
+            <a href={`/${lang}/page/2/`} class="btn-card px-4 py-2 rounded-lg">
+                Next Page →
+            </a>
+        </div>
+    )}
+</MainGridLayout>

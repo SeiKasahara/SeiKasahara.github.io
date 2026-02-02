@@ -1,15 +1,17 @@
 ---
 import type { Page } from "astro";
 import { Icon } from "astro-icon/components";
-import { url } from "../../utils/url-utils";
+import { getLangFromUrl, type Lang } from "@/i18n";
 
 interface Props {
 	page: Page;
 	class?: string;
 	style?: string;
+	lang?: Lang;
 }
 
-const { page, style } = Astro.props;
+const { page, style, lang: propLang } = Astro.props;
+const currentLang = propLang || getLangFromUrl(Astro.url);
 
 const HIDDEN = -1;
 
@@ -46,8 +48,8 @@ if (r === page.lastPage - 2) pages.push(page.lastPage - 1);
 if (r < page.lastPage) pages.push(page.lastPage);
 
 const getPageUrl = (p: number) => {
-	if (p === 1) return "/";
-	return `/${p}/`;
+	if (p === 1) return `/${currentLang}/`;
+	return `/${currentLang}/page/${p}/`;
 };
 ---
 
@@ -69,7 +71,7 @@ const getPageUrl = (p: number) => {
                 >
                     {p}
                 </div>
-            return <a href={url(getPageUrl(p))} aria-label={`Page ${p}`}
+            return <a href={getPageUrl(p)} aria-label={`Page ${p}`}
                 class="btn-card w-11 h-11 rounded-lg overflow-hidden active:scale-[0.85]"
             >{p}</a>
         })}

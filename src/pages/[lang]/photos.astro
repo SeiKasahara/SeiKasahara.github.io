@@ -1,0 +1,48 @@
+---
+import type { GetStaticPaths } from "astro";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import photosData from "@/config/photos.json";
+import { languages, useTranslations, type Lang } from "@/i18n";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	return Object.keys(languages).map((lang) => ({
+		params: { lang },
+	}));
+};
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+const photos = photosData;
+---
+<MainGridLayout title={t('page.photos')} description={t('page.photosDesc')} lang={lang}>
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">{t('page.photos')}</h1>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {photos.map((photo) => {
+                    const [dimensions, filename, url] = photo.split(';');
+                    return (
+                        <div class="overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800 transition hover:shadow-lg">
+                            <a href={url} target="_blank" rel="noopener noreferrer" class="block">
+                                <img
+                                    src={url}
+                                    alt={filename}
+                                    class="w-full h-48 object-cover transition hover:scale-105"
+                                    loading="lazy"
+                                />
+                            </a>
+                        </div>
+                    );
+                })}
+            </div>
+
+            {photos.length === 0 && (
+                <p class="text-center text-neutral-500 dark:text-neutral-400 py-8">
+                    {t('common.noResults')}
+                </p>
+            )}
+        </div>
+    </div>
+</MainGridLayout>

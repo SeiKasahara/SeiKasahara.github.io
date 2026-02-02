@@ -1,6 +1,15 @@
 ---
 import { profileConfig } from "../config";
 import { url } from "../utils/url-utils";
+import { useTranslations, getLangFromUrl, type Lang } from "@/i18n";
+
+interface Props {
+	lang?: Lang;
+}
+
+const { lang: propLang } = Astro.props;
+const currentLang = propLang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 
 const currentYear = new Date().getFullYear();
 ---
@@ -9,17 +18,13 @@ const currentYear = new Date().getFullYear();
 
 <div class="transition border-dashed border-[oklch(85%_0.01_var(--hue))] dark:border-white/15 rounded-2xl mb-12 flex flex-col items-center justify-center px-6">
     <div class="transition text-50 text-sm text-center">
-        &copy; <span id="copyright-year">{currentYear}</span> {profileConfig.name}. All Rights Reserved. /
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('rss.xml')}>RSS</a> /
+        &copy; <span id="copyright-year">{currentYear}</span> {profileConfig.name}. {t('footer.copyright')}. /
+        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={`/${currentLang}/rss.xml`}>RSS</a> /
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>Sitemap</a>
         <br>
-        Powered by
+        {t('footer.poweredBy').split('Astro')[0]}
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://astro.build/themes/details/asterris/">Astro</a> &
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://github.com/yCENzh/Fuwari-yCENzh">Fuwari</a>
-        <br />
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://icp.gov.moe/?keyword=20251413">萌ICP备20251413号</a>
-        <br />
-        <a class="transition link text-[var(--primary)] font-medium" target="_blank" href="https://www.travellings.cn/train.html">开往新世界-Travelling</a>
     </div>
 </div>
 

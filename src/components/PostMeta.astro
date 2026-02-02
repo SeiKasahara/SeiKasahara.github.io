@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { formatDateToYYYYMMDD } from "../utils/date-utils";
 import { getCategoryUrl, getTagUrl } from "../utils/url-utils";
+import { getLangFromUrl, type Lang } from "@/i18n";
 
 // 组件属性接口定义
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   category: string | null; // 文章分类（可为空）
   hideTagsForMobile?: boolean; // 是否在移动端隐藏标签
   hideUpdateDate?: boolean; // 是否隐藏更新日期
+  lang?: Lang; // 语言
 }
 
 // 解构Astro.props获取参数
@@ -23,7 +25,19 @@ const {
   category,
   hideTagsForMobile = false, // 默认在移动端显示标签
   hideUpdateDate = false, // 默认显示更新日期
+  lang: propLang,
 } = Astro.props;
+
+const currentLang = propLang || getLangFromUrl(Astro.url);
+
+// Helper functions for localized URLs
+function getLocalizedCategoryUrl(category: string): string {
+  return `/${currentLang}/category/${encodeURIComponent(category)}/`;
+}
+
+function getLocalizedTagUrl(tag: string): string {
+  return `/${currentLang}/tags/${encodeURIComponent(tag)}/`;
+}
 
 // 预计算更新日期是否需要显示
 const shouldShowUpdated = 
@@ -86,7 +100,7 @@ const hasCategory = category && category.trim() !== "";
       <div class="flex flex-row flex-nowrap items-center">
         <!-- 分类链接 -->
         <a 
-          href={getCategoryUrl(category)} 
+          href={getLocalizedCategoryUrl(category)} 
           aria-label={`View all posts in the ${category} category`}
           class="link-lg transition text-50 text-sm font-medium
                  hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
@@ -122,7 +136,7 @@ const hasCategory = category && category.trim() !== "";
             )}
             {/* 单个标签链接 */}
             <a
-              href={getTagUrl(tag)}
+              href={getLocalizedTagUrl(tag)}
               aria-label={`View all posts with the ${tag.trim()} tag`}
               class="link-lg transition text-50 text-sm font-medium
                      hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"

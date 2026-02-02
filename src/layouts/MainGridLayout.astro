@@ -14,6 +14,7 @@ import {
 	MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,
 } from "../constants/constants";
 import Layout from "./Layout.astro";
+import { type Lang } from "@/i18n";
 
 interface Props {
 	title?: string;
@@ -22,9 +23,10 @@ interface Props {
 	setOGTypeArticle?: boolean;
 	headings?: MarkdownHeading[];
 	series?: any;
+	lang?: Lang;
 }
 
-const { title, banner, description, setOGTypeArticle, headings = [], series } = Astro.props;
+const { title, banner, description, setOGTypeArticle, headings = [], series, lang } = Astro.props;
 
 const hasBannerCredit =
 	siteConfig.banner.enable && siteConfig.banner.credit.enable;
@@ -35,10 +37,10 @@ const mainPanelTop = siteConfig.banner.enable
 	: "5.5rem";
 ---
 
-<Layout title={title} banner={banner} description={description} setOGTypeArticle={setOGTypeArticle}>
+<Layout title={title} banner={banner} description={description} setOGTypeArticle={setOGTypeArticle} lang={lang}>
 <div id="top-row" class="transition absolute w-full z-50 pointer-events-none">
     <div id="navbar-wrapper" class="pointer-events-auto sticky top-0 transition-all">
-        <Navbar></Navbar>
+        <Navbar lang={lang}></Navbar>
     </div>
 </div>
 
@@ -79,17 +81,17 @@ const mainPanelTop = siteConfig.banner.enable
                     <!-- make id different from windows.swup global property -->
                     <slot></slot>
                     <div class="footer col-span-2 onload-animation hidden lg:block">
-                        <Footer></Footer>
+                        <Footer lang={lang}></Footer>
                     </div>
                 </div>
             </main>
 
             <div class="footer col-span-2 onload-animation block lg:hidden">
-                <Footer></Footer>
+                <Footer lang={lang}></Footer>
             </div>
         </div>
 
-        <BackToTop></BackToTop>
+        <BackToTop lang={lang}></BackToTop>
     </div>
 </div>
 

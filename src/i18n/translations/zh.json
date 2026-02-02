@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "主页",
+    "archive": "时间线",
+    "about": "关于",
+    "series": "专栏",
+    "friends": "友链",
+    "messages": "留言板",
+    "photos": "相册",
+    "shuoshuo": "碎碎念"
+  },
+  "theme": {
+    "light": "你相信光吗",
+    "dark": "拥抱黑暗吧",
+    "auto": "跟着系统变"
+  },
+  "widget": {
+    "categories": "分类",
+    "tags": "标签",
+    "profile": "个人简介",
+    "toc": "目录",
+    "series": "系列文章",
+    "visitorStats": "访客统计",
+    "siteRuntime": "站点运行",
+    "visitorMap": "访客来源"
+  },
+  "stats": {
+    "visitors": "访客数",
+    "pageViews": "浏览量",
+    "siteRunning": "本站已运行",
+    "days": "天",
+    "hours": "时",
+    "minutes": "分",
+    "seconds": "秒"
+  },
+  "post": {
+    "readMore": "阅读更多",
+    "publishedAt": "发布于",
+    "updatedAt": "更新于",
+    "wordCount": "字",
+    "readingTime": "分钟",
+    "prevPost": "上一篇",
+    "nextPost": "下一篇",
+    "relatedPosts": "相关文章",
+    "pinned": "置顶",
+    "posts": "篇文章"
+  },
+  "page": {
+    "archive": "时间线",
+    "archiveDesc": "所有文章的时间线",
+    "about": "关于",
+    "aboutDesc": "关于我和这个博客",
+    "friends": "友链",
+    "friendsDesc": "我的朋友们",
+    "messages": "留言板",
+    "messagesDesc": "给我留言",
+    "photos": "相册",
+    "photosDesc": "我的相册",
+    "shuoshuo": "碎碎念",
+    "shuoshuoDesc": "日常动态",
+    "series": "专栏",
+    "seriesDesc": "系列文章"
+  },
+  "error": {
+    "notFound": "页面未找到",
+    "notFoundDesc": "您访问的页面不存在",
+    "backHome": "返回首页"
+  },
+  "common": {
+    "loading": "加载中...",
+    "viewAll": "查看全部",
+    "expand": "展开",
+    "collapse": "收起",
+    "search": "搜索",
+    "searchPlaceholder": "搜索文章...",
+    "noResults": "未找到结果",
+    "backToTop": "返回顶部"
+  },
+  "footer": {
+    "poweredBy": "由 Astro 驱动",
+    "copyright": "版权所有"
+  },
+  "lang": {
+    "switch": "语言",
+    "zh": "中文",
+    "en": "English",
+    "ja": "日本語"
+  }
+}

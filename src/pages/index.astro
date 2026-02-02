@@ -1,0 +1,11 @@
+---
+/**
+ * Root index page - redirects to the default language version
+ * Since this is a static site, we redirect to the default language (zh)
+ * Client-side JavaScript will handle browser language detection
+ */
+import { defaultLang } from "@/i18n";
+
+// For static builds, redirect to default language
+return Astro.redirect(`/${defaultLang}/`, 302);
+---

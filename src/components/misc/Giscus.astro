@@ -1,16 +1,47 @@
-<script src="https://giscus.app/client.js"
-        data-repo="yCENzh/Fuwari-yCENzh"
-        data-repo-id="R_kgDOPe85cQ"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOPe85cc4CuYZG"
-        data-mapping="pathname"
-        data-strict="1"
-        data-reactions-enabled="1"
-        data-emit-metadata="1"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
+---
+import { giscusConfig } from "@/config";
+
+const {
+  enable,
+  repo,
+  repoId,
+  category,
+  categoryId,
+  mapping,
+  strict,
+  reactionsEnabled,
+  emitMetadata,
+  inputPosition,
+  theme,
+  lang,
+} = giscusConfig;
+---
+
+{enable && repoId && categoryId && (
+  <script
+    src="https://giscus.app/client.js"
+    data-repo={repo}
+    data-repo-id={repoId}
+    data-category={category}
+    data-category-id={categoryId}
+    data-mapping={mapping}
+    data-strict={strict ? "1" : "0"}
+    data-reactions-enabled={reactionsEnabled ? "1" : "0"}
+    data-emit-metadata={emitMetadata ? "1" : "0"}
+    data-input-position={inputPosition}
+    data-theme={theme}
+    data-lang={lang}
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  />
+)}
+
+{enable && (!repoId || !categoryId) && (
+  <div class="giscus-placeholder" style="padding: 1rem; background: var(--card-bg); border-radius: 0.5rem; text-align: center; color: var(--text-secondary);">
+    <p>评论系统配置不完整</p>
+    <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+      请访问 <a href="https://giscus.app/" target="_blank" style="color: var(--primary);">giscus.app</a> 获取 repoId 和 categoryId，并更新 src/config.ts
+    </p>
+  </div>
+)}

@@ -9,6 +9,15 @@ import {
 import { onMount } from "svelte";
 import type { LIGHT_DARK_MODE } from "@/types/config.ts";
 
+// Props for translations
+interface Props {
+	lightLabel?: string;
+	darkLabel?: string;
+	autoLabel?: string;
+}
+
+let { lightLabel = "你相信光吗", darkLabel = "拥抱黑暗吧", autoLabel = "跟着系统变" }: Props = $props();
+
 const seq: LIGHT_DARK_MODE[] = [LIGHT_MODE, DARK_MODE, AUTO_MODE];
 let mode: LIGHT_DARK_MODE = $state(AUTO_MODE);
 
@@ -18,7 +27,7 @@ let changeThemeWhenSchemeChanged: (e: MediaQueryListEvent) => void;
 
 onMount(() => {
 	mode = getStoredTheme();
-	
+
 	// 监听系统主题变化（当处于AUTO_MODE时）
 	darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 	changeThemeWhenSchemeChanged = (e) => {
@@ -28,7 +37,7 @@ onMount(() => {
 		}
 	};
 	darkModePreference.addEventListener("change", changeThemeWhenSchemeChanged);
-	
+
 	// 清理函数
 	return () => {
 		darkModePreference.removeEventListener("change", changeThemeWhenSchemeChanged);
@@ -38,7 +47,7 @@ onMount(() => {
 function switchScheme(newMode: LIGHT_DARK_MODE) {
 	mode = newMode;
 	setTheme(newMode);
-	
+
 	// 如果切换到自动模式，立即应用系统主题
 	if (newMode === AUTO_MODE) {
 		applyThemeToDocument(AUTO_MODE);
@@ -63,7 +72,7 @@ function showPanel() {
 		clearTimeout(panelTimeout);
 		panelTimeout = null;
 	}
-	
+
 	const panel = document.querySelector("#light-dark-panel") as HTMLElement | null;
 	if (panel) {
 		panel.classList.remove("float-panel-closed");
@@ -75,7 +84,7 @@ function hidePanel() {
 	if (panelTimeout) {
 		clearTimeout(panelTimeout);
 	}
-	
+
 	panelTimeout = window.setTimeout(() => {
 		const panel = document.querySelector("#light-dark-panel") as HTMLElement | null;
 		if (panel) {
@@ -107,21 +116,21 @@ function hidePanel() {
                     onclick={() => switchScheme(LIGHT_MODE)}
             >
                 <Icon icon="material-symbols:wb-sunny-outline-rounded" class="text-[1.25rem] mr-3"></Icon>
-                你相信光吗
+                {lightLabel}
             </button>
             <button class="flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95 mb-0.5"
                     class:current-theme-btn={mode === DARK_MODE}
                     onclick={() => switchScheme(DARK_MODE)}
             >
                 <Icon icon="material-symbols:dark-mode-outline-rounded" class="text-[1.25rem] mr-3"></Icon>
-                拥抱黑暗吧
+                {darkLabel}
             </button>
             <button class="flex transition whitespace-nowrap items-center !justify-start w-full btn-plain scale-animation rounded-lg h-9 px-3 font-medium active:scale-95"
                     class:current-theme-btn={mode === AUTO_MODE}
                     onclick={() => switchScheme(AUTO_MODE)}
             >
                 <Icon icon="material-symbols:radio-button-partial-outline" class="text-[1.25rem] mr-3"></Icon>
-                跟着系统变
+                {autoLabel}
             </button>
         </div>
     </div>

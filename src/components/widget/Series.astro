@@ -1,53 +1,65 @@
 ---
 import { getSortedPosts } from '../../utils/content-utils'
 import { getPostUrlBySlug } from '../../utils/url-utils'
+import { getLangFromUrl, useTranslations, type Lang } from "@/i18n"
 
 interface Props {
   series: string
+  lang?: Lang
 }
 
-const { series } = Astro.props
+const { series, lang: propLang } = Astro.props
+const currentLang = propLang || getLangFromUrl(Astro.url)
+const t = useTranslations(currentLang)
 
 // 获取所有文章并筛选出属于指定系列的文章
 const allPosts = await getSortedPosts()
 const seriesPosts = allPosts.filter(post => post.data.series === series)
 
 // 按时间倒序排列（最新的在前）
-const sortedSeriesPosts = [...seriesPosts].sort((a, b) => 
+const sortedSeriesPosts = [...seriesPosts].sort((a, b) =>
   new Date(b.data.published).getTime() - new Date(a.data.published).getTime()
 )
 
 // 设置折叠阈值
 const COLLAPSE_THRESHOLD = 5
 const isCollapsed = sortedSeriesPosts.length > COLLAPSE_THRESHOLD
+
+// Locale for date formatting
+const dateLocale = currentLang === 'zh' ? 'zh-CN' : currentLang === 'ja' ? 'ja-JP' : 'en-US'
+
+// Helper for localized post URL
+function getLocalizedPostUrl(slug: string): string {
+  return `/${currentLang}/posts/${slug}/`
+}
 ---
 
 <div class="card-base p-4">
   <div class="font-bold text-lg text-neutral-900 dark:text-neutral-100 relative mb-3
     before:w-1 before:h-4 before:rounded-md before:bg-[var(--primary)]
     before:absolute before:left-[-16px] before:top-[5.5px]">
-    专栏：{series}
+    {t('widget.series')}: {series}
   </div>
-  
-  <div id="series-posts" class:list={["space-y-2", 
+
+  <div id="series-posts" class:list={["space-y-2",
     {"overflow-hidden max-h-60": isCollapsed, "max-h-[10000px]": !isCollapsed}]}>
     {sortedSeriesPosts.map((post) => (
-      <a href={getPostUrlBySlug(post.slug)} 
+      <a href={getLocalizedPostUrl(post.slug)}
          class="block p-2 rounded hover:bg-[var(--btn-plain-bg-hover)] truncate">
         <div class="text-sm font-medium text-neutral-800 dark:text-neutral-200 truncate">
           {post.data.title}
         </div>
         <div class="text-xs text-neutral-500 dark:text-neutral-400">
-          {post.data.published.toLocaleDateString('zh-CN')}
+          {post.data.published.toLocaleDateString(dateLocale)}
         </div>
       </a>
     ))}
   </div>
-  
+
   {isCollapsed && (
     <div class="pt-2">
       <button id="expand-series-btn" class="btn-plain text-xs text-[var(--primary)]">
-        展开 共 {sortedSeriesPosts.length} 篇文章
+        {t('common.expand')} ({sortedSeriesPosts.length})
       </button>
     </div>
   )}

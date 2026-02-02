@@ -5,6 +5,7 @@ import "@fontsource/roboto/700.css";
 
 import ConfigCarrier from "@components/ConfigCarrier.astro";
 import Lightbox from "../components/lightbox.astro";
+import ClickEffect from "../components/misc/ClickEffect.astro";
 import { profileConfig, siteConfig } from "@/config";
 import {
 	AUTO_MODE,
@@ -20,18 +21,27 @@ import { defaultFavicons } from "../constants/icon";
 import type { Favicon } from "../types/config";
 import { pathsEqual, url } from "../utils/url-utils";
 import "katex/dist/katex.css";
+import { getLangFromUrl, getHtmlLang, getHreflangUrls, languages, defaultLang, type Lang } from "@/i18n";
 
 interface Props {
 	title?: string;
 	banner?: string;
 	description?: string;
 	setOGTypeArticle?: boolean;
-	lang?: string;
+	lang?: Lang;
 }
 
 let { title, banner, description, lang, setOGTypeArticle } = Astro.props;
 
-const isHomePage = pathsEqual(Astro.url.pathname, url("/"));
+// Get current language from URL or props
+const currentLang = lang || getLangFromUrl(Astro.url);
+const siteLang = getHtmlLang(currentLang);
+
+// Get hreflang URLs for SEO
+const hreflangUrls = getHreflangUrls(Astro.url.pathname, Astro.site?.toString() || siteConfig.site || 'https://seikasahara.com');
+
+const isHomePage = pathsEqual(Astro.url.pathname, url("/")) ||
+                   Object.keys(languages).some(l => pathsEqual(Astro.url.pathname, `/${l}/`));
 
 const configHue = siteConfig.themeColor.hue;
 if (!banner || typeof banner !== "string" || banner.trim() === "") {
@@ -51,8 +61,6 @@ if (title) {
 
 const favicons: Favicon[] =
 	siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons;
-
-const siteLang = "zh-CN";
 
 const bannerOffsetByPosition = {
 	top: `${BANNER_HEIGHT_EXTEND}vh`,
@@ -164,7 +172,38 @@ const bannerOffset =
 
 		<slot name="head"></slot>
 
-		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
+		<!-- RSS Feed -->
+		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}${currentLang}/rss.xml`}/>
+
+		<!-- hreflang tags for SEO -->
+		{hreflangUrls.map(({ lang, url }) => (
+			<link rel="alternate" hreflang={lang} href={url} />
+		))}
+		<link rel="alternate" hreflang="x-default" href={hreflangUrls.find(h => h.lang === defaultLang)?.url} />
+
+		<!-- Client-side language detection for root path -->
+		<script is:inline>
+			(function() {
+				// Only redirect if on root path
+				if (window.location.pathname === '/') {
+					const supportedLangs = ['zh', 'en', 'ja'];
+					const defaultLang = 'zh';
+
+					// Check if user has a saved preference
+					const savedLang = localStorage.getItem('preferredLang');
+					if (savedLang && supportedLangs.includes(savedLang)) {
+						window.location.replace('/' + savedLang + '/');
+						return;
+					}
+
+					// Detect browser language
+					const browserLang = navigator.language.split('-')[0].toLowerCase();
+					const targetLang = supportedLangs.includes(browserLang) ? browserLang : defaultLang;
+
+					window.location.replace('/' + targetLang + '/');
+				}
+			})();
+		</script>
 
 	</head>
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
@@ -173,6 +212,7 @@ const bannerOffset =
 		<ConfigCarrier></ConfigCarrier>
 		<slot />
 		<Lightbox />
+		<ClickEffect effect="explosion" />
 
 		<div id="page-height-extend" class="hidden h-[300vh]"></div>
 	</body>

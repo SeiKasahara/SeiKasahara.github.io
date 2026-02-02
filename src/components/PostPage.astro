@@ -3,9 +3,21 @@
 import type { CollectionEntry } from "astro:content";
 import { getPostUrlBySlug } from "@utils/url-utils";
 import PostCard from "./PostCard.astro";
+import { getLangFromUrl, type Lang } from "@/i18n";
 
-// 从props中获取page对象
-const { page } = Astro.props;
+interface Props {
+  page: any;
+  lang?: Lang;
+}
+
+// 从props中获取page对象和lang
+const { page, lang: propLang } = Astro.props;
+const currentLang = propLang || getLangFromUrl(Astro.url);
+
+// Helper to get localized post URL
+function getLocalizedPostUrl(slug: string): string {
+  return `/${currentLang}/posts/${slug}/`;
+}
 
 // 动画配置
 const ANIMATION_DELAY_START = 0; // 初始延迟
@@ -35,11 +47,12 @@ type PostEntry = CollectionEntry<"posts">;
           category={entry.data.category}
           published={entry.data.published}
           updated={entry.data.updated}
-          url={getPostUrlBySlug(entry.slug)}
+          url={getLocalizedPostUrl(entry.slug)}
           image={entry.data.image}
           description={entry.data.description}
           draft={entry.data.draft}
           pinned={entry.data.pinned}
+          lang={currentLang}
           class:list="onload-animation"
           style={`animation-delay: calc(var(--content-delay) + ${delay}ms);`}
         />

@@ -3,6 +3,14 @@ import Icon from "@iconify/svelte";
 import { url } from "@utils/url-utils.ts";
 import { onMount } from "svelte";
 
+// Props for translations
+interface Props {
+	placeholder?: string;
+	lang?: string;
+}
+
+let { placeholder = "Search...", lang = "zh" }: Props = $props();
+
 // 防抖函数
 function debounce<T extends (...args: any[]) => any>(
 	func: T,
@@ -24,19 +32,21 @@ interface SearchResult {
 	urlPath?: string;
 }
 
-let keywordDesktop = "";
-let keywordMobile = "";
-let result: SearchResult[] = [];
-let isSearching = false;
-let posts: any[] = [];
-let rssLoaded = false; // 标记 RSS 是否已加载
+let keywordDesktop = $state("");
+let keywordMobile = $state("");
+let result: SearchResult[] = $state([]);
+let isSearching = $state(false);
+let posts: any[] = $state([]);
+let rssLoaded = $state(false); // 标记 RSS 是否已加载
 
 // 按需加载 RSS 数据
 const loadRSS = async (): Promise<void> => {
 	if (rssLoaded) return; // 如果已经加载过，直接返回
-	
+
 	try {
-		const response = await fetch("/rss.xml");
+		// Use language-specific RSS feed
+		const rssUrl = lang ? `/${lang}/rss.xml` : "/zh/rss.xml";
+		const response = await fetch(rssUrl);
 		const text = await response.text();
 		const parser = new DOMParser();
 		const xml = parser.parseFromString(text, "text/xml");
@@ -152,10 +162,12 @@ const search = async (keyword: string, isDesktop: boolean): Promise<void> => {
 					excerpt = post.description || post.content.substring(0, 150) + '...';
 				}
 
-				const postUrl = post.link.startsWith('/') ? post.link : `/posts/${post.link}/`;
+				// Build URL with language prefix
+				const langPrefix = lang || 'zh';
+				const postUrl = post.link.startsWith('/') ? post.link : `/${langPrefix}/posts/${post.link}/`;
 
 				return {
-					url: url(postUrl),
+					url: postUrl,
 					meta: {
 						title: post.title
 					},
@@ -183,13 +195,17 @@ const debouncedSearch = debounce(search, 300);
 // 	// RSS 现在会在首次搜索时按需加载
 // });
 
-$: if (keywordDesktop !== undefined) {
-    debouncedSearch(keywordDesktop, true);
-}
+$effect(() => {
+    if (keywordDesktop !== undefined) {
+        debouncedSearch(keywordDesktop, true);
+    }
+});
 
-$: if (keywordMobile !== undefined) {
-    debouncedSearch(keywordMobile, false);
-}
+$effect(() => {
+    if (keywordMobile !== undefined) {
+        debouncedSearch(keywordMobile, false);
+    }
+});
 </script>
 
 <!-- search bar for desktop view -->
@@ -198,14 +214,14 @@ $: if (keywordMobile !== undefined) {
       dark:bg-white/5 dark:hover:bg-white/10 dark:focus-within:bg-white/10
 ">
     <Icon icon="material-symbols:search" class="absolute text-[1.25rem] pointer-events-none ml-3 transition my-auto text-black/30 dark:text-white/30"></Icon>
-    <input placeholder="往事书" bind:value={keywordDesktop} on:focus={() => debouncedSearch(keywordDesktop, true)}
+    <input placeholder={placeholder} bind:value={keywordDesktop} onfocus={() => debouncedSearch(keywordDesktop, true)}
            class="transition-all pl-10 text-sm bg-transparent outline-0
          h-full w-40 active:w-60 focus:w-60 text-black/50 dark:text-white/50"
     >
 </div>
 
 <!-- toggle btn for phone/tablet view -->
-<button on:click={togglePanel} aria-label="Search Panel" id="search-switch"
+<button onclick={togglePanel} aria-label="Search Panel" id="search-switch"
         class="btn-plain scale-animation lg:!hidden rounded-lg w-11 h-11 active:scale-90">
     <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
 </button>
@@ -220,7 +236,7 @@ top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2">
       dark:bg-white/5 dark:hover:bg-white/10 dark:focus-within:bg-white/10
   ">
         <Icon icon="material-symbols:search" class="absolute text-[1.25rem] pointer-events-none ml-3 transition my-auto text-black/30 dark:text-white/30"></Icon>
-        <input placeholder="Search" bind:value={keywordMobile}
+        <input placeholder={placeholder} bind:value={keywordMobile}
                class="pl-10 absolute inset-0 text-sm bg-transparent outline-0
                focus:w-60 text-black/50 dark:text-white/50"
         >

@@ -1,26 +1,56 @@
 [
   {
-    "name": "Astro",
-    "icon": "https://avatars.githubusercontent.com/u/44914786?s=48&v=4",
-    "description": "The web framework for content-driven websites. ⭐️ Star to support our work!",
-    "url": "https://github.com/withastro/astro"
+    "name": "Xiaoqi's Personal Blog",
+    "icon": "http://1.gravatar.com/avatar/14a45e824932f7572f2d3ca872bc21f1?s=512&d=https%3A%2F%2Fblog.gensou.cc%2Fwp-content%2Fuploads%2F2020%2F04%2Fbloglogo.jpg&r=g",
+    "description": "有顶天的茶亭",
+    "url": "http://blog.gensou.cc"
   },
   {
-    "name": "鈴奈咲桜的Blog",
-    "icon": "https://q2.qlogo.cn/headimg_dl?dst_uin=2731443459&spec=0",
-    "description": "愛することを忘れないで",
-    "url": "https://blog.sakura.ink/"
+    "name": "newyorkhnt Music Official Site",
+    "icon": "http://newyorkhnt.com/wp-content/uploads/2019/03/logo.png",
+    "description": "Personal Studio Official Website",
+    "url": "http://newyorkhnt.com/"
   },
   {
-    "name": "yogurtsのblogs",
-    "icon": "https://yogurts.top/img/avatar.webp",
-    "description": "Yogurtsの博客",
-    "url": "https://yogurts.top/"
+    "name": "Jiangxi Touhou Only",
+    "icon": "https://upload.thwiki.cc/thumb/e/ea/%E6%A2%A6%E8%BF%9D%E8%B5%A3%E9%84%B1%E8%8D%9F%E8%90%83-%E7%A7%8B%E6%B0%B4%E9%B8%A3%E6%AD%8C%E5%AE%B4LOGO.jpg/600px-%E6%A2%A6%E8%BF%9D%E8%B5%A3%E9%84%B1%E8%8D%9F%E8%90%83-%E7%A7%8B%E6%B0%B4%E9%B8%A3%E6%AD%8C%E5%AE%B4LOGO.jpg",
+    "description": "梦违赣鄱荟萃",
+    "url": "https://thwiki.cc/-/32i5"
   },
   {
-    "name": "fishcpy的小破站",
-    "icon": "https://www.fis.ink/img/logo.png",
-    "description": "非淡泊无以明志，非宁静无以致远",
-    "url": "https://blog.fis.ink"
+    "name": "Deekman's Personal Blog",
+    "icon": "https://i.loli.net/2021/02/11/zeJPQt57AWghfZb.jpg",
+    "description": "National Bolshevikism Gay",
+    "url": "http://taisadeekman.com/"
+  },
+  {
+    "name": "Bubble ioa's Personal Blog",
+    "icon": "/default_avatar.jpg",
+    "description": "Bytedance Employee",
+    "url": "http://bubbleioa.top/"
+  },
+  {
+    "name": "Tu Fengxing's Personal Blog",
+    "icon": "https://th.bing.com/th/id/R1a876a76fa6ccd59d8dd6baa4f9d46a0?rik=8GO3mzjxSZObHA&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fvsbattles%2fimages%2f0%2f00%2fMaribel.Hearn.full.1435274.jpg%2frevision%2flatest%3fcb%3d20160507232901&ehk=ykOl1TiKAUnsJ5U6W0ci4Z99JpcMHYChqWr625%2fLYis%3d&risl=&pid=ImgRaw",
+    "description": "Merry's Garden",
+    "url": "http://www.lovelymerry.cn"
+  },
+  {
+    "name": "Patchouli's Personal Blog",
+    "icon": "/default_avatar.jpg",
+    "description": "Baidu Employee",
+    "url": "https://blog.katitalent.com/"
+  },
+  {
+    "name": "Personal Touhou Wiki Page",
+    "icon": "https://upload.thwiki.cc/avatars/thwikicc_wiki_53645_l.png?r=1630254016",
+    "description": "THB Personal Page",
+    "url": "https://thwiki.cc/-/4h10"
+  },
+  {
+    "name": "Dzx's blog",
+    "icon": "https://github.com/Dzx1025/dzx1025.github.io/blob/master/assets/img/avatar.png?raw=true",
+    "description": "Dzx's blog",
+    "url": "https://dzx1025.github.io/"
   }
 ]

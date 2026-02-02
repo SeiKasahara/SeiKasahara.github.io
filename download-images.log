@@ -1,0 +1,46 @@
+[2026-02-02T20:49:19.687Z] 
+==================================================
+[2026-02-02T20:49:19.688Z] Download started at 2026-02-02T20:49:19.688Z
+[2026-02-02T20:49:19.689Z] Found 28 markdown files
+[2026-02-02T20:49:19.692Z] Found 12 unique HTTP image URLs
+[2026-02-02T20:49:19.692Z] [1/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2020/11/J33DAUT1WAK58NE2.png
+[2026-02-02T20:49:22.128Z]   -> Success: /images/blog/J33DAUT1WAK58NE2_1.png
+[2026-02-02T20:49:22.128Z] [2/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/03/IMG_689920201231-191655.jpg
+[2026-02-02T20:49:24.870Z]   -> Success: /images/blog/IMG_689920201231-191655_2.jpg
+[2026-02-02T20:49:24.870Z] [3/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/1.png
+[2026-02-02T20:49:25.651Z]   -> Success: /images/blog/1_3.png
+[2026-02-02T20:49:25.651Z] [4/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/2.png
+[2026-02-02T20:49:26.442Z]   -> Success: /images/blog/2_4.png
+[2026-02-02T20:49:26.442Z] [5/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/3.jpg
+[2026-02-02T20:49:28.433Z]   -> Success: /images/blog/3_5.jpg
+[2026-02-02T20:49:28.433Z] [6/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/4.jpg
+[2026-02-02T20:49:29.637Z]   -> Success: /images/blog/4_6.jpg
+[2026-02-02T20:49:29.637Z] [7/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/5.jpg
+[2026-02-02T20:49:30.829Z]   -> Success: /images/blog/5_7.jpg
+[2026-02-02T20:49:30.829Z] [8/12] Downloading: http://i1.fuimg.com/652216/dd652bcf909de0f0.jpg
+[2026-02-02T20:49:30.834Z]   -> Failed to download
+[2026-02-02T20:49:30.834Z] [9/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/东方春蒿飨-scaled.jpg
+[2026-02-02T20:49:35.223Z]   -> Success: /images/blog/_E4_B8_9C_E6_96_B9_E6_98_A5_E8_92_BF_E9_A3_A8-scal_9.jpg
+[2026-02-02T20:49:35.223Z] [10/12] Downloading: http://newyorkhnt.com/wp-content/uploads/2021/02/psb.jpg
+[2026-02-02T20:49:36.409Z]   -> Success: /images/blog/psb_10.jpg
+[2026-02-02T20:49:36.409Z] [11/12] Downloading: http://i1.fuimg.com/652216/8d0f346c670a1e52.png
+[2026-02-02T20:49:36.413Z]   -> Failed to download
+[2026-02-02T20:49:36.413Z] [12/12] Downloading: http://emilyspoetryblog.com/wp-content/uploads/2016/04/Allen-Ginsberg-Biography.jpg
+[2026-02-02T20:49:36.450Z]   -> Failed to download
+[2026-02-02T20:49:36.451Z] Updated 1605.md: http://newyorkhnt.com/wp-content/uploads/2020/11/J33DAUT1WAK58NE2.png -> /images/blog/J33DAUT1WAK58NE2_1.png
+[2026-02-02T20:49:36.453Z] Updated 1i2o.md: http://newyorkhnt.com/wp-content/uploads/2021/03/IMG_689920201231-191655.jpg -> /images/blog/IMG_689920201231-191655_2.jpg
+[2026-02-02T20:49:36.454Z] Updated 41eb.md: http://newyorkhnt.com/wp-content/uploads/2021/02/1.png -> /images/blog/1_3.png
+[2026-02-02T20:49:36.454Z] Updated 41eb.md: http://newyorkhnt.com/wp-content/uploads/2021/02/2.png -> /images/blog/2_4.png
+[2026-02-02T20:49:36.454Z] Updated 41eb.md: http://newyorkhnt.com/wp-content/uploads/2021/02/3.jpg -> /images/blog/3_5.jpg
+[2026-02-02T20:49:36.454Z] Updated 41eb.md: http://newyorkhnt.com/wp-content/uploads/2021/02/4.jpg -> /images/blog/4_6.jpg
+[2026-02-02T20:49:36.454Z] Updated 41eb.md: http://newyorkhnt.com/wp-content/uploads/2021/02/5.jpg -> /images/blog/5_7.jpg
+[2026-02-02T20:49:36.455Z] Updated 8527.md: http://newyorkhnt.com/wp-content/uploads/2021/02/东方春蒿飨-scaled.jpg -> /images/blog/_E4_B8_9C_E6_96_B9_E6_98_A5_E8_92_BF_E9_A3_A8-scal_9.jpg
+[2026-02-02T20:49:36.456Z] Updated 8c3b.md: http://newyorkhnt.com/wp-content/uploads/2021/02/psb.jpg -> /images/blog/psb_10.jpg
+[2026-02-02T20:49:36.458Z] 
+==================================================
+[2026-02-02T20:49:36.458Z] Summary:
+[2026-02-02T20:49:36.458Z]   Total HTTP images found: 12
+[2026-02-02T20:49:36.458Z]   Successfully downloaded: 9
+[2026-02-02T20:49:36.458Z]   Failed downloads: 3
+[2026-02-02T20:49:36.458Z]   Markdown files updated: 5
+[2026-02-02T20:49:36.458Z] Download completed at 2026-02-02T20:49:36.458Z

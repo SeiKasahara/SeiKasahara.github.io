@@ -38,10 +38,27 @@ export default defineConfig({
     prefetchAll: false,
     defaultStrategy: "hover"
   },
-  
-  site: "https://fuwari.oh1.top/",
+
+  site: "https://seikasahara.com/",
   base: "/",
   trailingSlash: "always",
+
+  // Internationalization configuration
+  // Note: We handle routing manually via [lang]/ dynamic routes
+  // This config is for Astro's i18n utilities only
+  i18n: {
+    defaultLocale: "zh",
+    locales: ["zh", "en", "ja"],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
+      fallbackType: "rewrite",
+    },
+    fallback: {
+      en: "zh",
+      ja: "zh"
+    }
+  },
 
   integrations: [
     tailwind({

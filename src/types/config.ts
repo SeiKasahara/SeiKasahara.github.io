@@ -39,6 +39,9 @@ export enum LinkPreset {
 	Series = 2,
 	About = 3,
 	Friends = 4,
+	Messages = 5,
+	Photos = 6,
+	Shuoshuo = 7,
 }
 
 export type NavBarLink = {
@@ -92,4 +95,19 @@ export type BlogPostData = {
 
 export type ExpressiveCodeConfig = {
 	theme: string;
+};
+
+export type GiscusConfig = {
+	enable: boolean;
+	repo: string;
+	repoId: string;
+	category: string;
+	categoryId: string;
+	mapping: "pathname" | "url" | "title" | "og:title";
+	strict: boolean;
+	reactionsEnabled: boolean;
+	emitMetadata: boolean;
+	inputPosition: "top" | "bottom";
+	theme: string;
+	lang: string;
 };

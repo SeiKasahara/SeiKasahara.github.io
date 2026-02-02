@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "home": "Home",
+    "archive": "Archive",
+    "about": "About",
+    "series": "Series",
+    "friends": "Friends",
+    "messages": "Messages",
+    "photos": "Photos",
+    "shuoshuo": "Moments"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "auto": "Follow System"
+  },
+  "widget": {
+    "categories": "Categories",
+    "tags": "Tags",
+    "profile": "Profile",
+    "toc": "Table of Contents",
+    "series": "Series",
+    "visitorStats": "Visitor Stats",
+    "siteRuntime": "Site Runtime",
+    "visitorMap": "Visitor Origins"
+  },
+  "stats": {
+    "visitors": "Visitors",
+    "pageViews": "Page Views",
+    "siteRunning": "Site has been running for",
+    "days": "d",
+    "hours": "h",
+    "minutes": "m",
+    "seconds": "s"
+  },
+  "post": {
+    "readMore": "Read More",
+    "publishedAt": "Published on",
+    "updatedAt": "Updated on",
+    "wordCount": "words",
+    "readingTime": "min read",
+    "prevPost": "Previous",
+    "nextPost": "Next",
+    "relatedPosts": "Related Posts",
+    "pinned": "Pinned",
+    "posts": "posts"
+  },
+  "page": {
+    "archive": "Archive",
+    "archiveDesc": "All posts timeline",
+    "about": "About",
+    "aboutDesc": "About me and this blog",
+    "friends": "Friends",
+    "friendsDesc": "My friends",
+    "messages": "Messages",
+    "messagesDesc": "Leave me a message",
+    "photos": "Photos",
+    "photosDesc": "My photo gallery",
+    "shuoshuo": "Moments",
+    "shuoshuoDesc": "Daily moments",
+    "series": "Series",
+    "seriesDesc": "Article series"
+  },
+  "error": {
+    "notFound": "Page Not Found",
+    "notFoundDesc": "The page you are looking for does not exist",
+    "backHome": "Back to Home"
+  },
+  "common": {
+    "loading": "Loading...",
+    "viewAll": "View All",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "search": "Search",
+    "searchPlaceholder": "Search posts...",
+    "noResults": "No results found",
+    "backToTop": "Back to Top"
+  },
+  "footer": {
+    "poweredBy": "Powered by Astro",
+    "copyright": "All Rights Reserved"
+  },
+  "lang": {
+    "switch": "Language",
+    "zh": "中文",
+    "en": "English",
+    "ja": "日本語"
+  }
+}

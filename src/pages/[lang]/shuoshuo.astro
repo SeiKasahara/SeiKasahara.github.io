@@ -1,0 +1,64 @@
+---
+import type { GetStaticPaths } from "astro";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { languages, useTranslations, type Lang } from "@/i18n";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	return Object.keys(languages).map((lang) => ({
+		params: { lang },
+	}));
+};
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+---
+<MainGridLayout title={t('page.shuoshuo')} description={t('page.shuoshuoDesc')} lang={lang}>
+    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-6 relative w-full">
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">{t('page.shuoshuo')}</h1>
+
+            <!-- Artitalk 容器 -->
+            <div id="artitalk_main"></div>
+        </div>
+    </div>
+</MainGridLayout>
+
+<!-- Artitalk 脚本 -->
+<script type="text/javascript" src="https://unpkg.com/artitalk"></script>
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Artitalk !== 'undefined') {
+        new Artitalk({
+            appId: 'W26pjC1X5KWKEkcl29ClsGYz-MdYXbMMI',
+            appKey: 'wqUbX1pOQ16qPutVtvRW4hzQ',
+            serverURL: 'https://w26pjc1x.api.lncldglobal.com',
+            pageSize: 10,
+            shuoPla: '',
+            motion: 1,
+            atComment: 1,
+            bgImg: '',
+            color1: 'linear-gradient(102.7deg, #fddaff 8.2%, #dfadfc 19.6%, #adcdfc 36.8%, #adfcf4 73.2%, #caf8d0 90.9%)',
+            color2: 'linear-gradient(50deg, rgb(30,227,207) 10%, rgb(249,188,221) 90%)',
+            color3: '#3b9a9c',
+            atEmoji: {
+                "Sweetie-Bunny1": "https://valinecdn.bili33.top/Sweetie-Bunny/12311678.png",
+                "Sweetie-Bunny2": "https://valinecdn.bili33.top/Sweetie-Bunny/12311679.png",
+                "Sweetie-Bunny3": "https://valinecdn.bili33.top/Sweetie-Bunny/12311680.png",
+                "Sweetie-Bunny4": "https://valinecdn.bili33.top/Sweetie-Bunny/12311681.png",
+                "Sweetie-Bunny5": "https://valinecdn.bili33.top/Sweetie-Bunny/12311682.png"
+            }
+        });
+    }
+});
+</script>
+
+<style is:global>
+    /* Artitalk 样式调整以适配暗色模式 */
+    :root.dark #artitalk_main {
+        --at-bg: var(--card-bg);
+    }
+
+    #artitalk_main .at-content {
+        border-radius: 0.5rem;
+    }
+</style>

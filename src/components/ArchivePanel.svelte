@@ -4,6 +4,13 @@ import { getPostUrlBySlug } from "../utils/url-utils";
 
 // 定义组件接收的属性
 export let sortedPosts: Post[] = [];
+export let lang: string = "zh";
+export let postsLabel: string = "篇文章";
+
+// Helper to get localized post URL
+function getLocalizedPostUrl(slug: string): string {
+    return `/${lang}/posts/${slug}/`;
+}
 
 // 定义文章和年份分组的数据结构
 interface Post {
@@ -112,14 +119,14 @@ onMount(async () => {
                 
                 <!-- 文章数量统计 -->
                 <div class="w-[70%] md:w-[80%] transition text-left text-50">
-                    {group.posts.length} 篇文章
+                    {group.posts.length} {postsLabel}
                 </div>
             </div>
 
             <!-- 当前年份下的文章列表 -->
             {#each group.posts as post}
                 <a
-                    href={getPostUrlBySlug(post.slug)}
+                    href={getLocalizedPostUrl(post.slug)}
                     aria-label={post.data.title}
                     class="group btn-plain !block h-10 w-full rounded-lg hover:text-[initial]"
                 >

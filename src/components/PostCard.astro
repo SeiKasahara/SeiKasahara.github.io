@@ -6,6 +6,7 @@ import { Icon } from "astro-icon/components";
 import { getDir } from "../utils/url-utils";
 import ImageWrapper from "./misc/ImageWrapper.astro";
 import PostMetadata from "./PostMeta.astro";
+import { getLangFromUrl, useTranslations, type Lang } from "@/i18n";
 
 // 定义组件属性接口
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
   draft: boolean;
   style: string;
   pinned?: boolean;
+  lang?: Lang;
 }
 
 // 解构组件属性
@@ -37,11 +39,15 @@ const {
   description,
   style,
   pinned,
+  lang: propLang,
 } = Astro.props;
 const className = Astro.props.class;
 
-// 检查是否有封面图片
-const hasCover = image !== undefined && image !== null && image !== "";
+const currentLang = propLang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+// 禁用卡片封面图片显示（图片只在文章内部显示）
+const hasCover = false;
 
 // 封面图片宽度（CSS变量）
 const coverWidth = "28%";
@@ -93,14 +99,15 @@ const { remarkPluginFrontmatter } = await entry.render();
     </a>
 
     <!-- 文章元数据 -->
-    <PostMetadata 
-      published={published} 
-      updated={updated} 
-      tags={tags} 
-      category={category} 
-      hideTagsForMobile={true} 
-      hideUpdateDate={true} 
+    <PostMetadata
+      published={published}
+      updated={updated}
+      tags={tags}
+      category={category}
+      hideTagsForMobile={true}
+      hideUpdateDate={true}
       class="mb-4"
+      lang={currentLang}
     ></PostMetadata>
 
     <!-- 文章描述 -->
@@ -119,14 +126,14 @@ const { remarkPluginFrontmatter } = await entry.render();
         <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
           <Icon name="material-symbols:notes-rounded"></Icon>
         </div>
-        <div class="text-sm">{remarkPluginFrontmatter.words} 字</div>
+        <div class="text-sm">{remarkPluginFrontmatter.words} {t('post.wordCount')}</div>
       </div>
       <div class="flex flex-row items-center">
         <div class="transition h-6 w-6 rounded-md bg-black/5 dark:bg-white/10 text-black/50 dark:text-white/50 flex items-center justify-center mr-2">
           <Icon name="material-symbols:schedule-outline-rounded"></Icon>
         </div>
         <div class="text-sm">
-          {remarkPluginFrontmatter.minutes} min
+          {remarkPluginFrontmatter.minutes} {t('post.readingTime')}
         </div>
       </div>
     </div>

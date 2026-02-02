@@ -1,5 +1,6 @@
 import type {
 	ExpressiveCodeConfig,
+	GiscusConfig,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
@@ -8,10 +9,10 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-	title: "yCENzh's Blog",
-	subtitle: "爱你所爱~",
+	title: "Calhoun's House",
+	subtitle: "AI/Daily Life/Technology",
 	themeColor: {
-		hue: 275, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+		hue: 50, // Yellow theme color (0-360: red=0, yellow=50, green=120, cyan=180, blue=240, purple=275, pink=345)
 		fixed: false, // Hide the theme color picker for visitors
 		forceDarkMode: false, // Force dark mode and hide the light/dark switcher
 	},
@@ -20,7 +21,7 @@ export const siteConfig: SiteConfig = {
 		src: "/Celestia.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
-			enable: true, // Display the credit text of the banner image
+			enable: false, // Display the credit text of the banner image
 			text: "Pixiv @chokei", // Credit text to be displayed
 			url: "https://www.pixiv.net/artworks/122782209", // (Optional) URL link to the original artwork or artist's page
 		},
@@ -42,54 +43,33 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		LinkPreset.Series,
 		LinkPreset.About,
 		LinkPreset.Friends,
-		/*{
-			name: "GitHub",
-			url: "https://github.com/yCENzh", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
-		},*/
+		LinkPreset.Messages,
 		{
-			name: "Travelling",
-			url: "https://www.travellings.cn/train.html",
+			name: "GitHub",
+			url: "https://github.com/seikasahara",
 			external: true,
 		},
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "/avatar.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/' 原assets/images/demo-avatar.png,可选https://q2.qlogo.cn/headimg_dl?dst_uin=189563385&spec=0
-	name: "yCENzh",
-	bio: "Protect What You Love./爱你所爱！",
+	avatar: "/avatar.webp", // 请替换为您的头像
+	name: "Edward Calhoun",
+	bio: "Anarchy Mom loves her children",
 	links: [
-		/*{
-			name: "Twitter",
-			icon: "fa6-brands:twitter", // Visit https://icones.js.org/ for icon codes
-			// You will need to install the corresponding icon set if it's not already included
-			// `pnpm add @iconify-json/<icon-set-name>`
-			url: "https://twitter.com",
-		},
-		{
-			name: "Steam",
-			icon: "fa6-brands:steam",
-			url: "https://store.steampowered.com",
-		},*/
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/yCENzh",
+			url: "https://github.com/seikasahara",
 		},
-		{
-			name: "Telegram",
-			icon: "fa6-brands:telegram",
-			url: "https://t.me/yCENzh",
-		},/*
-		{
-			name: "开往",
-			icon: "fa6-solid:train-subway",
-			url: "https://www.travellings.cn/train.html",
-		},*/
+		// 可以添加更多社交链接
+		// {
+		// 	name: "Twitter",
+		// 	icon: "fa6-brands:twitter",
+		// 	url: "https://twitter.com/yourname",
+		// },
 	],
 };
 
@@ -103,4 +83,19 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
 	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
+};
+
+export const giscusConfig: GiscusConfig = {
+	enable: true,
+	repo: "seikasahara/seikasahara.github.io",
+	repoId: "MDEwOlJlcG9zaXRvcnkxMzkyNjAwODY=",
+	category: "Announcements",
+	categoryId: "DIC_kwDOCEzwts4C1yM-",
+	mapping: "pathname",
+	strict: false,
+	reactionsEnabled: true,
+	emitMetadata: false,
+	inputPosition: "top",
+	theme: "preferred_color_scheme",
+	lang: "zh-CN",
 };
