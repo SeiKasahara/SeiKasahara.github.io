@@ -1,6 +1,6 @@
 # About
 
-![](http://p1.music.126.net/QdQo_QnRUiHQOTBhLj9bPw==/109951165060939380.jpg?param=640y300)
+![](/images/posts/about_banner.jpg)
 
 **Edward Calhoun** (2001–) Electric Guitarist, Original Musician, Creator of the Alternative World NeuOrdung, Operator of the "Hiru Plan" Music Project, and Blog Writer.
 
@@ -20,6 +20,6 @@
 
 ## Support
 
-![](http://newyorkhnt.com/wp-content/uploads/2023/05/btc.png)
+![](/images/posts/btc.png)
 
 Welcome to donate to the site using BTC

@@ -15,20 +15,31 @@ const t = useTranslations(currentLang);
 ---
 
 <WidgetLayout id="visitor-map" name={t('widget.visitorMap')} class={className} style={style}>
-    <div class="flex justify-center items-center min-h-[200px]" id="revolver-map-container">
-        <!-- Revolver Maps 将在这里渲染 -->
+    <div class="flex justify-center items-center min-h-[200px]" id="clustrmaps-container">
+        <!-- ClustrMaps Globe -->
     </div>
 </WidgetLayout>
 
 <script is:inline>
-document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('revolver-map-container');
-    if (container && !container.querySelector('script')) {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = '//rf.revolvermaps.com/0/0/6.js?i=5tgz58z43ew&m=7&c=e63100&cr1=ffffff&f=arial&l=0&bv=90&lx=-420&ly=420&hi=20&he=7&hc=a8ddff&rs=80';
-        script.async = true;
-        container.appendChild(script);
+(function() {
+    function initClustrMaps() {
+        const container = document.getElementById('clustrmaps-container');
+        if (container && !container.querySelector('script')) {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.id = 'mmvst_globe';
+            script.src = '//mapmyvisitors.com/globe.js?d=E0WRDyfEOG7Ed6rOh2eTBTDxt1h2pQHzTEQVVzZ7atc';
+            script.async = true;
+            container.appendChild(script);
+        }
     }
-});
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initClustrMaps);
+    } else {
+        initClustrMaps();
+    }
+
+    document.addEventListener('swup:page:view', initClustrMaps);
+})();
 </script>

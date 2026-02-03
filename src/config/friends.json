@@ -1,25 +1,25 @@
 [
   {
     "name": "Xiaoqi's Personal Blog",
-    "icon": "http://1.gravatar.com/avatar/14a45e824932f7572f2d3ca872bc21f1?s=512&d=https%3A%2F%2Fblog.gensou.cc%2Fwp-content%2Fuploads%2F2020%2F04%2Fbloglogo.jpg&r=g",
+    "icon": "/images/friends/xiaoqi.jpg",
     "description": "有顶天的茶亭",
     "url": "http://blog.gensou.cc"
   },
   {
     "name": "newyorkhnt Music Official Site",
-    "icon": "http://newyorkhnt.com/wp-content/uploads/2019/03/logo.png",
+    "icon": "/images/friends/newyorkhnt.png",
     "description": "Personal Studio Official Website",
     "url": "http://newyorkhnt.com/"
   },
   {
     "name": "Jiangxi Touhou Only",
-    "icon": "https://upload.thwiki.cc/thumb/e/ea/%E6%A2%A6%E8%BF%9D%E8%B5%A3%E9%84%B1%E8%8D%9F%E8%90%83-%E7%A7%8B%E6%B0%B4%E9%B8%A3%E6%AD%8C%E5%AE%B4LOGO.jpg/600px-%E6%A2%A6%E8%BF%9D%E8%B5%A3%E9%84%B1%E8%8D%9F%E8%90%83-%E7%A7%8B%E6%B0%B4%E9%B8%A3%E6%AD%8C%E5%AE%B4LOGO.jpg",
+    "icon": "/images/friends/jiangxi_thonly.jpg",
     "description": "梦违赣鄱荟萃",
     "url": "https://thwiki.cc/-/32i5"
   },
   {
     "name": "Deekman's Personal Blog",
-    "icon": "https://i.loli.net/2021/02/11/zeJPQt57AWghfZb.jpg",
+    "icon": "/images/friends/deekman.jpg",
     "description": "National Bolshevikism Gay",
     "url": "http://taisadeekman.com/"
   },
@@ -31,7 +31,7 @@
   },
   {
     "name": "Tu Fengxing's Personal Blog",
-    "icon": "https://th.bing.com/th/id/R1a876a76fa6ccd59d8dd6baa4f9d46a0?rik=8GO3mzjxSZObHA&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fvsbattles%2fimages%2f0%2f00%2fMaribel.Hearn.full.1435274.jpg%2frevision%2flatest%3fcb%3d20160507232901&ehk=ykOl1TiKAUnsJ5U6W0ci4Z99JpcMHYChqWr625%2fLYis%3d&risl=&pid=ImgRaw",
+    "icon": "/images/friends/tufengxing.jpg",
     "description": "Merry's Garden",
     "url": "http://www.lovelymerry.cn"
   },
@@ -43,13 +43,13 @@
   },
   {
     "name": "Personal Touhou Wiki Page",
-    "icon": "https://upload.thwiki.cc/avatars/thwikicc_wiki_53645_l.png?r=1630254016",
+    "icon": "/images/friends/thwiki.png",
     "description": "THB Personal Page",
     "url": "https://thwiki.cc/-/4h10"
   },
   {
     "name": "Dzx's blog",
-    "icon": "https://github.com/Dzx1025/dzx1025.github.io/blob/master/assets/img/avatar.png?raw=true",
+    "icon": "/images/friends/dzx.png",
     "description": "Dzx's blog",
     "url": "https://dzx1025.github.io/"
   }
