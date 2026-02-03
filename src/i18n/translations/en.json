@@ -85,5 +85,10 @@
     "zh": "中文",
     "en": "English",
     "ja": "日本語"
+  },
+  "share": {
+    "label": "Share",
+    "wechatTitle": "Scan to Share via WeChat",
+    "wechatHelper": "<p>Open WeChat, tap \"Discover\", and scan the QR code to share.</p>"
   }
 }

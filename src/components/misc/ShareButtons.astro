@@ -1,0 +1,52 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n";
+
+interface Props {
+    title?: string;
+    url?: string;
+    description?: string;
+    image?: string;
+}
+
+const { title, url, description, image } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+---
+
+<div
+    class="social-share share-component"
+    data-sites="weibo,qq,wechat,douban,qzone,twitter,facebook"
+    data-mobile-sites="weibo,qq,wechat,douban,qzone"
+    data-disabled="google"
+    data-wechat-qrcode-title={t('share.wechatTitle') || '微信扫一扫：分享'}
+    data-wechat-qrcode-helper={t('share.wechatHelper') || '<p>微信里点"发现"，扫一下二维码便可将本文分享至朋友圈。</p>'}
+    data-title={title}
+    data-url={url}
+    data-description={description}
+    data-image={image}
+>
+    <span class="share-label text-neutral-600 dark:text-neutral-400 mr-2">{t('share.label') || '分享到'}：</span>
+</div>
+
+<style is:global>
+    .social-share .share-label {
+        font-family: inherit !important;
+        font-size: 14px;
+    }
+
+    /* 暗色模式适配 */
+    :root.dark .social-share .icon-wechat .wechat-qrcode {
+        background-color: #1f1f1f;
+        border-color: #333;
+        color: #ccc;
+    }
+
+    :root.dark .social-share .icon-wechat .wechat-qrcode h4 {
+        background-color: #2a2a2a;
+        color: #aaa;
+    }
+
+    :root.dark .social-share .icon-wechat .wechat-qrcode:after {
+        border-color: #1f1f1f transparent transparent transparent;
+    }
+</style>

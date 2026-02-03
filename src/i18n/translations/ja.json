@@ -85,5 +85,10 @@
     "zh": "中文",
     "en": "English",
     "ja": "日本語"
+  },
+  "share": {
+    "label": "シェア",
+    "wechatTitle": "WeChatでスキャンして共有",
+    "wechatHelper": "<p>WeChatを開き、「発見」をタップしてQRコードをスキャンしてください。</p>"
   }
 }
