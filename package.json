@@ -44,7 +44,7 @@
     "crypto-js": "^4.2.0",
     "hastscript": "^9.0.1",
     "katex": "^0.16.25",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.1.1",
     "mdast-util-to-string": "^4.0.0",
     "node-html-parser": "^7.0.1",
     "overlayscrollbars": "^2.12.0",
