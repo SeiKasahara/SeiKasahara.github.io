@@ -1,5 +1,5 @@
 ---
-title: "同人市场分析（2）——声誉与无标度的同人社区"
+title: "同人市场分析(2)——声誉与无标度的同人社区"
 published: 2026-03-10
 description: ""
 image: "/images/posts/comiket.jpg"
