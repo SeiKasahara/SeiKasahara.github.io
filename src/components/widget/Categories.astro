@@ -7,7 +7,7 @@ import { getLangFromUrl, useTranslations } from "@/i18n";
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
-const categories = await getCategoryList();
+const categories = await getCategoryList(currentLang);
 
 const COLLAPSED_HEIGHT = "7.5rem";
 const COLLAPSE_THRESHOLD = 5;

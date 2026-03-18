@@ -78,7 +78,7 @@ export type Category = {
 	url: string;
 };
 
-export async function getCategoryList(): Promise<Category[]> {
+export async function getCategoryList(lang?: string): Promise<Category[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
@@ -106,7 +106,7 @@ export async function getCategoryList(): Promise<Category[]> {
 		ret.push({
 			name: c,
 			count: count[c],
-			url: getCategoryUrl(c),
+			url: getCategoryUrl(c, lang),
 		});
 	}
 	return ret;

@@ -30,14 +30,6 @@ const {
 
 const currentLang = propLang || getLangFromUrl(Astro.url);
 
-// Helper functions for localized URLs
-function getLocalizedCategoryUrl(category: string): string {
-  return `/${currentLang}/category/${encodeURIComponent(category)}/`;
-}
-
-function getLocalizedTagUrl(tag: string): string {
-  return `/${currentLang}/tags/${encodeURIComponent(tag)}/`;
-}
 
 // 预计算更新日期是否需要显示
 const shouldShowUpdated = 
@@ -100,7 +92,7 @@ const hasCategory = category && category.trim() !== "";
       <div class="flex flex-row flex-nowrap items-center">
         <!-- 分类链接 -->
         <a 
-          href={getLocalizedCategoryUrl(category)} 
+          href={getCategoryUrl(category, currentLang)}
           aria-label={`View all posts in the ${category} category`}
           class="link-lg transition text-50 text-sm font-medium
                  hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
@@ -136,7 +128,7 @@ const hasCategory = category && category.trim() !== "";
             )}
             {/* 单个标签链接 */}
             <a
-              href={getLocalizedTagUrl(tag)}
+              href={getTagUrl(tag, currentLang)}
               aria-label={`View all posts with the ${tag.trim()} tag`}
               class="link-lg transition text-50 text-sm font-medium
                      hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"

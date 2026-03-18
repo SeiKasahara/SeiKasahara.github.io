@@ -16,22 +16,34 @@ const t = useTranslations(currentLang);
 
 <WidgetLayout id="visitor-map" name={t('widget.visitorMap')} class={className} style={style}>
     <div class="flex justify-center items-center min-h-[200px]" id="clustrmaps-container">
-        <!-- ClustrMaps Globe -->
+        <!-- ClustrMaps Globe (requires jQuery) -->
     </div>
 </WidgetLayout>
 
 <script is:inline>
 (function() {
-    function initClustrMaps() {
+    function loadGlobe() {
         const container = document.getElementById('clustrmaps-container');
-        if (container && !container.querySelector('script')) {
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.id = 'mmvst_globe';
-            script.src = '//mapmyvisitors.com/globe.js?d=E0WRDyfEOG7Ed6rOh2eTBTDxt1h2pQHzTEQVVzZ7atc';
-            script.async = true;
-            container.appendChild(script);
+        if (!container || container.querySelector('.mmvst_outer')) return;
+
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.id = 'mmvst_globe';
+        script.src = 'https://mapmyvisitors.com/globe.js?d=E0WRDyfEOG7Ed6rOh2eTBTDxt1h2pQHzTEQVVzZ7atc';
+        script.async = true;
+        container.appendChild(script);
+    }
+
+    function initClustrMaps() {
+        if (typeof jQuery !== 'undefined') {
+            loadGlobe();
+            return;
         }
+
+        const jq = document.createElement('script');
+        jq.src = 'https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js';
+        jq.onload = loadGlobe;
+        document.head.appendChild(jq);
     }
 
     if (document.readyState === 'loading') {
@@ -39,7 +51,5 @@ const t = useTranslations(currentLang);
     } else {
         initClustrMaps();
     }
-
-    document.addEventListener('swup:page:view', initClustrMaps);
 })();
 </script>

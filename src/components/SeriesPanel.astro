@@ -3,6 +3,9 @@ import { UNCATEGORIZED } from '@constants/constants'
 import { getSortedPosts } from '../utils/content-utils'
 import { getPostUrlBySlug } from '../utils/url-utils'
 import { getCategoryUrl } from '../utils/url-utils'
+import { getLangFromUrl } from '@/i18n'
+
+const currentLang = getLangFromUrl(Astro.url);
 
 interface Props {
   keyword?: string
@@ -63,7 +66,7 @@ const groups: { category: string; series: Series[] }[] = (() => {
             <div>
                 <!-- 分类名单独一行 - 左对齐 -->
                 <div class="w-full pb-2 pt-4 text-left">
-                    <a aria-label={group.category} href={getCategoryUrl(group.category)}
+                    <a aria-label={group.category} href={getCategoryUrl(group.category, currentLang)}
                         class="btn-plain scale-animation rounded-lg h-11 font-bold px-2 active:scale-95 text-2xl inline-flex items-center"
                     >
                         {group.category}
