@@ -112,19 +112,19 @@ $$
 
 例如，在 $t=0$ 时刻，消费者观察到创作者当期的声誉 $ \theta_0 $ 以及其产出状态。对于 $t=1$ 期的声誉 $\theta_1$，市场面临一个离散的状态空间。结合第一章新古典模型中的创作者退出机制，我们可以将 $\theta_1$ 拆解为三种概率状态：
 
-**状态 1：平稳延续（概率为 $ 1 - \rho_{exit} - p_{collapse} $）**
+**状态 1：平稳延续（概率为 $ 1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}} $）**
 
 创作者继续活跃，继续产出。此时声誉 $ \theta_1 $ 继续随日常的曝光和新作波动。
 
 其条件期望为 $\mathbb{E}_0[\theta_1 \mid \text{Active}]$，面临一定声誉崩塌风险。
 
-**状态 2：体面停更（概率为 $\rho_{exit}$）**
+**状态 2：体面停更（概率为 $\rho_{\mathrm{exit}}$）**
 
 创作者因为热情耗竭或现实太忙（以及其它原因也是可能的）而选择停止更新，且​没有爆出任何丑闻。
 
 只有在这个状态下，声誉才会完成突变，固化​为常量 $\bar{\theta}$​。
 
-**状态 3：声誉塌房（概率为 $p_{collapse}$）**
+**状态 3：声誉塌房（概率为 $p_{\mathrm{collapse}}$）**
 
 创作者因为争议等恶性事件主动或者被动退圈。声誉被瞬间摧毁。**或者是整个圈子遭受外生冲击**发生的结构性塌陷。
 
@@ -223,7 +223,7 @@ $$
 解出当期存在的制品二手泡沫 $\mathbb{E}_t[B_{\mathrm{active}, t+1}]$：
 
 $$
-\mathbb{E}_t[B_{\mathrm{active}, t+1}] = \underbrace{\frac{1+R}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot B_{\mathrm{active}, t}}_{\text{高风险项}} - \underbrace{\frac{\rho_{exit}}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot \mathbb{E}_t[B_{\mathrm{exit}, t+1}]}_{\text{泡沫补贴}}
+\mathbb{E}_t[B_{\mathrm{active}, t+1}] = \underbrace{\frac{1+R}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot B_{\mathrm{active}, t}}_{\text{高风险项}} - \underbrace{\frac{\rho_{\mathrm{exit}}}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot \mathbb{E}_t[B_{\mathrm{exit}, t+1}]}_{\text{泡沫补贴}}
 $$
 
 ## 投机客与普通消费者的异质性
@@ -348,7 +348,7 @@ $$
 **由章节无套利约束和定价突变论证，二手市场的稀缺品价格其实不由供需关系决定。** 而金融投机客最看重的是泡沫定价。重新回到递归的泡沫定价式，可以观察到
 
 $$
-\mathbb{E}_t[B_{\mathrm{active}, t+1}] = \underbrace{\frac{1+R}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot B_{\mathrm{active}, t}}_{\text{高风险项}} - \underbrace{\frac{\rho_{exit}}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot \mathbb{E}_t[B_{\mathrm{exit}, t+1}]}_{\text{泡沫补贴}}
+\mathbb{E}_t[B_{\mathrm{active}, t+1}] = \underbrace{\frac{1+R}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot B_{\mathrm{active}, t}}_{\text{高风险项}} - \underbrace{\frac{\rho_{\mathrm{exit}}}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}} \cdot \mathbb{E}_t[B_{\mathrm{exit}, t+1}]}_{\text{泡沫补贴}}
 $$
 
 注意高风险项的第一项，它的乘数为  $\frac{1+R}{1 - \rho_{\mathrm{exit}} - p_{\mathrm{collapse}}}$。 因为分母小于 1，这意味着这个乘数远远大于1+R 。
