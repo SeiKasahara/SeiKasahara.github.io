@@ -129,7 +129,7 @@ $\alpha_r < 1$ 保证递减回报。$r_0$ 是回报标度。
 
 ### 类型构成与双源氛围
 
-展会氛围 $g_{\text{event}}$ 有两个独立的来源。设 A 型社团数为 $N_b^{(A)}$，B/D/E 型社团数为 $N_b^{(G)}$（"G" for gift），$N_b = N_b^{(A)} + N_b^{(G)}$，$\omega_A^{\text{event}} = N_b^{(A)}/N_b$ 为 A 型比例。
+展会氛围 $g_{\text{event}}$ 有两个独立的来源。设回报型社团数为 $N_b^{(A)}$，用爱发电型社团数为 $N_b^{(G)}$（"G" for gift），$N_b = N_b^{(A)} + N_b^{(G)}$，$\omega_A^{\text{event}} = N_b^{(A)}/N_b$ 为回报型比例。
 
 **摊位侧氛围** $g_{\text{booth}}$：由用爱发电型社团的无料配布、互动展示、同好交流贡献。
 
@@ -268,7 +268,7 @@ $$
 $\lambda_\Theta$ 是引流外部性的影子价格（每单位声誉 $\theta$ 值多少摊位费减免），$\lambda_g$ 是氛围外部性的影子价格。两个补贴独立叠加。四个象限的排序：
 
 $$
-p^*(\text{高}\theta\text{, B/D/E}) \;<\; p^*(\text{高}\theta\text{, A}) \;<\; p^*(\text{低}\theta\text{, B/D/E}) \;<\; p^*(\text{低}\theta\text{, A})
+p^*(\text{高}\theta\text{, 用爱发电}) \;<\; p^*(\text{高}\theta\text{, 追求回报}) \;<\; p^*(\text{低}\theta\text{, 用爱发电}) \;<\; p^*(\text{低}\theta\text{, 追求回报})
 $$
 
 高声誉的用爱发电型社团，理论上应该拿最低价甚至免费摊位。而低声誉的回报型社团，应当付全价甚至溢价。
