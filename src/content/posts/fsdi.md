@@ -36,11 +36,17 @@ $$
 根据[无料的形式化工作](https://seikasahara.com/zh/posts/gift/)我们将创作者分成了几个动机行动的混合:
 
 **类型 A——声誉-意识型（reputation-aware）**
+
 **类型 B——社交连接型（communal）**
+
 **类型 C——产能溢出型（slack disposal）**
+
 **类型 D——纯表达型（expressive）**
+
 **类型 E——人际定点型（personal）**
+
 **类型 F——习惯性 / 规范遵从型（conformity）**
+
 
 我们用 $\omega$ 来定义各个创作者的比例
 
