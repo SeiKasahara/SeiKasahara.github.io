@@ -1,11 +1,10 @@
 # About
 
-![](/images/posts/about_banner.jpg)
+![](/images/posts/banner.png)
 
-**Edward** (2001–) Software Engnieer, Electric Guitarist, Original Musician, Creator of the Alternative World NeuOrdung, Operator of the "Hiru Plan" Music Project, and Blog Writer.
+**Edward** (2001–) Full-stack Engnieer, Research Assistant in University of Western Australia.
 
-- Cryptocurrency Holder, Advocate for Decentralization
-- Hobbies: Reading, Writing Articles, Drawing, Composing, Playing Guitar
+- Hobbies: Drawing, Composing, Playing Guitar, Economics Research, De-Fi
 - Music Preferences: Cool Jazz / Bossa Nova / Psychedelic Rock / Classic Rock / Punk Rock / Hard Rock / Retro / Neo Soul / Ballad / Thrash Metal / Blues / Country / Bluegrass
 
 ---
