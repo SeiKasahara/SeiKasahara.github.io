@@ -9,7 +9,7 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-	title: "Calhoun's House",
+	title: "Edward's House",
 	subtitle: "AI/Daily Life/Technology",
 	themeColor: {
 		hue: 50, // Yellow theme color (0-360: red=0, yellow=50, green=120, cyan=180, blue=240, purple=275, pink=345)
@@ -56,8 +56,8 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "/avatar.webp", // 请替换为您的头像
-	name: "Edward Calhoun",
-	bio: "Anarchy Mom loves her children",
+	name: "Edward",
+	bio: "All plays and no work make Jack a	dull boy...",
 	links: [
 		{
 			name: "GitHub",
