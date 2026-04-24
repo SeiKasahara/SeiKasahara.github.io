@@ -38,6 +38,7 @@ const mainPanelTop = siteConfig.banner.enable
 ---
 
 <Layout title={title} banner={banner} description={description} setOGTypeArticle={setOGTypeArticle} lang={lang}>
+<slot name="head" slot="head" />
 <div id="top-row" class="transition absolute w-full z-50 pointer-events-none">
     <div id="navbar-wrapper" class="pointer-events-auto sticky top-0 transition-all">
         <Navbar lang={lang}></Navbar>

@@ -72,6 +72,30 @@ export function useTranslations(lang: Lang) {
 }
 
 /**
+ * Translate a tag label for the given language, falling back to the original
+ * string when no translation exists. URLs and frontmatter keep the original.
+ */
+export function translateTag(tag: string, lang: Lang): string {
+  const dict = (translations[lang] as { tags?: Record<string, string> }).tags;
+  const trimmed = tag.trim();
+  if (dict && trimmed in dict) return dict[trimmed];
+  return trimmed;
+}
+
+/**
+ * Translate a category label for the given language, falling back to the
+ * original string when no translation exists.
+ */
+export function translateCategory(category: string | null | undefined, lang: Lang): string {
+  if (!category) return "";
+  const trimmed = String(category).trim();
+  if (!trimmed) return "";
+  const dict = (translations[lang] as { categories?: Record<string, string> }).categories;
+  if (dict && trimmed in dict) return dict[trimmed];
+  return trimmed;
+}
+
+/**
  * Get the URL for a different language version of the current page
  */
 export function getLocalizedUrl(pathname: string, targetLang: Lang): string {

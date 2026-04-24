@@ -185,30 +185,6 @@ const bannerOffset =
 		))}
 		<link rel="alternate" hreflang="x-default" href={hreflangUrls.find(h => h.lang === defaultLang)?.url} />
 
-		<!-- Client-side language detection for root path -->
-		<script is:inline>
-			(function() {
-				// Only redirect if on root path
-				if (window.location.pathname === '/') {
-					const supportedLangs = ['zh', 'en', 'ja'];
-					const defaultLang = 'zh';
-
-					// Check if user has a saved preference
-					const savedLang = localStorage.getItem('preferredLang');
-					if (savedLang && supportedLangs.includes(savedLang)) {
-						window.location.replace('/' + savedLang + '/');
-						return;
-					}
-
-					// Detect browser language
-					const browserLang = navigator.language.split('-')[0].toLowerCase();
-					const targetLang = supportedLangs.includes(browserLang) ? browserLang : defaultLang;
-
-					window.location.replace('/' + targetLang + '/');
-				}
-			})();
-		</script>
-
 	</head>
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  data-overlayscrollbars-initialize

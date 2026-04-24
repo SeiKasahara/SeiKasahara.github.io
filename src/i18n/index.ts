@@ -6,6 +6,8 @@ export {
   getLangFromUrl,
   getLangFromPath,
   useTranslations,
+  translateTag,
+  translateCategory,
   getLocalizedUrl,
   removeLanguagePrefix,
   getHreflangUrls,

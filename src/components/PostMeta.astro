@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { formatDateToYYYYMMDD } from "../utils/date-utils";
 import { getCategoryUrl, getTagUrl } from "../utils/url-utils";
-import { getLangFromUrl, type Lang } from "@/i18n";
+import { getLangFromUrl, translateCategory, translateTag, type Lang } from "@/i18n";
 
 // 组件属性接口定义
 interface Props {
@@ -91,13 +91,13 @@ const hasCategory = category && category.trim() !== "";
       </div>
       <div class="flex flex-row flex-nowrap items-center">
         <!-- 分类链接 -->
-        <a 
+        <a
           href={getCategoryUrl(category, currentLang)}
-          aria-label={`View all posts in the ${category} category`}
+          aria-label={`View all posts in the ${translateCategory(category, currentLang)} category`}
           class="link-lg transition text-50 text-sm font-medium
                  hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
         >
-          {category}
+          {translateCategory(category, currentLang)}
         </a>
       </div>
     </div>
@@ -129,11 +129,11 @@ const hasCategory = category && category.trim() !== "";
             {/* 单个标签链接 */}
             <a
               href={getTagUrl(tag, currentLang)}
-              aria-label={`View all posts with the ${tag.trim()} tag`}
+              aria-label={`View all posts with the ${translateTag(tag, currentLang)} tag`}
               class="link-lg transition text-50 text-sm font-medium
                      hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap"
             >
-              {tag.trim()}
+              {translateTag(tag, currentLang)}
             </a>
           </>
         ))}

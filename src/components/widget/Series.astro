@@ -1,6 +1,5 @@
 ---
-import { getSortedPosts } from '../../utils/content-utils'
-import { getPostUrlBySlug } from '../../utils/url-utils'
+import { getLocalizedPosts } from '../../utils/content-utils'
 import { getLangFromUrl, useTranslations, type Lang } from "@/i18n"
 
 interface Props {
@@ -13,7 +12,7 @@ const currentLang = propLang || getLangFromUrl(Astro.url)
 const t = useTranslations(currentLang)
 
 // 获取所有文章并筛选出属于指定系列的文章
-const allPosts = await getSortedPosts()
+const allPosts = await getLocalizedPosts(currentLang)
 const seriesPosts = allPosts.filter(post => post.data.series === series)
 
 // 按时间倒序排列（最新的在前）

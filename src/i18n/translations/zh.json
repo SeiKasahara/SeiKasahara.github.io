@@ -43,8 +43,12 @@
     "nextPost": "下一篇",
     "relatedPosts": "相关文章",
     "pinned": "置顶",
-    "posts": "篇文章"
+    "posts": "篇文章",
+    "series": "个专栏",
+    "fallbackNotice": "本文尚未翻译，当前显示原文版本。"
   },
+  "tags": {},
+  "categories": {},
   "page": {
     "archive": "时间线",
     "archiveDesc": "所有文章的时间线",

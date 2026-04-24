@@ -2,8 +2,8 @@
 import type { GetStaticPaths } from "astro";
 import ArchivePanel from "@components/ArchivePanel.svelte";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getSortedPostsList } from "@utils/content-utils";
-import { languages, useTranslations, type Lang } from "@/i18n";
+import { getLocalizedPostsList } from "@utils/content-utils";
+import { languages, translations, useTranslations, type Lang } from "@/i18n";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	return Object.keys(languages).map((lang) => ({
@@ -14,7 +14,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const { lang } = Astro.params as { lang: Lang };
 const t = useTranslations(lang);
 
-const sortedPostsList = await getSortedPostsList();
+const sortedPostsList = await getLocalizedPostsList(lang);
+const tagDict =
+	(translations[lang] as { tags?: Record<string, string> }).tags ?? {};
 ---
 
 <MainGridLayout title={t('page.archive')} lang={lang}>
@@ -22,6 +24,7 @@ const sortedPostsList = await getSortedPostsList();
         sortedPosts={sortedPostsList}
         lang={lang}
         postsLabel={t('post.posts')}
+        tagDict={tagDict}
         client:only="svelte"
     />
 </MainGridLayout>

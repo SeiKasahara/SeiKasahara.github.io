@@ -1,6 +1,7 @@
 ---
-import { defaultLang } from "@/i18n";
-const redirectUrl = `/${defaultLang}/`;
+import { defaultLang, languages } from "@/i18n";
+const supportedLangs = Object.keys(languages);
+const fallbackUrl = `/${defaultLang}/`;
 ---
 
 <html>
@@ -9,13 +10,32 @@ const redirectUrl = `/${defaultLang}/`;
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0" />
-    <meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />
-    <link rel="canonical" href={redirectUrl} />
+    <meta http-equiv="refresh" content={`0;url=${fallbackUrl}`} />
+    <link rel="canonical" href={fallbackUrl} />
     <title>Redirecting...</title>
 </head>
 <body>
-    <script is:inline define:vars={{ redirectUrl }}>
-        window.location.replace(redirectUrl);
+    <script is:inline define:vars={{ supportedLangs, defaultLang, fallbackUrl }}>
+        (function () {
+            function pick() {
+                try {
+                    const saved = localStorage.getItem("preferredLang");
+                    if (saved && supportedLangs.includes(saved)) return saved;
+                } catch (_) { /* localStorage may be blocked */ }
+
+                const candidates = (navigator.languages && navigator.languages.length)
+                    ? navigator.languages
+                    : [navigator.language || ""];
+                for (const raw of candidates) {
+                    const primary = String(raw).split("-")[0].toLowerCase();
+                    if (supportedLangs.includes(primary)) return primary;
+                }
+                return defaultLang;
+            }
+
+            const target = "/" + pick() + "/";
+            window.location.replace(target === "/" + defaultLang + "/" ? fallbackUrl : target);
+        })();
     </script>
 </body>
 </html>

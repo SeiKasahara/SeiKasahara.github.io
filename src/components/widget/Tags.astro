@@ -4,7 +4,7 @@ import { getTagList } from "../../utils/content-utils";
 import { getTagUrl } from "../../utils/url-utils";
 import ButtonTag from "../control/ButtonTag.astro";
 import WidgetLayout from "./WidgetLayout.astro";
-import { getLangFromUrl, useTranslations } from "@/i18n";
+import { getLangFromUrl, useTranslations, translateTag } from "@/i18n";
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
@@ -24,9 +24,9 @@ const style = Astro.props.style;
 ---
 <WidgetLayout name={t('widget.tags')} id="tags" isCollapsed={isCollapsed} collapsedHeight={COLLAPSED_HEIGHT} class={className} style={style}>
     <div class="flex gap-2 flex-wrap">
-        {tags.map(t => (
-            <ButtonTag href={getTagUrl(t.name, currentLang)} label={`View all posts with the ${t.name.trim()} tag`}>
-                {t.name.trim()}
+        {tags.map(tag => (
+            <ButtonTag href={getTagUrl(tag.name, currentLang)} label={`View all posts with the ${translateTag(tag.name, currentLang)} tag`}>
+                {translateTag(tag.name, currentLang)}
             </ButtonTag>
         ))}
     </div>

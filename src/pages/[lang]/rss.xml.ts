@@ -6,7 +6,7 @@ import { parse as htmlParser } from 'node-html-parser';
 import { getImage } from 'astro:assets';
 import type { APIContext, ImageMetadata } from 'astro';
 import type { RSSFeedItem } from '@astrojs/rss';
-import { getSortedPosts } from '@/utils/content-utils';
+import { getLocalizedPosts } from '@/utils/content-utils';
 import path from 'node:path';
 import { languages, getHtmlLang, type Lang } from '@/i18n';
 
@@ -52,7 +52,7 @@ export async function GET(context: APIContext) {
 	const { lang } = context.params as { lang: Lang };
 	const langCode = RSS_LANG_CODES[lang] || 'zh-CN';
 
-	const posts = await getSortedPosts();
+	const posts = await getLocalizedPosts(lang);
 	const feed: RSSFeedItem[] = [];
 
 	for (const post of posts) {

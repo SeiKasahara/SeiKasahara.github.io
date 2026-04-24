@@ -1,15 +1,21 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import { getPostUrlBySlug } from "../utils/url-utils";
 
 // 定义组件接收的属性
 export let sortedPosts: Post[] = [];
 export let lang: string = "zh";
 export let postsLabel: string = "篇文章";
+export let tagDict: Record<string, string> = {};
 
 // Helper to get localized post URL
 function getLocalizedPostUrl(slug: string): string {
     return `/${lang}/posts/${slug}/`;
+}
+
+// Display-only translation. URL params and post data keep their canonical form.
+function displayTag(tag: string): string {
+    const trimmed = tag.trim();
+    return tagDict[trimmed] ?? trimmed;
 }
 
 // 定义文章和年份分组的数据结构
@@ -49,7 +55,7 @@ function formatDate(date: Date) {
  * @returns 格式化后的标签字符串
  */
 function formatTag(tagList: string[]) {
-    return tagList?.map((t) => `#${t}`).join(" ") || "";
+    return tagList?.map((t) => `#${displayTag(t)}`).join(" ") || "";
 }
 
 onMount(async () => {
