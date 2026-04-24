@@ -11,7 +11,7 @@ originalLang: zh
 ---
 
 
-Four years ago in May, a big story broke in Web3. UST, a stablecoin meant to always be worth one dollar, crashed to twenty cents in four days; LUNA, which backed it as collateral, slid from ninety dollars down to a fraction of a cent, wiping out eight full orders of magnitude of market cap on paper. I wanted to use this event as a research topic for my Japanese master's application at the time. My math foundation wasn't strong enough then, and I had no good tools to tackle it. Coming back to it now is, in a sense, making up for that.
+Four years ago in May, a big story broke in Web3. UST, a stablecoin meant to always be worth one dollar, crashed to twenty cents in four days; LUNA, which backed it as collateral, slid from ninety dollars down to a fraction of a cent, wiping out eight full orders of magnitude of market cap on paper. 
 
 Plenty of institutional post-mortems of the crash exist. Most sit in the macroeconomics bucket or in on-chain mechanism analyses — herding and bank runs, that sort of thing. But we have a more interesting tool now, and I want to use it to look at how the price crash actually worked.
 
