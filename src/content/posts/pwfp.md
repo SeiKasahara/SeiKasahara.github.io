@@ -4,7 +4,7 @@ published: 2026-02-22
 description: ""
 image: "/images/blog/Plato.jpg"
 tags: ["研究"]
-category: "Git"
+category: "AI"
 draft: false
 ---
 
