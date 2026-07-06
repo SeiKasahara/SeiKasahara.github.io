@@ -8,7 +8,7 @@ category: "杂谈"
 draft: false
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sfWc2mDXdSo?si=HH21dgRKHgiKwCGl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="//player.bilibili.com/player.html?isOutside=true&aid=830579051&bvid=BV1v34y1T7nZ&cid=1254935766&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 
 > Windless (Dedication) 
