@@ -103,7 +103,7 @@ $$\Delta(\theta,\varphi) \equiv P(Book,B)-P(B,Book) = \sin^2\theta\,\cos\theta\,
 
 > 图2：同一个铁粉（$\theta=45°$、$\varphi=15°$）在两种动线下的四种联合概率。
 
-$\Delta(\theta,\varphi)$ 什么时候等于零，我们可以看到，$\sin^2\theta=0$，即 $\theta=0°$，两组基重合，两次决策是同一个问题；$\cos\theta=0$，即 $\theta=90°$，两组基重合但标签互换，仍然是同一个问题；或者 $\cos(\theta-2\varphi)=0$，即 $\varphi=(\theta-90°)/2$，对某个具体的 $\theta$，消费者的初始状态恰好落在一个特殊角度上，使两种顺序碰巧可以算出同一个概率。除了这三种情形，$\Delta(\theta,\varphi)$ 一般不为零。
+$\Delta(\theta,\varphi)$ 什么时候等于零，我们可以看到，$\sin^2\theta=0$，即 $\theta=0°$，两组基重合，这时 $\Delta(\theta,\varphi)=0$；接下来，$\cos\theta=0$，即 $\theta=90°$，两组基重合但标签互换，也可以使得  $\Delta(\theta,\varphi)=0$；或者 $\cos(\theta-2\varphi)=0$，即 $\varphi=(\theta-90°)/2$，对某个具体的 $\theta$，消费者的初始状态恰好落在一个特殊角度上，使两种顺序碰巧可以算出同一个概率，使得  $\Delta(\theta,\varphi)=0$。除了这三种情形，$\Delta(\theta,\varphi)$ 一般不为零。
 
 ![顺序效应的全景](/images/blog/qdt_delta_heatmap.png)
 
@@ -141,7 +141,7 @@ $$\Delta=|\langle B|Book\rangle|^2\Big(|\langle Book|\psi\rangle|^2-|\langle B|\
 
 二能级系统的任意厄米 $\hat H$ 都能写成 $\hat H=\mathbf h\cdot\boldsymbol\sigma$（略去只贡献全局相位的单位阵项），$\boldsymbol\sigma$ 是三个泡利矩阵。演化算符 $e^{-i\hat Ht}=\cos(|\mathbf h|t)\,I-i\sin(|\mathbf h|t)\,(\hat{\mathbf h}\cdot\boldsymbol\sigma)$ 一定带 $i$，实初态经它演化会长出虚部，这正是上面说的第二种情形，二维实平面装不下了。几何上，$e^{-i\hat Ht}$ 把 Bloch 向量绕轴 $\hat{\mathbf h}$ 以频率 $\omega=2|\mathbf h|$ 进动。
 
-算一次。$A$ 对应 Bloch 北极 $\hat z$，消费者 $I$ 的实初态 $(\cos\varphi,\sin\varphi)$ 对应 Bloch 向量 $\hat n_0=(\sin2\varphi,0,\cos2\varphi)$。取一个进动轴不平行于 $A$–$B$ 轴的哈密顿量，为写出闭式让它绕 $\hat x$ 转，则 $\hat n(t)$ 在 $y$–$z$ 平面转，$z(t)=\cos2\varphi\cos\omega t$，买 A 的概率
+$A$ 对应 Bloch 北极 $\hat z$，消费者 $I$ 的实初态 $(\cos\varphi,\sin\varphi)$ 对应 Bloch 向量 $\hat n_0=(\sin2\varphi,0,\cos2\varphi)$。取一个进动轴不平行于 $A$–$B$ 轴的哈密顿量，为写出闭式让它绕 $\hat x$ 转，则 $\hat n(t)$ 在 $y$–$z$ 平面转，$z(t)=\cos2\varphi\cos\omega t$，买 A 的概率
 
 $$P(A,t)=\frac{1+z(t)}{2}=\frac{1+\cos2\varphi\cos\omega t}{2}$$
 
@@ -153,4 +153,4 @@ $$P(A,t)=\frac{1+z(t)}{2}=\frac{1+\cos2\varphi\cos\omega t}{2}$$
 
 > 图5：犹豫期的状态演化。左边，状态在 Bloch 球上绕进动轴 $\hat h$ 打转，走的是紫色轨道。右边，买 A 社团的概率随思考时间的变化，量子演化（蓝）在 $\cos^2\varphi$ 与 $\sin^2\varphi$ 之间来回振荡不肯停，经典马尔可夫（红）则单调滑向一个平稳值。想得越久，两者分道扬镳。
 
-二能级的 $\hat H$ 只有一个方向 $\hat{\mathbf h}$ 和一个强度 $|\mathbf h|$。我们是不是可以认为，它可以被解析成 $\hat H=\hat V+\hat M(t)$，$\hat V$ 是相对稳定的内部价值，方向由消费者过去的历史固定，这也是消费者自由意志的体现，比如对某 CP 的偏好；$\hat M(t)$ 是外部即时刺激，摊主话术、当天的舆论，带时间依赖。两项合成的 $\hat{\mathbf h}，即内部价值与外部刺激方向一致时，进动轴靠近初态，意愿几乎不动，人拿得定主意；两者方向差得远时，进动轴与初态接近垂直，意愿在必买和不买之间大幅摆动，这将使得震荡成为永久的悬而未决状态。
+二能级的 $\hat H$ 只有一个方向 $\hat{\mathbf h}$ 和一个强度 $|\mathbf h|$。我们是不是可以认为，它可以被解析成 $\hat H=\hat V+\hat M(t)$，$\hat V$ 是相对稳定的内部价值，方向由消费者过去的历史固定，这也是消费者自由意志的体现，比如对某 CP 的偏好；$\hat M(t)$ 是外部即时刺激，摊主话术、当天的舆论，带时间依赖。两项合成的 $\hat{\mathbf h}$，即内部价值与外部刺激方向一致时，进动轴靠近初态，意愿几乎不动，人拿得定主意；两者方向差得远时，进动轴与初态接近垂直，意愿在必买和不买之间大幅摆动，这将使得震荡成为永久的悬而未决状态。
