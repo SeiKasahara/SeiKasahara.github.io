@@ -17,7 +17,7 @@ AI味道的图见的太多了，其实人的肉眼分辨细节是非常非常灵
 我们给出V-pred diffusion的标准形式
 
 $$
-dx_t=-\frac12\beta(t)x_tdt+\sqrt{\beta(t)}dW_t.
+dx_t=-\frac12\beta(t)x_tdt+\sqrt{\beta(t)}dW_t
 $$
 
 其中，W是标准维纳过程，闭式解形式为
@@ -25,13 +25,13 @@ $$
 $$
 x_t=\alpha_t x_0+\sigma_t\epsilon,
 \qquad
-\epsilon\sim\mathcal N(0,I),
+\epsilon\sim\mathcal N(0,I)
 $$
 
 其中通常有
 
 $$
-\alpha_t^2+\sigma_t^2=1.
+\alpha_t^2+\sigma_t^2=1
 $$
 
 对图像进行傅里叶变换。记第k个频率模态为
@@ -39,13 +39,13 @@ $$
 $$
 \widehat x_t(k)=
 
-\alpha_t\widehat x_0(k)+\sigma_t\widehat\epsilon(k).
+\alpha_t\widehat x_0(k)+\sigma_t\widehat\epsilon(k)
 $$
 
 白噪声在每个频率上的期望功率近似相同：
 
 $$
-\mathbb E|\widehat\epsilon(k)|^2=C.
+\mathbb E|\widehat\epsilon(k)|^2=C
 $$
 
 因此第k个频率的信噪比是
@@ -57,7 +57,7 @@ $$
 \alpha_t^2 P_0(k)
 }{
 \sigma_t^2 C
-},
+}
 $$
 
 其中
@@ -72,7 +72,7 @@ $$
 
 $$
 P_0(k)\propto |k|^{-\gamma}
-\qquad \gamma>0.
+\qquad \gamma>0
 $$
 
 
@@ -82,7 +82,7 @@ $$
 \operatorname{SNR}_k(t)
 \propto
 \frac{\alpha_t^2}{\sigma_t^2}
-|k|^{-\gamma}.
+|k|^{-\gamma}
 $$
 
 频率越高，SNR 越低。
@@ -91,7 +91,7 @@ $$
 
 对固定时刻 (t)，可以定义一个临界频率 $k_c(t)$：
 $$
-\operatorname{SNR}_{k_c}(t)=1.
+\operatorname{SNR}_{k_c}(t)=1
 $$
 
 
@@ -105,7 +105,7 @@ $$
 \propto
 \left(
 \frac{\alpha_t^2}{\sigma_t^2}
-\right)^{1/\gamma}.
+\right)^{1/\gamma}
 $$
 
 随着噪声增加，$\alpha_t/\sigma_t$ 下降，$k_c(t)$ 向低频移动。也就是说，高频信息比低频信息更早淹没在噪声中
@@ -125,13 +125,13 @@ z=
 \widehat x(k_2),
 \dots\,
 \widehat x(k_d),
-\end{bmatrix},
+\end{bmatrix}
 $$
 
 然后假设数据已经全部中心化：
 
 $$
-z\sim\mathcal N(0,\Sigma).
+z\sim\mathcal N(0,\Sigma)
 $$
 
 这里 $\Sigma$ 的形式为：
@@ -141,7 +141,7 @@ $$
 \operatorname{Cov}
 \left(
 \widehat x(k_i)\widehat x(k_j)
-\right).
+\right)
 $$
 
 前向扩散为
@@ -149,7 +149,7 @@ $$
 $$
 z_t=\alpha_t z_0+\sigma_t\epsilon,
 \qquad
-\epsilon\sim\mathcal N(0,I).
+\epsilon\sim\mathcal N(0,I)
 $$
 
 于是
@@ -160,7 +160,7 @@ z_t\sim
 \left(
 0,
 \alpha_t^2\Sigma+\sigma_t^2I
-\right).
+\right)
 $$
 
 精确 score 为
@@ -170,7 +170,7 @@ s^\star(z_t,t)=
 
 \left(
 \alpha_t^2\Sigma+\sigma_t^2I
-\right)^{-1}z_t.
+\right)^{-1}z_t
 $$
 
 这时 score 的第 $i$ 个分量不再只取决于 $z_i$，而取决于所有频率：
@@ -184,7 +184,7 @@ s_i^\star=
 \alpha_t^2\Sigma+\sigma_t^2I
 \right)^{-1}
 \right]_{ij}
-z_j.
+z_j
 $$
 
 也就是说：
@@ -198,7 +198,7 @@ $$
 \frac{dx_t}{dt}=
 
 -\frac12\beta(t)x_t
--\frac12\beta(t)\nabla_x\log p_t(x_t).
+-\frac12\beta(t)\nabla_x\log p_t(x_t)
 $$
 
 即
@@ -245,7 +245,7 @@ $$
 
 $$
 \Sigma_{kk'}\neq0,
-\qquad k\neq k',
+\qquad k\neq k'
 $$
 
 则一般有
@@ -253,7 +253,7 @@ $$
 $$
 \left(
 \alpha_t^2\Sigma+\sigma_t^2I
-\right)^{-1}_{kk'}\neq0.
+\right)^{-1}_{kk'}\neq0
 $$
 
 第 $k$ 个频率的 ODE 为
@@ -268,7 +268,7 @@ $$
 \alpha_t^2\Sigma+\sigma_t^2I
 \right)^{-1}_{kk'}z_{k'}
 -z_k
-\right].
+\right]
 $$
 
 我们将表示空间分块：
@@ -292,7 +292,7 @@ $$
 C_t=\begin{bmatrix}
 C_ll(t) & C_lh(t) \\
 C_hl(t) & C_hh(t)
-\end{bmatrix}.
+\end{bmatrix}
 $$
 
 高斯分布下，高频在给定低频后的条件分布是
@@ -304,7 +304,7 @@ h_t\mid l_t
 \left(
 m_{h\mid l}(t),
 C_{h\mid l}(t)
-\right),
+\right)
 $$
 
 其中
@@ -317,7 +317,7 @@ $$
 $$
 C_{h\mid l}(t)=C_{hh}(t)
 
-C_{hl}(t)C_{ll}(t)^{-1}C_{lh}(t).
+C_{hl}(t)C_{ll}(t)^{-1}C_{lh}(t)
 $$
 
 高频方向的条件 score 可写成
@@ -329,7 +329,7 @@ s_h^*=
 C_{h\mid l}^{-1}
 \left[
 h_t-m_{h\mid l}(t)
-\right].
+\right]
 $$
 
 代入 ODE 的高频部分：
@@ -342,7 +342,7 @@ $$
 C_{h\mid l}^{-1}
 \left[
 h_t-m_{h\mid l}(t)
-\right],
+\right]
 $$
 
 即
@@ -353,58 +353,29 @@ $$
 \left(
 C_{h\mid l}^{-1}-I
 \right)h_t
-
 \frac{\beta}2
 C_{h\mid l}^{-1}m_{h\mid l}(t)
 
 $$
 
-从反向生成角度看，动力系统会把 $h_t$ 拉向条件均值
-
-$$
-m_{h\mid l}(t).
-$$
-
-也就是说，高频会被拉向：
-
-$$
-C_{hl}C_{ll}^{-1}l_t,
-$$
-
-这意味着，即便高频本身的边际 SNR 很低，它仍可能受到低频、中频和其他结构变量的驱动。因此相似的结构允许互相被吸收以重新映射回高频。
+从反向生成角度看，动力系统会把 $h_t$ 拉向条件均值$m_{h\mid l}(t)$，也就是说，高频会被拉向：$C_{hl}C_{ll}^{-1}l_t$，这意味着，即便高频本身的边际 SNR 很低，它仍可能受到低频、中频和其他结构变量的驱动。因此相似的结构允许互相被吸收以重新映射回高频。
 
 ---
 
 统一的风格数据意味着，在给定结构 l 后，高频 h 的变化范围较小：
 
 $$
-C_{h\mid l}\ll C_{hh}.
+C_{h\mid l}\ll C_{hh}
 $$
 
-在这样训练集下，此时
-
-$$
-C_{h\mid l}^{-1}
-$$
-
-会变大。
+在这样训练集下，此时$C_{h\mid l}^{-1}$会变大。
 
 ### 低噪声末端更加刚性
 
-因为
-
-$$
-\lambda_{\min}(C_{h\mid l})
-$$
-
-很小，所以
-
-$$
+因为$\lambda_{\min}(C_{h\mid l})$很小，所以$
 \lambda_{\max}(C_{h\mid l}^{-1})=
 \frac{1}{\lambda_{\min}(C_{h\mid l})}
-$$
-
-很大。
+$很大。
 
 对应 ODE 的 Jacobian 为
 
